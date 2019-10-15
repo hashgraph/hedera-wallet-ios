@@ -19,7 +19,7 @@ This uses a unique combination of BIP39 and PBKDF2 to generate a sequential keys
 install cocoapods
 **gem install cocoapods**
 
-install protoc 
+install protoc
 **brew install protobuf**
 
 install protobuf swift plugin
@@ -29,10 +29,11 @@ install grpc swift plugin for protoc
 https://github.com/grpc/grpc-swift#getting-the-plugins
 
 ## Building the Code
+
 run **pod install**
 
 run **./gen-swift**
 
 build from Xcode
 
-## Wiki & Guides
+## Supported Features
