@@ -37,3 +37,12 @@ run **./gen-swift**
 build from Xcode
 
 ## Supported Features
+
+1. BIP39 Key Management
+2. Account Details
+3. Request payments
+4. Pay/ Transfer HBars
+5. Account Creation
+6. Update & Change keys
+7. Get Records
+8. Fees Customization
