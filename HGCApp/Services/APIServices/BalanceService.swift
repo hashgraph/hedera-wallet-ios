@@ -25,16 +25,19 @@ class BalanceService: NSObject {
         if hasOperation() {
             return
         }
-        let op = UpdateBalanceOperation()
-        op.completionBlock = {
-            OperationQueue.main.addOperation {
-                if let errorMsg = op.errorMessage {
-                    Globals.showGenericErrorAlert(title: "Failed to update balance", message: errorMsg)
+        if let accounts = HGCWallet.masterWallet()?.allAccounts() {
+            let op = UpdateBalanceOperation(accounts: accounts)
+            op.completionBlock = {
+                OperationQueue.main.addOperation {
+                    if let errorMsg = op.errorMessage {
+                        Globals.showGenericErrorAlert(title: "Failed to update balance", message: errorMsg)
+                    }
                 }
             }
+            BaseOperation.operationQueue.addOperation(op)
+            operation = op
         }
-        BaseOperation.operationQueue.addOperation(op)
-        operation = op
+        
     }
     
     func hasOperation() -> Bool {

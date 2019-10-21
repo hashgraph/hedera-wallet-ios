@@ -9,7 +9,6 @@
 import UIKit
 
 protocol TxnDetailsAddressTableCellDelegate : class {
-    func txnAddressTableViewCellDidTapActionButton(_ cell:TxnDetailsAddressTableCell)
     func txnAddressTableViewCellDidTapCopyButton(_ cell:TxnDetailsAddressTableCell)
     func txnAddressTableViewCellDidChange(_ cell:TxnDetailsAddressTableCell, name:String)
 }
@@ -20,7 +19,6 @@ class TxnDetailsAddressTableCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var keyLabel : HGCLabel!
     @IBOutlet weak var nameLabel : UITextField!
     @IBOutlet weak var copyButton : UIButton!
-    var actionButton : UIButton!
     
     var allowEditing = false
     
@@ -31,27 +29,16 @@ class TxnDetailsAddressTableCell: UITableViewCell, UITextFieldDelegate {
         // Initialization code
         self.clipsToBounds = true
         HGCStyle.regularCaptionLabel(self.captionLabel)
+        self.nameLabel.placeholder = NSLocalizedString("Placeholder_Name_TextField", comment: "")
         self.copyButton.isHidden = true
         self.copyButton.addTarget(self, action: #selector(self.onCopyButtonTap), for: .touchUpInside)
         
-        self.actionButton = UIButton.init()
-        self.actionButton.addTarget(self, action: #selector(self.onActionButtonTap), for: .touchUpInside)
-        self.actionButton.setTitle(NSLocalizedString("VERIFY", comment: ""), for: .normal)
-        self.actionButton.setTitleColor(Color.selectedTintColor(), for: .normal)
-        self.actionButton.titleLabel?.font = Font.regularFontMedium()
-        self.actionButton.sizeToFit()
-        self.actionButton.frame.size.width = self.actionButton.frame.size.width+10
-        self.nameLabel.rightView = self.actionButton
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         self.backgroundColor = Color.pageBackgroundColor()
         self.contentView.backgroundColor = Color.pageBackgroundColor()
-    }
-    
-    @objc func onActionButtonTap() {
-        self.delegate?.txnAddressTableViewCellDidTapActionButton(self)
     }
     
     @objc func onCopyButtonTap() {

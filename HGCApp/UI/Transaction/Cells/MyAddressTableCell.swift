@@ -63,8 +63,8 @@ class MyAddressTableCell: UITableViewCell {
         }
         
         let nanoCoins = account.balance
-        self.hgcBalanceLabel.text = nanoCoins.toCoins().formatHGCShort()
-        self.usdBalanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).format$()
+        self.hgcBalanceLabel.text = nanoCoins.toHBar().formatHGCShort()
+        self.usdBalanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).formatUSD()
     }
     
     override func layoutSubviews() {

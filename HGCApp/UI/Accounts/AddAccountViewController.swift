@@ -7,68 +7,137 @@
 //
 
 import UIKit
+import CoreData
 
-extension Notification.Name {
-    static let onNewAccountCreated = Notification.Name("onNewAccountCreated")
+protocol AddAccountViewModelDelegate : class {
+    func onDoneButtonTap(_ vm:AddAccountViewModel)
+    func onDeleteButtonTap(_ vm:AddAccountViewModel)
+    func onCancelButtonTap(_ vm:AddAccountViewModel)
 }
 
-class AddAccountViewController: UIViewController, UITextFieldDelegate {
+class AddAccountViewModel {
+    weak var delegate:AddAccountViewModelDelegate?
+    var accountIDString = ""
+    var nickName = ""
+    var account:HGCAccount?
+    var context:NSManagedObjectContext = CoreDataManager.shared.mainContext
+    
+    var editMode:Bool {
+        return account != nil
+    }
+    
+    var pageTitle: String {
+        return editMode ?  NSLocalizedString("EDIT ACCOUNT", comment: "") : NSLocalizedString("ADD ACCOUNT", comment: "")
+    }
+    
+    var hideDeleteButton:Bool {
+        return !editMode
+    }
+    
+    init(delegate:AddAccountViewModelDelegate) {
+        self.delegate = delegate
+    }
+    
+    init(account:HGCAccount, delegate:AddAccountViewModelDelegate) {
+        nickName = account.name ?? ""
+        accountIDString = account.accountID()?.stringRepresentation() ?? ""
+        self.account = account
+        self.delegate = delegate
+    }
+    
+    var accountID:HGCAccountID? {
+        return HGCAccountID.init(from: accountIDString)
+    }
+    
+    func onDoneButtonTap() throws {
+        guard let accId = accountID else {
+            throw NSLocalizedString("Please enter a valid account ID", comment: "")
+        }
+        if let account = account {
+            account.updateAccountID(accId)
+            account.name = nickName
+            CoreDataManager.save(context: account.managedObjectContext!)
+        } else {
+            account = HGCWallet.masterWallet()?.createNewExternalAccount(accountID: accId, name: nickName, context)
+            CoreDataManager.save(context: context)
+        }
+        delegate?.onDoneButtonTap(self)
+    }
+    
+    func onDeleteButtonTap() {
+        if let account = account {
+            context.delete(account)
+            CoreDataManager.save(context: context)
+        }
+        delegate?.onDoneButtonTap(self)
+    }
+    
+    func onCancelButtonTap() {
+        delegate?.onCancelButtonTap(self)
+    }
+}
 
+class AddAccountViewController: UIViewController {
+   
     @IBOutlet weak var nickNameTextField : UITextField!
     @IBOutlet weak var nickNameCaptionLabel : UILabel!
-    @IBOutlet weak var hiddenSwitch : HGCSwitch!
-    @IBOutlet weak var accountDetailContainer : UIView!
-    @IBOutlet weak var addAccountViewContainer : UIView!
-    
+    @IBOutlet weak var accountIdTextField : UITextField!
+    @IBOutlet weak var accountIdCaptionLabel : UILabel!
 
-    var acountDetailView : AccountDetailView?
+    @IBOutlet weak var addAccountViewContainer : UIView!
+    @IBOutlet weak var deleteButton : UIButton?
     
-    static func getInstance() -> AddAccountViewController {
-        return Globals.mainStoryboard().instantiateViewController(withIdentifier: "addAccountViewController") as! AddAccountViewController
+    var viewModel:AddAccountViewModel!
+    
+    static func getInstance(viewModel:AddAccountViewModel) -> AddAccountViewController {
+        let vc =  Globals.mainStoryboard().instantiateViewController(withIdentifier: "addAccountViewController") as! AddAccountViewController
+        vc.viewModel = viewModel
+        return vc
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.acountDetailView = AccountDetailView.getInstance()
-        self.accountDetailContainer.addContentView(self.acountDetailView)
-        self.accountDetailContainer.backgroundColor = Color.pageBackgroundColor()
-        self.accountDetailContainer.superview?.backgroundColor = Color.pageBackgroundColor()
         self.addAccountViewContainer.backgroundColor = Color.pageBackgroundColor()
         HGCStyle.regularCaptionLabel(self.nickNameCaptionLabel)
-        hiddenSwitch.setText(NSLocalizedString("HIDDEN", comment: ""))
-        self.title = NSLocalizedString("ADD ACCOUNT", comment: "")
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon-close"), style: .plain, target: self, action: #selector(onCloseButtonTap))
+        HGCStyle.regularCaptionLabel(self.accountIdCaptionLabel)
+        
+        nickNameCaptionLabel.text = NSLocalizedString("ACCOUNT NAME", comment: "")
+        nickNameTextField.placeholder = NSLocalizedString("Placeholder_Name_TextField", comment: "")
+        nickNameTextField.text = viewModel.nickName
+        
+        accountIdCaptionLabel.text = NSLocalizedString("ACCOUNT ID", comment: "")
+        accountIdTextField.placeholder = NSLocalizedString("ACCOUNTID_PLACEHOLDER", comment: "")
+        accountIdTextField.text = viewModel.accountIDString
+        
+        self.title = viewModel.pageTitle
         self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon-close"), style: .plain, target: self, action: #selector(AddAccountViewController.onCloseButtonTap))
+        deleteButton?.isHidden = viewModel.hideDeleteButton
     }
     
     @IBAction func onDoneButtonTap() {
-        let nickName = self.nickNameTextField.text?.trim()
-        if nickName != nil && !(nickName?.isEmpty)! {
-            if let account = HGCWallet.masterWallet()?.createNewAccount() {
-                account.name = nickName
-                account.isHidden = self.hiddenSwitch.isOn
-                CoreDataManager.shared.saveContext()
-                self.acountDetailView?.setAccount(account)
-                self.acountDetailView?.nickNameTextField.isEnabled = false
-                self.acountDetailView?.hiddenSwitch?.isEnabled = false
-                self.accountDetailContainer.superview?.isHidden = false
-                self.addAccountViewContainer.isHidden = true
-                self.title = NSLocalizedString("Account Created", comment: "")
-                self.view.endEditing(true)
-                NotificationCenter.default.post(name: .onNewAccountCreated, object: nil, userInfo: nil)
-            }
+        viewModel.nickName = self.nickNameTextField.text?.trim() ?? ""
+        viewModel.accountIDString = self.accountIdTextField.text?.trim() ?? ""
+        do {
+            try viewModel.onDoneButtonTap()
             
-        } else {
-            Globals.showGenericErrorAlert(title: NSLocalizedString("Please give a nickname", comment: ""), message: "")
+        } catch {
+            Globals.showGenericErrorAlert(title: NSLocalizedString("Error", comment: ""), message: "\(error)")
         }
     }
     
-    @objc func onCloseButtonTap() {
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func onDeleteButtonTap() {
+        viewModel.onDeleteButtonTap()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
+    @objc func onCloseButtonTap() {
+        viewModel.onCancelButtonTap()
     }
+}
+
+extension AddAccountViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+          textField.resignFirstResponder()
+          return false
+      }
 }

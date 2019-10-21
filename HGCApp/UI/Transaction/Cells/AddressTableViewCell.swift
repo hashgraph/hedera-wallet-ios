@@ -11,7 +11,7 @@ import UIKit
 protocol AddressTableViewCellDelegate : class {
     func addressTableViewCellDidTapActionButton(_ cell:AddressTableViewCell)
     func addressTableViewCellDidTapCopyButton(_ cell:AddressTableViewCell)
-    func addressTableViewCellDidChange(_ cell:AddressTableViewCell, name:String, address:String)
+    func addressTableViewCellDidChange(_ cell:AddressTableViewCell, name:String, address:String, host:String)
 }
 
 class AddressTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -19,6 +19,8 @@ class AddressTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var captionLabel : UILabel!
     @IBOutlet weak var keyLabel : UITextField!
     @IBOutlet weak var nameLabel : UITextField!
+    @IBOutlet weak var hostTextField : UITextField!
+
     @IBOutlet weak var copyButton : UIButton!
     var actionButton : UIButton!
     
@@ -42,6 +44,10 @@ class AddressTableViewCell: UITableViewCell, UITextFieldDelegate {
         self.actionButton.sizeToFit()
         self.actionButton.frame.size.width = self.actionButton.frame.size.width+10
         self.nameLabel.rightView = self.actionButton
+        self.hostTextField.superview?.backgroundColor = Color.pageBackgroundColor()
+        self.hostTextField.superview?.isHidden = true
+        self.hostTextField.delegate = self
+        self.nameLabel.placeholder = NSLocalizedString("Placeholder_Name_TextField", comment: "")
     }
     
     override func layoutSubviews() {
@@ -70,10 +76,13 @@ class AddressTableViewCell: UITableViewCell, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newStr = textField.text?.replace(string: string, inRange: range)
         if self.nameLabel == textField {
-            self.delegate?.addressTableViewCellDidChange(self, name: newStr!, address: self.keyLabel.text!)
+            self.delegate?.addressTableViewCellDidChange(self, name: newStr!, address: self.keyLabel.text!, host: hostTextField.text!)
             
         } else if self.keyLabel == textField {
-            self.delegate?.addressTableViewCellDidChange(self, name: self.nameLabel.text!, address: newStr!)
+            self.delegate?.addressTableViewCellDidChange(self, name: self.nameLabel.text!, address: newStr!, host: hostTextField.text!)
+            
+        } else if self.hostTextField == textField {
+            self.delegate?.addressTableViewCellDidChange(self, name: self.nameLabel.text!, address: self.keyLabel.text!, host: newStr!)
         }
         
         return true

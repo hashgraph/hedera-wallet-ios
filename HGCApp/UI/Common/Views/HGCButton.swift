@@ -19,6 +19,7 @@ class LocalizableButton: UIButton {
 }
 
 class HGCButton: LocalizableButton {
+    @IBInspectable var autoWidth: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +33,8 @@ class HGCButton: LocalizableButton {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize.init(width: 100, height: 46)
+        let size = super.intrinsicContentSize
+        return CGSize.init(width: autoWidth ? (size.width + 20) : 100, height: 46)
     }
     
     func reloadUI() {

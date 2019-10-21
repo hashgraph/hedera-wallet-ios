@@ -17,8 +17,12 @@ extension Notification.Name {
 extension HGCAccount {
     public static let entityName = "Account"
     
-    private func key() -> HGCKeyPairProtocol {
+    func key() -> HGCKeyPairProtocol {
         return self.wallet!.keyChain()!.key(at: Int(self.accountNumber))
+    }
+    
+    func getTransactionBuilder() -> TransactionBuilder {
+        return TransactionBuilder.init(payerCredentials: key(), payerAccount: accountID()!)
     }
     
     func sign(_ data: Data) -> Data {
@@ -40,6 +44,13 @@ extension HGCAccount {
     func privateKeyString() -> String {
         let data  = (self.key().privateKeyData)!
         return data.hex
+    }
+    
+    var accountTypeE: AccountType {
+        if let s = accountType, let t = AccountType.init(rawValue: s) {
+            return t
+        }
+        return .auto
     }
     
     @discardableResult

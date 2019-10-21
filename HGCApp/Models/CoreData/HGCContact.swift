@@ -46,10 +46,14 @@ extension HGCContact {
     }
     
     @discardableResult
-    static func addAlias(name:String?, address:String) -> HGCContact? {
+    static func addAlias(name:String?, address:String, host:String? = nil) -> HGCContact? {
         if address.isEmpty { return nil}
         if let alias = HGCContact.getContact(address) {
             alias.name = name
+            if let host = host {
+                alias.host = host
+            }
+            
             CoreDataManager.shared.saveContext()
             return alias
             
@@ -58,28 +62,39 @@ extension HGCContact {
             let contact = NSEntityDescription.insertNewObject(forEntityName: HGCContact.entityName, into: context) as! HGCContact
             contact.name = name
             contact.publicKeyID = address
+            contact.host = host
             CoreDataManager.shared.saveContext()
             return contact
         }
         
     }
     
-    static func isVarified(name:String?, address:String?) -> Bool {
-        
-        if name == nil || address == nil { return false}
-        if name!.isEmpty || address!.isEmpty { return false}
-        if let account = HGCWallet.masterWallet()?.accountWithAccountID(address!) {
-            if account.name == name {
-                return true
-            }
+    private var infoMap:[String:Any] {
+        do {
+            return try JSONSerialization.jsonObject(with: (self.info ?? "").data(using: .utf8)!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String: Any]
+        } catch {
+            return [:]
         }
-        
-        if let alias = HGCContact.getContact(address!) {
-            if alias.name == name {
-                return alias.verified
-            }
+    }
+    
+    private func saveInfo(map:[String:Any]) {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: map, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+            info = String.init(data: data, encoding: .utf8)
+        } catch {
+            
         }
-        
-        return false
+    }
+    
+    
+    var host:String? {
+        get {
+            return infoMap["host"] as? String
+        }
+        set {
+            var infoDict = infoMap
+            infoDict["host"] = newValue
+            saveInfo(map: infoDict)
+        }
     }
 }

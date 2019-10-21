@@ -12,15 +12,11 @@ class FeeTableCell: UITableViewCell {
 
     @IBOutlet weak var feeLabel : HGCAmountLabel!
     @IBOutlet weak var feeCaptionLabel : UILabel!
-    @IBOutlet weak var gasTextField : UITextField!
-    @IBOutlet weak var gasCaptionLabel : UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.clipsToBounds = true
         HGCStyle.regularCaptionLabel(self.feeCaptionLabel)
-        self.gasTextField.isHidden = true
-        self.gasCaptionLabel.isHidden = true
     }
 
     override func layoutSubviews() {

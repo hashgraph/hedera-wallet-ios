@@ -90,4 +90,13 @@ class HGCSeedTests: HGCAppTests {
         let seed = HGCSeed.init(words: words)
         XCTAssert(seed == nil)
     }
+    
+    func testBip39ComaptibilityWithLedgerWallet() {
+        let words = "draft struggle fitness mimic mountain rare lonely grocery topple wreck satoshi kangaroo balcony odor tiger crush bamboo parent monkey afraid elite earn hundred learn"
+        let seed = Mnemonic.seed(forWords: words.components(separatedBy: " "), password: "")!
+    XCTAssertEqual("60691cded1328c5799e36d72aec3842b5230d376ce9b1177b3dc8c79d2d715b099c486fbf91a93ebadcaf473fafa79d5d694c013bcc561c130c447e3f84659f4",seed.hex)
+        let ckd = Ed25519Derivation.init(seed: seed).derived(at: 44).derived(at: 3030).derived(at: 0).derived(at: 0).derived(at: 0)
+        let publicKeyHex = HGCEdKeyPair.init(seed: ckd.raw).publicKeyString
+        XCTAssertEqual("00516a26d75230616da9b18b27fa4d1ce68ca6dbb6db5ee42dc63f35c977310f", publicKeyHex)
+    }
 }

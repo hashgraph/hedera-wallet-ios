@@ -48,10 +48,6 @@ class AccountListViewController: UIViewController {
         self.tableView.reloadData()
     }
     
-    @IBAction func onAddButtonTap() {
-        let vc = AddAccountViewController.getInstance()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
 }
 
 extension AccountListViewController : UITableViewDelegate, UITableViewDataSource {

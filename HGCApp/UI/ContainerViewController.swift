@@ -25,7 +25,7 @@ class ContainerViewController: UIViewController {
     @IBOutlet weak var warningContainer : UIView!
     @IBOutlet weak var warningLabel : UILabel!
 
-    @IBOutlet weak var warningContainerHeight : NSLayoutConstraint!
+    @IBOutlet var warningContainerHeight : NSLayoutConstraint!
 
     private var embededNavCtrl : UINavigationController!
     private var selectedTab = HGCTab.home
@@ -59,7 +59,7 @@ class ContainerViewController: UIViewController {
         let refreshButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
         refreshButton.setImage(UIImage.init(named: "icon-sync"), for: .normal)
         refreshButton.contentEdgeInsets.right = -30
-        refreshButton.addTarget(self, action:  #selector(openSync), for: .touchUpInside)
+        refreshButton.addTarget(self, action:  #selector(onRefreshButtonTap), for: .touchUpInside)
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: homeButton)
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem.init(image: UIImage.init(named: "icon-menu"), style: .plain, target: self, action: #selector(onMenuButtonTap)), UIBarButtonItem.init(customView: refreshButton)]
@@ -72,28 +72,25 @@ class ContainerViewController: UIViewController {
         self.navigationController?.view.addSubview(statusBarBackgroundView)
         
         warningLabel.font = Font.lightFontSmall();
-        warningContainer.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(ContainerViewController.showBip39MigrationAlertIfNeeded)))
+        warningContainer.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(ContainerViewController.showBip39MigrationPrompt)))
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.onRedirectObjectReceived), name: .onRedirectObjectReceived, object: nil)
+        if let accID = WalletHelper.defaultPayerAccount()?.accountID() {
+            warningLabel.text = String(format: NSLocalizedString("BIP32_MIGRATION_WARNING_MESSAGE_PURPLE", comment: ""), accID.stringRepresentation())
+        }
+        showAppWarning(show: WalletHelper.canDoBip32Migration()) {}
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showAppWarning(show: !AppSettings.hasShownBip39Mnemonic(), animated: true) {}
-    }
+    override func viewWillLayoutSubviews() {
+           super.viewWillLayoutSubviews()
+       }
     
-    func showAppWarning(show:Bool, animated:Bool, competion:@escaping () -> Void) {
+    func showAppWarning(show:Bool, competion:@escaping () -> Void) {
+        warningContainerHeight.isActive = !show
         if !show {
             NSLayoutConstraint.activate([warningContainerHeight])
         } else {
             NSLayoutConstraint.deactivate([warningContainerHeight])
-        }
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.setNeedsLayout()
-            self.view.layoutIfNeeded()
-        }) { (finished) in
-            competion()
         }
     }
     
@@ -111,22 +108,8 @@ class ContainerViewController: UIViewController {
         }
     }
     
-    @objc func showBip39MigrationAlertIfNeeded() {
-        showAppWarning(show: false, animated: true) {
-            if let seed = SecureAppSettings.default.getSeed(), let hgcSeed = HGCSeed.init(entropy: seed) {
-                let vc = Bip39MigrationViewController.getInstance(seed: hgcSeed)
-                vc.title = NSLocalizedString("Backup your wallet", comment: "")
-                self.pushPage(vc)
-            }
-        }
-        
-//        UIAlertController.alert(title: NSLocalizedString("BIP39_MIGRATION_ALERT_TITLE", comment: ""), message: NSLocalizedString("BIP39_MIGRATION_ALERT_MESSAGE", comment: "")).addDismissButton().addConfirmButton(title: NSLocalizedString("See details", comment: "")) { (action) in
-//            if let seed = SecureAppSettings.default.getSeed(), let hgcSeed = HGCSeed.init(entropy: seed) {
-//                let vc = Bip39MigrationViewController.getInstance(seed: hgcSeed)
-//                vc.title = NSLocalizedString("Backup your wallet", comment: "")
-//                self.pushPage(vc)
-//            }
-//            }.showAlert()
+    @objc func showBip39MigrationPrompt() {
+        AppDelegate.getInstance().switchToUpdateKey()
     }
     
     override func viewDidLayoutSubviews() {
@@ -183,9 +166,14 @@ class ContainerViewController: UIViewController {
     @IBAction func onSettingsButtonTap() {
         setTab(.settings)
     }
+    
+    @IBAction func onRefreshButtonTap() {
+        WalletHelper.syncBalance()
+    }
 }
 
 extension ContainerViewController : LeftMenuViewControllerDelegate {
+    
     func pushPage(_ page: UIViewController) {
         self.embededNavCtrl.pushViewController(page, animated: true)
     }
@@ -215,15 +203,5 @@ extension ContainerViewController : LeftMenuViewControllerDelegate {
     func openAbout() {
         let vc = AboutViewController.getInstance()
         self.embededNavCtrl.pushViewController(vc, animated: true)
-    }
-    
-    func exportKey() {
-        if let err = ExportKeysNavigationVC.canExport() {
-            Globals.showGenericErrorAlert(title: NSLocalizedString("Can't export", comment: ""), message: err)
-        } else {
-            let navVC = ExportKeysNavigationVC.getInstance()
-            self.present(navVC, animated: true, completion: nil)
-        }
-        
     }
 }

@@ -10,30 +10,46 @@
 		1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */; };
 		1808C31C22488D8300FD7F45 /* TransactionBody.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */; };
 		1815081921858B3000890123 /* IPUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815080B21858B3000890123 /* IPUtility.swift */; };
-		1815081E2188226000890123 /* WebServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815081D2188226000890123 /* WebServerViewController.swift */; };
+		1817120322B8054200A0C754 /* Bip32MigrationErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1817120222B8054200A0C754 /* Bip32MigrationErrorVC.swift */; };
+		181968432318F5A600B19363 /* MockRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181968412318F35D00B19363 /* MockRPC.swift */; };
+		182DD86722C477BB00203637 /* GRPCWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182DD86622C477BB00203637 /* GRPCWrapper.swift */; };
+		182FD135235083010071A09A /* AccountViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FD134235083010071A09A /* AccountViewerViewController.swift */; };
 		1832084E21FB6410004311D7 /* RestoreAccountIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832084D21FB6410004311D7 /* RestoreAccountIDViewController.swift */; };
 		1832085022001D19004311D7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1832084F22001D19004311D7 /* Localizable.strings */; };
+		18324105228929AA00CC5C98 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18324104228929AA00CC5C98 /* TransferViewModel.swift */; };
 		1837AB4121A7CC890003FD57 /* ResponseCode.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837AB3221A7CC890003FD57 /* ResponseCode.pb.swift */; };
 		1837AB4221A7CC890003FD57 /* TransactionGetFastRecord.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1837AB4021A7CC890003FD57 /* TransactionGetFastRecord.pb.swift */; };
+		184664F122EC71050009DE91 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184664F022EC71050009DE91 /* CreateAccountViewController.swift */; };
+		184664F422ED50E00009DE91 /* PublicKeyInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184664F222ED50E00009DE91 /* PublicKeyInputCell.swift */; };
+		184664F522ED50E00009DE91 /* PublicKeyInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184664F322ED50E00009DE91 /* PublicKeyInputCell.xib */; };
+		184664F722ED65DF0009DE91 /* CreateAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184664F622ED65DF0009DE91 /* CreateAccountOperation.swift */; };
+		184E6D4E227A06AF003B6CE3 /* ExchangeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E6D4D227A06AF003B6CE3 /* ExchangeInfo.swift */; };
 		1851A6492156240000752A80 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851A6482156240000752A80 /* Config.swift */; };
 		1851A6582156551C00752A80 /* nodes-testnet.json in Resources */ = {isa = PBXBuildFile; fileRef = 1851A6572156551C00752A80 /* nodes-testnet.json */; };
 		1851A696215FB6F000752A80 /* HGCApp.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 353AB4611FE1300C0084042A /* HGCApp.entitlements */; };
 		185E96912154FE8800C2B698 /* nodes-mainnet.json in Resources */ = {isa = PBXBuildFile; fileRef = 185E96832154FE8800C2B698 /* nodes-mainnet.json */; };
 		185E96932155000000C2B698 /* HGCNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E96922155000000C2B698 /* HGCNode.swift */; };
 		185E969521550D4000C2B698 /* NodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E969421550D4000C2B698 /* NodesTableViewController.swift */; };
+		1862557B22F1B1BC00D001E9 /* Freeze.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862557922F1B1BC00D001E9 /* Freeze.pb.swift */; };
+		1862557C22F1B1BC00D001E9 /* FreezeService.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862557A22F1B1BC00D001E9 /* FreezeService.pb.swift */; };
 		187530552260940600E284C0 /* SecureAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187530542260940600E284C0 /* SecureAppSettings.swift */; };
 		1875305B226094B800E284C0 /* BioMetricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18753058226094B800E284C0 /* BioMetricAuthenticator.swift */; };
 		1875305C226094B800E284C0 /* BiometricAuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18753059226094B800E284C0 /* BiometricAuthenticationConstants.swift */; };
 		1875305D226094B800E284C0 /* AuthenticationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875305A226094B800E284C0 /* AuthenticationErrors.swift */; };
 		187530642262F74100E284C0 /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187530632262F74100E284C0 /* CryptoUtils.swift */; };
-		187530662263108E00E284C0 /* TxnStatusOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187530652263108E00E284C0 /* TxnStatusOperation.swift */; };
 		1875306E2264F09500E284C0 /* HAPI+HGCAccountID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875306D2264F09500E284C0 /* HAPI+HGCAccountID.swift */; };
 		187530702264F0D100E284C0 /* HAPI+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875306F2264F0D100E284C0 /* HAPI+TimeInterval.swift */; };
-		187530722264F0F600E284C0 /* HAPI+HGCAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187530712264F0F600E284C0 /* HAPI+HGCAccount.swift */; };
 		187530742264F13900E284C0 /* HAPI+HGCPublickKeyAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187530732264F13900E284C0 /* HAPI+HGCPublickKeyAddress.swift */; };
-		18803B7B21654C10003E34AD /* CreateFeeSchedule.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18803B7621654C10003E34AD /* CreateFeeSchedule.pb.swift */; };
+		188705A3229D258C00055276 /* CryptoFeeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705A2229D258C00055276 /* CryptoFeeBuilder.swift */; };
+		188705A7229D261E00055276 /* FileFeeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705A6229D261E00055276 /* FileFeeBuilder.swift */; };
+		188705A9229E3AFC00055276 /* FileContentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705A8229E3AFC00055276 /* FileContentOperation.swift */; };
+		188705AF22A131CE00055276 /* TransactionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705AE22A131CE00055276 /* TransactionBuilder.swift */; };
+		188705B122A1353200055276 /* FeeCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705B022A1353200055276 /* FeeCalc.swift */; };
+		188705B322A1476C00055276 /* DetectWalletOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705B222A1476C00055276 /* DetectWalletOperation.swift */; };
+		188705B522A29C8900055276 /* MigrateToBip32Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705B422A29C8900055276 /* MigrateToBip32Operation.swift */; };
+		188705B722A65E3300055276 /* Bip32MigrationPromptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705B622A65E3300055276 /* Bip32MigrationPromptVC.swift */; };
+		189692A722970BE40042FF24 /* Ed25519Derivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189692A622970BE40042FF24 /* Ed25519Derivation.swift */; };
 		18A65AD922101E4200221FFD /* Mnemonic.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A65AD822101E4100221FFD /* Mnemonic.m */; };
-		18A65ADB2212D38E00221FFD /* Bip39MigrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A65ADA2212D38E00221FFD /* Bip39MigrationViewController.swift */; };
 		18BF965D21C17E6E00055B2A /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18BF965C21C17E6E00055B2A /* privacy.txt */; };
 		18BF965F21C17E7600055B2A /* terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18BF965E21C17E7600055B2A /* terms.txt */; };
 		18BF966121C17F1800055B2A /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF966021C17F1800055B2A /* PrivacyPolicyViewController.swift */; };
@@ -41,10 +57,13 @@
 		18EC4C6F227E7ED7006B3461 /* SystemDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC4C6C227E7ED7006B3461 /* SystemDelete.pb.swift */; };
 		18EC4C70227E7ED7006B3461 /* ContractDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC4C6D227E7ED7006B3461 /* ContractDelete.pb.swift */; };
 		18EE0AB6225F726000FCFA5B /* FeeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE0AB4225F726000FCFA5B /* FeeBuilder.swift */; };
-		18EE0AB7225F726000FCFA5B /* APIRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE0AB5225F726000FCFA5B /* APIRequestBuilder.swift */; };
+		18EEA98A234C39700049F754 /* AddressBookServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEA989234C39700049F754 /* AddressBookServiceTests.swift */; };
 		18F7E23B2199E8DA00166B56 /* feeScheduleproto.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18F7E22C2199E8DA00166B56 /* feeScheduleproto.txt */; };
 		18F7E23C2199E8DA00166B56 /* addressBookproto.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18F7E23A2199E8DA00166B56 /* addressBookproto.txt */; };
-		18F7E261219E808B00166B56 /* PairingParamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7E260219E808A00166B56 /* PairingParamsTests.swift */; };
+		18F94472232BFF3600AF4B76 /* InfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F94470232BFF3600AF4B76 /* InfoTableCell.swift */; };
+		18F94473232BFF3600AF4B76 /* InfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F94471232BFF3600AF4B76 /* InfoTableCell.xib */; };
+		18FED0B922A9185400227585 /* Bip32MigrationBackupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FED0B822A9185400227585 /* Bip32MigrationBackupVC.swift */; };
+		18FED0BB22A9187100227585 /* Bip32MigrationConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FED0BA22A9187100227585 /* Bip32MigrationConfirmVC.swift */; };
 		2B341434848A85229D7A08AE /* Pods_HGCAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880D056128F0B700DE4D7D69 /* Pods_HGCAppTests.framework */; };
 		3504B9C120FEFB72003CC4E7 /* HGCPublickKeyAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504B9C020FEFB72003CC4E7 /* HGCPublickKeyAddress.swift */; };
 		3504B9C320FF148F003CC4E7 /* HGCAccountID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504B9C220FF148F003CC4E7 /* HGCAccountID.swift */; };
@@ -124,7 +143,6 @@
 		351EEC142059812B00190DCF /* EdPrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351EEC042059812B00190DCF /* EdPrivateKey.swift */; };
 		351EEC152059812B00190DCF /* EdPublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351EEC052059812B00190DCF /* EdPublicKey.swift */; };
 		351EEC162059812B00190DCF /* EdSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351EEC062059812B00190DCF /* EdSeed.swift */; };
-		3523E7291FD5A6C800CD488B /* VerifyAliasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523E7281FD5A6C800CD488B /* VerifyAliasViewController.swift */; };
 		3523E72C1FD6983100CD488B /* TxnRequestComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523E72B1FD6983100CD488B /* TxnRequestComposer.swift */; };
 		3523E72F1FD6AFCE00CD488B /* HGCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523E72E1FD6AFCE00CD488B /* HGCButton.swift */; };
 		3523E7311FD6B23300CD488B /* QRPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523E7301FD6B23200CD488B /* QRPreviewController.swift */; };
@@ -212,7 +230,7 @@
 		35DD3E9F20A55E3F005A5F53 /* HGCSeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */; };
 		35DD3EA420A59355005A5F53 /* EDKeyPairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */; };
 		35DD3EB620A5AB61005A5F53 /* EDKeyChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */; };
-		35E7C6111FCBE1C600346A51 /* KFKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6101FCBE1C500346A51 /* KFKeychain.m */; };
+		35E7C6111FCBE1C600346A51 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6101FCBE1C500346A51 /* KeychainWrapper.m */; };
 		35E7C6151FCD244300346A51 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6141FCD244300346A51 /* CurrencyConverter.swift */; };
 		35E7C6171FCD7F8800346A51 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6161FCD7F8800346A51 /* AccountDetailView.swift */; };
 		35E7C61A1FCD7FC100346A51 /* UIView+NSLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6181FCD7FC000346A51 /* UIView+NSLayoutConstraints.m */; };
@@ -228,7 +246,6 @@
 		35FCF6401FDD4AC700BA1EB1 /* AmountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FCF63E1FDD4AC700BA1EB1 /* AmountTableViewCell.xib */; };
 		35FCF7C11FD9502C004F4C09 /* HGCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C01FD9502B004F4C09 /* HGCLabel.swift */; };
 		35FCF7C31FD95710004F4C09 /* HGCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C21FD95710004F4C09 /* HGCTextField.swift */; };
-		3EA2551921C7B43C00A9EBA8 /* WebServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA2551821C7B43C00A9EBA8 /* WebServer.swift */; };
 		C91E4FB520D5114200996A93 /* DeveloerToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FB420D5114200996A93 /* DeveloerToolViewController.swift */; };
 		C91E4FB720D5549E00996A93 /* DeveloperTools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91E4FB620D5549E00996A93 /* DeveloperTools.storyboard */; };
 		C91E4FBB20D5608200996A93 /* DeveloperMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FBA20D5608200996A93 /* DeveloperMenuTableCell.swift */; };
@@ -276,42 +293,63 @@
 		1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.pb.swift; sourceTree = "<group>"; };
 		1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionBody.pb.swift; sourceTree = "<group>"; };
 		1815080B21858B3000890123 /* IPUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPUtility.swift; sourceTree = "<group>"; };
-		1815081D2188226000890123 /* WebServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServerViewController.swift; sourceTree = "<group>"; };
+		1817120222B8054200A0C754 /* Bip32MigrationErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip32MigrationErrorVC.swift; sourceTree = "<group>"; };
+		181968412318F35D00B19363 /* MockRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRPC.swift; sourceTree = "<group>"; };
+		182DD86622C477BB00203637 /* GRPCWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRPCWrapper.swift; sourceTree = "<group>"; };
+		182FD133235053020071A09A /* hgc-4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-4.xcdatamodel"; sourceTree = "<group>"; };
+		182FD134235083010071A09A /* AccountViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewerViewController.swift; sourceTree = "<group>"; };
 		1832084D21FB6410004311D7 /* RestoreAccountIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountIDViewController.swift; sourceTree = "<group>"; };
 		1832084F22001D19004311D7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		183208522204784E004311D7 /* hgc-2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-2.xcdatamodel"; sourceTree = "<group>"; };
+		18324104228929AA00CC5C98 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		1837AB3221A7CC890003FD57 /* ResponseCode.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCode.pb.swift; sourceTree = "<group>"; };
 		1837AB4021A7CC890003FD57 /* TransactionGetFastRecord.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionGetFastRecord.pb.swift; sourceTree = "<group>"; };
+		184664F022EC71050009DE91 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		184664F222ED50E00009DE91 /* PublicKeyInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyInputCell.swift; sourceTree = "<group>"; };
+		184664F322ED50E00009DE91 /* PublicKeyInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicKeyInputCell.xib; sourceTree = "<group>"; };
+		184664F622ED65DF0009DE91 /* CreateAccountOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountOperation.swift; sourceTree = "<group>"; };
+		184E6D4D227A06AF003B6CE3 /* ExchangeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeInfo.swift; sourceTree = "<group>"; };
 		1851A6482156240000752A80 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		1851A6572156551C00752A80 /* nodes-testnet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "nodes-testnet.json"; sourceTree = "<group>"; };
 		185E96832154FE8800C2B698 /* nodes-mainnet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "nodes-mainnet.json"; sourceTree = "<group>"; };
 		185E96922155000000C2B698 /* HGCNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCNode.swift; sourceTree = "<group>"; };
 		185E969421550D4000C2B698 /* NodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesTableViewController.swift; sourceTree = "<group>"; };
+		1862557922F1B1BC00D001E9 /* Freeze.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Freeze.pb.swift; sourceTree = "<group>"; };
+		1862557A22F1B1BC00D001E9 /* FreezeService.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreezeService.pb.swift; sourceTree = "<group>"; };
 		187530542260940600E284C0 /* SecureAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAppSettings.swift; sourceTree = "<group>"; };
 		18753058226094B800E284C0 /* BioMetricAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioMetricAuthenticator.swift; sourceTree = "<group>"; };
 		18753059226094B800E284C0 /* BiometricAuthenticationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticationConstants.swift; sourceTree = "<group>"; };
 		1875305A226094B800E284C0 /* AuthenticationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationErrors.swift; sourceTree = "<group>"; };
 		187530632262F74100E284C0 /* CryptoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtils.swift; sourceTree = "<group>"; };
-		187530652263108E00E284C0 /* TxnStatusOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxnStatusOperation.swift; sourceTree = "<group>"; };
 		1875306D2264F09500E284C0 /* HAPI+HGCAccountID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HAPI+HGCAccountID.swift"; sourceTree = "<group>"; };
 		1875306F2264F0D100E284C0 /* HAPI+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HAPI+TimeInterval.swift"; sourceTree = "<group>"; };
-		187530712264F0F600E284C0 /* HAPI+HGCAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HAPI+HGCAccount.swift"; sourceTree = "<group>"; };
 		187530732264F13900E284C0 /* HAPI+HGCPublickKeyAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HAPI+HGCPublickKeyAddress.swift"; sourceTree = "<group>"; };
-		18803B7621654C10003E34AD /* CreateFeeSchedule.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFeeSchedule.pb.swift; sourceTree = "<group>"; };
+		188705A2229D258C00055276 /* CryptoFeeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFeeBuilder.swift; sourceTree = "<group>"; };
+		188705A6229D261E00055276 /* FileFeeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFeeBuilder.swift; sourceTree = "<group>"; };
+		188705A8229E3AFC00055276 /* FileContentOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContentOperation.swift; sourceTree = "<group>"; };
+		188705AE22A131CE00055276 /* TransactionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBuilder.swift; sourceTree = "<group>"; };
+		188705B022A1353200055276 /* FeeCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeCalc.swift; sourceTree = "<group>"; };
+		188705B222A1476C00055276 /* DetectWalletOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectWalletOperation.swift; sourceTree = "<group>"; };
+		188705B422A29C8900055276 /* MigrateToBip32Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrateToBip32Operation.swift; sourceTree = "<group>"; };
+		188705B622A65E3300055276 /* Bip32MigrationPromptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip32MigrationPromptVC.swift; sourceTree = "<group>"; };
+		189692A622970BE40042FF24 /* Ed25519Derivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ed25519Derivation.swift; sourceTree = "<group>"; };
 		18A65AD722101E4100221FFD /* Mnemonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mnemonic.h; sourceTree = "<group>"; };
 		18A65AD822101E4100221FFD /* Mnemonic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mnemonic.m; sourceTree = "<group>"; };
-		18A65ADA2212D38E00221FFD /* Bip39MigrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip39MigrationViewController.swift; sourceTree = "<group>"; };
 		18BF965C21C17E6E00055B2A /* privacy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
 		18BF965E21C17E7600055B2A /* terms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = terms.txt; sourceTree = "<group>"; };
 		18BF966021C17F1800055B2A /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		18EC4C6B227E7ED7006B3461 /* SystemUndelete.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemUndelete.pb.swift; sourceTree = "<group>"; };
 		18EC4C6C227E7ED7006B3461 /* SystemDelete.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemDelete.pb.swift; sourceTree = "<group>"; };
 		18EC4C6D227E7ED7006B3461 /* ContractDelete.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDelete.pb.swift; sourceTree = "<group>"; };
+		18EC4CE8227F00F7006B3461 /* hgc-3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-3.xcdatamodel"; sourceTree = "<group>"; };
 		18EE0AB4225F726000FCFA5B /* FeeBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeeBuilder.swift; path = HGCApp/HAPI/FeeBuilder.swift; sourceTree = SOURCE_ROOT; };
-		18EE0AB5225F726000FCFA5B /* APIRequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIRequestBuilder.swift; path = HGCApp/HAPI/APIRequestBuilder.swift; sourceTree = SOURCE_ROOT; };
+		18EEA989234C39700049F754 /* AddressBookServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookServiceTests.swift; sourceTree = "<group>"; };
 		18F7E22C2199E8DA00166B56 /* feeScheduleproto.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feeScheduleproto.txt; sourceTree = "<group>"; };
 		18F7E23A2199E8DA00166B56 /* addressBookproto.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = addressBookproto.txt; sourceTree = "<group>"; };
-		18F7E260219E808A00166B56 /* PairingParamsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairingParamsTests.swift; sourceTree = "<group>"; };
+		18F94470232BFF3600AF4B76 /* InfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableCell.swift; sourceTree = "<group>"; };
+		18F94471232BFF3600AF4B76 /* InfoTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableCell.xib; sourceTree = "<group>"; };
+		18FED0B822A9185400227585 /* Bip32MigrationBackupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip32MigrationBackupVC.swift; sourceTree = "<group>"; };
+		18FED0BA22A9187100227585 /* Bip32MigrationConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip32MigrationConfirmVC.swift; sourceTree = "<group>"; };
 		2166CDD3C91C3CEC9B9FD9D3 /* Pods-HGCAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F8DB5934EE7DEEEA27511C3 /* Pods-HGCApp.debug_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		3504B9C020FEFB72003CC4E7 /* HGCPublickKeyAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCPublickKeyAddress.swift; sourceTree = "<group>"; };
@@ -399,7 +437,6 @@
 		351EEC042059812B00190DCF /* EdPrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdPrivateKey.swift; sourceTree = "<group>"; };
 		351EEC052059812B00190DCF /* EdPublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdPublicKey.swift; sourceTree = "<group>"; };
 		351EEC062059812B00190DCF /* EdSeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdSeed.swift; sourceTree = "<group>"; };
-		3523E7281FD5A6C800CD488B /* VerifyAliasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAliasViewController.swift; sourceTree = "<group>"; };
 		3523E72B1FD6983100CD488B /* TxnRequestComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxnRequestComposer.swift; sourceTree = "<group>"; };
 		3523E72E1FD6AFCE00CD488B /* HGCButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCButton.swift; sourceTree = "<group>"; };
 		3523E7301FD6B23200CD488B /* QRPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRPreviewController.swift; sourceTree = "<group>"; };
@@ -497,8 +534,8 @@
 		35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCSeedTests.swift; sourceTree = "<group>"; };
 		35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDKeyPairTests.swift; sourceTree = "<group>"; };
 		35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDKeyChainTests.swift; sourceTree = "<group>"; };
-		35E7C60F1FCBE1C500346A51 /* KFKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFKeychain.h; sourceTree = "<group>"; };
-		35E7C6101FCBE1C500346A51 /* KFKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFKeychain.m; sourceTree = "<group>"; };
+		35E7C60F1FCBE1C500346A51 /* KeychainWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		35E7C6101FCBE1C500346A51 /* KeychainWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		35E7C6141FCD244300346A51 /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
 		35E7C6161FCD7F8800346A51 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		35E7C6181FCD7FC000346A51 /* UIView+NSLayoutConstraints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+NSLayoutConstraints.m"; sourceTree = "<group>"; };
@@ -517,7 +554,6 @@
 		35FCF7C21FD95710004F4C09 /* HGCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCTextField.swift; sourceTree = "<group>"; };
 		367AB6BC295AD93C78CFA2EA /* Pods-HGCAppUITests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		39EBE814F7DCB0063CC4FF7D /* Pods-HGCAppTests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.debug_dev.xcconfig"; sourceTree = "<group>"; };
-		3EA2551821C7B43C00A9EBA8 /* WebServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServer.swift; sourceTree = "<group>"; };
 		4E0C676537D81394E3AB0BC0 /* Pods-HGCAppUITests.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		5920569227B339376A414754 /* Pods-HGCAppTests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		5AB1530F17F1EF6914EB09C1 /* Pods-HGCAppTests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_dev.xcconfig"; sourceTree = "<group>"; };
@@ -618,6 +654,7 @@
 				18EE0AB1225F6D5900FCFA5B /* Mnemonic&Seed */,
 				35B63BA01FA1C6FE00E29423 /* Keys */,
 				187530632262F74100E284C0 /* CryptoUtils.swift */,
+				189692A622970BE40042FF24 /* Ed25519Derivation.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -632,14 +669,6 @@
 			path = "Mnemonic&Seed";
 			sourceTree = "<group>";
 		};
-		18EE0AB2225F6F3300FCFA5B /* ChromeExtension */ = {
-			isa = PBXGroup;
-			children = (
-				3EA2551821C7B43C00A9EBA8 /* WebServer.swift */,
-			);
-			path = ChromeExtension;
-			sourceTree = "<group>";
-		};
 		18EE0AB3225F6F5600FCFA5B /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,8 +677,20 @@
 				35B9639E2130290D005EC9E2 /* BalanceService.swift */,
 				3567E6911FCEDC0D00ED9F67 /* AppConfigService.swift */,
 				35335A1C1FCFFF3D009F802E /* APIAddressBookService.swift */,
+				182DD86622C477BB00203637 /* GRPCWrapper.swift */,
 			);
 			path = APIServices;
+			sourceTree = "<group>";
+		};
+		18FED0B722A8F9E700227585 /* Bip32Migration */ = {
+			isa = PBXGroup;
+			children = (
+				188705B622A65E3300055276 /* Bip32MigrationPromptVC.swift */,
+				18FED0B822A9185400227585 /* Bip32MigrationBackupVC.swift */,
+				18FED0BA22A9187100227585 /* Bip32MigrationConfirmVC.swift */,
+				1817120222B8054200A0C754 /* Bip32MigrationErrorVC.swift */,
+			);
+			path = Bip32Migration;
 			sourceTree = "<group>";
 		};
 		246D90CC3DC4B6A67D76EB76 /* Pods */ = {
@@ -692,6 +733,8 @@
 		3504B9C421004F1F003CC4E7 /* proto-swift */ = {
 			isa = PBXGroup;
 			children = (
+				1862557922F1B1BC00D001E9 /* Freeze.pb.swift */,
+				1862557A22F1B1BC00D001E9 /* FreezeService.pb.swift */,
 				18EC4C6D227E7ED7006B3461 /* ContractDelete.pb.swift */,
 				18EC4C6C227E7ED7006B3461 /* SystemDelete.pb.swift */,
 				18EC4C6B227E7ED7006B3461 /* SystemUndelete.pb.swift */,
@@ -699,7 +742,6 @@
 				1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */,
 				1837AB3221A7CC890003FD57 /* ResponseCode.pb.swift */,
 				1837AB4021A7CC890003FD57 /* TransactionGetFastRecord.pb.swift */,
-				18803B7621654C10003E34AD /* CreateFeeSchedule.pb.swift */,
 				3511E9B121146BB700B8861E /* ContractGetRecords.pb.swift */,
 				3511E9B321146BB800B8861E /* CryptoService.pb.swift */,
 				3511E9B021146BB700B8861E /* FileService.pb.swift */,
@@ -780,8 +822,9 @@
 				35E7C61B1FCD80D700346A51 /* AccountDetailView.xib */,
 				350DF3451FC6B0E00006166C /* AccountTableCell.swift */,
 				350DF3431FC6AFD80006166C /* AccountListViewController.swift */,
-				35E7C61D1FCDB01C00346A51 /* AddAccountViewController.swift */,
 				35932B941FCEA72B00C74D67 /* AccountDetailsViewController.swift */,
+				35E7C61D1FCDB01C00346A51 /* AddAccountViewController.swift */,
+				182FD134235083010071A09A /* AccountViewerViewController.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -894,6 +937,10 @@
 				35732A781FEC042500EB23ED /* MyAddressTableCell.xib */,
 				35E9C7C71FF267980042078C /* TxnDetailsAddressTableCell.swift */,
 				35E9C7C81FF267980042078C /* TxnDetailsAddressTableCell.xib */,
+				184664F222ED50E00009DE91 /* PublicKeyInputCell.swift */,
+				184664F322ED50E00009DE91 /* PublicKeyInputCell.xib */,
+				18F94470232BFF3600AF4B76 /* InfoTableCell.swift */,
+				18F94471232BFF3600AF4B76 /* InfoTableCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -923,8 +970,8 @@
 		3578AA451FC97A0F00D5158D /* KeychainItemWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				35E7C60F1FCBE1C500346A51 /* KFKeychain.h */,
-				35E7C6101FCBE1C500346A51 /* KFKeychain.m */,
+				35E7C60F1FCBE1C500346A51 /* KeychainWrapper.h */,
+				35E7C6101FCBE1C500346A51 /* KeychainWrapper.m */,
 			);
 			path = KeychainItemWrapper;
 			sourceTree = "<group>";
@@ -934,11 +981,13 @@
 			children = (
 				35F8D5C4212F0FA500A033A6 /* proto-grpc-swift */,
 				3504B9C421004F1F003CC4E7 /* proto-swift */,
-				18EE0AB5225F726000FCFA5B /* APIRequestBuilder.swift */,
+				188705AE22A131CE00055276 /* TransactionBuilder.swift */,
+				188705B022A1353200055276 /* FeeCalc.swift */,
 				18EE0AB4225F726000FCFA5B /* FeeBuilder.swift */,
+				188705A2229D258C00055276 /* CryptoFeeBuilder.swift */,
+				188705A6229D261E00055276 /* FileFeeBuilder.swift */,
 				1875306D2264F09500E284C0 /* HAPI+HGCAccountID.swift */,
 				1875306F2264F0D100E284C0 /* HAPI+TimeInterval.swift */,
-				187530712264F0F600E284C0 /* HAPI+HGCAccount.swift */,
 				187530732264F13900E284C0 /* HAPI+HGCPublickKeyAddress.swift */,
 			);
 			path = HAPI;
@@ -948,6 +997,7 @@
 			isa = PBXGroup;
 			children = (
 				357EA9D620B19674009CDBBF /* CoreDataMock.swift */,
+				181968412318F35D00B19363 /* MockRPC.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -981,6 +1031,7 @@
 		35B63BCF1FA1EE0500E29423 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				18FED0B722A8F9E700227585 /* Bip32Migration */,
 				3504BA132105E81A003CC4E7 /* Scan */,
 				C91E4FB320D510CD00996A93 /* DeveloperTool */,
 				3523E72D1FD6AFAC00CD488B /* Common */,
@@ -1006,7 +1057,6 @@
 				3528017E1FE668E20077979D /* BackupWalletViewController.swift */,
 				1832084D21FB6410004311D7 /* RestoreAccountIDViewController.swift */,
 				35B63B951F9F5B0700E29423 /* PINSetupViewController.swift */,
-				18A65ADA2212D38E00221FFD /* Bip39MigrationViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1069,7 +1119,7 @@
 				354AE1D220B58814001E0D02 /* Models */,
 				357EA9D520B19651009CDBBF /* Mock */,
 				35DD3E9D20A55DF5005A5F53 /* Crypto */,
-				18F7E260219E808A00166B56 /* PairingParamsTests.swift */,
+				18EEA989234C39700049F754 /* AddressBookServiceTests.swift */,
 				35B8ABD41F9E5642003E4F57 /* Info.plist */,
 			);
 			name = HGCAppTests;
@@ -1145,6 +1195,7 @@
 				3504BA1821071003003CC4E7 /* TransactionVO.swift */,
 				35A73EDD21219FFC00634845 /* TokenVO.swift */,
 				3578AA4A1FC9BD7C00D5158D /* SignatureOption.swift */,
+				184E6D4D227A06AF003B6CE3 /* ExchangeInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1154,10 +1205,11 @@
 			children = (
 				35477F3F1FDE76710035EF2D /* Cells */,
 				35BE685B1FC7F1FF00D01F5C /* PayViewController.swift */,
-				3523E7281FD5A6C800CD488B /* VerifyAliasViewController.swift */,
 				3567E68F1FCECA8900ED9F67 /* TransactionDetailsViewController.swift */,
 				350AA6DD1FDFD99D0054FCF6 /* ContactPicker.swift */,
 				353287BC1FE7D23000BCDE4F /* ContactTableViewCell.swift */,
+				18324104228929AA00CC5C98 /* TransferViewModel.swift */,
+				184664F022EC71050009DE91 /* CreateAccountViewController.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -1166,7 +1218,6 @@
 			isa = PBXGroup;
 			children = (
 				18EE0AB3225F6F5600FCFA5B /* APIServices */,
-				18EE0AB2225F6F3300FCFA5B /* ChromeExtension */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1219,7 +1270,6 @@
 				C91E4FBA20D5608200996A93 /* DeveloperMenuTableCell.swift */,
 				C91E4FBC20D5655600996A93 /* ChangeIPViewController.swift */,
 				185E969421550D4000C2B698 /* NodesTableViewController.swift */,
-				1815081D2188226000890123 /* WebServerViewController.swift */,
 			);
 			path = DeveloperTool;
 			sourceTree = "<group>";
@@ -1231,7 +1281,10 @@
 				35B963A221303D0E005EC9E2 /* TransferOperation.swift */,
 				C94D163C21326CEA00212900 /* UpdateTransactionsOperation.swift */,
 				C94D163E21326D4400212900 /* UpdateBalanceOperation.swift */,
-				187530652263108E00E284C0 /* TxnStatusOperation.swift */,
+				188705A8229E3AFC00055276 /* FileContentOperation.swift */,
+				188705B222A1476C00055276 /* DetectWalletOperation.swift */,
+				188705B422A29C8900055276 /* MigrateToBip32Operation.swift */,
+				184664F622ED65DF0009DE91 /* CreateAccountOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -1315,12 +1368,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = HGC;
 				TargetAttributes = {
 					35B8ABB91F9E5642003E4F57 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1333,6 +1386,7 @@
 					};
 					35B8ABCD1F9E5642003E4F57 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						TestTargetID = 35B8ABB91F9E5642003E4F57;
 					};
@@ -1379,6 +1433,7 @@
 				35477F3E1FDE76690035EF2D /* QRScanTableCell.xib in Resources */,
 				35B8ABF51F9F4BB7003E4F57 /* Welcome.storyboard in Resources */,
 				3537388A1FDD4437009999F2 /* AddressOptionsTableCell.xib in Resources */,
+				18F94473232BFF3600AF4B76 /* InfoTableCell.xib in Resources */,
 				35E9C7CA1FF267990042078C /* TxnDetailsAddressTableCell.xib in Resources */,
 				351779EE20E7A3B400E31997 /* SmartContract.storyboard in Resources */,
 				354AE1DE20B814D9001E0D02 /* StyreneH-Thin.otf in Resources */,
@@ -1387,6 +1442,7 @@
 				185E96912154FE8800C2B698 /* nodes-mainnet.json in Resources */,
 				35732A7A1FEC042500EB23ED /* MyAddressTableCell.xib in Resources */,
 				352801761FE281B70077979D /* BalanceTableCell.xib in Resources */,
+				184664F522ED50E00009DE91 /* PublicKeyInputCell.xib in Resources */,
 				35B8ABC51F9E5642003E4F57 /* Assets.xcassets in Resources */,
 				35477F431FDE805A0035EF2D /* ActionButtonTableCell.xib in Resources */,
 				354AE1DB20B814D9001E0D02 /* StyreneA-Thin.otf in Resources */,
@@ -1451,7 +1507,7 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
 				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -1469,7 +1525,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GCDWebServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -1551,14 +1607,16 @@
 				350AF43A1FDE743B006A08DD /* AccountVO.swift in Sources */,
 				352801751FE281B70077979D /* BalanceTableCell.swift in Sources */,
 				35B896C520DD5E6100734F27 /* SCToken.swift in Sources */,
+				188705A3229D258C00055276 /* CryptoFeeBuilder.swift in Sources */,
 				3504B9FE21004F1F003CC4E7 /* ContractGetInfo.pb.swift in Sources */,
 				35BE685C1FC7F1FF00D01F5C /* PayViewController.swift in Sources */,
 				3528017D1FE6601E0077979D /* NewWalletViewController.swift in Sources */,
-				18EE0AB7225F726000FCFA5B /* APIRequestBuilder.swift in Sources */,
 				352BAAAB1FA86B1400186CE1 /* AuthManager.swift in Sources */,
-				35E7C6111FCBE1C600346A51 /* KFKeychain.m in Sources */,
+				35E7C6111FCBE1C600346A51 /* KeychainWrapper.m in Sources */,
 				3504B9C120FEFB72003CC4E7 /* HGCPublickKeyAddress.swift in Sources */,
+				189692A722970BE40042FF24 /* Ed25519Derivation.swift in Sources */,
 				18EC4C6F227E7ED7006B3461 /* SystemDelete.pb.swift in Sources */,
+				18FED0BB22A9187100227585 /* Bip32MigrationConfirmVC.swift in Sources */,
 				35B8ABEE1F9F4962003E4F57 /* UserAgreementViewController.swift in Sources */,
 				3504B9F221004F1F003CC4E7 /* CryptoCreate.pb.swift in Sources */,
 				35732A7C1FEC10B200EB23ED /* HGCKeyboardToolBar.swift in Sources */,
@@ -1570,6 +1628,7 @@
 				35477F571FDFAC3A0035EF2D /* QRPreviewTableCell.swift in Sources */,
 				18BF966121C17F1800055B2A /* PrivacyPolicyViewController.swift in Sources */,
 				350EA1161FC491A60092DDEB /* ContainerViewController.swift in Sources */,
+				18F94472232BFF3600AF4B76 /* InfoTableCell.swift in Sources */,
 				3504BA0621004F1F003CC4E7 /* CryptoTransfer.pb.swift in Sources */,
 				C94D163721326C3800212900 /* BaseOperation.swift in Sources */,
 				3578AA4B1FC9BD7C00D5158D /* SignatureOption.swift in Sources */,
@@ -1586,8 +1645,10 @@
 				3504B9F621004F1F003CC4E7 /* FileCreate.pb.swift in Sources */,
 				35477F4A1FDE8F9D0035EF2D /* NotesTableViewCell.swift in Sources */,
 				353287BB1FE7C70600BCDE4F /* AboutViewController.swift in Sources */,
+				1862557C22F1B1BC00D001E9 /* FreezeService.pb.swift in Sources */,
 				187530552260940600E284C0 /* SecureAppSettings.swift in Sources */,
 				35F8D5CA212F0FA500A033A6 /* FileService.grpc.swift in Sources */,
+				184664F422ED50E00009DE91 /* PublicKeyInputCell.swift in Sources */,
 				3504B9FA21004F1F003CC4E7 /* TransactionReceipt.pb.swift in Sources */,
 				18A65AD922101E4200221FFD /* Mnemonic.m in Sources */,
 				3504B9EF21004F1F003CC4E7 /* Response.pb.swift in Sources */,
@@ -1597,6 +1658,8 @@
 				35F8D5C9212F0FA500A033A6 /* SmartContractService.grpc.swift in Sources */,
 				18EE0AB6225F726000FCFA5B /* FeeBuilder.swift in Sources */,
 				35FCF7C11FD9502C004F4C09 /* HGCLabel.swift in Sources */,
+				188705A7229D261E00055276 /* FileFeeBuilder.swift in Sources */,
+				184E6D4E227A06AF003B6CE3 /* ExchangeInfo.swift in Sources */,
 				350DF33A1FC6A0870006166C /* HGCAccount.swift in Sources */,
 				350DF33C1FC6A0870006166C /* HGCRecord.swift in Sources */,
 				35E9C7891FF240F80042078C /* RedirectManager.swift in Sources */,
@@ -1611,11 +1674,16 @@
 				18EC4C6E227E7ED7006B3461 /* SystemUndelete.pb.swift in Sources */,
 				350EA11C1FC5373E0092DDEB /* WalletView.swift in Sources */,
 				350DF3381FC6A0870006166C /* HGCContact.swift in Sources */,
+				184664F122EC71050009DE91 /* CreateAccountViewController.swift in Sources */,
 				350DF33E1FC6A0870006166C /* HGCRequest.swift in Sources */,
+				1817120322B8054200A0C754 /* Bip32MigrationErrorVC.swift in Sources */,
+				188705B522A29C8900055276 /* MigrateToBip32Operation.swift in Sources */,
+				1862557B22F1B1BC00D001E9 /* Freeze.pb.swift in Sources */,
 				35E7C6171FCD7F8800346A51 /* AccountDetailView.swift in Sources */,
 				351EEC0E2059812B00190DCF /* seed.c in Sources */,
 				3504B9EB21004F1F003CC4E7 /* QueryHeader.pb.swift in Sources */,
 				1837AB4221A7CC890003FD57 /* TransactionGetFastRecord.pb.swift in Sources */,
+				188705AF22A131CE00055276 /* TransactionBuilder.swift in Sources */,
 				1875305D226094B800E284C0 /* AuthenticationErrors.swift in Sources */,
 				1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */,
 				3528017F1FE668E20077979D /* BackupWalletViewController.swift in Sources */,
@@ -1624,12 +1692,16 @@
 				357EA9D920B19B9D009CDBBF /* Date+Additions.swift in Sources */,
 				353287B61FE7B3CD00BCDE4F /* FeeTableCell.swift in Sources */,
 				3504BA0221004F1F003CC4E7 /* TransactionGetReceipt.pb.swift in Sources */,
+				188705B322A1476C00055276 /* DetectWalletOperation.swift in Sources */,
 				35477F5A1FDFAE9B0035EF2D /* HGCBoxView.swift in Sources */,
 				1875306E2264F09500E284C0 /* HAPI+HGCAccountID.swift in Sources */,
+				184664F722ED65DF0009DE91 /* CreateAccountOperation.swift in Sources */,
 				3523E72F1FD6AFCE00CD488B /* HGCButton.swift in Sources */,
 				35B963A321303D0E005EC9E2 /* TransferOperation.swift in Sources */,
+				182FD135235083010071A09A /* AccountViewerViewController.swift in Sources */,
 				3523E7311FD6B23300CD488B /* QRPreviewController.swift in Sources */,
 				3528017B1FE656410077979D /* OnboardingViewController.swift in Sources */,
+				182DD86722C477BB00203637 /* GRPCWrapper.swift in Sources */,
 				35477F5D1FDFB6A30035EF2D /* RequestOptionsTableCell.swift in Sources */,
 				35B63BD71FA200F200E29423 /* QRCode.swift in Sources */,
 				352801791FE4E2430077979D /* HGCSeed.m in Sources */,
@@ -1638,19 +1710,17 @@
 				3504B9F421004F1F003CC4E7 /* Duration.pb.swift in Sources */,
 				350DF3441FC6AFD80006166C /* AccountListViewController.swift in Sources */,
 				351EEC122059812B00190DCF /* EdError.swift in Sources */,
+				18324105228929AA00CC5C98 /* TransferViewModel.swift in Sources */,
 				351EEC0F2059812B00190DCF /* sha512.c in Sources */,
 				3504BA0821004F1F003CC4E7 /* CryptoGetStakers.pb.swift in Sources */,
-				187530662263108E00E284C0 /* TxnStatusOperation.swift in Sources */,
 				351EEC152059812B00190DCF /* EdPublicKey.swift in Sources */,
 				353738891FDD4437009999F2 /* AddressOptionsTableCell.swift in Sources */,
 				3504B9F821004F1F003CC4E7 /* CryptoGetClaim.pb.swift in Sources */,
 				35932B951FCEA72B00C74D67 /* AccountDetailsViewController.swift in Sources */,
 				3504BA0321004F1F003CC4E7 /* CryptoGetInfo.pb.swift in Sources */,
 				3511E9B621146BB800B8861E /* ContractGetRecords.pb.swift in Sources */,
-				1815081E2188226000890123 /* WebServerViewController.swift in Sources */,
 				3504BA0721004F1F003CC4E7 /* TransactionGetRecord.pb.swift in Sources */,
 				3567E6901FCECA8900ED9F67 /* TransactionDetailsViewController.swift in Sources */,
-				18A65ADB2212D38E00221FFD /* Bip39MigrationViewController.swift in Sources */,
 				3504B9E921004F1F003CC4E7 /* FileDelete.pb.swift in Sources */,
 				1832084E21FB6410004311D7 /* RestoreAccountIDViewController.swift in Sources */,
 				350EA1241FC53F810092DDEB /* TransactionTableCell.swift in Sources */,
@@ -1661,10 +1731,8 @@
 				350DF3461FC6B0E00006166C /* AccountTableCell.swift in Sources */,
 				353738861FDD3C15009999F2 /* HGCSwitch.swift in Sources */,
 				3504BA0021004F1F003CC4E7 /* FileAppend.pb.swift in Sources */,
-				3EA2551921C7B43C00A9EBA8 /* WebServer.swift in Sources */,
 				35B63BD31FA1F5C600E29423 /* LeftMenuCell.swift in Sources */,
 				35B8ABF91F9F528A003E4F57 /* AlertController+Add.swift in Sources */,
-				3523E7291FD5A6C800CD488B /* VerifyAliasViewController.swift in Sources */,
 				1851A6492156240000752A80 /* Config.swift in Sources */,
 				35BE68591FC7EF7B00D01F5C /* AppSettings.swift in Sources */,
 				3504B9ED21004F1F003CC4E7 /* Query.pb.swift in Sources */,
@@ -1688,11 +1756,13 @@
 				351EEC102059812B00190DCF /* sign.c in Sources */,
 				185E96932155000000C2B698 /* HGCNode.swift in Sources */,
 				C91E4FBD20D5655600996A93 /* ChangeIPViewController.swift in Sources */,
+				18FED0B922A9185400227585 /* Bip32MigrationBackupVC.swift in Sources */,
 				1808C31C22488D8300FD7F45 /* TransactionBody.pb.swift in Sources */,
 				18EC4C70227E7ED7006B3461 /* ContractDelete.pb.swift in Sources */,
 				35B963A12130292D005EC9E2 /* TransactionService.swift in Sources */,
 				35B8ABF01F9F4A70003E4F57 /* Globals.swift in Sources */,
 				35E7C6151FCD244300346A51 /* CurrencyConverter.swift in Sources */,
+				188705B122A1353200055276 /* FeeCalc.swift in Sources */,
 				3567E6921FCEDC0D00ED9F67 /* AppConfigService.swift in Sources */,
 				187530642262F74100E284C0 /* CryptoUtils.swift in Sources */,
 				3504BA0C21004F1F003CC4E7 /* FileGetInfo.pb.swift in Sources */,
@@ -1701,7 +1771,6 @@
 				350DF3401FC6A0870006166C /* HGCWallet.swift in Sources */,
 				35732A791FEC042500EB23ED /* MyAddressTableCell.swift in Sources */,
 				353287BD1FE7D23100BCDE4F /* ContactTableViewCell.swift in Sources */,
-				18803B7B21654C10003E34AD /* CreateFeeSchedule.pb.swift in Sources */,
 				3504B9EE21004F1F003CC4E7 /* CryptoDelete.pb.swift in Sources */,
 				351EEC162059812B00190DCF /* EdSeed.swift in Sources */,
 				185E969521550D4000C2B698 /* NodesTableViewController.swift in Sources */,
@@ -1716,17 +1785,18 @@
 				3504BA0921004F1F003CC4E7 /* ContractCall.pb.swift in Sources */,
 				3504B9F321004F1F003CC4E7 /* ResponseHeader.pb.swift in Sources */,
 				35477F3D1FDE76690035EF2D /* QRScanTableCell.swift in Sources */,
-				187530722264F0F600E284C0 /* HAPI+HGCAccount.swift in Sources */,
 				357F0373209B108400FDCFED /* Logger.swift in Sources */,
 				35477F531FDFA8030035EF2D /* ContactInputTableCell.swift in Sources */,
 				3523E7331FD7012500CD488B /* URLRequestBuilder.swift in Sources */,
 				35FCF63F1FDD4AC700BA1EB1 /* AmountTableViewCell.swift in Sources */,
 				35E7C61E1FCDB01C00346A51 /* AddAccountViewController.swift in Sources */,
+				188705A9229E3AFC00055276 /* FileContentOperation.swift in Sources */,
 				C94D163F21326D4400212900 /* UpdateBalanceOperation.swift in Sources */,
 				3504BA0B21004F1F003CC4E7 /* TransactionResponse.pb.swift in Sources */,
 				3504B9F921004F1F003CC4E7 /* BasicTypes.pb.swift in Sources */,
 				35B63B9B1FA1A5E400E29423 /* HGCStyle.swift in Sources */,
 				351EEC142059812B00190DCF /* EdPrivateKey.swift in Sources */,
+				188705B722A65E3300055276 /* Bip32MigrationPromptVC.swift in Sources */,
 				3511E9B821146BB800B8861E /* CryptoService.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1737,10 +1807,11 @@
 			files = (
 				35DD3EA420A59355005A5F53 /* EDKeyPairTests.swift in Sources */,
 				354AE1E220B8192B001E0D02 /* HGCAccountTests.swift in Sources */,
-				18F7E261219E808B00166B56 /* PairingParamsTests.swift in Sources */,
 				357EA9D720B19674009CDBBF /* CoreDataMock.swift in Sources */,
 				35B8ABD31F9E5642003E4F57 /* HGCAppTests.swift in Sources */,
 				35DD3EB620A5AB61005A5F53 /* EDKeyChainTests.swift in Sources */,
+				181968432318F5A600B19363 /* MockRPC.swift in Sources */,
+				18EEA98A234C39700049F754 /* AddressBookServiceTests.swift in Sources */,
 				354AE1D420B58857001E0D02 /* HGCWalletTests.swift in Sources */,
 				35DD3E9F20A55E3F005A5F53 /* HGCSeedTests.swift in Sources */,
 			);
@@ -1789,6 +1860,151 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		180E7445232A55CF00D88BB6 /* Release_Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APP_BUNDLE_ID = com.hedera.wallet.dev;
+				APP_DISPLAY_NAME = "Dev Hedera Wallet";
+				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
+				BUILD_NUM = 124;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CUSTOM_URL_SCHEMA = hgcdev;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"$(HGCAPP_ENVIRONMENT)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HGCAPP_ENVIRONMENT = DEVELOPMENT;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Release_Dev;
+		};
+		180E7446232A55CF00D88BB6 /* Release_Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AB0BA9A4CE992D31E5ECBE8 /* Pods-HGCApp.release_dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7J42NV34C4;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/ABPadLockScreen\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"\"${PODS_ROOT}/Headers/Public/LGSideMenuController\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MTBBarcodeScanner\"",
+					"\"${PODS_ROOT}/Headers/Public/NSDate+TimeAgo\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL-Universal\"",
+					"$(SRCROOT)/HGCApp/'Utilities & Managers'/Keys/ED25519/CEd25519/include",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "distribution-dev-hedera-wallet";
+				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release_Dev;
+		};
+		180E7447232A55CF00D88BB6 /* Release_Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AB1530F17F1EF6914EB09C1 /* Pods-HGCAppTests.release_dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Y6G863755L;
+				INFOPLIST_FILE = tests/HGCAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGCApp.app/HGCApp";
+			};
+			name = Release_Dev;
+		};
+		180E7448232A55CF00D88BB6 /* Release_Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 367AB6BC295AD93C78CFA2EA /* Pods-HGCAppUITests.release_dev.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HGCApp;
+			};
+			name = Release_Dev;
+		};
 		18BF967421C225C300055B2A /* Release_Prod */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1796,6 +2012,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet;
 				APP_DISPLAY_NAME = "Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "";
+				BUILD_NUM = 124;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1844,7 +2061,6 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
-				VERSION_SUFFIX = "";
 			};
 			name = Release_Prod;
 		};
@@ -1879,11 +2095,12 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "01a085c0-d213-4208-bd9d-a0d7c0577bc0";
 				PROVISIONING_PROFILE_SPECIFIER = "AppStore-HederaWallet";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release_Prod;
@@ -1902,7 +2119,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGCApp.app/HGCApp";
 			};
@@ -1925,285 +2142,6 @@
 			};
 			name = Release_Prod;
 		};
-		18BF96BE21C3AA7500055B2A /* Debug_Dev_OC */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				APP_BUNDLE_ID = opencrowd.hgc.wallet.dev;
-				APP_DISPLAY_NAME = "OC Dev Wallet";
-				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CUSTOM_URL_SCHEMA = hgcdev;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"$(HGCAPP_ENVIRONMENT)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HGCAPP_ENVIRONMENT = DEVELOPMENT;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VERSION_SUFFIX = "";
-			};
-			name = Debug_Dev_OC;
-		};
-		18BF96BF21C3AA7500055B2A /* Debug_Dev_OC */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69C8228D048F7E267F3D4B70 /* Pods-HGCApp.debug_dev_oc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 296VV943AK;
-				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/ABPadLockScreen\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
-					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
-					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
-					"\"${PODS_ROOT}/Headers/Public/LGSideMenuController\"",
-					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Public/MTBBarcodeScanner\"",
-					"\"${PODS_ROOT}/Headers/Public/NSDate+TimeAgo\"",
-					"\"${PODS_ROOT}/Headers/Public/OpenSSL-Universal\"",
-					"$(SRCROOT)/HGCApp/'Utilities & Managers'/Keys/ED25519/CEd25519/include",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "distribution-oc-wallet-provisioning";
-				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug_Dev_OC;
-		};
-		18BF96C021C3AA7500055B2A /* Debug_Dev_OC */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8D61A73F68FA4377436315B /* Pods-HGCAppTests.debug_dev_oc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Y6G863755L;
-				INFOPLIST_FILE = tests/HGCAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGCApp.app/HGCApp";
-			};
-			name = Debug_Dev_OC;
-		};
-		18BF96C121C3AA7500055B2A /* Debug_Dev_OC */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A588E7CA3D05EBCA9E5AA25C /* Pods-HGCAppUITests.debug_dev_oc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
-				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HGCApp;
-			};
-			name = Debug_Dev_OC;
-		};
-		18BF96CA21C3AAA800055B2A /* Release_Prod_OC */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				APP_BUNDLE_ID = opencrowd.hgc.wallet;
-				APP_DISPLAY_NAME = "OC Wallet";
-				BRANCHIO_TEST_DOMAIN_PREFIX = "";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CUSTOM_URL_SCHEMA = hgc;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "$(HGCAPP_ENVIRONMENT)";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HGCAPP_ENVIRONMENT = PRODUCTION;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				VALIDATE_PRODUCT = YES;
-				VERSION_SUFFIX = "";
-			};
-			name = Release_Prod_OC;
-		};
-		18BF96CB21C3AAA800055B2A /* Release_Prod_OC */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B182A8E56D75D2EC9351F097 /* Pods-HGCApp.release_prod_oc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sushil Prabhu (296VV943AK)";
-				CODE_SIGN_STYLE = Manual;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 296VV943AK;
-				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/ABPadLockScreen\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
-					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
-					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
-					"\"${PODS_ROOT}/Headers/Public/LGSideMenuController\"",
-					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Public/MTBBarcodeScanner\"",
-					"\"${PODS_ROOT}/Headers/Public/NSDate+TimeAgo\"",
-					"\"${PODS_ROOT}/Headers/Public/OpenSSL-Universal\"",
-					"$(SRCROOT)/HGCApp/'Utilities & Managers'/Keys/ED25519/CEd25519/include",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "01a085c0-d213-4208-bd9d-a0d7c0577bc0";
-				PROVISIONING_PROFILE_SPECIFIER = "AppStore-hgcwallet";
-				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release_Prod_OC;
-		};
-		18BF96CC21C3AAA800055B2A /* Release_Prod_OC */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5920569227B339376A414754 /* Pods-HGCAppTests.release_prod_oc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Y6G863755L;
-				INFOPLIST_FILE = tests/HGCAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGCApp.app/HGCApp";
-			};
-			name = Release_Prod_OC;
-		};
-		18BF96CD21C3AAA800055B2A /* Release_Prod_OC */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
-				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HGCApp;
-			};
-			name = Release_Prod_OC;
-		};
 		35B8ABE01F9E5642003E4F57 /* Debug_Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2211,6 +2149,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet.dev;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
+				BUILD_NUM = 124;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2266,7 +2205,6 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VERSION_SUFFIX = .dev;
 			};
 			name = Debug_Dev;
 		};
@@ -2278,8 +2216,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
@@ -2301,12 +2239,13 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "distribution-dev-hedera-wallet";
+				PROVISIONING_PROFILE_SPECIFIER = "dev-hedera-wallet";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug_Dev;
@@ -2325,7 +2264,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGCApp.app/HGCApp";
 			};
@@ -2355,9 +2294,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35B8ABE01F9E5642003E4F57 /* Debug_Dev */,
-				18BF96BE21C3AA7500055B2A /* Debug_Dev_OC */,
+				180E7445232A55CF00D88BB6 /* Release_Dev */,
 				18BF967421C225C300055B2A /* Release_Prod */,
-				18BF96CA21C3AAA800055B2A /* Release_Prod_OC */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug_Dev;
@@ -2366,9 +2304,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35B8ABE31F9E5642003E4F57 /* Debug_Dev */,
-				18BF96BF21C3AA7500055B2A /* Debug_Dev_OC */,
+				180E7446232A55CF00D88BB6 /* Release_Dev */,
 				18BF967521C225C300055B2A /* Release_Prod */,
-				18BF96CB21C3AAA800055B2A /* Release_Prod_OC */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug_Dev;
@@ -2377,9 +2314,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35B8ABE61F9E5642003E4F57 /* Debug_Dev */,
-				18BF96C021C3AA7500055B2A /* Debug_Dev_OC */,
+				180E7447232A55CF00D88BB6 /* Release_Dev */,
 				18BF967621C225C300055B2A /* Release_Prod */,
-				18BF96CC21C3AAA800055B2A /* Release_Prod_OC */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug_Dev;
@@ -2388,9 +2324,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35B8ABE91F9E5642003E4F57 /* Debug_Dev */,
-				18BF96C121C3AA7500055B2A /* Debug_Dev_OC */,
+				180E7448232A55CF00D88BB6 /* Release_Dev */,
 				18BF967721C225C300055B2A /* Release_Prod */,
-				18BF96CD21C3AAA800055B2A /* Release_Prod_OC */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug_Dev;
@@ -2401,10 +2336,12 @@
 		350DF3031FC68A6E0006166C /* hgc.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				182FD133235053020071A09A /* hgc-4.xcdatamodel */,
+				18EC4CE8227F00F7006B3461 /* hgc-3.xcdatamodel */,
 				183208522204784E004311D7 /* hgc-2.xcdatamodel */,
 				350DF3041FC68A6E0006166C /* hgc.xcdatamodel */,
 			);
-			currentVersion = 183208522204784E004311D7 /* hgc-2.xcdatamodel */;
+			currentVersion = 182FD133235053020071A09A /* hgc-4.xcdatamodel */;
 			path = hgc.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

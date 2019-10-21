@@ -10,7 +10,6 @@ import UIKit
 
 class UserAgreementViewController: UIViewController {
     @IBOutlet weak var acceptButton : UIButton!
-    @IBOutlet weak var acceptButtonHeight : NSLayoutConstraint!
     @IBOutlet weak var textView : UITextView!
 
     var hideAcceptButton = false
@@ -26,12 +25,17 @@ class UserAgreementViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon-close"), style: .plain, target: self, action: #selector(onCloseButtonTap))
         self.view.backgroundColor = Color.pageBackgroundColor()
         self.navigationItem.backBarButtonItem = Globals.emptyBackBarButton()
-        let string = try! String.init(contentsOf: Bundle.main.url(forResource: "terms", withExtension: "txt")!)
-        self.textView.text = string
         if self.hideAcceptButton {
-            self.acceptButtonHeight.constant = 0
+            self.acceptButton.isHidden = true
         }
         
+        let termsText = try? String.init(contentsOf: Bundle.main.url(forResource: "terms", withExtension: "txt")!)
+        self.textView.text = termsText
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.textView.scrollRangeToVisible(NSMakeRange(0, 0))
     }
     
     @objc func onCloseButtonTap() {
@@ -43,5 +47,12 @@ class UserAgreementViewController: UIViewController {
         vc.title = NSLocalizedString("Backup your wallet", comment: "")
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    @IBAction func onFullTerms(){
+        if let url = URL(string: termsAndConditions) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
 }

@@ -46,5 +46,7 @@ class EDKeyPairTests: HGCAppTests {
         let privateKeyData = keyPair.privateKeyData
         XCTAssert(privateKeyData != nil)
         XCTAssertEqual(privateKeyData!.count, 64)
+        XCTAssertEqual("aabbccdd11223344aabbccdd11223344aaaaaaaabbbbcc59aa2244116688bb22720a5e6b5891e2e3226b662681c555d88b53087773d2dae9742eeb69e1aef8ad", privateKeyData?.hex)
+
     }
 }

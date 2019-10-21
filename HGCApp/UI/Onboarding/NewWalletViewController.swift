@@ -60,11 +60,11 @@ class NewWalletViewController: UIViewController {
     @IBAction func onCopyButtonTap() {
         let s = words.joined(separator: " ")
         Globals.copyString(s)
-        Globals.showGenericAlert(title: NSLocalizedString("Copied", comment: ""), message:NSLocalizedString("Backup phrase is copied successfully.", comment: ""))
+        Globals.showGenericAlert(title: NSLocalizedString("Copied", comment: ""), message:NSLocalizedString("Recovery phrase is copied successfully.", comment: ""))
     }
     
     @IBAction func onDoneButtonTap() {
-        let vc = PINSetupViewController.getInstance(self.sigantureAlgorith, seed)
+        let vc = PINSetupViewController.getInstance(.bip32, seed)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

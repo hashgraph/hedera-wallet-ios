@@ -16,6 +16,8 @@ protocol ScanViewControllerDelegate : class {
 
 class ScanViewController: UIViewController {
 
+    var message:String?
+
     @IBOutlet weak var scanView : UIView!
     @IBOutlet weak var captionLabel : UILabel!
     @IBOutlet weak var errorLabel : UILabel!
@@ -35,6 +37,10 @@ class ScanViewController: UIViewController {
         self.errorLabel.font = Font.regularFont(12.0)
         self.errorLabel.textColor = UIColor.red
         scanner = MTBBarcodeScanner(previewView: self.scanView)
+        
+        if let m = message {
+            self.captionLabel.text = m
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +67,9 @@ class ScanViewController: UIViewController {
                                 #endif
                                 results.append(stringValue)
                             }
-                            self.delegate?.scanViewControllerDidScan(self, results: results)
+                            if !results.isEmpty {
+                                self.delegate?.scanViewControllerDidScan(self, results: results)
+                            }
                         }
                     })
                 } catch {

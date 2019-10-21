@@ -7,9 +7,34 @@
 //
 
 import UIKit
+import MBProgressHUD
+import MessageUI
+
+class Mailer: NSObject, MFMailComposeViewControllerDelegate {
+    
+    func emailLogs(from:UIViewController) {
+        if !MFMailComposeViewController.canSendMail() {
+            Globals.showGenericErrorAlert(title: "Cannot send email", message: "")
+            return
+        }
+        let s = Logger.instance.logs.joined(separator: "\n")
+        let emailComposer = MFMailComposeViewController.init()
+        emailComposer.setMessageBody(s, isHTML: false)
+        emailComposer.mailComposeDelegate = self
+        from.present(emailComposer, animated: true) {
+            
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true) {
+            
+        }
+    }
+}
 
 class Globals {
-
+    
     static func showGenericErrorAlert() {
         showGenericErrorAlert(title: "Something went wrong", message: "Please try later.")
     }
@@ -287,3 +312,13 @@ extension Double {
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
 	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
+
+extension MBProgressHUD {
+    static func hide(_ hud:MBProgressHUD) {
+        DispatchQueue.main.async {
+            hud.hide(animated: true)
+        }
+    }
+}
+
+

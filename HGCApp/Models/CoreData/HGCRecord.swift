@@ -92,7 +92,14 @@ extension HGCRecord {
 }
 
 extension Proto_TransactionID {
-    func stringRepresentation() -> String! {
+    func protoHexRepresentation() -> String! {
         return try! serializedData().hex
     }
+}
+
+extension Proto_TransactionID {
+    var stringRepresentation:String {
+        return [accountID.shardNum.description, accountID.realmNum.description, accountID.accountNum.description].joined(separator: ".") + "@" + [transactionValidStart.nanos.description, transactionValidStart.nanos.description].joined(separator: ".")
+    }
+
 }

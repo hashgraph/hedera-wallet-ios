@@ -11,20 +11,22 @@ import UIKit
 class OnboardingViewController: UIViewController {
 
     private var embededNavCtrl : UINavigationController!
-    
-    static func getInstance() -> OnboardingViewController {
-        return Globals.welcomeStoryboard().instantiateViewController(withIdentifier: "onboardingViewController") as! OnboardingViewController
+    private var rootVC:UIViewController!
+    static func getInstance(root:UIViewController) -> OnboardingViewController {
+        let vc = Globals.welcomeStoryboard().instantiateViewController(withIdentifier: "onboardingViewController") as! OnboardingViewController
+        vc.rootVC = root
+        return vc
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navVC = segue.destination as? UINavigationController {
             self.embededNavCtrl = navVC
+            self.embededNavCtrl.viewControllers = [rootVC]
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = NSLocalizedString("Get Started on Hedera", comment: "")
         
         self.embededNavCtrl.navigationBar.barTintColor = Color.titleBarBackgroundColor()
         self.embededNavCtrl.navigationBar.tintColor = Color.primaryTextColor()

@@ -26,6 +26,7 @@
 "Something went wrong" = "Something went wrong";
 "CLOSE" = "CLOSE";
 "CONFIRM" = "CONFIRM";
+"Placeholder_Name_TextField" = "Name (optional)";
 
 // Onboarding
 "Get Started on Hedera" = "Get Started on Hedera";
@@ -33,28 +34,37 @@
 "Backup your wallet" = "Back up your wallet";
 "CREATE NEW WALLET" = "CREATE NEW WALLET";
 "RESTORE EXISTING WALLET" = "RESTORE EXISTING WALLET";
-"SETUP 4 DIGIT PIN" = "SETUP 4 DIGIT PIN";
-"NEW_WALLET_MESSAGE" = "Like a password, this backup phrase is the only way to recover a Hedera Wallet. Save the backup phrases to recover your Hedera Wallet if it is deleted, lost, or you get a new phone. It is recommended to also save your accountID along with these 24 words.";
-"ACCOUNTID_RESTORE_MESSAGE" = "If you already know the account number enter here or visit hedera portal to get it. You can skip this step and change it later in Accounts menu.";
+"SETUP 4 DIGIT PIN" = "SETUP PIN";
+"NEW_WALLET_MESSAGE" = "Like a password, this recovery phrase is the only way to recover a Hedera Wallet. Save the recovery phrases to recover your Hedera Wallet if it is deleted, lost, or you get a new phone. It is recommended to also save your accountID along with these 24 words.";
+"ACCOUNTID_RESTORE_MESSAGE" = "Please enter the Account ID associated with the recovery phrase entered.";
 "RESTORE_WALLET_MESSAGE" = "Enter, in order, the 22 or 24 words you were given when you created your previous wallet account. You will be prompted to enter the account id in next step.";
-"Backup phrase is copied successfully" = "Backup phrase is copied successfully";
+"Recovery phrase is copied successfully" = "Recovery phrase is copied successfully";
 "Restore Wallet Account" = "Restore Wallet Account";
-"Backup phrase is not valid" = "Backup phrase is not valid";
+"Recovery phrase is not valid" = "Recovery phrase is not valid";
 "Wallet restored successfully" = "Wallet restored successfully";
 "ACCOUNTID_PLACEHOLDER" = "e.g. 0.0.1001";
 "Enter Account ID" = "Enter Account ID";
 "ENABLE FACEID LOGIN" = "ENABLE FACEID LOGIN";
 "ENABLE FINGERPRINT LOGIN" = "ENABLE FINGERPRINT LOGIN";
 
+
+// Bip32 Migration
+"BIP32_MIGRATION_PROMPT" = "We’ve updated the Hedera Wallet’s key generation mechanism to match industry standard encryption (BIP39).\n\nTap ‘Accept’ to update the public / private key pairs and recovery phrase associated with your existing Hedera account ID. (Recommended)\n\nTap ‘Skip’ to retain the public / private key pairs and recovery phrase associated with your existing Hedera account ID. You will eventually need ‘Accept’ this change in future Hedera Wallet application updates.";
+"BIP32_MIGRATION_BACKUP_MESSAGE" = "Found below is your new recovery phrase. Please save it in a safe place (or places), where it won't be lost, and no one else will see it. Anyone who possesses this recovery phrase will have control over the account.";
+"BIP32_MIGRATION_BACKUP_ENTER_ACCOUNT_ID" = "After securely documenting your new recovery phrase, please enter your account ID in the field below and tap 'Confirm'.";
+"BIP32_MIGRATION_CONFIRM_MESSAGE" = "The public / private key pair and recovery phrase for your Hedera account ID is being updated.\n\nThis may take a minute. Please do not quit this application or turn off your device during the update.";
+"BIP32_MIGRATION_ERROR_MESSAGE" = "It looks like something went wrong with the key update. I’m checking now whether the account currently has the new key or the old key.";
+"BIP32_MIGRATION_SUCCESS_ALERT_TITLE" = "Thank you";
+"BIP32_MIGRATION_SUCCESS_ALERT_BODY" = "The private / public key pair and recovery phrase for account ID %@ has been updated.\n\nThis account ID can now be recovered using your new recovery phrase, from both the Hedera Wallet and any other wallet or application which supports the BIP39 encryption standard.";
+"UPDATE_KEY_PROMPT" = "This will update your key pair and your recovery phrase.";
+
 // Main
 "No Transactions" = "No Transactions";
 "HBAR" = "HBAR";
 "ENDING IN ..." = "ENDING IN ...";
-"SYNC_WARNING" = "Fetching balance will cost you hbars. Do you want to proceed?";
+"SYNC_WARNING" = "Fetching records will cost you hbars. Do you want to proceed?";
 "LAST_UPDATED_" = "Last updated %@";
-"BIP39_MIGRATION_ALERT_TITLE" = "Warning";
-"BIP39_MIGRATION_WARNING_MESSAGE" = "Your old backup-phrase is being replaced with a new 24-word equivalent. Tap here to see that phrase - Make sure you keep a record.";
-"BIP39_MIGRATION_PAGE_MESSAGE" = "Your 22 words passphrase is deprecated and will not be supported in future wallet. Please save this new backup phrases to recover your Hedera Wallet";
+"BIP32_MIGRATION_WARNING_MESSAGE_PURPLE" = "The latest version of the Hedera Wallet requires your public / private key pair and recovery phrase for account ID %@ be updated. Tap here to perform this update, and securely document your new information.";
 
 // Pay
 "TRANSFER" = "TRANSFER";
@@ -72,8 +82,11 @@
 "CHANGE" = "CHANGE";
 "Invalid QR Code" = "Invalid QR Code";
 "ADD NOTE" = "ADD NOTE";
+"MAX FEE" = "MAX FEE";
 "FEE" = "FEE";
 "VERIFY ALIAS" = "VERIFY ALIAS";
+"Pay to Third Party" = "Pay to Third Party";
+"PAY_EXCHANGE_MESSAGE" = "You will be sending your transaction to a third party to submit on your behalf. Make sure to only use information provided by a trusted destination.";
 
 // TXN Details
 "TRANSACTION DETAILS" = "TRANSACTION DETAILS";
@@ -127,8 +140,7 @@
 "Activity" = "Activity";
 "Requests" = "Requests";
 "Security" = "Security";
-"Backup Phrases" = "Backup Phrases";
-"Export Key" = "Export Key";
+"Export Private Key" = "Export Private Key";
 "Enable FaceID" = "Enable FaceID";
 "Enable Fingerprint ID" = "Enable Fingerprint ID";
 "Enable PIN" = "Enable PIN";
@@ -138,6 +150,7 @@
 "Synchronize Data" = "Synchronize Data";
 "About" = "About";
 "Profile" = "Profile";
+"UPDATE KEY" = "Update Key";
 "App Information" = "App Information";
 "You already have FaceID enabled" = "You already have FaceID enabled";
 "You already have Fingerprint ID enabled" = "You already have Fingerprint ID enabled";
@@ -148,11 +161,13 @@
 "ABOUT" = "ABOUT";
 "Version" = "Version";
 "Build" = "Build";
+"INVALID_FEE_MESSAGE" = "Please enter a valid amount for your Max Fee threshold.";
 
 // Export Key
-"EXPORT_KEY_PAGE_TITLE" = "Export Key";
+"EXPORT_KEY_PAGE_TITLE" = "Export Private Key";
 "Can't export" = "Can't export";
 "EXPORT_KEY_NO_WIFI_ERROR_MESSAGE" = "Please connect to a WiFi network and try again";
+"EXPORT_KEY_SHARE_WARNING" = "Exporting private keys allows full control of your Hedera account even taking all the hbars in it. Ensure you are only interacting with trusted partners and software.";
 
 // Nodes
 "NODES" = "NODES";

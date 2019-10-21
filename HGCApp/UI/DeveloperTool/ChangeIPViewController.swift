@@ -40,6 +40,9 @@ class ChangeIPViewController: UIViewController, UITextFieldDelegate {
         btnChangeIP.layer.borderWidth = 0.5
         btnChangeIP.layer.cornerRadius = 2
         btnChangeIP.clipsToBounds = true
+        textIPAddress.keyboardType = .default
+        accountIdTextField.keyboardType = .default
+        
         textIPAddress.text = nodeVO.host
         let isNew = node == nil
         if !isNew {
@@ -89,17 +92,16 @@ class ChangeIPViewController: UIViewController, UITextFieldDelegate {
                 n.disabled = !btnSwitch.isOn
                 CoreDataManager.shared.saveContext()
             } else {
-                let newNode = HGCNode.addNode(nodeVO: nodeVO)
+                let newNode = HGCNode.addNode(nodeVO: nodeVO, context: CoreDataManager.shared.mainContext)
                 newNode.disabled = !btnSwitch.isOn
                 CoreDataManager.shared.saveContext()
             }
-            APIAddressBookService.defaultAddressBook.loadList()
             self.navigationController?.popViewController(animated: true)
         }
     }
 
     @IBAction func onSwitchValueChange() {
-        if (!btnSwitch.isOn && HGCNode.getAllNodes(activeOnly: true).count <= 1) {
+        if (!btnSwitch.isOn && HGCNode.getAllNodes(activeOnly: true, context: CoreDataManager.shared.mainContext).count <= 1) {
             Globals.showGenericErrorAlert(title: NSLocalizedString("Minimum one node should be active", comment: ""), message: "")
             btnSwitch.setOn(true, animated: true)
         }

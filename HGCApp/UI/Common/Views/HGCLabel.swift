@@ -61,7 +61,7 @@ class HGCAmountLabel: UILabel {
     }
     
     func setAmount(_ nanoCoins:Int64) {
-        setAmount(nanoCoins.toCoins().formatHGC())
+        setAmount(nanoCoins.toHBar().formatHGC())
     }
     
     func setAmount(_ coins:Double, short:Bool = false) {

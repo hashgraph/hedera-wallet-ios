@@ -55,18 +55,19 @@ class BackupWalletViewController: UIViewController , UITextViewDelegate {
                 }
             }
             var optionalSeed: HGCSeed? = nil
+            var keyDerivation:KeyDerivation? = nil
             if let seed  = HGCSeed.init(words: cleanWords) {
                 optionalSeed = seed
+                keyDerivation = .hgc
             } else if let seed  = HGCSeed.init(bip39Words: words) {
-                AppSettings.setHasShownBip39Mnemonic()
                 optionalSeed = seed
             }
             
             if let seed = optionalSeed {
-                let vc = RestoreAccountIDViewController.getInstance(sigantureOption, seed)
+                let vc = RestoreAccountIDViewController.getInstance(seed, keyDerivation)
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {
-                Globals.showGenericAlert(title: NSLocalizedString("Backup phrase is not valid", comment: ""), message: "")
+                Globals.showGenericAlert(title: NSLocalizedString("Recovery phrase is not valid", comment: ""), message: "")
             }
         }
     }

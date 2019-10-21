@@ -14,10 +14,11 @@ class PINSetupViewController: UIViewController {
     private var sigantureAlgorith : SignatureOption!
     private var seed:HGCSeed!
     private var accountID: HGCAccountID?
+    private var keyDerivation:KeyDerivation!
     
-    static func getInstance(_ option:SignatureOption, _ seed:HGCSeed, _ accID:HGCAccountID? = nil) -> PINSetupViewController {
+    static func getInstance(_ keyDerivation:KeyDerivation, _ seed:HGCSeed, _ accID:HGCAccountID? = nil) -> PINSetupViewController {
         let vc = Globals.welcomeStoryboard().instantiateViewController(withIdentifier: "pinSetupViewController") as! PINSetupViewController
-        vc.sigantureAlgorith = option
+        vc.keyDerivation = keyDerivation
         vc.seed = seed
         vc.accountID = accID
         return vc
@@ -51,7 +52,7 @@ class PINSetupViewController: UIViewController {
     
     func onAuthComplete(success:Bool) {
         if success {
-            if WalletHelper.onboard(signatureAlgorith: self.sigantureAlgorith, seed: seed, accID: accountID) {
+            if WalletHelper.onboard(keyDerivation: keyDerivation, seed: seed, accID: accountID) {
                 NotificationCenter.default.post(name: WalletHelper.onboardDidSuccess, object: nil)
             }
         } else {

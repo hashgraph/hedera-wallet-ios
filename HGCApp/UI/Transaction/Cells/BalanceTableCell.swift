@@ -28,8 +28,8 @@ class BalanceTableCell: UITableViewCell {
     }
     
     func setCoins(_ nanoCoins:UInt64) {
-        self.hgcBalanceLabel.text = nanoCoins.toCoins().formatHGCShort()
-        self.usdBalanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).format$()
+        self.hgcBalanceLabel.text = nanoCoins.toHBar().formatHGCShort()
+        self.usdBalanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).formatUSD()
     }
     
     func setTextColor(_ color:UIColor) {

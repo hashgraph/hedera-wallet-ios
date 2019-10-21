@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,45 +13,55 @@
             <objects>
                 <viewController storyboardIdentifier="userAgreementViewController" id="Uey-aF-dKh" customClass="UserAgreementViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qeH-Xr-06z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIn-Hj-oQ3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuN-tm-JSq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="0.41999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2P-9q-JMg">
-                                        <rect key="frame" x="0.0" y="577" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="703" width="414" height="115"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73Z-GC-YbX" customClass="HGCButtonPrimary" customModule="HGCApp" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="20" width="150" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="qUf-4C-WCY"/>
-                                                </constraints>
-                                                <state key="normal" title="Accept"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Accept"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onAccept" destination="Uey-aF-dKh" eventType="touchUpInside" id="79J-yP-H5h"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1zU-69-hdG">
+                                                <rect key="frame" x="20" y="20" width="374" height="75"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73Z-GC-YbX" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                        <state key="normal" title="See full terms &amp; conditions"/>
+                                                        <connections>
+                                                            <action selector="onFullTerms" destination="Uey-aF-dKh" eventType="touchUpInside" id="orc-sg-RmL"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzG-6l-POa" customClass="HGCButtonPrimary" customModule="HGCApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="45" width="374" height="30"/>
+                                                        <state key="normal" title="Accept"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Accept"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="onAccept" destination="Uey-aF-dKh" eventType="touchUpInside" id="P2h-L7-98y"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="73Z-GC-YbX" firstAttribute="centerX" secondItem="z2P-9q-JMg" secondAttribute="centerX" id="3vO-fn-IG5"/>
-                                            <constraint firstAttribute="height" constant="70" id="NcJ-QN-Rih"/>
-                                            <constraint firstItem="73Z-GC-YbX" firstAttribute="centerY" secondItem="z2P-9q-JMg" secondAttribute="centerY" id="QCu-4V-3dp"/>
+                                            <constraint firstAttribute="bottom" secondItem="1zU-69-hdG" secondAttribute="bottom" constant="20" id="Dr0-ir-Z9L"/>
+                                            <constraint firstItem="1zU-69-hdG" firstAttribute="leading" secondItem="z2P-9q-JMg" secondAttribute="leading" constant="20" id="XeE-Vf-ifX"/>
+                                            <constraint firstItem="1zU-69-hdG" firstAttribute="top" secondItem="z2P-9q-JMg" secondAttribute="top" constant="20" id="vDB-RU-95y"/>
+                                            <constraint firstAttribute="trailing" secondItem="1zU-69-hdG" secondAttribute="trailing" constant="20" id="zL6-wy-gdQ"/>
                                         </constraints>
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32J-OD-Qe1">
-                                        <rect key="frame" x="137" y="278" width="101" height="21"/>
+                                        <rect key="frame" x="156.66666666666666" y="341.33333333333331" width="100.99999999999997" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.41274019689757591" green="0.41274019689757591" blue="0.41274019689757591" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -84,25 +92,24 @@
                     </view>
                     <navigationItem key="navigationItem" id="r12-O9-GkC"/>
                     <connections>
-                        <outlet property="acceptButton" destination="73Z-GC-YbX" id="TQW-8D-Rde"/>
-                        <outlet property="acceptButtonHeight" destination="NcJ-QN-Rih" id="nCq-Jl-L5A"/>
+                        <outlet property="acceptButton" destination="dzG-6l-POa" id="1vh-28-rzJ"/>
                         <outlet property="textView" destination="HuN-tm-JSq" id="Flg-BP-XTB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zf5-fc-JbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="1075"/>
+            <point key="canvasLocation" x="886.875" y="1074.2957746478874"/>
         </scene>
         <!--Setup View Controller-->
         <scene sceneID="Nfc-PN-II1">
             <objects>
                 <viewController storyboardIdentifier="pinSetupViewController" id="8QG-Ed-MPa" customClass="PINSetupViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hxd-3V-jQC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NI7-aX-rzo">
-                                <rect key="frame" x="47.5" y="289.5" width="280" height="108"/>
+                                <rect key="frame" x="67" y="399" width="280" height="108"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAr-ll-bci" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -146,17 +153,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf2-FM-w1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="886" y="400"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="xot-pn-e3K">
             <objects>
                 <viewController storyboardIdentifier="onboardingViewController" id="Hdt-FM-3JF" customClass="OnboardingViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jdx-Xt-iog">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJV-Ic-wh2">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <connections>
                                     <segue destination="Yti-Jq-3nj" kind="embed" id="Baz-bo-boa"/>
                                 </connections>
@@ -181,12 +189,9 @@
             <objects>
                 <navigationController id="Yti-Jq-3nj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qnP-EN-5Wo">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="J7I-Xk-aNS" kind="relationship" relationship="rootViewController" id="MxS-JJ-bpl"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sEg-6Z-tBr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,14 +202,14 @@
             <objects>
                 <viewController storyboardIdentifier="newWalletViewController" id="A6A-vS-3sL" customClass="NewWalletViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KYz-e0-EwS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBg-1T-BUU">
-                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="792" width="414" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZSg-FA-pWa">
-                                        <rect key="frame" x="77.5" y="20" width="220" height="30"/>
+                                        <rect key="frame" x="97" y="20" width="220" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKx-RI-vYL" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
@@ -243,15 +248,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmy-Da-MT7" customClass="HGCBoxView" customModule="HGCApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="177" width="335" height="160"/>
+                                <rect key="frame" x="20" y="109.33333333333331" width="374" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="998" constant="160" id="qor-Fl-g6Y"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GO-Ha-ZJw" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="35" width="335" height="122"/>
-                                <string key="text">Like a password, this backup phrase is the only way to recover a Hedera Wallet. Save the backup phrases to recover your Hedera Wallet if it is deleted, lost, or you get a new phone. It is recommended to also save your accountID along with these 22 words.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like a" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GO-Ha-ZJw" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="59.000000000000007" width="374" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -260,17 +264,31 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xss-4y-wP0">
-                                <rect key="frame" x="50" y="197" width="275" height="120"/>
+                                <rect key="frame" x="50" y="129.33333333333334" width="314" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-tP-x9n">
+                                <rect key="frame" x="344" y="59.333333333333343" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KLo-WM-FU2"/>
+                                    <constraint firstAttribute="width" constant="50" id="bPG-Qv-aS1"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="14" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="icon-copy"/>
+                                <connections>
+                                    <action selector="onCopyButtonTap" destination="A6A-vS-3sL" eventType="touchUpInside" id="aF5-sK-tTp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GnM-tP-x9n" firstAttribute="trailing" secondItem="nmy-Da-MT7" secondAttribute="trailing" id="6fO-W3-YTU"/>
+                            <constraint firstItem="nmy-Da-MT7" firstAttribute="top" secondItem="GnM-tP-x9n" secondAttribute="bottom" id="6y7-Mk-EtY"/>
                             <constraint firstItem="Tmk-tP-ht6" firstAttribute="trailing" secondItem="8GO-Ha-ZJw" secondAttribute="trailing" constant="20" id="7TJ-eY-cVh"/>
                             <constraint firstItem="8GO-Ha-ZJw" firstAttribute="leading" secondItem="Tmk-tP-ht6" secondAttribute="leading" constant="20" id="9xX-ly-J87"/>
-                            <constraint firstItem="nmy-Da-MT7" firstAttribute="top" secondItem="8GO-Ha-ZJw" secondAttribute="bottom" constant="20" id="Aj3-KR-ua5"/>
+                            <constraint firstItem="nmy-Da-MT7" firstAttribute="top" secondItem="8GO-Ha-ZJw" secondAttribute="bottom" constant="30" id="Aj3-KR-ua5"/>
                             <constraint firstItem="xss-4y-wP0" firstAttribute="bottom" secondItem="nmy-Da-MT7" secondAttribute="bottom" constant="-20" id="BaV-9I-4BV"/>
                             <constraint firstItem="nmy-Da-MT7" firstAttribute="leading" secondItem="Tmk-tP-ht6" secondAttribute="leading" constant="20" id="Fx3-L4-W2n"/>
                             <constraint firstItem="ZBg-1T-BUU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nmy-Da-MT7" secondAttribute="bottom" constant="10" id="Mi6-qk-Ys2"/>
@@ -300,32 +318,32 @@
             <objects>
                 <viewController storyboardIdentifier="aboutViewController" id="hu7-aQ-fJ9" customClass="AboutViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EgQ-Sn-udk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFL-ZD-s7M">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pc6-7c-OKm">
-                                        <rect key="frame" x="30" y="30" width="315" height="477"/>
+                                        <rect key="frame" x="30" y="30" width="354" height="648"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="W1L-Q2-LYW">
-                                                <rect key="frame" x="90" y="205" width="135" height="67.5"/>
+                                                <rect key="frame" x="109.66666666666666" y="290.66666666666669" width="135" height="67"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEDERA WALLET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EF3-nV-H5R">
-                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcA-49-SVA">
-                                                        <rect key="frame" x="0.0" y="23.5" width="135" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="23.333333333333314" width="135" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN9-CR-z9Z">
-                                                        <rect key="frame" x="0.0" y="47" width="135" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="46.666666666666629" width="135" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -340,7 +358,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QGn-k4-yZD">
-                                        <rect key="frame" x="107.5" y="537" width="160" height="80"/>
+                                        <rect key="frame" x="127" y="708" width="160" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjQ-c4-ehb" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
@@ -397,14 +415,14 @@
             <objects>
                 <viewController storyboardIdentifier="backupWalletViewController" id="1ZP-aW-K0u" customClass="BackupWalletViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LbY-aH-Nf0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUT-Lm-sRA">
-                                <rect key="frame" x="0.0" y="281" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="284.66666666666669" width="414" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6E0-jl-PfH">
-                                        <rect key="frame" x="127.5" y="20" width="120" height="30"/>
+                                        <rect key="frame" x="147" y="20" width="120" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwo-lg-EUS" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
@@ -430,11 +448,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAA-jQ-b6B" customClass="HGCBoxView" customModule="HGCApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="131" width="335" height="150"/>
+                                <rect key="frame" x="20" y="134.66666666666666" width="374" height="149.99999999999997"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter, in order, the 22 words you were given when you created your previous wallet account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76i-xc-OII" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="50" width="335" height="61"/>
+                                <rect key="frame" x="20" y="74" width="374" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -443,13 +461,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QHE-le-W5X">
-                                <rect key="frame" x="30" y="141" width="315" height="130"/>
+                                <rect key="frame" x="30" y="144.66666666666666" width="354" height="129.99999999999997"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODh-rP-JqO">
-                                <rect key="frame" x="30" y="141" width="315" height="130"/>
+                                <rect key="frame" x="30" y="144.66666666666666" width="354" height="129.99999999999997"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="Qg8-DK-GJa"/>
                                 </constraints>
@@ -494,18 +512,18 @@
             <objects>
                 <viewController storyboardIdentifier="walletSetupOptionsViewController" id="J7I-Xk-aNS" customClass="WalletSetupOptionsViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AOP-oM-4BG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hbar_grey-white" translatesAutoresizingMaskIntoConstraints="NO" id="Rfv-XX-OyT">
-                                <rect key="frame" x="112.5" y="91.5" width="150" height="150"/>
+                                <rect key="frame" x="132" y="189" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="egy-PW-mJf"/>
                                     <constraint firstAttribute="width" secondItem="Rfv-XX-OyT" secondAttribute="height" id="fwV-0x-1AK"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jog-cm-KWh">
-                                <rect key="frame" x="47.5" y="281.5" width="280" height="148.5"/>
+                                <rect key="frame" x="67" y="379" width="280" height="148.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lct-3e-zjw" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
@@ -521,13 +539,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcI-WQ-IK3" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="280" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="64" width="280" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNO-4x-9Wd" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="104.5" width="280" height="44"/>
+                                        <rect key="frame" x="0.0" y="104.33333333333331" width="280" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="aZI-I6-zBd"/>
                                         </constraints>
@@ -565,11 +583,11 @@
             <objects>
                 <viewController storyboardIdentifier="emptyVC" id="dFE-K7-atn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XfU-XM-sJt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWE-AQ-q5s">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -594,14 +612,14 @@
             <objects>
                 <viewController storyboardIdentifier="privacyPolicyViewController" id="G3L-nZ-7DQ" customClass="PrivacyPolicyViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yme-iy-jzg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPV-gZ-G2A">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgU-Q6-hON">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="0.41999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -640,21 +658,20 @@
             <objects>
                 <viewController storyboardIdentifier="restoreAccountIDViewController" id="yce-nk-6tR" customClass="RestoreAccountIDViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gHc-ki-wmp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you don't know the account number, you can get it from the hedera portal " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zc1-8P-Log" customClass="ActiveLabel" customModule="ActiveLabel">
-                                <rect key="frame" x="20" y="50" width="335" height="41"/>
+                                <rect key="frame" x="20" y="74" width="374" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSe-w5-ZXY" customClass="HGCBoxView" customModule="HGCApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="131" width="335" height="44"/>
+                                <rect key="frame" x="20" y="154.66666666666666" width="374" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dhR-d9-Yk4" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
@@ -669,10 +686,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTo-8b-hcJ">
-                                <rect key="frame" x="0.0" y="215" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="238.66666666666663" width="414" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ofX-NG-Rkx">
-                                        <rect key="frame" x="57.5" y="20" width="260" height="30"/>
+                                        <rect key="frame" x="147" y="20.000000000000028" width="120" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEw-8Q-FVi" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
@@ -687,8 +704,8 @@
                                                     <action selector="onDoneButtonTap" destination="yce-nk-6tR" eventType="touchUpInside" id="poY-Wf-JrI"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-wB-LoC" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
-                                                <rect key="frame" x="140" y="0.0" width="120" height="30"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6n-wB-LoC" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="HCY-wI-n1J"/>
                                                 </constraints>
@@ -734,44 +751,127 @@
             </objects>
             <point key="canvasLocation" x="-695" y="768"/>
         </scene>
-        <!--Bip39 Migration View Controller-->
-        <scene sceneID="bYg-nZ-aeU">
+        <!--Bip32 Migration PromptVC-->
+        <scene sceneID="kuL-g2-GHb">
             <objects>
-                <viewController storyboardIdentifier="bip39MigrationViewController" id="f2C-CY-woJ" customClass="Bip39MigrationViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bVA-pa-hVK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="bip32MigrationPromptVC" id="NKk-CA-rQ9" customClass="Bip32MigrationPromptVC" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qiv-Ko-LeO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIj-7V-2XW">
-                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ze8-BJ-xK1">
+                                <rect key="frame" x="0.0" y="194" width="414" height="518"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AFm-Vi-a3I">
-                                        <rect key="frame" x="77.5" y="20" width="220" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hbar_grey-white" translatesAutoresizingMaskIntoConstraints="NO" id="d9X-qI-zIS">
+                                        <rect key="frame" x="132" y="-20" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="KlK-Fs-bFL"/>
+                                            <constraint firstAttribute="width" secondItem="d9X-qI-zIS" secondAttribute="height" multiplier="1:1" id="Lm5-Qq-ob4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="anc-ck-4ec" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="140" width="374" height="264"/>
+                                        <string key="text">We’ve updated the Hedera Wallet’s key generation mechanism to match industry standard encryption (BIP39).  Tap ‘Accept’ to update the public / private key pairs and recovery phrase associated with your existing Hedera account ID. (Recommended)  Tap ‘Skip’ to retain the public / private key pairs and recovery phrase associated with your existing Hedera account ID. You will eventually need ‘Accept’ this change in future Hedera Wallet application updates.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="BIP32_MIGRATION_PROMPT"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gmc-8d-GDD">
+                                        <rect key="frame" x="67" y="444" width="280" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLy-NY-z6R" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHA-wU-GQ6" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="Flh-hD-ldq"/>
+                                                    <constraint firstAttribute="height" constant="44" id="xPT-oX-Abd"/>
                                                 </constraints>
-                                                <state key="normal" title="COPY"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="COPY"/>
-                                                </userDefinedRuntimeAttributes>
+                                                <state key="normal" title="Accept"/>
                                                 <connections>
-                                                    <action selector="onCopyButtonTap" destination="f2C-CY-woJ" eventType="touchUpInside" id="cEU-6Z-gJB"/>
+                                                    <action selector="onYesButtonTap" destination="NKk-CA-rQ9" eventType="touchUpInside" id="JL0-7m-5p3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ma-Ci-apX" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1V-pi-Dpc" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="150" y="0.0" width="130" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="xbB-lh-v5c"/>
+                                                </constraints>
+                                                <state key="normal" title="Skip"/>
+                                                <connections>
+                                                    <action selector="onNoButtonTap" destination="NKk-CA-rQ9" eventType="touchUpInside" id="JpH-ld-Upw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="QHA-wU-GQ6" firstAttribute="width" secondItem="d1V-pi-Dpc" secondAttribute="width" id="Cm7-v0-a6K"/>
+                                            <constraint firstAttribute="width" constant="280" id="uTJ-i4-VNc"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gmc-8d-GDD" firstAttribute="centerX" secondItem="Ze8-BJ-xK1" secondAttribute="centerX" id="Al9-Ji-sAB"/>
+                                    <constraint firstItem="d9X-qI-zIS" firstAttribute="top" secondItem="Ze8-BJ-xK1" secondAttribute="top" constant="-20" id="Iba-kU-bMY"/>
+                                    <constraint firstAttribute="trailing" secondItem="anc-ck-4ec" secondAttribute="trailing" constant="20" id="UTE-TJ-QCT"/>
+                                    <constraint firstAttribute="bottom" secondItem="gmc-8d-GDD" secondAttribute="bottom" constant="30" id="dzm-Dx-Drp"/>
+                                    <constraint firstItem="d9X-qI-zIS" firstAttribute="centerX" secondItem="Ze8-BJ-xK1" secondAttribute="centerX" id="s66-zg-lgS"/>
+                                    <constraint firstItem="anc-ck-4ec" firstAttribute="top" secondItem="d9X-qI-zIS" secondAttribute="bottom" constant="10" id="ujk-Wz-p8l"/>
+                                    <constraint firstItem="gmc-8d-GDD" firstAttribute="top" secondItem="anc-ck-4ec" secondAttribute="bottom" constant="40" id="wmm-Ar-jvE"/>
+                                    <constraint firstItem="anc-ck-4ec" firstAttribute="leading" secondItem="Ze8-BJ-xK1" secondAttribute="leading" constant="20" id="xfg-JT-6M3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B6t-wf-G5k" firstAttribute="top" relation="lessThanOrEqual" secondItem="Ze8-BJ-xK1" secondAttribute="top" id="PIf-Sp-QDq"/>
+                            <constraint firstItem="Ze8-BJ-xK1" firstAttribute="leading" secondItem="B6t-wf-G5k" secondAttribute="leading" id="a7A-4v-xJH"/>
+                            <constraint firstItem="B6t-wf-G5k" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ze8-BJ-xK1" secondAttribute="bottom" id="fPS-HJ-sGW"/>
+                            <constraint firstItem="B6t-wf-G5k" firstAttribute="trailing" secondItem="Ze8-BJ-xK1" secondAttribute="trailing" id="gBi-MQ-XdX"/>
+                            <constraint firstItem="Ze8-BJ-xK1" firstAttribute="centerY" secondItem="B6t-wf-G5k" secondAttribute="centerY" id="sbK-7s-dtU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B6t-wf-G5k"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="anc-ck-4ec" id="HMB-kY-G7F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ze2-1h-twG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="669.60000000000002" y="25.637181409295355"/>
+        </scene>
+        <!--Bip32 Migration BackupVC-->
+        <scene sceneID="TYn-D8-QUY">
+            <objects>
+                <viewController storyboardIdentifier="bip32MigrationBackupVC" id="QnQ-2q-R50" customClass="Bip32MigrationBackupVC" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uxd-S8-LqE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBm-uo-gu1" userLabel="buttons">
+                                <rect key="frame" x="0.0" y="792" width="414" height="70"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UJ3-3f-62P">
+                                        <rect key="frame" x="97" y="20" width="220" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRG-pX-9BC" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="BHs-wk-Bf0"/>
+                                                </constraints>
+                                                <state key="normal" title="Copy"/>
+                                                <connections>
+                                                    <action selector="onCopyButtonTap" destination="QnQ-2q-R50" eventType="touchUpInside" id="QZZ-rm-7vY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2P-dq-dZs" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                                 <rect key="frame" x="120" y="0.0" width="100" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="OIy-WH-nGP"/>
+                                                    <constraint firstAttribute="width" constant="100" id="3gU-cH-dD4"/>
                                                 </constraints>
-                                                <state key="normal" title="DONE"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="DONE"/>
-                                                </userDefinedRuntimeAttributes>
+                                                <state key="normal" title="Confirm"/>
                                                 <connections>
-                                                    <action selector="onDoneButtonTap" destination="f2C-CY-woJ" eventType="touchUpInside" id="EGG-0j-v0q"/>
+                                                    <action selector="onConfirmButtonTap" destination="QnQ-2q-R50" eventType="touchUpInside" id="XXm-0a-sMF"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -779,65 +879,240 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="AFm-Vi-a3I" firstAttribute="centerX" secondItem="xIj-7V-2XW" secondAttribute="centerX" id="Rtm-fl-AYe"/>
-                                    <constraint firstAttribute="height" constant="70" id="qni-bC-8RK"/>
-                                    <constraint firstItem="AFm-Vi-a3I" firstAttribute="centerY" secondItem="xIj-7V-2XW" secondAttribute="centerY" id="riH-6C-Ivq"/>
+                                    <constraint firstItem="UJ3-3f-62P" firstAttribute="centerY" secondItem="eBm-uo-gu1" secondAttribute="centerY" id="TIF-qI-brm"/>
+                                    <constraint firstAttribute="height" constant="70" id="eEe-Us-KoX"/>
+                                    <constraint firstItem="UJ3-3f-62P" firstAttribute="centerX" secondItem="eBm-uo-gu1" secondAttribute="centerX" id="ps2-mH-G9a"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5f-fh-DgM" customClass="HGCBoxView" customModule="HGCApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="96" width="335" height="160"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jok-77-Lhx" customClass="HGCBoxView" customModule="HGCApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="130" width="374" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="998" constant="160" id="ZYD-fg-ImP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="998" constant="160" id="9jQ-t3-iIS"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like a password, this backup phrase is the only way to recover a Hedera " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKk-zt-Def" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="35" width="335" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="lost, or you get a new phone. It is recommended to also save your accountID along with these 22 words." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TsV-BK-uij" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="49" width="374" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="BIP39_MIGRATION_PAGE_MESSAGE"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="BIP32_MIGRATION_BACKUP_MESSAGE"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3jQ-6p-KgJ">
-                                <rect key="frame" x="50" y="116" width="275" height="120"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your full Account ID Please enter your full Account ID" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-Wq-2hu" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="305" width="374" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="BIP32_MIGRATION_BACKUP_ENTER_ACCOUNT_ID"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YUv-3L-4Ke">
+                                <rect key="frame" x="50" y="150" width="314" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpn-yI-7us" customClass="HGCBoxView" customModule="HGCApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="350.66666666666669" width="374" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EoH-BQ-DE0" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="EoH-BQ-DE0" firstAttribute="top" secondItem="bpn-yI-7us" secondAttribute="top" id="1WZ-zk-ze0"/>
+                                    <constraint firstAttribute="bottom" secondItem="EoH-BQ-DE0" secondAttribute="bottom" id="7tP-MC-ZnT"/>
+                                    <constraint firstAttribute="trailing" secondItem="EoH-BQ-DE0" secondAttribute="trailing" id="CiX-D3-CZ0"/>
+                                    <constraint firstItem="EoH-BQ-DE0" firstAttribute="leading" secondItem="bpn-yI-7us" secondAttribute="leading" id="u5s-W7-lTk"/>
+                                    <constraint firstAttribute="height" constant="44" id="uum-ge-LSW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hKk-zt-Def" firstAttribute="top" secondItem="52j-8e-jOf" secondAttribute="top" constant="15" id="0wY-mF-tmz"/>
-                            <constraint firstItem="xIj-7V-2XW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="E5f-fh-DgM" secondAttribute="bottom" constant="10" id="1EJ-9H-teZ"/>
-                            <constraint firstItem="xIj-7V-2XW" firstAttribute="leading" secondItem="52j-8e-jOf" secondAttribute="leading" id="45T-P9-acr"/>
-                            <constraint firstItem="3jQ-6p-KgJ" firstAttribute="bottom" secondItem="E5f-fh-DgM" secondAttribute="bottom" constant="-20" id="4ZT-mU-RBX"/>
-                            <constraint firstItem="hKk-zt-Def" firstAttribute="leading" secondItem="52j-8e-jOf" secondAttribute="leading" constant="20" id="6BC-g4-hG4"/>
-                            <constraint firstItem="52j-8e-jOf" firstAttribute="trailing" secondItem="hKk-zt-Def" secondAttribute="trailing" constant="20" id="BBP-Cc-eKV"/>
-                            <constraint firstItem="52j-8e-jOf" firstAttribute="bottom" secondItem="xIj-7V-2XW" secondAttribute="bottom" id="C22-No-TWu"/>
-                            <constraint firstItem="52j-8e-jOf" firstAttribute="trailing" secondItem="E5f-fh-DgM" secondAttribute="trailing" constant="20" id="IWh-Dg-h7e"/>
-                            <constraint firstItem="3jQ-6p-KgJ" firstAttribute="top" secondItem="E5f-fh-DgM" secondAttribute="top" constant="20" id="MRT-gC-MeA"/>
-                            <constraint firstItem="3jQ-6p-KgJ" firstAttribute="leading" secondItem="E5f-fh-DgM" secondAttribute="leading" constant="30" id="Y1I-cc-6EK"/>
-                            <constraint firstItem="3jQ-6p-KgJ" firstAttribute="trailing" secondItem="E5f-fh-DgM" secondAttribute="trailing" constant="-30" id="ZG2-me-9Zb"/>
-                            <constraint firstItem="52j-8e-jOf" firstAttribute="trailing" secondItem="xIj-7V-2XW" secondAttribute="trailing" id="djG-VP-1mv"/>
-                            <constraint firstItem="E5f-fh-DgM" firstAttribute="top" secondItem="hKk-zt-Def" secondAttribute="bottom" constant="20" id="ovY-R5-K8e"/>
-                            <constraint firstItem="E5f-fh-DgM" firstAttribute="leading" secondItem="52j-8e-jOf" secondAttribute="leading" constant="20" id="peH-Hl-1BI"/>
+                            <constraint firstItem="YUv-3L-4Ke" firstAttribute="leading" secondItem="jok-77-Lhx" secondAttribute="leading" constant="30" id="2v8-9Q-ip8"/>
+                            <constraint firstItem="bpn-yI-7us" firstAttribute="leading" secondItem="jok-77-Lhx" secondAttribute="leading" id="7EJ-Om-2RG"/>
+                            <constraint firstItem="C1X-OU-gwF" firstAttribute="bottom" secondItem="eBm-uo-gu1" secondAttribute="bottom" id="BTG-hM-LMC"/>
+                            <constraint firstItem="C1X-OU-gwF" firstAttribute="trailing" secondItem="eBm-uo-gu1" secondAttribute="trailing" id="D3o-0U-LYj"/>
+                            <constraint firstItem="TsV-BK-uij" firstAttribute="top" secondItem="C1X-OU-gwF" secondAttribute="top" constant="5" id="NLJ-QK-7Au"/>
+                            <constraint firstItem="jok-77-Lhx" firstAttribute="top" secondItem="TsV-BK-uij" secondAttribute="bottom" constant="20" id="ObV-Rd-Ucp"/>
+                            <constraint firstItem="jok-77-Lhx" firstAttribute="leading" secondItem="C1X-OU-gwF" secondAttribute="leading" constant="20" id="PEb-Fv-X5d"/>
+                            <constraint firstItem="eBm-uo-gu1" firstAttribute="leading" secondItem="C1X-OU-gwF" secondAttribute="leading" id="PXD-uW-wU9"/>
+                            <constraint firstItem="YUv-3L-4Ke" firstAttribute="top" secondItem="jok-77-Lhx" secondAttribute="top" constant="20" id="TQs-E9-doe"/>
+                            <constraint firstItem="YUv-3L-4Ke" firstAttribute="trailing" secondItem="jok-77-Lhx" secondAttribute="trailing" constant="-30" id="V6t-Pf-WFE"/>
+                            <constraint firstItem="bpn-yI-7us" firstAttribute="trailing" secondItem="jok-77-Lhx" secondAttribute="trailing" id="VvI-Zs-vRa"/>
+                            <constraint firstItem="TsV-BK-uij" firstAttribute="leading" secondItem="C1X-OU-gwF" secondAttribute="leading" constant="20" id="YcV-0b-Ead"/>
+                            <constraint firstItem="YUv-3L-4Ke" firstAttribute="bottom" secondItem="jok-77-Lhx" secondAttribute="bottom" constant="-20" id="flQ-U0-weo"/>
+                            <constraint firstItem="9nz-Wq-2hu" firstAttribute="leading" secondItem="bpn-yI-7us" secondAttribute="leading" id="rLM-40-e1I"/>
+                            <constraint firstItem="eBm-uo-gu1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bpn-yI-7us" secondAttribute="bottom" constant="10" id="st7-Vy-8PX"/>
+                            <constraint firstItem="9nz-Wq-2hu" firstAttribute="top" secondItem="jok-77-Lhx" secondAttribute="bottom" constant="15" id="t0n-qU-ztJ"/>
+                            <constraint firstItem="C1X-OU-gwF" firstAttribute="trailing" secondItem="jok-77-Lhx" secondAttribute="trailing" constant="20" id="t5L-m2-7Vi"/>
+                            <constraint firstItem="C1X-OU-gwF" firstAttribute="trailing" secondItem="TsV-BK-uij" secondAttribute="trailing" constant="20" id="ubf-MV-saF"/>
+                            <constraint firstItem="9nz-Wq-2hu" firstAttribute="trailing" secondItem="bpn-yI-7us" secondAttribute="trailing" id="yhb-PC-oRY"/>
+                            <constraint firstItem="bpn-yI-7us" firstAttribute="top" secondItem="9nz-Wq-2hu" secondAttribute="bottom" constant="5" id="zY2-CI-482"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="52j-8e-jOf"/>
+                        <viewLayoutGuide key="safeArea" id="C1X-OU-gwF"/>
                     </view>
                     <connections>
-                        <outlet property="backupPhraseLabel" destination="3jQ-6p-KgJ" id="Ic1-dU-bSm"/>
-                        <outlet property="doneButton" destination="7Ma-Ci-apX" id="JpN-FB-pqR"/>
-                        <outlet property="messageLabel" destination="hKk-zt-Def" id="gVo-BN-sjM"/>
+                        <outlet property="accountIDCaptionLabel" destination="9nz-Wq-2hu" id="ATY-6l-avJ"/>
+                        <outlet property="accountIDTextFiled" destination="EoH-BQ-DE0" id="0RX-sy-PzA"/>
+                        <outlet property="backupPhraseLabel" destination="YUv-3L-4Ke" id="76B-OT-uYm"/>
+                        <outlet property="messageLabel" destination="TsV-BK-uij" id="huL-Nl-c2V"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U2C-UV-Z5y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhJ-M4-ETQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1495" y="870"/>
         </scene>
+        <!--Bip32 Migration ConfirmVC-->
+        <scene sceneID="lSd-hu-j1m">
+            <objects>
+                <viewController storyboardIdentifier="bip32MigrationConfirmVC" id="98r-IZ-J2L" customClass="Bip32MigrationConfirmVC" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fdo-Eh-xPV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lost, or you get a new phone. It is recommended to also save your accountID along with these 22 words." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9K-Z3-rP4" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="74" width="374" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="BIP32_MIGRATION_CONFIRM_MESSAGE"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wlI-OC-4bM">
+                                <rect key="frame" x="197" y="443" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S9K-Z3-rP4" firstAttribute="leading" secondItem="DLm-0s-wE4" secondAttribute="leading" constant="20" id="9AB-ZT-o8h"/>
+                            <constraint firstItem="DLm-0s-wE4" firstAttribute="trailing" secondItem="S9K-Z3-rP4" secondAttribute="trailing" constant="20" id="Cfh-4K-54t"/>
+                            <constraint firstItem="wlI-OC-4bM" firstAttribute="centerX" secondItem="DLm-0s-wE4" secondAttribute="centerX" id="DjX-oG-aro"/>
+                            <constraint firstItem="S9K-Z3-rP4" firstAttribute="top" secondItem="DLm-0s-wE4" secondAttribute="top" constant="30" id="KaM-nh-4Mx"/>
+                            <constraint firstItem="wlI-OC-4bM" firstAttribute="centerY" secondItem="DLm-0s-wE4" secondAttribute="centerY" id="hP8-Sx-CV4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DLm-0s-wE4"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="S9K-Z3-rP4" id="c3s-fZ-g8L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kVw-JZ-4BA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1495" y="870"/>
+        </scene>
+        <!--Bip32 Migration ErrorVC-->
+        <scene sceneID="uC3-b8-fce">
+            <objects>
+                <viewController storyboardIdentifier="bip32MigrationErrorVC" id="qax-6f-85P" customClass="Bip32MigrationErrorVC" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DYP-7x-SI5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ev-Y7-g39">
+                                <rect key="frame" x="0.0" y="782" width="414" height="70"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hwb-D0-QCb">
+                                        <rect key="frame" x="147" y="20" width="120" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEx-ml-54Z" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="zfs-h2-vHs"/>
+                                                </constraints>
+                                                <state key="normal" title="Cancel"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Cancel"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onCancelButtonTap" destination="qax-6f-85P" eventType="touchUpInside" id="HmN-my-C1c"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBp-2c-hHL" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="pH7-QW-LBu"/>
+                                                </constraints>
+                                                <state key="normal" title="Retry"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Retry"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onRetryButtonTap" destination="qax-6f-85P" eventType="touchUpInside" id="9S0-Wl-nJV"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWm-CA-Z0Y" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="4bt-ey-sy0"/>
+                                                </constraints>
+                                                <state key="normal" title="Help"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Help"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="goToHelp" destination="qax-6f-85P" eventType="touchUpInside" id="sup-f8-Zr9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Hwb-D0-QCb" firstAttribute="centerY" secondItem="9Ev-Y7-g39" secondAttribute="centerY" id="Rls-Gt-OKT"/>
+                                    <constraint firstItem="Hwb-D0-QCb" firstAttribute="centerX" secondItem="9Ev-Y7-g39" secondAttribute="centerX" id="ZX2-M1-CnR"/>
+                                    <constraint firstAttribute="height" constant="70" id="wpG-SR-gVs"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter, in order, the 22 words you were given when you created your previous wallet account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLV-qS-79g" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="74" width="374" height="40.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="BIP32_MIGRATION_ERROR_MESSAGE"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wEu-OZ-x8D">
+                                <rect key="frame" x="197" y="443" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GBU-IB-6n3" firstAttribute="trailing" secondItem="9Ev-Y7-g39" secondAttribute="trailing" id="1Hy-w2-mOB"/>
+                            <constraint firstItem="TLV-qS-79g" firstAttribute="top" secondItem="GBU-IB-6n3" secondAttribute="top" constant="30" id="GMR-Ld-Dio"/>
+                            <constraint firstItem="TLV-qS-79g" firstAttribute="leading" secondItem="GBU-IB-6n3" secondAttribute="leading" constant="20" id="IWJ-hS-XXO"/>
+                            <constraint firstItem="GBU-IB-6n3" firstAttribute="trailing" secondItem="TLV-qS-79g" secondAttribute="trailing" constant="20" id="NXi-1c-HRj"/>
+                            <constraint firstItem="9Ev-Y7-g39" firstAttribute="leading" secondItem="GBU-IB-6n3" secondAttribute="leading" id="Q3G-CO-Xaz"/>
+                            <constraint firstItem="wEu-OZ-x8D" firstAttribute="centerX" secondItem="GBU-IB-6n3" secondAttribute="centerX" id="RqM-qF-Eg5"/>
+                            <constraint firstItem="wEu-OZ-x8D" firstAttribute="centerY" secondItem="GBU-IB-6n3" secondAttribute="centerY" id="gQz-zM-Hz8"/>
+                            <constraint firstItem="GBU-IB-6n3" firstAttribute="bottom" secondItem="9Ev-Y7-g39" secondAttribute="bottom" constant="10" id="pdK-SG-VSt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GBU-IB-6n3"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="wEu-OZ-x8D" id="n3p-wj-wf6"/>
+                        <outlet property="cancelButton" destination="XEx-ml-54Z" id="umM-mU-GrP"/>
+                        <outlet property="helpButton" destination="wWm-CA-Z0Y" id="qNd-YM-FEZ"/>
+                        <outlet property="messageLabel" destination="TLV-qS-79g" id="PBN-oG-g6Y"/>
+                        <outlet property="retryButton" destination="xBp-2c-hHL" id="TAx-Hh-KaR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8eA-9T-rl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-695" y="768"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Hbar_grey-white" width="200" height="200"/>
+        <image name="Hbar_grey-white" width="266.66665649414062" height="266.66665649414062"/>
+        <image name="icon-copy" width="14" height="16.333333969116211"/>
     </resources>
 </document>

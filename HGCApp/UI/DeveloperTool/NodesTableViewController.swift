@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class NodesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var nodes = [HGCNode]()
     @IBOutlet weak var tableView:UITableView!
-
+ 
     static func getInstance() -> NodesTableViewController {
         return Globals.developerToolsStoryboard().instantiateViewController(withIdentifier: "nodesTableViewController") as! NodesTableViewController
     }
@@ -22,14 +23,14 @@ class NodesTableViewController: UIViewController, UITableViewDelegate, UITableVi
         self.title = NSLocalizedString("NODES", comment: "")
         _ = APIAddressBookService.defaultAddressBook;
         if allowEditingNet {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title:NSLocalizedString("Add", comment: ""), style: .plain, target: self, action: #selector(NodesTableViewController.onAddButtonTap))
+            self.navigationItem.rightBarButtonItems = [UIBarButtonItem.init(title:NSLocalizedString("Add", comment: ""), style: .plain, target: self, action: #selector(NodesTableViewController.onAddButtonTap)), UIBarButtonItem.init(title:NSLocalizedString("Copy", comment: ""), style: .plain, target: self, action: #selector(NodesTableViewController.onCopyButtonTap))]
         }
         self.tableView.backgroundColor = Color.pageBackgroundColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        nodes = HGCNode.getAllNodes(activeOnly: false)
+        nodes = HGCNode.getAllNodes(activeOnly: false, context: CoreDataManager.shared.mainContext)
         self.tableView.reloadData()
     }
     
@@ -37,7 +38,25 @@ class NodesTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let vc = ChangeIPViewController.getInstance(node: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func onCopyButtonTap() {
+        let string = APIAddressBookService.defaultAddressBook.getAddressBookString()
+        Globals.copyString(string)
+        Globals.showGenericAlert(title: NSLocalizedString("Copied", comment: ""), message: string)
+    }
 
+    @IBAction func onRefreshButtonTap() {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        APIAddressBookService.defaultAddressBook.updateAddressBook(context: CoreDataManager.shared.mainContext) { [weak self] (e) in
+            if let error = e {
+                Globals.showGenericAlert(title: NSLocalizedString("Error", comment: ""), message: error)
+            }
+            hud.hide(animated: true)
+            self?.nodes = HGCNode.getAllNodes(activeOnly: false, context: CoreDataManager.shared.mainContext)
+            self?.tableView.reloadData()
+        }
+    }
+    
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nodes.count

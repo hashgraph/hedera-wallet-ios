@@ -74,11 +74,74 @@ class AppSettings: NSObject {
     }
     
     public class func hasShownBip39Mnemonic() -> Bool {
-        return UserDefaults.standard.bool(forKey: "HasShownBip39Mnemonic")
+        return UserDefaults.standard.bool(forKey: "HasShownBip39MnemonicV2")
     }
     
     public class func setHasShownBip39Mnemonic() {
-        UserDefaults.standard.set(true, forKey: "HasShownBip39Mnemonic")
+        UserDefaults.standard.set(true, forKey: "HasShownBip39MnemonicV2")
+        UserDefaults.standard.synchronize()
+    }
+    
+    public class func needsToShownBip39Mnemonic() -> Bool {
+        return UserDefaults.standard.bool(forKey: "needsToShownBip39Mnemonic")
+    }
+    
+    public class func setNeedsToShownBip39Mnemonic() {
+        UserDefaults.standard.set(true, forKey: "needsToShownBip39Mnemonic")
+        UserDefaults.standard.synchronize()
+    }
+    
+    public class func getFeeSchedule() -> Data? {
+        return UserDefaults.standard.data(forKey: "feeSchedule")
+    }
+    
+    public class func setFeeSchedule(_ data:Data) {
+        UserDefaults.standard.set(data, forKey: "feeSchedule")
+        UserDefaults.standard.synchronize()
+    }
+    
+    public class func setDefaultFee(_ fee:UInt64) {
+        UserDefaults.standard.set(fee, forKey: "defaultFee")
+        UserDefaults.standard.synchronize()
+    }
+    
+    public class func getDefaultFee() -> UInt64? {
+        return UserDefaults.standard.object(forKey: "defaultFee") as? UInt64
+
+    }
+    
+    public class func setExchangeRate(_ fee:Int32) {
+        UserDefaults.standard.set(fee, forKey: "exchangeRateCentEquiv")
+        UserDefaults.standard.synchronize()
+    }
+    
+    public class func getExchangeRate() -> Int32? {
+        return UserDefaults.standard.object(forKey: "exchangeRateCentEquiv") as? Int32
+
+    }
+    
+    public class func setExchangeRateExpirationTime(_ fee:Int64) {
+        UserDefaults.standard.set(fee, forKey: "exchangeRateExpTimeSeconds")
+        UserDefaults.standard.synchronize()
+    }
+    
+    public class func getExchangeRateExpireTime() -> Int64? {
+        return UserDefaults.standard.object(forKey: "exchangeRateExpTimeSeconds") as? Int64
+
+    }
+    
+    public class func setLastSyncNodesAt(_ date:Date) {
+        UserDefaults.standard.set(date, forKey: "lastSyncNodesAt")
+        UserDefaults.standard.synchronize()
+    }
+    
+    public class func getLastSyncNodesAt() -> Date? {
+        return UserDefaults.standard.object(forKey: "lastSyncNodesAt") as? Date
+    }
+    
+    public class func clear() {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
     }
 }

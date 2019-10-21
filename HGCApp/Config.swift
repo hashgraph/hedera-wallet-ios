@@ -16,4 +16,14 @@ let nodeListFileName = isDevMode ? "nodes-testnet.json" : "nodes-mainnet.json"
 let feeScheduleFile = "feeScheduleproto.txt"
 let loggingEnabled = true
 let portalFAQRestoreAccount = "https://help.hedera.com/hc/en-us/articles/360000714658"
-let useBetaAPIs = false // SignatureMap and bodyBytes
+let useBetaAPIs = true // SignatureMap and bodyBytes
+
+let fileNumAddressBook:Int64 = 101
+let fileNumFeeSchedule:Int64 = 102
+
+let defaultFee:UInt64 = 50000000
+let defaultPort:Int32 = 50211
+let termsAndConditions = "https://www.hedera.com/terms"
+let privacyPolicy = "https://www.hedera.com/privacy"
+
+let maxAllowedMemoLength = 100

@@ -11,26 +11,13 @@ import SwiftGRPC
 
 class BaseOperation: Operation {
     var errorMessage:String?
-    var node:HGCNodeVO!
+    var grpc:HAPIRPCProtocol = GRPCWrapper.init(nodes: APIAddressBookService.defaultAddressBook.getActiveNodes())
+    
     public static var operationQueue:OperationQueue = {
         let queue = OperationQueue.init()
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
-    
-    override func main() {
-        node = APIAddressBookService.defaultAddressBook.randomNode()
-        Logger.instance.log(message: " >>> \(node.address())", event: .i)
-    }
-    
-    var cryptoClient: Proto_CryptoServiceServiceClient {
-        let client = Proto_CryptoServiceServiceClient.init(address: node.address(), secure: false)
-        return client
-    }
-    
-    var tokenClient: Proto_SmartContractServiceServiceClient {
-        return Proto_SmartContractServiceServiceClient.init(address: node.address(), secure: false)
-    }
     
     func desc(_ error:Error) -> String {
         if let rpcError = error as? RPCError {
@@ -43,14 +30,44 @@ class BaseOperation: Operation {
                 print(result)
                 switch result.statusCode {
                 case .unavailable, .unknown, .deadlineExceeded:
-                    return "\(NSLocalizedString("Node is not reachable", comment: "")): " + node.host
+                    return "\(NSLocalizedString("Node is not reachable", comment: "")): " + grpc.node.host
                 default:
                     return NSLocalizedString("Something went wrong, please try later.", comment: "")
                 }
                 
             }
+        } else if let str = error as? String {
+            return str
         }
         return (error as NSError).debugDescription
+    }
+    
+    func getReceipt(acc:HGCAccountID, txnID:Proto_TransactionID, retryCount:Int = 30) throws -> Proto_Response {
+        var res:Proto_Response? = nil
+        for _ in 1...retryCount {
+            sleep(2)
+            do {
+                let transactionBuilder = TransactionBuilder.init(payerCredentials: nil, payerAccount: acc)
+                let param = GetTransactionReceiptParam.init(txnID)
+                
+                let receiptRes = try grpc.perform(param, transactionBuilder)
+                res = receiptRes.response
+                if receiptRes.response.transactionGetReceipt.receipt.status != .unknown {
+                    break
+                }
+                
+            } catch {
+                Logger.instance.log(message: desc(error), event: .e)
+                break
+            }
+        }
+        
+        if let r = res {
+            AppConfigService.defaultService.setConversionRate(receipt: r.transactionGetReceipt.receipt)
+            return r
+        } else {
+            throw "unable to fetch receipt"
+        }
     }
 }
 
@@ -168,5 +185,11 @@ extension Proto_ResponseCodeEnum {
             msg = String.init(describing: self)
         }
         return msg
+    }
+}
+
+extension Error {
+    var isRPCError: Bool {
+        return ((self as? RPCError) != nil)
     }
 }

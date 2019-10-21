@@ -54,7 +54,7 @@ class AccountDetailView: UIView, UITextFieldDelegate {
         HGCStyle.regularCaptionLabel(self.privateKeyCaptionLabel!)
         HGCStyle.regularCaptionLabel(self.nameCaptionLabel)
         HGCStyle.regularCaptionLabel(self.accountIDCaptionLabel!)
-
+        accountIDTextField?.keyboardType = .default
         self.hiddenSwitch?.setText(NSLocalizedString("HIDDEN", comment: ""))
         self.showPrivateKeyButton.setTitleColor(Color.secondaryTextColor(), for: .normal)
         self.showPrivateKeyButton.titleLabel?.font = Font.regularFontMedium()
@@ -81,10 +81,10 @@ class AccountDetailView: UIView, UITextFieldDelegate {
                 if let exisitingAccID = self.account.accountID() {
                     if exisitingAccID != accID {
                         account.clearData()
-                        CoreDataManager.shared.saveContext()
                     }
                 }
                 self.account.updateAccountID(accID)
+                CoreDataManager.shared.saveContext()
             } else {
                 Globals.showGenericErrorAlert(title: NSLocalizedString("Invalid account ID", comment: ""), message: nil)
             }
@@ -113,6 +113,7 @@ class AccountDetailView: UIView, UITextFieldDelegate {
     
     @IBAction func onCopyButtonTap() {
         Globals.copyString(self.account.publicKeyString())
+        Globals.showGenericAlert(title: NSLocalizedString("Copied", comment: ""), message: NSLocalizedString("Your public key is copied successfully.", comment: ""))
     }
     
     @IBAction func onCopyAccountInfoButtonTap() {

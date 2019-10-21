@@ -56,8 +56,8 @@ class TransactionTableCell: UITableViewCell {
             self.addressLabel.text = NSLocalizedString("ENDING IN ...", comment: "") + (address.substringFromEnd(length: 6))
         }
         
-        self.coinAmountLabel.setAmount(amount.toCoins(), short: true)
-        self.amountLabel.text = CurrencyConverter.shared.convertTo$value(amount).format$()
+        self.coinAmountLabel.setAmount(amount.toHBar(), short: true)
+        self.amountLabel.text = CurrencyConverter.shared.convertTo$value(amount).formatUSD()
         if let date = txn.createdDate {
             self.dateTimeLabel.text = date.toString()
         } else {

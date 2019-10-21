@@ -40,14 +40,16 @@ class AccountTableCell: UITableViewCell {
     }
     
     func setAccount(_ account:HGCAccount) {
-        let accountName = account.name ?? NSLocalizedString("Unknown", comment: "")
-        self.titleLabel.text = accountName
-        self.addressLabel.text = NSLocalizedString("Ending in ...", comment: "")+account.publicKeyString().substringFromEnd(length: 6)
+        self.titleLabel.text = NSLocalizedString("Unknown", comment: "")
+        if let name = account.name, !name.isEmpty {
+            self.titleLabel.text = name
+        }
+        self.addressLabel.text = account.accountID()?.stringRepresentation()
         let nanoCoins = account.balance
-        self.hgcBalanceLabel.text = nanoCoins.toCoins().formatHGCShort()
-        self.usdBalanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).format$()
+        self.hgcBalanceLabel.text = nanoCoins.toHBar().formatHGCShort()
+        self.usdBalanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).formatUSD()
         self.lastTxnLabel.text = ""
-        if let lastTxn = account.getAllTxn().first {
+        if account.accountTypeE != .external, let lastTxn = account.getAllTxn().first {
             var dateStr = ""
             if let date = lastTxn.createdDate {
                 dateStr = date.toString()

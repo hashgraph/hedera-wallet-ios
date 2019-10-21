@@ -15,37 +15,25 @@ class PayViewController: UITableViewController {
     private static let rowIndexTo = 1
     private static let rowIndexAmount = 2
     private static let rowIndexOptions = 3
-    private static let rowIndexFee = 4
-    private static let rowIndexNotes = 5
+    private static let rowIndexNotes = 4
+    private static let rowIndexFee = 5
     private static let rowIndexPay = 6
     
-    //@IBOutlet weak var tableView : UITableView!
+    var model : TransferViewModel!
+    
     var qrCell : QRScanTableCell?
-    
-    var fromAccount : HGCAccount?
-    var toAccount : AccountVO?
-    var token : SCToken?
-    var selfMode : Bool = false
-    var gas : UInt64 = 500000
-    var fee : UInt64 = 0
-    var amount : Int64? = 0
-    var isQROptionSelected = false
-    var hasNotes = false
-    var notes : String = ""
-    var notifRequested = false
-    var isNewSelected = false
-    
-    var request : HGCRequest?
     var queue = OperationQueue.init()
     
-    static func getInstance() -> PayViewController {
-        return PayViewController.init(style: .plain)//Globals.mainStoryboard().instantiateViewController(withIdentifier: "payViewController") as! PayViewController
+    static func getInstance(model : TransferViewModel) -> PayViewController {
+        let vc = PayViewController.init(style: .plain)
+        vc.model = model
+        return vc
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        self.title = token != nil ? NSLocalizedString("TRANSFER", comment: "") : NSLocalizedString("PAY", comment: "")
+        self.title = model.thirdParty ? NSLocalizedString("Pay to Third Party", comment: "") : NSLocalizedString("PAY", comment: "")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon-close"), style: .plain, target: self, action: #selector(onCloseButtonTap))
         self.tableView.register(UINib.init(nibName: "AddressTableViewCell", bundle: nil), forCellReuseIdentifier: "accountAddressTableCell")
         self.tableView.register(UINib.init(nibName: "AddressOptionsTableCell", bundle: nil), forCellReuseIdentifier: "AddressOptionsTableCell")
@@ -62,35 +50,19 @@ class PayViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableView.automaticDimension
         
-        self.notifRequested = AppSettings.getPrefPaymentConfirmation()
-        if self.fromAccount == nil {
-            self.fromAccount = HGCWallet.masterWallet()?.allAccounts().first
-        }
-        
-        if self.request != nil {
-            if (self.request?.amount)! > 0 {
-                self.amount = (self.request?.amount)!
-            }
-            if self.request?.fromAccount != nil {
-                self.toAccount = self.request?.fromAccount
-            }
-        }
         updateFee()
         self.reloadUI()
     }
     
-    func forToken() -> Bool {
-        return token != nil
-    }
     
     func reloadUI() {
         self.tableView.reloadData()
     }
     
     func updateFee() {
-        let amnt:UInt64 = self.amount == nil ? 0 : UInt64(self.amount!)
-        let txn = APIRequestBuilder.requestForTransfer(fromAccount: self.fromAccount!, toAccount: HGCAccountID.init(shardId: 0, realmId: 0, accountId: 0), amount: amnt, notes: self.notes, fee: APIRequestBuilder.placeholderFee)
-        fee = APIRequestBuilder.feeForTransfer(txn)
+        //let amnt:UInt64 = UInt64(model.amount ?? 0)
+        //let txn = APIRequestBuilder.requestForTransfer(fromAccount: model.fromAccount, toAccount: HGCAccountID.init(shardId: 0, realmId: 0, accountId: 0), amount: amnt, notes: model.notes, fee: 0, forThirdParty:model.thirdParty)
+        model.fee = AppConfigService.defaultService.fee
     }
     
     @objc func onCloseButtonTap() {
@@ -105,50 +77,39 @@ class PayViewController: UITableViewController {
     }
     
     func pickExisting() {
-        if selfMode {
-           
-        } else {
-            let vc = ContactPicker.getInstance()
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = ContactPicker.getInstance(model.thirdParty)
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func onToAccountChangeButtonTap() {
-        self.toAccount = nil
-        self.isNewSelected = false
-        self.reloadUI()
+        model.toAccountID = ""
+        model.toAccountName = ""
+        model.toAccountHost = ""
+        model.isNewSelected = false
+        reloadUI()
     }
     
     func onPayButtonTap() {
         self.view.endEditing(true)
-        var error : String?
         
-        if self.fromAccount == nil {
-            error = NSLocalizedString("From account ID is mandatory", comment: "")
-            
-        } else if self.fromAccount?.accountID() == nil {
-            error = NSLocalizedString("From account is not linked", comment: "")
-            
-        } else if toAccount?.accountID == nil {
-            error = NSLocalizedString("Invalid to account ID", comment: "")
-            
-        } else if amount == nil || amount! <= 0 {
-            error = NSLocalizedString("Invalid amount", comment: "")
-            
-        } else if (selfMode || forToken()) && gas == 0 {
-            error = NSLocalizedString("Invalid gas", comment: "")
-            
-        } else if forToken() && toAccount?.accountID == nil {
-            error = NSLocalizedString("Invalid to account ID", comment: "")
-        }
-        
-        if error != nil {
+        if let error = model.validateParams() {
             Globals.showGenericAlert(title: error, message: "")
             return
         }
+        
+        if model.thirdParty {
+            submitToThirdParty()
+        
+        } else {
+            submitToHederaNode()
+        }
+    }
+    
+    func submitToHederaNode() {
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        let op = TransferOperation.init(fromAccount: self.fromAccount!, toAccount: self.toAccount!.accountID!, toAccountName: self.toAccount?.name, amount: UInt64(self.amount!), notes: self.notes, fee: UInt64(fee))
+        let param = TransferParam.init(toAccount: model.toAccount!.accountID!, amount: UInt64(model.amount!), notes: model.notes, fee: UInt64(model.fee), forThirdParty: false, toAccountName: model.toAccount?.name)
+        let op = TransferOperation.init(fromAccount: model.fromAccount, param: param)
         op.completionBlock = {
             OperationQueue.main.addOperation({
                 self.hideHud(hud)
@@ -162,9 +123,57 @@ class PayViewController: UITableViewController {
         queue.addOperation(op)
     }
     
+    func submitToThirdParty() {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        sendToThirdParty(host: model.toAccountHost) { (error) in
+            self.hideHud(hud)
+            if let er = error {
+                self.onFail("Error", er)
+            } else {
+                self.onTransferSuccess()
+            }
+        }
+    }
+    
+    func sendToThirdParty(host:String, completion:@escaping ((_ error:String?) -> Void)) {
+        let hostURL = ExchangeInfo.toHttpURL(host: host)!
+        let txnBuilder = model.fromAccount.getTransactionBuilder()
+        let param = TransferParam.init(toAccount: model.toAccount!.accountID!, amount: UInt64(model.amount!), notes: model.notes, fee: model.fee, forThirdParty: model.thirdParty)
+        let txn = param.getPayload(txnBuilder)
+        
+        Logger.instance.log(message: "Sending transaction to" + host, event: .i)
+        var request = URLRequest.init(url: hostURL)
+        request.httpBody = try? txn.serializedData()
+        request.timeoutInterval = 15
+        request.httpMethod = "POST"
+        let task = URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
+            DispatchQueue.main.async {
+                if error == nil, let res = urlResponse as? HTTPURLResponse, (res.statusCode >= 200 || res.statusCode < 300) {
+                    self.saveThirdPartyTxn(txn)
+                    completion(nil)
+                } else {
+                    if let error = error {
+                        Logger.instance.log(message:error.localizedDescription, event: .e)
+                        completion(error.localizedDescription)
+                    } else {
+                        let errorMessage = "Something went wrong"
+                        completion (errorMessage)
+                    }
+                }
+            }
+            
+            
+        }
+        task.resume()
+    }
+    
+    func saveThirdPartyTxn(_ txn:Proto_Transaction) {
+        _ = model.fromAccount.createTransaction(toAccountID: model.toAccount!.accountID!, txn:txn)
+        HGCContact.addAlias(name: model.toAccountName, address: model.toAccountID, host: model.toAccountHost)
+    }
     
     func onTransferSuccess() {
-        if let req = self.request {
+        if let req = model.request {
             CoreDataManager.shared.mainContext.delete(req)
         }
         Globals.showGenericAlert(title: NSLocalizedString("Transaction submitted successfully", comment: ""), message: "")
@@ -172,14 +181,6 @@ class PayViewController: UITableViewController {
             BalanceService.defaultService.updateBalances()
             self.navigationController?.popViewController(animated: true)
         })
-    }
-    
-    func onToAccountReceived() {
-//        if let acc = self.toAccount {
-//            let r = URLRequestBuilder.init(account: acc, type: .importAccount)
-//            let vc = QRPreviewController.getInstance(r.requestUrl(forText: true))
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
     }
     
     func onFail(_ title:String, _ message: String?) {
@@ -201,10 +202,10 @@ extension PayViewController  {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == PayViewController.rowIndexOptions && (self.selfMode || self.forToken()) {
+        if model.thirdParty && [PayViewController.rowIndexNotes, PayViewController.rowIndexOptions].contains(indexPath.row) {
             return 0
         }
-        if !self.hasNotes && indexPath.row == PayViewController.rowIndexNotes {
+        if !model.hasNotes && indexPath.row == PayViewController.rowIndexNotes {
             return 0
         }
         return UITableView.automaticDimension
@@ -216,22 +217,24 @@ extension PayViewController  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyAddressTableCell", for: indexPath) as! MyAddressTableCell
             cell.delegate = self
             cell.captionLabel.text = NSLocalizedString("FROM", comment: "")
-            cell.setAccount(self.fromAccount!)
+            cell.setAccount(model.fromAccount)
             return cell
             
         case PayViewController.rowIndexTo:
-            if self.toAccount != nil || self.isNewSelected {
+            if model.isNewSelected {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "accountAddressTableCell", for: indexPath) as! AddressTableViewCell
                 cell.delegate = self
                 cell.allowEditing = true
                 cell.captionLabel.text = NSLocalizedString("TO", comment: "")
                 cell.actionButton.setTitle(NSLocalizedString("CANCEL", comment: ""), for: .normal)
-                cell.nameLabel.text = self.toAccount?.name
-                cell.keyLabel.text = self.toAccount?.stringRepresentation()
+                cell.nameLabel.text = model.toAccountName
+                cell.keyLabel.text = model.toAccountID
+                cell.hostTextField.text = model.toAccountHost
+                cell.hostTextField.superview?.isHidden = !model.thirdParty
                 return cell
                 
             } else {
-                if self.isQROptionSelected {
+                if model.isQROptionSelected {
                     if qrCell == nil {
                         qrCell = tableView.dequeueReusableCell(withIdentifier: "QRScanTableCell", for: indexPath) as? QRScanTableCell
                     }
@@ -245,11 +248,7 @@ extension PayViewController  {
                     cell.delegate = self
                     cell.setTitle(NSLocalizedString("EXISTING", comment: ""), atIndex: 0)
                     cell.setTitle(NSLocalizedString("SCAN QR", comment: ""), atIndex: 2)
-                    if selfMode {
-                        cell.removeButtonAtIndex(index: 1)
-                    } else {
-                        cell.setTitle(NSLocalizedString("NEW", comment: ""), atIndex: 1)
-                    }
+                    cell.setTitle(NSLocalizedString("NEW", comment: ""), atIndex: 1)
                     return cell
                 }
                 
@@ -258,31 +257,26 @@ extension PayViewController  {
         case PayViewController.rowIndexAmount:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AmountTableViewCell", for: indexPath) as! AmountTableViewCell
             cell.delegate = self
-            cell.hgcTextField.text = self.amount == 0 ? "" : self.amount!.toCoins().description
-            cell.usdTextField.text = self.amount == 0 ? "" : CurrencyConverter.shared.convertTo$value(self.amount!).description
+            cell.hgcTextField.text = model.amountHBar
+            cell.usdTextField.text = model.amountUSD
+            cell.usdTextField.isHidden = model.thirdParty
             return cell
             
         case PayViewController.rowIndexOptions:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TXNOptionsTableCell", for: indexPath) as! TXNOptionsTableCell
             cell.delegate = self
-            cell.notesSwitch.setOn(self.hasNotes, animated: false)
-            cell.notificationSwitch.setOn(self.notifRequested, animated: false)
+            cell.notesSwitch.setOn(model.hasNotes, animated: false)
             return cell
             
         case PayViewController.rowIndexFee:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeeTableCell", for: indexPath) as! FeeTableCell
-            cell.feeLabel.setAmount(Int64(fee))
-            if selfMode || forToken() {
-                cell.gasCaptionLabel.isHidden = false
-                cell.gasTextField.isHidden = false
-                cell.gasTextField.text = gas.description
-            }
-            
+            cell.feeLabel.setAmount(Int64(model.fee))
             return cell
+            
         case PayViewController.rowIndexNotes:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NotesTableViewCell", for: indexPath) as! NotesTableViewCell
             cell.delegate = self
-            cell.textView.text = self.notes
+            cell.textView.text = model.notes
             return cell
             
         case PayViewController.rowIndexPay:
@@ -301,14 +295,21 @@ extension PayViewController  {
 extension PayViewController : AccountPickerDelegate {
     func accountPickerDidPickAccount(_ picker: AccountListViewController, accont: HGCAccount) {
         self.navigationController?.popToViewController(self, animated: true)
-        self.fromAccount = accont
+        model.fromAccount = accont
         self.reloadUI()
     }
 }
 
 extension PayViewController : AmountTableViewCellDelegate {
-    func amountTableViewCellDidChange(_ cell: AmountTableViewCell, nanaoCoins: Int64) {
-        self.amount = nanaoCoins
+    func amountTableViewCellDidChange(_ cell: AmountTableViewCell, nanaoCoins: Int64) {}
+    func amountTableViewCellDidChange(_ cell: AmountTableViewCell, textField: UITextField, text: String) {
+        if textField == cell.hgcTextField {
+            model.amountHBar = text
+            model.amountUSD = cell.usdTextField.text ?? ""
+        } else {
+            model.amountUSD = text
+            model.amountHBar = cell.hgcTextField.text ?? ""
+        }
     }
     
     func amountTableViewCellDidEndEditing(_ cell: AmountTableViewCell) {
@@ -318,22 +319,12 @@ extension PayViewController : AmountTableViewCellDelegate {
 }
 
 extension PayViewController : AddressTableViewCellDelegate {
-    func addressTableViewCellDidTapCopyButton(_ cell: AddressTableViewCell) {
-    }
+    func addressTableViewCellDidTapCopyButton(_ cell: AddressTableViewCell) {}
     
-    func addressTableViewCellDidChange(_ cell: AddressTableViewCell, name: String, address: String) {
-        if let indexPath = self.tableView.indexPath(for: cell) {
-            if indexPath.row == PayViewController.rowIndexFrom {
-                
-                
-            } else if indexPath.row == PayViewController.rowIndexTo {
-                if let account = AccountVO.init(from: address, name: name) {
-                    self.toAccount = account
-                } else {
-                    self.toAccount = nil
-                }
-            }
-        }
+    func addressTableViewCellDidChange(_ cell: AddressTableViewCell, name: String, address: String, host: String) {
+        model.toAccountName = name
+        model.toAccountID = address
+        model.toAccountHost = host
     }
     
     func addressTableViewCellDidTapActionButton(_ cell: AddressTableViewCell) {
@@ -355,11 +346,11 @@ extension PayViewController : AddressOptionsTableCellDelegate {
             self.pickExisting()
             
         case 1:
-            self.isNewSelected = true
+            model.isNewSelected = true
             self.reloadUI()
             
         case 2:
-            self.isQROptionSelected = true
+            model.isQROptionSelected = true
             self.reloadUI();
         default:
             break
@@ -380,63 +371,58 @@ extension PayViewController : TXNOptionsTableCellDelegate {
     }
     
     func optionsTableCellDidChangeForNotes(_ cell: TXNOptionsTableCell, value: Bool) {
-        self.hasNotes = value
+        model.hasNotes = value
         self.reloadUI()
     }
 }
 
 extension PayViewController : QRScanTableCellDelegate {
     func scanTableCellDidCancel(_ cell: QRScanTableCell) {
-        self.isQROptionSelected = false
+        model.isQROptionSelected = false
         self.reloadUI()
     }
     
     func scanTableCellDidScan(_ cell: QRScanTableCell, results: [String]) {
-        var requestParser : TransferRequestParams? = nil
-        for code in results {
-            if let parser = TransferRequestParams.init(qrCode: code) {
-                requestParser = parser
-                break;
-            }
+        do {
+            try model.parseQR(results)
+            model.isNewSelected = true
+        } catch {
+            Globals.showGenericAlert(title:error as? String, message: nil)
         }
-        
-        if let parser = requestParser {
-            self.toAccount = AccountVO.init(accountID: parser.account)
-            self.toAccount?.name = parser.name
-            if (parser.amount != nil) {
-                self.amount = parser.amount
-            }
-        } else {
-            Globals.showGenericAlert(title: NSLocalizedString("Invalid QR Code", comment: ""), message: nil)
-        }
-        
+
         cell.stopScan()
-        self.isQROptionSelected = false
+        model.isQROptionSelected = false
         self.reloadUI()
     }
 }
 
 extension PayViewController : NotesTableViewCellDelegate {
     func notesTableViewCellShouldUpdateNewText(_ cell: NotesTableViewCell, text: String) -> Bool {
-        return text.utf8.count <= 100
+        return text.utf8.count <= maxAllowedMemoLength
     }
     
     func notesTableViewCellDidChange(_ cell: NotesTableViewCell, text: String) {
-        self.notes = text
+        model.notes = text
     }
 }
 
 extension PayViewController : ContactPickerDelegate {
     func contactPickerDidPickAccount(_ picker: ContactPicker, account: HGCAccount) {
-        if let accID = account.accountID() {
-            self.toAccount = AccountVO.init(accountID: accID, address: nil, name: account.name)
-            self.reloadUI()
-            self.navigationController?.popToViewController(self, animated: true)
-        }
+        model.toAccountID = account.accountID()?.stringRepresentation() ?? ""
+        model.toAccountName = account.name ?? ""
+        model.isNewSelected = true
+        self.reloadUI()
+        self.navigationController?.popToViewController(self, animated: true)
     }
     
     func contactPickerDidPickContact(_ picker: ContactPicker, contact: HGCContact) {
-        self.toAccount = AccountVO.init(from: contact.publicKeyID!, name: contact.name)
+        model.toAccountID = contact.publicKeyID ?? ""
+        model.toAccountName = contact.name ?? ""
+        if let host = contact.host {
+            model.toAccountHost = host
+        }
+        
+        model.isNewSelected = true
         self.reloadUI()
         self.navigationController?.popToViewController(self, animated: true)
     }

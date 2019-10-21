@@ -35,18 +35,15 @@ class UpdateTransactionsOperation : BaseOperation {
         for account in accounts {
             if let accID = account.account().accountID {
                 do {
-                    let cost = try fetchCost(payerAccount, accID)
-                    let r = APIRequestBuilder.getAccountRecordQuery(fromAccount: payerAccount, accountID: accID, node: node.accountID, fee: cost)
-                    Logger.instance.log(message: r.textFormatString(), event: .i)
-                    
-                    let queryResponse = try cryptoClient.getAccountRecords(r)
-                    Logger.instance.log(message: queryResponse.textFormatString(), event: .i)
-                    let status = queryResponse.cryptoGetAccountRecords.header.nodeTransactionPrecheckCode
+                    let fee = try fetchCost(payerAccount, accID)
+                    let pair = try grpc.perform(GetAccountRecordParam.init(accID, fee:fee), payerAccount.getTransactionBuilder())
+                    let status = pair.response.cryptoGetAccountRecords.header.nodeTransactionPrecheckCode
                     switch status {
                     case .ok:
-                        let records = queryResponse.cryptoGetAccountRecords.records
+                        let records = pair.response.cryptoGetAccountRecords.records
                         for record in records {
                             HGCRecord.getOrCreateTxn(pTxnRecord: record, context: context)
+                            AppConfigService.defaultService.setConversionRate(receipt: record.receipt)
                         }
                     case .payerAccountNotFound:
                         errors.insert("\(NSLocalizedString("payerAccountNotFound", comment: "")) \(payerAccount.accountID()!.stringRepresentation())")
@@ -64,7 +61,6 @@ class UpdateTransactionsOperation : BaseOperation {
                     } else {
                         errors.insert(desc(error))
                     }
-                    Logger.instance.log(message: desc(error), event: .i)
                 }
             }
         }
@@ -78,15 +74,12 @@ class UpdateTransactionsOperation : BaseOperation {
     }
     
     private func fetchCost(_ payerAccount:HGCAccount, _ accID:HGCAccountID) throws -> UInt64 {
-        let costRequest = APIRequestBuilder.getAccountRecordCostQuery(fromAccount: payerAccount, accountID: accID, node: node.accountID)
-        Logger.instance.log(message: costRequest.textFormatString(), event: .i)
         do {
-            let queryResponse = try cryptoClient.getAccountRecords(costRequest)
-            Logger.instance.log(message: queryResponse.textFormatString(), event: .i)
-            let status = queryResponse.cryptoGetAccountRecords.header.nodeTransactionPrecheckCode
+            let pair = try grpc.perform(GetAccountRecordParam.init(accID,fee: AppConfigService.defaultService.fee, forCost: true), payerAccount.getTransactionBuilder())
+                   let status = pair.response.cryptoGetAccountRecords.header.nodeTransactionPrecheckCode
             switch status {
             case .ok:
-                return queryResponse.cryptoGetAccountRecords.header.cost
+                return pair.response.cryptoGetAccountRecords.header.cost
             case .payerAccountNotFound:
                 throw "\(NSLocalizedString("payerAccountNotFound", comment: "")) \(payerAccount.accountID()!.stringRepresentation())"
             case .invalidAccountID:
@@ -96,7 +89,7 @@ class UpdateTransactionsOperation : BaseOperation {
             }
             
         } catch {
-            Logger.instance.log(message: desc(error), event: .i)
+            Logger.instance.log(message: desc(error), event: .e)
             throw error
         }
     }

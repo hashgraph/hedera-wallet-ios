@@ -22,6 +22,8 @@ class QRPreviewController: ContentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon-close"), style: .plain, target: self, action: #selector(onCloseButtonTap))
+
         self.qrLabel.text = qrString
         Logger.instance.log(message: qrString, event: .d)
     }

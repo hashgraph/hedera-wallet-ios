@@ -11,6 +11,7 @@ import UIKit
 protocol AmountTableViewCellDelegate : class {
     func amountTableViewCellDidChange(_ cell:AmountTableViewCell, nanaoCoins:Int64)
     func amountTableViewCellDidEndEditing(_ cell:AmountTableViewCell)
+    func amountTableViewCellDidChange(_ cell:AmountTableViewCell, textField:UITextField, text:String)
 }
 
 class AmountTableViewCell: UITableViewCell , UITextFieldDelegate{
@@ -27,22 +28,24 @@ class AmountTableViewCell: UITableViewCell , UITextFieldDelegate{
         let labelUSD = UILabel.init()
         labelUSD.textColor = usdTextField.textColor
         labelUSD.font = usdTextField.font
-        labelUSD.text = "$"
+        labelUSD.text = " $  "
         labelUSD.sizeToFit()
         labelUSD.frame.size.width = labelUSD.frame.size.width+10
         labelUSD.textAlignment = .center
         usdTextField.leftView = labelUSD
         usdTextField.placeholder = "0.0"
+        usdTextField.keyboardType = .default
         
         let labelHGC = UILabel.init()
         labelHGC.textColor = hgcTextField.textColor
         labelHGC.font = hgcTextField.font
-        labelHGC.text = kHGCCurrencySymbol
+        labelHGC.text = " " + kHGCCurrencySymbol + "  "
         labelHGC.sizeToFit()
         labelHGC.frame.size.width = labelHGC.frame.size.width+10
         labelHGC.textAlignment = .center
         hgcTextField.leftView = labelHGC
         hgcTextField.placeholder = "0.0"
+        hgcTextField.keyboardType = .default
         
         HGCStyle.regularCaptionLabel(self.captionLabel)
     }
@@ -96,24 +99,25 @@ class AmountTableViewCell: UITableViewCell , UITextFieldDelegate{
             }
             if self.hgcTextField == textField {
                 let hgcCoins = amount
-                self.usdTextField.text = CurrencyConverter.shared.convertTo$value(coins: hgcCoins).toString()
+                self.usdTextField.text = CurrencyConverter.shared.convertTo$value(hBar: hgcCoins).toString()
                 
             } else if self.usdTextField == textField {
                 let usd = amount
-                self.hgcTextField.text = CurrencyConverter.shared.convertToHGCCoins(usd).toString()
+                self.hgcTextField.text = CurrencyConverter.shared.convertToHBar(usd).toString()
                 
             }
             
             var nanoCoins : Int64 = 0
             if self.hgcTextField == textField {
                 let hgcCoins = amount
-                nanoCoins = hgcCoins.toNanoCoins()
+                nanoCoins = hgcCoins.toTinyBar()
                 
             } else if self.usdTextField == textField {
                 let usd = amount
-                nanoCoins = CurrencyConverter.shared.convertToHGCNanoCoins(usd)
+                nanoCoins = CurrencyConverter.shared.convertToTinyBar(usd)
             }
             self.delegate?.amountTableViewCellDidChange(self, nanaoCoins: nanoCoins)
+            self.delegate?.amountTableViewCellDidChange(self, textField: textField, text: newStr)
             return true
         }
         

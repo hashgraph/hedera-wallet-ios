@@ -4,7 +4,7 @@
 
 #import "Mnemonic.h"
 #import "HGCSeed.h"
-#import "KFKeychain.h"
+#import "KeychainWrapper.h"
 #import "HGCKeyProtocol.h"
 #import "UIView+NSLayoutConstraints.h"
 #import <LGSideMenuController/LGSideMenuController.h>

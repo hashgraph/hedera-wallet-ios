@@ -47,7 +47,10 @@ class AboutViewController: UIViewController {
     }
     
     @IBAction func onPrivacyPolicyTap() {
-        let vc = PrivacyPolicyViewController.getInstance()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if let url = URL(string: privacyPolicy) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
 }

@@ -9,11 +9,11 @@ pod 'ABPadLockScreen', '3.4.2'
 pod 'MTBBarcodeScanner', '5.0.11'
 pod 'LGSideMenuController', '2.1.1'
 pod 'ActiveLabel', '1.0.1'
+pod 'IQKeyboardManagerSwift'
 
 pod 'JKBigInteger', '~> 0.0.1'
 pod 'SwiftyJSON', '5.0.0'
-pod 'Branch', '0.26.0'
-pod 'GCDWebServer', '~> 3.0'
+pod 'Branch'
 pod 'SwiftGRPC', '0.8.1'
 pod 'CryptoSwift', '1.0.0'
 

@@ -177,7 +177,7 @@ extension TxnRequestComposer  {
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AmountTableViewCell", for: indexPath) as! AmountTableViewCell
                 cell.delegate = self
-                cell.hgcTextField.text = self.amount!.toCoins().description
+                cell.hgcTextField.text = self.amount!.toHBar().description
                 cell.usdTextField.text = CurrencyConverter.shared.convertTo$value(self.amount!).description
                 return cell
             }
@@ -208,24 +208,6 @@ extension TxnRequestComposer  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "accountAddressTableCell", for: indexPath) as! AddressTableViewCell
             
             return cell
-        }
-    }
-}
-
-extension TxnRequestComposer : AddressTableViewCellDelegate {
-    func addressTableViewCellDidTapCopyButton(_ cell: AddressTableViewCell) {
-        
-    }
-    
-    func addressTableViewCellDidChange(_ cell: AddressTableViewCell, name: String, address: String) {
-        
-    }
-    
-    func addressTableViewCellDidTapActionButton(_ cell: AddressTableViewCell) {
-        if let indexPath = self.tableView.indexPath(for: cell) {
-            if indexPath.row == TxnRequestComposer.rowIndexTo {
-                self.onChangeAccountButtonTap()
-            }
         }
     }
 }
@@ -276,9 +258,9 @@ extension TxnRequestComposer : AmountTableViewCellDelegate {
         self.amount = nanaoCoins
     }
     
-    func amountTableViewCellDidEndEditing(_ cell: AmountTableViewCell) {
-        
-    }
+    func amountTableViewCellDidEndEditing(_ cell: AmountTableViewCell) { }
+    
+    func amountTableViewCellDidChange(_ cell: AmountTableViewCell, textField: UITextField, text: String) { }
 }
 
 extension TxnRequestComposer : TXNOptionsTableCellDelegate {

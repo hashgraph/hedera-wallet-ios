@@ -7,13 +7,10 @@ PODS:
   - BoringSSL/Implementation (10.0.6):
     - BoringSSL/Interface (= 10.0.6)
   - BoringSSL/Interface (10.0.6)
-  - Branch (0.26.0):
-    - Branch/Core (= 0.26.0)
-  - Branch/Core (0.26.0)
+  - Branch (0.29.0):
+    - Branch/Core (= 0.29.0)
+  - Branch/Core (0.29.0)
   - CryptoSwift (1.0.0)
-  - GCDWebServer (3.5.2):
-    - GCDWebServer/Core (= 3.5.2)
-  - GCDWebServer/Core (3.5.2)
   - gRPC-Core (1.12.0):
     - gRPC-Core/Implementation (= 1.12.0)
     - gRPC-Core/Interface (= 1.12.0)
@@ -22,6 +19,7 @@ PODS:
     - gRPC-Core/Interface (= 1.12.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.12.0)
+  - IQKeyboardManagerSwift (6.5.1)
   - JKBigInteger (0.0.1)
   - LGSideMenuController (2.1.1)
   - MBProgressHUD (1.1.0)
@@ -41,9 +39,9 @@ PODS:
 DEPENDENCIES:
   - ABPadLockScreen (= 3.4.2)
   - ActiveLabel (= 1.0.1)
-  - Branch (= 0.26.0)
+  - Branch
   - CryptoSwift (= 1.0.0)
-  - GCDWebServer (~> 3.0)
+  - IQKeyboardManagerSwift
   - JKBigInteger (~> 0.0.1)
   - LGSideMenuController (= 2.1.1)
   - MBProgressHUD (= 1.1.0)
@@ -52,14 +50,14 @@ DEPENDENCIES:
   - SwiftyJSON (= 5.0.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - ABPadLockScreen
     - ActiveLabel
     - BoringSSL
     - Branch
     - CryptoSwift
-    - GCDWebServer
     - gRPC-Core
+    - IQKeyboardManagerSwift
     - JKBigInteger
     - LGSideMenuController
     - MBProgressHUD
@@ -73,10 +71,10 @@ SPEC CHECKSUMS:
   ABPadLockScreen: 6edd4e5fd580a9f60f55b3ec59011ebec2801a8e
   ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
-  Branch: 5bf1e0d3f57bfce0b7029c960118641695b294ee
+  Branch: 6e7421e1f3c0adebdf80008a40a74969b2603cf8
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
-  GCDWebServer: ead88cd14596dd4eae4f5830b8877c87c8728990
   gRPC-Core: 9696b220565b283e021cf2722d473a4a74b7622a
+  IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
   JKBigInteger: 7f3894ca331bf271a8e2ee0d5329707ca6eda6e0
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
@@ -86,6 +84,6 @@ SPEC CHECKSUMS:
   SwiftProtobuf: 84cd6b8f4fd2fc3d9fbd80a0aaf2e957d52824ec
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 84d445dd696d30509fa7ff6681cbf6c6bc891d47
+PODFILE CHECKSUM: e5a82af001373970f8170cb98b367f9cca0366f9
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.8.3

@@ -11,8 +11,7 @@ import CoreData
 
 extension HGCNode {
     public static let entityName  = "Node"
-    static func getAllNodes(activeOnly:Bool = true) -> [HGCNode] {
-        let context = CoreDataManager.shared.mainContext
+    static func getAllNodes(activeOnly:Bool = true, context:NSManagedObjectContext) -> [HGCNode] {
         let fetchRequest = HGCNode.fetchRequest() as NSFetchRequest<HGCNode>
         if activeOnly {
             fetchRequest.predicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [NSCompoundPredicate.init(orPredicateWithSubpredicates: [NSPredicate(format: "status == 'active'"), NSPredicate(format: "status == 'unknown'")]),NSPredicate(format: "disabled == NO")])
@@ -25,8 +24,7 @@ extension HGCNode {
         return []
     }
     
-    static func getNode(_ host:String) -> HGCNode? {
-        let context = CoreDataManager.shared.mainContext
+    static func getNode(_ host:String, context:NSManagedObjectContext) -> HGCNode? {
         let fetchRequest = HGCNode.fetchRequest() as NSFetchRequest<HGCNode>
         fetchRequest.predicate = NSPredicate(format: "host == %@", host)
         let result = try? context.fetch(fetchRequest)
@@ -36,13 +34,21 @@ extension HGCNode {
         return nil
     }
     
+    static func deleteAll(context:NSManagedObjectContext) {
+        let fetchRequest = HGCNode.fetchRequest() as NSFetchRequest<HGCNode>
+        let result = try? context.fetch(fetchRequest)
+        result?.forEach({ (node) in
+            context.delete(node)
+        })
+    }
+    
     @discardableResult
-    static func addNode(nodeVO:HGCNodeVO) -> HGCNode {
-        if let node = HGCNode.getNode(nodeVO.host) {
+    static func addNode(nodeVO:HGCNodeVO, context:NSManagedObjectContext) -> HGCNode {
+        if let node = HGCNode.getNode(nodeVO.host, context: context) {
+            node.status = "active"
             return node
             
         } else {
-            let context = CoreDataManager.shared.mainContext
             let node = NSEntityDescription.insertNewObject(forEntityName: HGCNode.entityName, into: context) as! HGCNode
             node.host = nodeVO.host
             node.port = nodeVO.port

@@ -148,6 +148,92 @@ struct TransferRequestParams: IntentParams, URLConvertible, QRCodeConvertible {
     }
 }
 
+struct CreateAccountRequestParams: IntentParams, URLConvertible, QRCodeConvertible {
+    var publicKey : HGCPublickKeyAddress
+    var initialAmount : Int64?
+    private static let action = "caRequest"
+    
+    init(publicKey:HGCPublickKeyAddress, initialAmount:Int64? = nil) {
+        self.publicKey = publicKey
+        self.initialAmount = initialAmount
+    }
+    
+    init?(qrCode: String) {
+        if let pk = HGCPublickKeyAddress.init(from: qrCode) {
+            self.init(publicKey:pk)
+        } else if let url = URL.init(string: qrCode) {
+            self.init(url)
+        } else {
+            return nil
+        }
+    }
+    
+    init?(_ paramUrl: URL) {
+        var publicKeyString : String?
+        var isValidUrl = false
+        if let urlComponents = URLComponents.init(url: paramUrl, resolvingAgainstBaseURL: false) {
+            
+            if let items = urlComponents.queryItems {
+                for item in items {
+                    
+                    if item.name == "action"{
+                        if item.value == CreateAccountRequestParams.action {
+                            isValidUrl = true
+                        } else {
+                            break
+                        }
+                        
+                    } else if item.name == "pubKey" {
+                        publicKeyString = item.value
+                        
+                    } else if item.name == "a" && item.value != nil {
+                        self.initialAmount = Int64(item.value!)
+                    }
+                }
+            }
+        }
+        
+        if isValidUrl, let pk = HGCPublickKeyAddress.init(from: publicKeyString) {
+            self.publicKey = pk
+        } else {
+            return nil
+        }
+    }
+    
+    init?(_ params: [String: Any]) {
+        let json = JSON(params)
+        let publicKeyString = json["pubKey"].stringValue
+        guard let action = json["action"].string,
+            action == CreateAccountRequestParams.action,
+            let a = HGCPublickKeyAddress.init(from: publicKeyString) else {
+                return nil
+        }
+        self.publicKey = a
+        self.initialAmount = json["a"].int64Value
+        
+    }
+    
+    func asURL(_ compressed: Bool) -> URL {
+        var urlComponents = URLComponents.customURLComponents()
+        var queryItems = [URLQueryItem]()
+        queryItems.append(URLQueryItem.init(name: "pubKey", value: publicKey.stringRepresentation()))
+        queryItems.append(URLQueryItem.init(name: "action", value:CreateAccountRequestParams.action))
+        if self.initialAmount != nil && self.initialAmount! > 0 {
+            queryItems.append(URLQueryItem.init(name: "a", value: self.initialAmount?.description))
+        }
+        
+        urlComponents.queryItems = queryItems
+        if let url = urlComponents.url {
+            return url
+        }
+        return urlComponents.url!
+    }
+    
+    func asQRCode() -> String {
+        return asURL(false).absoluteString
+    }
+}
+
 struct LinkAccountRequestParams: IntentParams {
     let callback:URL
     let redirect:String?
@@ -233,9 +319,8 @@ struct IntentParser {
 
 class TXNRequestShareItem: NSObject, UIActivityItemSource {
     
-    var url : URL!
-    convenience init(url: URL) {
-        self.init()
+    var url : URL
+    init(url: URL) {
         self.url = url
     }
     

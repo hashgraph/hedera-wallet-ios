@@ -49,8 +49,8 @@ extension RequestListViewController : UITableViewDelegate, UITableViewDataSource
 extension RequestListViewController : RequestTableCellDelegate {
     func requestTableCellDidTapOnPayButton(_ cell: RequestTableCell) {
         let indexPath = self.tableView.indexPath(for: cell)
-        let vc = PayViewController.getInstance()
-        vc.request = self.requests[(indexPath?.row)!]
+        let model = TransferViewModel.init(fromAccount: HGCWallet.masterWallet()!.allAccounts().first!, thirdParty: false, request: requests[(indexPath?.row)!])
+        let vc = PayViewController.getInstance(model: model)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

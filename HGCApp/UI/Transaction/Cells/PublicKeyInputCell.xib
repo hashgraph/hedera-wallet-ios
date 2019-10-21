@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="publicKeyInputCell" rowHeight="283" id="g4h-2e-Iyg" customClass="PublicKeyInputCell" customModule="HGCApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="283"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g4h-2e-Iyg" id="wbi-u7-FFQ">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="282.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dju-ze-aKa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="JQv-BI-RRP">
+                                <rect key="frame" x="0.0" y="10" width="375" height="128"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBB-VQ-C7o" userLabel="PublicKey">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUBLIC KEY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-aE-pPZ" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="5" width="79.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hex encoded key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZc-hY-P62" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="32" width="335" height="96"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="g4h-2e-Iyg" id="IEj-4H-1yc"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="RlH-aE-pPZ" firstAttribute="top" secondItem="lBB-VQ-C7o" secondAttribute="top" constant="5" id="1NW-Of-OQP"/>
+                                            <constraint firstItem="AZc-hY-P62" firstAttribute="top" secondItem="RlH-aE-pPZ" secondAttribute="bottom" constant="10" id="33M-th-DZt"/>
+                                            <constraint firstAttribute="trailing" secondItem="AZc-hY-P62" secondAttribute="trailing" constant="20" id="4W2-hN-aYn"/>
+                                            <constraint firstItem="RlH-aE-pPZ" firstAttribute="leading" secondItem="lBB-VQ-C7o" secondAttribute="leading" constant="20" id="OjT-ce-pF5"/>
+                                            <constraint firstItem="AZc-hY-P62" firstAttribute="leading" secondItem="RlH-aE-pPZ" secondAttribute="leading" id="dbH-3V-nRa"/>
+                                            <constraint firstAttribute="bottom" secondItem="AZc-hY-P62" secondAttribute="bottom" id="tgo-V1-GDp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JQv-BI-RRP" secondAttribute="trailing" id="8X5-26-dcp"/>
+                            <constraint firstAttribute="bottom" secondItem="JQv-BI-RRP" secondAttribute="bottom" constant="10" id="Ac5-Co-JFQ"/>
+                            <constraint firstItem="JQv-BI-RRP" firstAttribute="top" secondItem="Dju-ze-aKa" secondAttribute="top" constant="10" id="rR1-YP-j02"/>
+                            <constraint firstItem="JQv-BI-RRP" firstAttribute="leading" secondItem="Dju-ze-aKa" secondAttribute="leading" id="tNa-Cg-0j5"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Dju-ze-aKa" firstAttribute="top" secondItem="wbi-u7-FFQ" secondAttribute="top" id="2B6-9W-eeM"/>
+                    <constraint firstItem="Dju-ze-aKa" firstAttribute="leading" secondItem="wbi-u7-FFQ" secondAttribute="leading" id="5qf-9b-MAK"/>
+                    <constraint firstAttribute="trailing" secondItem="Dju-ze-aKa" secondAttribute="trailing" id="73u-fG-MHd"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Dju-ze-aKa" secondAttribute="bottom" id="adm-Y5-QCN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="captionLabel" destination="RlH-aE-pPZ" id="gJS-eN-Eso"/>
+                <outlet property="keyTextField" destination="AZc-hY-P62" id="EPi-F3-e2X"/>
+            </connections>
+            <point key="canvasLocation" x="-205.59999999999999" y="-353.07346326836586"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -47,7 +47,7 @@ class AuthManager: NSObject {
     }
     
     func setupPIN() {
-        let vc = ABPadLockScreenSetupViewController.init(delegate: self)
+        let vc = ABPadLockScreenSetupViewController.init(delegate: self, complexPin: true)
         window.rootViewController = vc
         setShow(true, animated: true, completion: nil)
     }
@@ -150,7 +150,7 @@ class AuthManager: NSObject {
     
     /////////////////////// PIN ///////////////////////
     private func doAuthUsingPIN(animated:Bool) {
-        let vc = ABPadLockScreenViewController.init(delegate: self, complexPin: false)
+        let vc = ABPadLockScreenViewController.init(delegate: self, complexPin: true)
         window.rootViewController = vc
         setShow(true, animated: animated, completion: nil)
     }

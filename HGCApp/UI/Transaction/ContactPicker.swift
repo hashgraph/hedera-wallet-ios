@@ -25,9 +25,12 @@ class ContactPicker : UIViewController {
     private var contacts  = [HGCContact]()
     
     var pickeMode  = true
+    private var forExcangeOnly = false
     
-    static func getInstance() -> ContactPicker {
-        return Globals.mainStoryboard().instantiateViewController(withIdentifier: "contactPicker") as! ContactPicker
+    static func getInstance(_ forExcangeOnly:Bool = false) -> ContactPicker {
+        let vc = Globals.mainStoryboard().instantiateViewController(withIdentifier: "contactPicker") as! ContactPicker
+        vc.forExcangeOnly = forExcangeOnly
+        return vc
     }
     
     override func viewDidLoad() {
@@ -41,12 +44,19 @@ class ContactPicker : UIViewController {
     }
     
     func allAccounts() -> [HGCAccount] {
-        return HGCWallet.masterWallet()?.allAccounts() ?? []
+        return !forExcangeOnly ? (HGCWallet.masterWallet()?.allAccounts() ?? []) : []
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.contacts = HGCContact.getAllContacts()
+        if forExcangeOnly {
+            self.contacts = HGCContact.getAllContacts().filter({ (contact) -> Bool in
+                return (contact.host != nil)
+            })
+        } else {
+            self.contacts = HGCContact.getAllContacts()
+        }
+        
         self.title = self.contacts.count == 0 ? NSLocalizedString("NO CONTACTS", comment: "") : NSLocalizedString("EXISTING CONTACTS", comment: "")
         self.tableView.reloadData()
     }
@@ -58,7 +68,7 @@ class ContactPicker : UIViewController {
 
 extension ContactPicker : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return  2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,7 +87,7 @@ extension ContactPicker : UITableViewDelegate, UITableViewDataSource {
             return nil
             
         } else if section == ContactPicker.sectionIndexMyAccounts && self.allAccounts().count > 0{
-            return NSLocalizedString("My Accounts", comment: "")
+            return "     " + NSLocalizedString("My Accounts", comment: "")
         }
         return nil
     }
@@ -88,7 +98,7 @@ extension ContactPicker : UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == ContactPicker.sectionIndexContacts {
             let contact = self.contacts[indexPath.row]
             
-            cell.verifiedLabel.text = contact.verified ? "" : NSLocalizedString("unverified", comment: "")
+            cell.verifiedLabel.text = ""
             cell.nameLabel.text = (contact.name == nil || (contact.name?.trim().isEmpty)! ) ? NSLocalizedString("UNKNOWN", comment: "") : contact.name
             cell.addressLabel.text = contact.publicKeyID ?? ""
             

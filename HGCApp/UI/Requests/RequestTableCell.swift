@@ -47,8 +47,8 @@ class RequestTableCell: UITableViewCell {
         self.addressLabel.text = NSLocalizedString("Ending in ...", comment: "") + (request.fromAddress?.substringFromEnd(length: 6))!
         let nanoCoins = request.amount
         if nanoCoins > 0 {
-            self.hgcValueLabel.setAmount(nanoCoins.toCoins(), short:true)
-            self.usdValueLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).format$()
+            self.hgcValueLabel.setAmount(nanoCoins.toHBar(), short:true)
+            self.usdValueLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).formatUSD()
         } else {
             self.hgcValueLabel.attributedText = nil
             self.hgcValueLabel.text = nil
