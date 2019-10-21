@@ -9,25 +9,28 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install CocoaPods Gem
+          command: gem install cocoapods
+      - run:
           name: Fetch CocoaPods Specs
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - run:
-          name: Install CocoaPods
-          command: pod install --verbose
+
       - run:
           name: Install ProtoBuf
           command: brew install protobuf
       - run:
-          name: Install CocoaPods
+          name: Install Swift-protobuf
           command: brew install swift-protobuf
-
       - run:
-          name: Build and run tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone 8
-            SCAN_SCHEME: WebTests
+          name: Install APp
+          command: pod install --verbose
+      # - run:
+      #     name: Build and run tests
+      #     command: fastlane scan
+      #     environment:
+      #       SCAN_DEVICE: iPhone 8
+      #       SCAN_SCHEME: WebTests
 
       - store_test_results:
           path: output/scan
