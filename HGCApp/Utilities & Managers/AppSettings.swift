@@ -110,24 +110,21 @@ class AppSettings: NSObject {
 
     }
     
-    public class func setExchangeRate(_ fee:Int32) {
-        UserDefaults.standard.set(fee, forKey: "exchangeRateCentEquiv")
+    public class func setExchangeRate(_ centEquiv:Int32, _ hBarEquiv:Int32, _ expirationTime:Int64, _ isCurrent:Bool) {
+        let keyRateC = (isCurrent ? "current_" : "") + "exchangeRateCentEquiv"
+        let keyRateH = (isCurrent ? "current_" : "") + "exchangeRateHbarEquiv"
+        let keyExpireTime = (isCurrent ? "current_" : "") + "exchangeRateExpTimeSeconds"
+        UserDefaults.standard.set(centEquiv, forKey: keyRateC)
+        UserDefaults.standard.set(hBarEquiv, forKey: keyRateH)
+        UserDefaults.standard.set(expirationTime, forKey: keyExpireTime)
         UserDefaults.standard.synchronize()
     }
     
-    public class func getExchangeRate() -> Int32? {
-        return UserDefaults.standard.object(forKey: "exchangeRateCentEquiv") as? Int32
-
-    }
-    
-    public class func setExchangeRateExpirationTime(_ fee:Int64) {
-        UserDefaults.standard.set(fee, forKey: "exchangeRateExpTimeSeconds")
-        UserDefaults.standard.synchronize()
-    }
-    
-    public class func getExchangeRateExpireTime() -> Int64? {
-        return UserDefaults.standard.object(forKey: "exchangeRateExpTimeSeconds") as? Int64
-
+    public class func getExchangeRate(_ isCurrent:Bool) -> (centEquiv:Int32?, hBarEquiv:Int32?, expirationTimeSeconds:Int64?) {
+        let keyRateC = (isCurrent ? "current_" : "") + "exchangeRateCentEquiv"
+        let keyRateH = (isCurrent ? "current_" : "") + "exchangeRateHbarEquiv"
+        let keyExpireTime = (isCurrent ? "current_" : "") + "exchangeRateExpTimeSeconds"
+        return (UserDefaults.standard.object(forKey: keyRateC) as? Int32, UserDefaults.standard.object(forKey: keyRateH) as? Int32 , UserDefaults.standard.object(forKey: keyExpireTime) as? Int64)
     }
     
     public class func setLastSyncNodesAt(_ date:Date) {

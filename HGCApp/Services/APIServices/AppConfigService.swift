@@ -12,25 +12,34 @@ class AppConfigService {
     static let defaultService : AppConfigService = AppConfigService();
     
     func conversionRate() -> Double {
-        if let rate = AppSettings.getExchangeRate() {
-            return Double(rate)/100
+        var rate: Double?
+        let current = AppSettings.getExchangeRate(true)
+        let next = AppSettings.getExchangeRate(false)
+        if let expireTime = current.expirationTimeSeconds, Date().timeIntervalSince1970 < TimeInterval(expireTime), let c = current.centEquiv, let h = current.hBarEquiv {
+            rate = Double(c)/Double(h)
+        } else if let c = next.centEquiv, let h = next.hBarEquiv {
+            rate = Double(c)/Double(h)
+        }
+        
+        if let rate = rate {
+            return rate/100
         }
         // 1 hbar = $0.12
         return 0.12
     }
     
-    func setConversionRate(centEquiv:Int32, expirationTimeSeconds:Int64) {
-        if let expTime = AppSettings.getExchangeRateExpireTime(), expTime > expirationTimeSeconds {
+    func setConversionRate(centEquiv:Int32, hBarEquiv:Int32, expirationTimeSeconds:Int64, isCurrent:Bool) {
+        if let expTime = AppSettings.getExchangeRate(isCurrent).expirationTimeSeconds, expTime > expirationTimeSeconds {
             return
         }
-        
-        AppSettings.setExchangeRate(centEquiv)
-        AppSettings.setExchangeRateExpirationTime(expirationTimeSeconds)
+        AppSettings.setExchangeRate(centEquiv, hBarEquiv, expirationTimeSeconds, isCurrent)
     }
     
     func setConversionRate(receipt:Proto_TransactionReceipt) {
-        let rate = receipt.exchangeRate.currentRate
-        setConversionRate(centEquiv: rate.centEquiv, expirationTimeSeconds: rate.expirationTime.seconds)
+        let currentRate = receipt.exchangeRate.currentRate
+        let nextRate = receipt.exchangeRate.currentRate
+        setConversionRate(centEquiv: currentRate.centEquiv, hBarEquiv:currentRate.hbarEquiv, expirationTimeSeconds: currentRate.expirationTime.seconds, isCurrent: true)
+        setConversionRate(centEquiv: nextRate.centEquiv,hBarEquiv:nextRate.hbarEquiv, expirationTimeSeconds: nextRate.expirationTime.seconds, isCurrent: false)
     }
     
     var fee: UInt64 {

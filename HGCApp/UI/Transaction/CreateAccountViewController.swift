@@ -14,7 +14,7 @@ class CreateAccountViewModel {
     var accountName:String = ""
     var publicKeyString:String = ""
     var fee : UInt64 = 0
-    var amountHBar : String = ""
+    var amountHBar : String = "1.0"
     var isNewSelected = false
     var notes:String = ""
     
@@ -55,7 +55,7 @@ class CreateAccountViewModel {
         if let params = requestParams {
             accountName = ""
             publicKeyString = params.publicKey.stringRepresentation()
-            if (params.initialAmount != nil) {
+            if (params.initialAmount != nil && params.initialAmount! > 0) {
                 amount = params.initialAmount
             }
 
@@ -85,8 +85,8 @@ class CreateAccountViewController: UITableViewController {
 
     private static let rowIndexFrom = 0
     private static let rowIndexTo = 1
-    private static let rowIndexAmount = 2
-    private static let rowIndexNotes = 3
+    private static let rowIndexNotes = 2
+    private static let rowIndexAmount = 3
     private static let rowIndexFee = 4
     private static let rowIndexInfo = 5
     private static let rowIndexPay = 6
@@ -218,11 +218,9 @@ extension CreateAccountViewController  {
             return cell
 
         case CreateAccountViewController.rowIndexAmount:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AmountTableViewCell", for: indexPath) as! AmountTableViewCell
-            cell.delegate = self
-            cell.hgcTextField.text = model.amountHBar
-            cell.usdTextField.isHidden = true
-            cell.captionLabel.text = NSLocalizedString("INITIAL AMOUNT", comment: "")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FeeTableCell", for: indexPath) as! FeeTableCell
+            cell.feeLabel.setAmount(Int64(model.amount!))
+            cell.feeCaptionLabel.text = NSLocalizedString("INITIAL AMOUNT", comment: "")
             return cell
             
         case CreateAccountViewController.rowIndexNotes:

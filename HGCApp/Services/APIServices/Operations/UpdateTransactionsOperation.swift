@@ -75,7 +75,7 @@ class UpdateTransactionsOperation : BaseOperation {
     
     private func fetchCost(_ payerAccount:HGCAccount, _ accID:HGCAccountID) throws -> UInt64 {
         do {
-            let pair = try grpc.perform(GetAccountRecordParam.init(accID,fee: AppConfigService.defaultService.fee, forCost: true), payerAccount.getTransactionBuilder())
+            let pair = try grpc.perform(GetAccountRecordParam.init(accID), payerAccount.getTransactionBuilder())
                    let status = pair.response.cryptoGetAccountRecords.header.nodeTransactionPrecheckCode
             switch status {
             case .ok:

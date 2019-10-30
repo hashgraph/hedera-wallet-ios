@@ -191,8 +191,11 @@ class UpdateAccountParam: TransactionParams {
 
 class GetFileContentParam: QueryParams {
     let fileNum:Int64
-    init(_ fileNum:Int64) {
+    let fee:UInt64?
+
+    init(_ fileNum:Int64, fee:UInt64? = nil) {
         self.fileNum = fileNum
+        self.fee = fee
     }
 
     func getPayload(_ txnBuilder: TransactionBuilder) -> Proto_Query {
@@ -201,7 +204,13 @@ class GetFileContentParam: QueryParams {
         fileID.realmNum = 0
         fileID.fileNum = fileNum
 
-        let qHeader = txnBuilder.createQueryHeader(memo: "for get file content", queryFee: txnBuilder.txnFee)
+        let qHeader:Proto_QueryHeader
+        if let fee = self.fee {
+            qHeader = txnBuilder.createQueryHeader(memo: "for get file content", queryFee: fee)
+        } else {
+            qHeader = txnBuilder.createQueryHeader(memo: "for get file content fee", queryFee: txnBuilder.txnFee, rType: .costAnswer)
+        }
+        
         var fileQuery = Proto_FileGetContentsQuery.init()
         fileQuery.header = qHeader
         fileQuery.fileID = fileID
@@ -246,12 +255,20 @@ struct CreateAccountParams: TransactionParams {
 
 class GetAccountInfoParam: QueryParams {
     let accountID:HGCAccountID
-    init(_ accountID:HGCAccountID) {
+    let fee:UInt64?
+    
+    init(_ accountID:HGCAccountID, fee:UInt64? = nil) {
         self.accountID = accountID
+        self.fee = fee
     }
 
     func getPayload(_ txnBuilder: TransactionBuilder) -> Proto_Query {
-        let qHeader = txnBuilder.createQueryHeader(memo: "for get account info", queryFee: txnBuilder.txnFee)
+        let qHeader:Proto_QueryHeader
+        if let fee = self.fee {
+            qHeader = txnBuilder.createQueryHeader(memo:"for get account info", queryFee: fee)
+        } else {
+            qHeader = txnBuilder.createQueryHeader(memo:"for get account info cost", queryFee: txnBuilder.txnFee, rType:.costAnswer)
+        }
         var getAccountInfoQuery = Proto_CryptoGetInfoQuery.init()
         getAccountInfoQuery.header = qHeader
         getAccountInfoQuery.accountID = accountID.protoAccountID()
@@ -267,16 +284,20 @@ class GetAccountInfoParam: QueryParams {
 
 class GetAccountRecordParam : QueryParams {
     let accountID:HGCAccountID
-    let forCost:Bool
-    let fee:UInt64
-    init(_ accountID:HGCAccountID, fee:UInt64, forCost:Bool = false) {
+    let fee:UInt64?
+    init(_ accountID:HGCAccountID, fee:UInt64? = nil) {
         self.accountID = accountID
-        self.forCost = forCost
         self.fee = fee
     }
 
     func getPayload(_ txnBuilder: TransactionBuilder) -> Proto_Query {
-        let qHeader = txnBuilder.createQueryHeader(memo: forCost ? "for account record cost" : "for account record", queryFee: fee, rType: (forCost ? .costAnswer : .answerOnly ))
+        let qHeader:Proto_QueryHeader
+        if let fee = self.fee {
+            qHeader = txnBuilder.createQueryHeader(memo:"for account record", queryFee: fee)
+        } else {
+            qHeader = txnBuilder.createQueryHeader(memo:"for account record cost", queryFee: txnBuilder.txnFee, rType:.costAnswer)
+        }
+         
         var accRecordQuery = Proto_CryptoGetAccountRecordsQuery.init()
         accRecordQuery.header = qHeader
         accRecordQuery.accountID = accountID.protoAccountID()

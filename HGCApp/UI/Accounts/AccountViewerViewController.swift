@@ -90,6 +90,7 @@ extension AccountViewerViewController : AddAccountViewModelDelegate {
     
     func onDeleteButtonTap(_ vc: AddAccountViewModel) {
         navigationController?.popToViewController(self, animated: true)
+        updateAccounts()
     }
     
     func onCancelButtonTap(_ vc: AddAccountViewModel) {

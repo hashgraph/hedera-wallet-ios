@@ -40,7 +40,8 @@ class DetectWalletOperation: BaseOperation {
     private func getAccountInfo(keyPair:HGCKeyPairProtocol) throws -> Bool {
         do {
             let txnBuilder = TransactionBuilder.init(payerCredentials: keyPair, payerAccount: accountID)
-            let pair = try grpc.perform(GetAccountInfoParam.init(accountID), txnBuilder)
+            let cost = try getAccountInfoCost(txnBuilder: txnBuilder)
+            let pair = try grpc.perform(GetAccountInfoParam.init(accountID, fee: cost), txnBuilder)
             let status = pair.response.cryptoGetInfo.header.nodeTransactionPrecheckCode
             switch status {
             case .ok:
@@ -54,4 +55,16 @@ class DetectWalletOperation: BaseOperation {
             throw error
         }
     }
+    
+    private func getAccountInfoCost(txnBuilder:TransactionBuilder) throws -> UInt64 {
+        let pair = try grpc.perform(GetAccountInfoParam.init(accountID), txnBuilder)
+               let status = pair.response.cryptoGetInfo.header.nodeTransactionPrecheckCode
+        switch status {
+        case .ok:
+            return pair.response.cryptoGetInfo.header.cost
+        default:
+            throw status.getErrorMessage()
+        }
+    }
+    
 }

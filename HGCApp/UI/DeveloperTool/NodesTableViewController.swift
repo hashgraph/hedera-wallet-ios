@@ -46,15 +46,22 @@ class NodesTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func onRefreshButtonTap() {
-        let hud = MBProgressHUD.showAdded(to: view, animated: true)
-        APIAddressBookService.defaultAddressBook.updateAddressBook(context: CoreDataManager.shared.mainContext) { [weak self] (e) in
-            if let error = e {
-                Globals.showGenericAlert(title: NSLocalizedString("Error", comment: ""), message: error)
+        let onRefresh = {
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            APIAddressBookService.defaultAddressBook.updateAddressBook(context: CoreDataManager.shared.mainContext) { [weak self] (e) in
+                if let error = e {
+                    Globals.showGenericAlert(title: NSLocalizedString("Error", comment: ""), message: error)
+                }
+                hud.hide(animated: true)
+                self?.nodes = HGCNode.getAllNodes(activeOnly: false, context: CoreDataManager.shared.mainContext)
+                self?.tableView.reloadData()
             }
-            hud.hide(animated: true)
-            self?.nodes = HGCNode.getAllNodes(activeOnly: false, context: CoreDataManager.shared.mainContext)
-            self?.tableView.reloadData()
         }
+        
+        Globals.showConfirmationAlert(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("REFRESH_NODES_WARNING", comment: ""), onConfirm: {
+            AppSettings.setAskedForQueryCostWarning(true)
+            onRefresh()
+        }) {}
     }
     
     // MARK: - Table view data source

@@ -50,6 +50,7 @@
 		188705B722A65E3300055276 /* Bip32MigrationPromptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705B622A65E3300055276 /* Bip32MigrationPromptVC.swift */; };
 		189692A722970BE40042FF24 /* Ed25519Derivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189692A622970BE40042FF24 /* Ed25519Derivation.swift */; };
 		18A65AD922101E4200221FFD /* Mnemonic.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A65AD822101E4100221FFD /* Mnemonic.m */; };
+		18A9C97323604878000FB800 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9C97223604878000FB800 /* AddAccountViewModel.swift */; };
 		18BF965D21C17E6E00055B2A /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18BF965C21C17E6E00055B2A /* privacy.txt */; };
 		18BF965F21C17E7600055B2A /* terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18BF965E21C17E7600055B2A /* terms.txt */; };
 		18BF966121C17F1800055B2A /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF966021C17F1800055B2A /* PrivacyPolicyViewController.swift */; };
@@ -253,6 +254,7 @@
 		C94D163721326C3800212900 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D163621326C3800212900 /* BaseOperation.swift */; };
 		C94D163D21326CEA00212900 /* UpdateTransactionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D163C21326CEA00212900 /* UpdateTransactionsOperation.swift */; };
 		C94D163F21326D4400212900 /* UpdateBalanceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D163E21326D4400212900 /* UpdateBalanceOperation.swift */; };
+		D5F72D4223575CDB00EBB2D2 /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
 		D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */; };
 		FE44D9C0D0F6479D5ADF3C5C /* Pods_HGCAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695EB65D4494CE94AC792990 /* Pods_HGCAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -335,6 +337,7 @@
 		189692A622970BE40042FF24 /* Ed25519Derivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ed25519Derivation.swift; sourceTree = "<group>"; };
 		18A65AD722101E4100221FFD /* Mnemonic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mnemonic.h; sourceTree = "<group>"; };
 		18A65AD822101E4100221FFD /* Mnemonic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mnemonic.m; sourceTree = "<group>"; };
+		18A9C97223604878000FB800 /* AddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModel.swift; sourceTree = "<group>"; };
 		18BF965C21C17E6E00055B2A /* privacy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
 		18BF965E21C17E7600055B2A /* terms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = terms.txt; sourceTree = "<group>"; };
 		18BF966021C17F1800055B2A /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
@@ -586,6 +589,7 @@
 		CAFF7BC70E9B76A911C180A0 /* Pods-HGCAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CED278BA5CAB6EFB025FFE16 /* Pods-HGCApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release.xcconfig"; sourceTree = "<group>"; };
 		D48720E8954DD6D6903AC125 /* Pods-HGCAppTests.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
+		D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModelTests.swift; sourceTree = "<group>"; };
 		DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC013F53B393F09D57054E92 /* Pods-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -825,6 +829,7 @@
 				35932B941FCEA72B00C74D67 /* AccountDetailsViewController.swift */,
 				35E7C61D1FCDB01C00346A51 /* AddAccountViewController.swift */,
 				182FD134235083010071A09A /* AccountViewerViewController.swift */,
+				18A9C97223604878000FB800 /* AddAccountViewModel.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -1121,6 +1126,7 @@
 				35DD3E9D20A55DF5005A5F53 /* Crypto */,
 				18EEA989234C39700049F754 /* AddressBookServiceTests.swift */,
 				35B8ABD41F9E5642003E4F57 /* Info.plist */,
+				D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */,
 			);
 			name = HGCAppTests;
 			path = tests/HGCAppTests;
@@ -1674,6 +1680,7 @@
 				18EC4C6E227E7ED7006B3461 /* SystemUndelete.pb.swift in Sources */,
 				350EA11C1FC5373E0092DDEB /* WalletView.swift in Sources */,
 				350DF3381FC6A0870006166C /* HGCContact.swift in Sources */,
+				18A9C97323604878000FB800 /* AddAccountViewModel.swift in Sources */,
 				184664F122EC71050009DE91 /* CreateAccountViewController.swift in Sources */,
 				350DF33E1FC6A0870006166C /* HGCRequest.swift in Sources */,
 				1817120322B8054200A0C754 /* Bip32MigrationErrorVC.swift in Sources */,
@@ -1809,6 +1816,7 @@
 				354AE1E220B8192B001E0D02 /* HGCAccountTests.swift in Sources */,
 				357EA9D720B19674009CDBBF /* CoreDataMock.swift in Sources */,
 				35B8ABD31F9E5642003E4F57 /* HGCAppTests.swift in Sources */,
+				D5F72D4223575CDB00EBB2D2 /* AddAccountViewModelTests.swift in Sources */,
 				35DD3EB620A5AB61005A5F53 /* EDKeyChainTests.swift in Sources */,
 				181968432318F5A600B19363 /* MockRPC.swift in Sources */,
 				18EEA98A234C39700049F754 /* AddressBookServiceTests.swift in Sources */,
@@ -1867,7 +1875,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet.dev;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
-				BUILD_NUM = 124;
+				BUILD_NUM = 126;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2012,7 +2020,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet;
 				APP_DISPLAY_NAME = "Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "";
-				BUILD_NUM = 124;
+				BUILD_NUM = 126;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2149,7 +2157,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet.dev;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
-				BUILD_NUM = 124;
+				BUILD_NUM = 126;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

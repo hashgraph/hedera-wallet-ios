@@ -177,6 +177,7 @@
 "Please enter Port" = "Please enter Port";
 "Please enter valid node account ID" = "Please enter valid node account ID";
 "Minimum one node should be active" = "Minimum one node should be active";
+"REFRESH_NODES_WARNING" = "Refreshing nodes will cost you hbars. Do you want to proceed?";
 
 // Auth
 "Confirm Quit?" = "Confirm Quit?";

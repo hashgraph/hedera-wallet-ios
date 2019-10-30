@@ -57,8 +57,8 @@ class MigrateToBip32Operation: BaseOperation {
     
     private func getAccountInfo(keyPair:HGCKeyPairProtocol) throws -> Bool {
         let txnBuilder = TransactionBuilder.init(payerCredentials: keyPair, payerAccount: accountID)
-        
-        let pair = try grpc.perform(GetAccountInfoParam.init(accountID), txnBuilder)
+        let cost = try getAccountInfoCost(txnBuilder: txnBuilder)
+        let pair = try grpc.perform(GetAccountInfoParam.init(accountID, fee: cost), txnBuilder)
         let status = pair.response.cryptoGetInfo.header.nodeTransactionPrecheckCode
         switch status {
         case .ok:
@@ -68,6 +68,17 @@ class MigrateToBip32Operation: BaseOperation {
             throw status.getErrorMessage()
         }
     }
+    
+    private func getAccountInfoCost(txnBuilder:TransactionBuilder) throws -> UInt64 {
+         let pair = try grpc.perform(GetAccountInfoParam.init(accountID), txnBuilder)
+                let status = pair.response.cryptoGetInfo.header.nodeTransactionPrecheckCode
+         switch status {
+         case .ok:
+             return pair.response.cryptoGetInfo.header.cost
+         default:
+             throw status.getErrorMessage()
+         }
+     }
     
     private func updateAccount(keyPair:HGCKeyPairProtocol, bip32KeyPair:HGCKeyPairProtocol) throws {
         let txnBuilder = TransactionBuilder.init(payerCredentials: keyPair, payerAccount: accountID)
