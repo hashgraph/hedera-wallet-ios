@@ -1,0 +1,6 @@
+framework module JKBigInteger {
+  umbrella header "JKBigInteger-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_HGCApp {
+  umbrella header "Pods-HGCApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

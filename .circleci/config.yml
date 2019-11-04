@@ -1,7 +1,7 @@
 # .circleci/config.yml
 version: 2
 jobs:
-  build-pods:
+  build:
     macos:
       xcode: "11.0.0"
     environment:
@@ -9,44 +9,33 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install CocoaPods Gem
-          command: gem install cocoapods
-      - run:
-          name: Fetch CocoaPods Specs
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - run:
           name: Install CocoaPods
           command: pod install --verbose
-#       - run:
-#           name: Install ProtoBuf
-#           command: brew install protobuf
-#       - run:
-#           name: Install Swift-ProtoBuf
-#           command: brew install swift-protobuf
-#       - run:
-#           name: Generate ProtoBuf Stubs
-#           command: ./gen-swift
-#       - run:
-#           name: Verify Unit Tests Pass
-#           command: xcodebuild test -scheme HGCApp-Prod-Debug
-#       - run:
-#           name: Build
-#           command: xcodebuild -scheme HGCApp-Prod-Debug
-#       # - run:
-#       #     name: Build and run tests
-#       #     command: fastlane scan
-#       #     environment:
-#       #       SCAN_DEVICE: iPhone 8
-#       #       SCAN_SCHEME: WebTests
-# 
-#       - store_test_results:
-#           path: output/scan
-#       - store_artifacts:
-#           path: output/pods
+      - run:
+          name: Install ProtoBuf
+          command: brew install protobuf
+      - run:
+          name: Install Swift-ProtoBuf
+          command: brew install swift-protobuf
+      - run:
+          name: Generate ProtoBuf Stubs
+          command: ./gen-swift
+      - run:
+          name: Build
+          command: xcodebuild -scheme HGCApp-Prod-Debug
+      # - run:
+      #     name: Build and run tests
+      #     command: fastlane scan
+      #     environment:
+      #       SCAN_DEVICE: iPhone 8
+      #       SCAN_SCHEME: WebTests
+      # - store_test_results:
+      #     path: output/scan
+      # - store_artifacts:
+      #     path: output/pods
 
 workflows:
   version: 2
-  build-pods:
+  build:
     jobs:
-      - build-pods
+      - build
