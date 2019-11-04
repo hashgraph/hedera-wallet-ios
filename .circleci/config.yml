@@ -16,8 +16,8 @@ jobs:
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run:
-          name: Build CocoaPods
-          command: https://github.com/hashgraph/hedera-wallet-ios/blob/dev/fastlane/Appfile
+          name: Install CocoaPods
+          command: pod install --verbose
 #       - run:
 #           name: Install ProtoBuf
 #           command: brew install protobuf
@@ -25,17 +25,14 @@ jobs:
 #           name: Install Swift-ProtoBuf
 #           command: brew install swift-protobuf
 #       - run:
-#           name: Install Pods
-#           command: pod install --verbose
-#       - run:
-#           name: Generate ProtoBuf stubs
+#           name: Generate ProtoBuf Stubs
 #           command: ./gen-swift
 #       - run:
-#           name: Verify Unit tests pass
-#           command: xcodebuild test -scheme HGCApp-Dev-Debug
+#           name: Verify Unit Tests Pass
+#           command: xcodebuild test -scheme HGCApp-Prod-Debug
 #       - run:
 #           name: Build
-#           command: xcodebuild -scheme HGCApp-Dev-Debug
+#           command: xcodebuild -scheme HGCApp-Prod-Debug
 #       # - run:
 #       #     name: Build and run tests
 #       #     command: fastlane scan
@@ -45,8 +42,8 @@ jobs:
 # 
 #       - store_test_results:
 #           path: output/scan
-      - store_artifacts:
-          path: output/pods
+#       - store_artifacts:
+#           path: output/pods
 
 workflows:
   version: 2
