@@ -9,9 +9,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install CocoaPods
-          command: pod install --verbose
-      - run:
           name: Install ProtoBuf
           command: brew install protobuf
       - run:
