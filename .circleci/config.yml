@@ -18,6 +18,9 @@ jobs:
           name: Generate ProtoBuf Stubs
           command: ./gen-swift
       - run:
+          name: Set up code signing
+          command: fastlane match development --readonly
+      - run:
           name: Build
           command: xcodebuild -workspace HGCApp.xcworkspace -scheme HGCApp_Dev
       # - run:
