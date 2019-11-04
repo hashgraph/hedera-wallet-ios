@@ -19,7 +19,7 @@ jobs:
           command: ./gen-swift
       - run:
           name: Build
-          command: xcodebuild -scheme HGCApp_Prod_Debug
+          command: xcodebuild -workspace HGCApp.xcworkspace -scheme HGCApp_Dev
       # - run:
       #     name: Build and run tests
       #     command: fastlane scan
