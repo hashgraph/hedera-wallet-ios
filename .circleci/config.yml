@@ -7,19 +7,32 @@ jobs:
     environment:
       FL_OUTPUT_DIR: output
     steps:
+      # A: Code checkout
       - checkout
+      # B: Protobuf generation sequence
       - run:
           name: Install ProtoBuf
-          command: HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_INSTALL_CLEANUP=1 brew install protobuf
+          # HOMEBREW_NO_AUTO_UPDATE=1
+          # NOMEBREW_NO_INSTALL_CLEANUP=1
+          command: brew install protobuf
       - run:
           name: Install Swift-ProtoBuf
-          command: HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_INSTALL_CLEANUP=1 brew install swift-protobuf
+          # HOMEBREW_NO_AUTO_UPDATE=1
+          # NOMEBREW_NO_INSTALL_CLEANUP=1
+          command: brew install swift-protobuf
       - run:
           name: Generate ProtoBuf Stubs
           command: ./gen-swift
+      # C: iOS Code Signing Prep
       - run:
-          name: Set up code signing
-          command: fastlane match development --readonly
+          name: Generate Certificate(s)
+          # CIDEV_CERT=<secret>
+          command: test "$CIDEV_CERT" && base64 --decode >'cidev.p12' <<< $CIDEV_CERT
+      - run:
+          name: Install Certificate(s)
+          # CIDEV_PASSWD=<secret>
+          command: fastlane gen_ci_cert
+      # D: (ABC) Build
       - run:
           name: Build
           command: xcodebuild -workspace HGCApp.xcworkspace -scheme HGCApp_Dev
