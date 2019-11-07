@@ -35,7 +35,7 @@ jobs:
       # D: (ABC) Build
       - run:
           name: Build
-          command: xcodebuild -workspace HGCApp.xcworkspace -scheme HGCApp_Dev
+          command: xcodebuild -workspace HGCApp.xcworkspace -scheme HGCApp_Debug
       # - run:
       #     name: Build and run tests
       #     command: fastlane scan
