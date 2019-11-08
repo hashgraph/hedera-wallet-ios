@@ -32,6 +32,13 @@ jobs:
           name: Install Certificate(s)
           # CIDEV_PASSWD=<secret>
           command: fastlane gen_ci_cert
+      - run:
+          name: Generate Provisioning
+          # CIDEV_PROV=<secret>
+          command: test "$CIDEV_PROV" && base64 --decode >'cidev_prov.mobileprovision' <<< $CIDEV_PROV
+      - run:
+          name: Install Provisioning
+          command: test "$CIDEV_PROV_UUID" && cp 'cidev_prov.mobileprovision' "~/Library/MobileDevice/Provisioning Profiles/$CIDEV_PROV_UUID.mobileprovision"
       # D: (ABC) Build
       - run:
           name: Build
