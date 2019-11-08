@@ -41,6 +41,7 @@ jobs:
           command: mkdir -pv "~/Library/MobileDevice/Provisioning Profiles/"
       - run:
           name: Install Provisioning
+          # CIDEV_PROV_UUID
           command: test "$CIDEV_PROV_UUID" && cp 'cidev_prov.mobileprovision' "~/Library/MobileDevice/Provisioning Profiles/$CIDEV_PROV_UUID.mobileprovision"
       # D: (ABC) Build
       - run:
