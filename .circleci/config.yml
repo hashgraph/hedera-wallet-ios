@@ -12,10 +12,10 @@ jobs:
       # E: Cocoapods
       - run:
           name: Install Cocoapods
-          gem install cocoapods
+          command: gem install cocoapods
       - run:
           name: Install Pod Libraries
-          pod install --verbose
+          command: pod install --verbose
       # B: (E) Protobuf generation sequence
       - run:
           name: Install ProtoBuf
