@@ -28,6 +28,11 @@ jobs:
           # NOMEBREW_NO_INSTALL_CLEANUP=1
           command: brew install swift-protobuf
       - run:
+          name: Install gRPC-Swift
+          # HOMEBREW_NO_AUTO_UPDATE=1
+          # NOMEBREW_NO_INSTALL_CLEANUP=1
+          command: brew install grpc-swift
+      - run:
           name: Generate ProtoBuf Stubs
           command: ./gen-swift
       # C: iOS Code Signing Prep
