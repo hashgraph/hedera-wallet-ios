@@ -9,7 +9,14 @@ jobs:
     steps:
       # A: Code checkout
       - checkout
-      # B: Protobuf generation sequence
+      # E: Cocoapods
+      - run:
+          name: Install Cocoapods
+          gem install cocoapods
+      - run:
+          name: Install Pod Libraries
+          pod install --verbose
+      # B: (E) Protobuf generation sequence
       - run:
           name: Install ProtoBuf
           # HOMEBREW_NO_AUTO_UPDATE=1
