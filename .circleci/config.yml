@@ -37,6 +37,9 @@ jobs:
           # CIDEV_PROV=<secret>
           command: test "$CIDEV_PROV" && base64 --decode >'cidev_prov.mobileprovision' <<< $CIDEV_PROV
       - run:
+          name: Ensure Provisioning Directory
+          command: mkdir -pv "~/Library/MobileDevice/Provisioning Profiles/"
+      - run:
           name: Install Provisioning
           command: test "$CIDEV_PROV_UUID" && cp 'cidev_prov.mobileprovision' "~/Library/MobileDevice/Provisioning Profiles/$CIDEV_PROV_UUID.mobileprovision"
       # D: (ABC) Build
