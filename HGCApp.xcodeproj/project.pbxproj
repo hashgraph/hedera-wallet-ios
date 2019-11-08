@@ -2454,7 +2454,7 @@
 				18BF967421C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Debug;
 		};
 		35B8ABE21F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCApp" */ = {
 			isa = XCConfigurationList;
@@ -2465,7 +2465,7 @@
 				18BF967521C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Debug;
 		};
 		35B8ABE51F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppTests" */ = {
 			isa = XCConfigurationList;
@@ -2476,7 +2476,7 @@
 				18BF967621C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Debug;
 		};
 		35B8ABE81F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -2487,7 +2487,7 @@
 				18BF967721C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
