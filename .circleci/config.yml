@@ -47,6 +47,10 @@ jobs:
       - run:
           name: Install Dependencies in CocoaPods
           command: pod install --verbose
+      # D: Generate Swift ProtoBuf Integration Files
+      - run:
+          name: Generate ProtoBuf Files
+          command: ./gen-swift
 
 workflows:
   version: 2
