@@ -51,6 +51,30 @@ jobs:
       - run:
           name: Generate ProtoBuf Files
           command: ./gen-swift
+      # E: iOS Code Signing Prep
+      - run:
+          name: Generate Certificate(s)
+          # CIDEV_CERT=<secret>
+          command: test "$CIDEV_CERT" && base64 --decode >'cidev.p12' <<< $CIDEV_CERT
+      - run:
+          name: Install Certificate(s)
+          # CIDEV_PASSWD=<secret>
+          command: fastlane gen_ci_cert
+      - run:
+          name: Generate Provisioning
+          # CIDEV_PROV=<secret>
+          command: test "$CIDEV_PROV" && base64 --decode >'cidev_prov.mobileprovision' <<< $CIDEV_PROV
+      - run:
+          name: Ensure Provisioning Directory
+          command: mkdir -pv "$HOME/Library/MobileDevice/Provisioning Profiles/"
+      - run:
+          name: Install Provisioning
+          # CIDEV_PROV_UUID
+          command: test "$CIDEV_PROV_UUID" && cp 'cidev_prov.mobileprovision' "$HOME/Library/MobileDevice/Provisioning Profiles/$CIDEV_PROV_UUID.mobileprovision"
+      # F: Build
+      - run:
+          name: Build
+          command: xcodebuild -workspace HGCApp.xcworkspace -scheme HGCApp_Debug
 
 workflows:
   version: 2
