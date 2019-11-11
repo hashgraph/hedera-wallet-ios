@@ -30,6 +30,23 @@ jobs:
       - run:
           name: Install gRPC-Swift
           command: brew install grpc-swift
+      # C: Cocoapods
+      - run:
+          name: Record Gem Version
+          command: gem --version
+      - run:
+          name: Install Cocoapods Gem
+          command: gem install cocoapods
+      - run:
+          name: Record Cocoapods Version
+          command: pod --version
+      - run:
+          name: Fetch CocoaPods Specs
+          command: |
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      - run:
+          name: Install Dependencies in CocoaPods
+          command: pod install --verbose
 
 workflows:
   version: 2
