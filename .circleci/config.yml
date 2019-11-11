@@ -1,21 +1,26 @@
 # .circleci/config.yml
 version: 2
 jobs:
-  build-and-test:
+  build-and-unit-test:
     macos:
       xcode: "11.0.0"
     environment:
       FL_OUTPUT_DIR: output
     steps:
+      # A: Code checkout
       - checkout
+      # B: Homebrew
       - run:
-          name: Install CocoaPods Gem
-          command: gem install cocoapods
+          name: Record Homebrew Version
+          command: brew --version
       - run:
-          name: Fetch CocoaPods Specs
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-
+          name: Record Homebrew Formulae
+          command: brew list
+          # Available by 2.1.15
+          # command: brew list --verbose
+      - run:
+          name: Record Homebrew Leaves
+          command: brew leaves
       - run:
           name: Install ProtoBuf
           command: brew install protobuf
@@ -23,22 +28,11 @@ jobs:
           name: Install Swift-protobuf
           command: brew install swift-protobuf
       - run:
-          name: Install APp
-          command: pod install --verbose
-      # - run:
-      #     name: Build and run tests
-      #     command: fastlane scan
-      #     environment:
-      #       SCAN_DEVICE: iPhone 8
-      #       SCAN_SCHEME: WebTests
-
-      - store_test_results:
-          path: output/scan
-      - store_artifacts:
-          path: output
+          name: Install gRPC-Swift
+          command: brew install grpc-swift
 
 workflows:
   version: 2
-  build-and-test:
+  build:
     jobs:
-      - build-and-test
+      - build-and-unit-test
