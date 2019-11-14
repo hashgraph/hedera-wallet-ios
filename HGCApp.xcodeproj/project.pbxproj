@@ -247,6 +247,7 @@
 		35FCF6401FDD4AC700BA1EB1 /* AmountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FCF63E1FDD4AC700BA1EB1 /* AmountTableViewCell.xib */; };
 		35FCF7C11FD9502C004F4C09 /* HGCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C01FD9502B004F4C09 /* HGCLabel.swift */; };
 		35FCF7C31FD95710004F4C09 /* HGCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C21FD95710004F4C09 /* HGCTextField.swift */; };
+		9D83543BB9043C75010072C6 /* Pods_HGCApp_HGCAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */; };
 		C91E4FB520D5114200996A93 /* DeveloerToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FB420D5114200996A93 /* DeveloerToolViewController.swift */; };
 		C91E4FB720D5549E00996A93 /* DeveloperTools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91E4FB620D5549E00996A93 /* DeveloperTools.storyboard */; };
 		C91E4FBB20D5608200996A93 /* DeveloperMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FBA20D5608200996A93 /* DeveloperMenuTableCell.swift */; };
@@ -265,7 +266,6 @@
 		D543CD2A23996299006CA213 /* StyreneA-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2123996299006CA213 /* StyreneA-Thin.ttf */; };
 		D5F72D4223575CDB00EBB2D2 /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
 		D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */; };
-		FE44D9C0D0F6479D5ADF3C5C /* Pods_HGCAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695EB65D4494CE94AC792990 /* Pods_HGCAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -573,7 +573,6 @@
 		5FBE734F0E8B5646CE91ED93 /* Pods-HGCAppUITests.debug_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_prod.xcconfig"; sourceTree = "<group>"; };
 		6001C4B4B2FC6D969C7EC1A4 /* Pods-HGCApp.debug_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_prod.xcconfig"; sourceTree = "<group>"; };
 		630A0086C2BD83470A4AB34A /* Pods-HGCAppTests.debug_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.debug_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.debug_prod_oc.xcconfig"; sourceTree = "<group>"; };
-		695EB65D4494CE94AC792990 /* Pods_HGCAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C8228D048F7E267F3D4B70 /* Pods-HGCApp.debug_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		6AB0BA9A4CE992D31E5ECBE8 /* Pods-HGCApp.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev.xcconfig"; sourceTree = "<group>"; };
 		7900765FDCE4C72C6CFC503B /* Pods-HGCApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -597,12 +596,16 @@
 		C94D163E21326D4400212900 /* UpdateBalanceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBalanceOperation.swift; sourceTree = "<group>"; };
 		CAFF7BC70E9B76A911C180A0 /* Pods-HGCAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CED278BA5CAB6EFB025FFE16 /* Pods-HGCApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release.xcconfig"; sourceTree = "<group>"; };
+		D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp_HGCAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48720E8954DD6D6903AC125 /* Pods-HGCAppTests.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Regular.ttf"; sourceTree = "<group>"; };
 		D543CD2023996298006CA213 /* StyreneA-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Light.ttf"; sourceTree = "<group>"; };
 		D543CD2123996299006CA213 /* StyreneA-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Thin.ttf"; sourceTree = "<group>"; };
 		D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModelTests.swift; sourceTree = "<group>"; };
+		D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_prod.xcconfig"; sourceTree = "<group>"; };
+		DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
 		EC013F53B393F09D57054E92 /* Pods-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -627,7 +630,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE44D9C0D0F6479D5ADF3C5C /* Pods_HGCAppUITests.framework in Frameworks */,
+				9D83543BB9043C75010072C6 /* Pods_HGCApp_HGCAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,6 +745,9 @@
 				B8012DE459093DB379F90D33 /* Pods-HGCAppUITests.debug_prod_oc.xcconfig */,
 				4E0C676537D81394E3AB0BC0 /* Pods-HGCAppUITests.release_dev_oc.xcconfig */,
 				0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */,
+				EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */,
+				DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */,
+				D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1315,7 +1321,7 @@
 			children = (
 				DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */,
 				880D056128F0B700DE4D7D69 /* Pods_HGCAppTests.framework */,
-				695EB65D4494CE94AC792990 /* Pods_HGCAppUITests.framework */,
+				D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1371,6 +1377,7 @@
 				35B8ABD51F9E5642003E4F57 /* Sources */,
 				35B8ABD61F9E5642003E4F57 /* Frameworks */,
 				35B8ABD71F9E5642003E4F57 /* Resources */,
+				82C8ADD629A53EC6628E92D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1568,6 +1575,52 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HGCApp/Pods-HGCApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		82C8ADD629A53EC6628E92D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ABPadLockScreen/ABPadLockScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
+				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGRPC/SwiftGRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ABPadLockScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		949832083CC4647F1DDC13E8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1615,7 +1668,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HGCAppUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HGCApp-HGCAppUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2023,7 +2076,7 @@
 		};
 		180E7448232A55CF00D88BB6 /* Release_Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 367AB6BC295AD93C78CFA2EA /* Pods-HGCAppUITests.release_dev.xcconfig */;
+			baseConfigurationReference = DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2032,7 +2085,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HGCApp;
 			};
@@ -2161,7 +2214,7 @@
 		};
 		18BF967721C225C300055B2A /* Release_Prod */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DA34554D9D036E2BE8FEB76 /* Pods-HGCAppUITests.release_prod.xcconfig */;
+			baseConfigurationReference = D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2170,7 +2223,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HGCApp;
 			};
@@ -2307,7 +2360,7 @@
 		};
 		35B8ABE91F9E5642003E4F57 /* Debug_Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC013F53B393F09D57054E92 /* Pods-HGCAppUITests.debug_dev.xcconfig */;
+			baseConfigurationReference = EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2316,7 +2369,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HGCApp;
 			};
