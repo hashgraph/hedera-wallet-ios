@@ -23,7 +23,7 @@ pod 'CryptoSwift', '1.0.0'
   end
 
   target 'HGCAppUITests' do
-    inherit! :search_paths
+    inherit! :complete
     # Pods for testing
   end
 
