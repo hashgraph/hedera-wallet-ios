@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(APP_BUNDLE_ID)</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>$(BUILD_NUM)</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -63,9 +63,9 @@
 		<string>StyreneA-Light.otf</string>
 		<string>StyreneA-Regular.otf</string>
 		<string>StyreneA-Thin.otf</string>
-		<string>StyreneH-Light.otf</string>
-		<string>StyreneH-Regular.otf</string>
-		<string>StyreneH-Thin.otf</string>
+		<string>HederaH-Light.otf</string>
+		<string>HederaH-Regular.otf</string>
+		<string>HederaH-Thin.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -86,6 +86,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>branch_app_domain</key>
 	<string>hedera.app.link</string>
 	<key>branch_key</key>

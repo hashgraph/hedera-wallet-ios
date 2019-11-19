@@ -1,9 +1,17 @@
 //
-//  BackupWalletViewController.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 17/12/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -55,18 +63,19 @@ class BackupWalletViewController: UIViewController , UITextViewDelegate {
                 }
             }
             var optionalSeed: HGCSeed? = nil
+            var keyDerivation:KeyDerivation? = nil
             if let seed  = HGCSeed.init(words: cleanWords) {
                 optionalSeed = seed
+                keyDerivation = .hgc
             } else if let seed  = HGCSeed.init(bip39Words: words) {
-                AppSettings.setHasShownBip39Mnemonic()
                 optionalSeed = seed
             }
             
             if let seed = optionalSeed {
-                let vc = RestoreAccountIDViewController.getInstance(sigantureOption, seed)
+                let vc = RestoreAccountIDViewController.getInstance(seed, keyDerivation)
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {
-                Globals.showGenericAlert(title: NSLocalizedString("Backup phrase is not valid", comment: ""), message: "")
+                Globals.showGenericAlert(title: NSLocalizedString("Recovery phrase is not valid", comment: ""), message: "")
             }
         }
     }

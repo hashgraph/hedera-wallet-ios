@@ -1,15 +1,48 @@
 //
-//  Globals.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 23/10/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
+import MBProgressHUD
+import MessageUI
+
+class Mailer: NSObject, MFMailComposeViewControllerDelegate {
+    
+    func emailLogs(from:UIViewController) {
+        if !MFMailComposeViewController.canSendMail() {
+            Globals.showGenericErrorAlert(title: "Cannot send email", message: "")
+            return
+        }
+        let s = Logger.instance.logs.joined(separator: "\n")
+        let emailComposer = MFMailComposeViewController.init()
+        emailComposer.setMessageBody(s, isHTML: false)
+        emailComposer.mailComposeDelegate = self
+        from.present(emailComposer, animated: true) {
+            
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true) {
+            
+        }
+    }
+}
 
 class Globals {
-
+    
     static func showGenericErrorAlert() {
         showGenericErrorAlert(title: "Something went wrong", message: "Please try later.")
     }
@@ -287,3 +320,13 @@ extension Double {
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
 	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
+
+extension MBProgressHUD {
+    static func hide(_ hud:MBProgressHUD) {
+        DispatchQueue.main.async {
+            hud.hide(animated: true)
+        }
+    }
+}
+
+

@@ -1,9 +1,17 @@
 //
-//  EDKeyPairTests.swift
-//  HGCAppTests
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 11/05/18.
-//  Copyright © 2018 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import XCTest
@@ -46,5 +54,7 @@ class EDKeyPairTests: HGCAppTests {
         let privateKeyData = keyPair.privateKeyData
         XCTAssert(privateKeyData != nil)
         XCTAssertEqual(privateKeyData!.count, 64)
+        XCTAssertEqual("aabbccdd11223344aabbccdd11223344aaaaaaaabbbbcc59aa2244116688bb22720a5e6b5891e2e3226b662681c555d88b53087773d2dae9742eeb69e1aef8ad", privateKeyData?.hex)
+
     }
 }

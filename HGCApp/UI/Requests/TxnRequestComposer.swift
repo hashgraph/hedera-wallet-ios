@@ -1,9 +1,17 @@
 //
-//  TxnRequestComposer.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 05/12/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -177,7 +185,7 @@ extension TxnRequestComposer  {
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AmountTableViewCell", for: indexPath) as! AmountTableViewCell
                 cell.delegate = self
-                cell.hgcTextField.text = self.amount!.toCoins().description
+                cell.hgcTextField.text = self.amount!.toHBar().description
                 cell.usdTextField.text = CurrencyConverter.shared.convertTo$value(self.amount!).description
                 return cell
             }
@@ -208,24 +216,6 @@ extension TxnRequestComposer  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "accountAddressTableCell", for: indexPath) as! AddressTableViewCell
             
             return cell
-        }
-    }
-}
-
-extension TxnRequestComposer : AddressTableViewCellDelegate {
-    func addressTableViewCellDidTapCopyButton(_ cell: AddressTableViewCell) {
-        
-    }
-    
-    func addressTableViewCellDidChange(_ cell: AddressTableViewCell, name: String, address: String) {
-        
-    }
-    
-    func addressTableViewCellDidTapActionButton(_ cell: AddressTableViewCell) {
-        if let indexPath = self.tableView.indexPath(for: cell) {
-            if indexPath.row == TxnRequestComposer.rowIndexTo {
-                self.onChangeAccountButtonTap()
-            }
         }
     }
 }
@@ -276,9 +266,9 @@ extension TxnRequestComposer : AmountTableViewCellDelegate {
         self.amount = nanaoCoins
     }
     
-    func amountTableViewCellDidEndEditing(_ cell: AmountTableViewCell) {
-        
-    }
+    func amountTableViewCellDidEndEditing(_ cell: AmountTableViewCell) { }
+    
+    func amountTableViewCellDidChange(_ cell: AmountTableViewCell, textField: UITextField, text: String) { }
 }
 
 extension TxnRequestComposer : TXNOptionsTableCellDelegate {

@@ -1,9 +1,17 @@
 //
-//  AccountTableCell.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 23/11/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -40,14 +48,16 @@ class AccountTableCell: UITableViewCell {
     }
     
     func setAccount(_ account:HGCAccount) {
-        let accountName = account.name ?? NSLocalizedString("Unknown", comment: "")
-        self.titleLabel.text = accountName
-        self.addressLabel.text = NSLocalizedString("Ending in ...", comment: "")+account.publicKeyString().substringFromEnd(length: 6)
+        self.titleLabel.text = NSLocalizedString("Unknown", comment: "")
+        if let name = account.name, !name.isEmpty {
+            self.titleLabel.text = name
+        }
+        self.addressLabel.text = account.accountID()?.stringRepresentation()
         let nanoCoins = account.balance
-        self.hgcBalanceLabel.text = nanoCoins.toCoins().formatHGCShort()
-        self.usdBalanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).format$()
+        self.hgcBalanceLabel.text = nanoCoins.toHBar().formatHGCShort()
+        self.usdBalanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).formatUSD()
         self.lastTxnLabel.text = ""
-        if let lastTxn = account.getAllTxn().first {
+        if account.accountTypeE != .external, let lastTxn = account.getAllTxn().first {
             var dateStr = ""
             if let date = lastTxn.createdDate {
                 dateStr = date.toString()

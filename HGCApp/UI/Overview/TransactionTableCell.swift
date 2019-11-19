@@ -1,9 +1,17 @@
 //
-//  TransactionTableCell.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 22/11/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -42,22 +50,22 @@ class TransactionTableCell: UITableViewCell {
         
         var prefix = NSLocalizedString("To", comment: "")
         var accountName : String? = nil
-        if let address = txn.isDebit() ? txn.fromAccountID : txn.toAccountID {
-            if txn.isDebit() {
-                prefix = NSLocalizedString("From", comment: "")
-            }
-            if accountName == nil {
-                accountName = HGCContact.alias(address)
-            }
-            if accountName == nil || accountName == "" {
-                accountName = NSLocalizedString("UNKNOWN", comment: "")
-            }
-            self.nameLabel.text = prefix + " " + accountName!
-            self.addressLabel.text = NSLocalizedString("ENDING IN ...", comment: "") + (address.substringFromEnd(length: 6))
+        let address : String? = txn.isDebit() ? txn.fromAccountID : txn.toAccountID
+        if txn.isDebit() {
+            prefix = NSLocalizedString("From", comment: "")
+        }
+        if accountName == nil && address != nil {
+            accountName = HGCContact.alias(address!)
+        }
+        if accountName == nil || accountName == "" {
+            accountName = NSLocalizedString("UNKNOWN", comment: "")
         }
         
-        self.coinAmountLabel.setAmount(amount.toCoins(), short: true)
-        self.amountLabel.text = CurrencyConverter.shared.convertTo$value(amount).format$()
+        self.nameLabel.text = prefix + " " + accountName!
+        self.addressLabel.text = address ?? " "
+        
+        self.coinAmountLabel.setAmount(amount.toHBar(), short: true)
+        self.amountLabel.text = CurrencyConverter.shared.convertTo$value(amount).formatUSD()
         if let date = txn.createdDate {
             self.dateTimeLabel.text = date.toString()
         } else {

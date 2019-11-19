@@ -1,17 +1,35 @@
 //
-//  HGCWallet+CoreDataClass.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 23/11/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
 //
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import Foundation
 import CoreData
 
+enum KeyDerivation {
+    case hgc, bip32
+}
+
+enum AccountType: String {
+    case auto = "auto"
+    case external = "external"
+}
+
 extension HGCWallet {
     public static let entityName  = "Wallet"
+    public static let typeBip32  = "bip32"
+
     func keyChain() -> HGCKeyChainProtocol? {
         return WalletHelper.keyChain()
     }
@@ -23,25 +41,47 @@ extension HGCWallet {
         return .ED25519
     }
     
+    var keyDerivationType:KeyDerivation {
+        get {
+            if let kd = keyDerivation, kd == HGCWallet.typeBip32 {
+                return .bip32
+            }
+            return .hgc
+        }
+        
+        set {
+            switch newValue {
+            case .hgc:
+                keyDerivation = ""
+            case .bip32:
+                keyDerivation = HGCWallet.typeBip32
+            }
+        }
+    }
+    
     class func masterWallet(_ context : NSManagedObjectContext = CoreDataManager.shared.mainContext) -> HGCWallet? {
         let result = try? context.fetch(HGCWallet.fetchRequest() as NSFetchRequest<HGCWallet>)
         return (result?.first)
     }
     
-    class func createMasterWallet(signatureAlgorith: Int16, accountID:HGCAccountID? = nil, coreDataManager : CoreDataManagerProtocol = CoreDataManager.shared) {
+    class func createMasterWallet(signatureAlgorith: Int16, accountID:HGCAccountID? = nil, keyDerivation:KeyDerivation, coreDataManager : CoreDataManagerProtocol = CoreDataManager.shared) {
         let context = coreDataManager.mainContext
         let result = try? context.fetch(HGCWallet.fetchRequest() as NSFetchRequest<HGCWallet>)
         if  result == nil || result?.count == 0 {
             let wallet = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as! HGCWallet
             wallet.walletId = 0
             wallet.signatureAlgorithm = signatureAlgorith
+            switch keyDerivation {
+            case .hgc:
+                wallet.keyDerivation = ""
+            case .bip32:
+                wallet.keyDerivation = HGCWallet.typeBip32
+            
+            }
             let acc = wallet.createDefaultAccount(coreDataManager)
             if let accID = accountID {
-                acc.accountId = accID.accountId
-                acc.realmId = accID.realmId
-                acc.shardId = accID.shardId
+                acc.updateAccountID(accID)
             }
-            coreDataManager.saveContext()
         }
     }
     
@@ -54,37 +94,35 @@ extension HGCWallet {
         account.balance = 0
         account.name = ""
         self.numAccounts = account.accountNumber + 1
-        coreDataManager.saveContext()
         return account
     }
     
     func createDefaultAccount(_ coreDataManager : CoreDataManagerProtocol = CoreDataManager.shared) -> HGCAccount {
         let account = self.createNewAccount(coreDataManager)
         account.name = "Default Account"
-        CoreDataManager.shared.saveContext()
         return account
     }
     
-    func allAccounts() -> [HGCAccount] {
-        if let set = self.accounts {
-            let sortDesc = NSSortDescriptor.init(key: "creationDate", ascending: true)
-            return set.sortedArray(using: [sortDesc]) as! [HGCAccount]
-        }
-        return [HGCAccount]()
+    @discardableResult
+    func createNewExternalAccount(accountID:HGCAccountID, name:String?, _ context : NSManagedObjectContext) -> HGCAccount {
+        let account = NSEntityDescription.insertNewObject(forEntityName: HGCAccount.entityName, into: context) as! HGCAccount
+        account.wallet = self
+        account.accountNumber = -1
+        account.creationDate = Date()
+        account.balance = 0
+        account.name = name ?? ""
+        account.accountType = AccountType.external.rawValue
+        account.updateAccountID(accountID)
+        return account
     }
     
-    func accountWithAccountID(_ accountID:String) -> HGCAccount? {
-        if let set = self.accounts?.allObjects as? [HGCAccount] {
-            for account in set {
-                if let accID = account.accountID() {
-                    if accountID.lowercased() == accID.stringRepresentation().lowercased() {
-                        return account
-                    }
-                }
+    func allAccounts(accountType:AccountType = .auto, _ orderAsc:Bool = true) -> [HGCAccount] {
+        if let set = self.accounts as? Set<HGCAccount> {
+            return set.filter({$0.accountType == accountType.rawValue}).sorted { (a1, a2) -> Bool in
+                return a1.creationDate!.compare(a2.creationDate!) == (orderAsc ? .orderedAscending : .orderedDescending)
             }
         }
-        
-        return nil
+        return [HGCAccount]()
     }
     
     func accountWithPublicKey(_ publicKey:String) -> HGCAccount? {
@@ -99,11 +137,17 @@ extension HGCWallet {
         return nil
     }
     
-    func totalBalance() -> Int64 {
-        var total : Int64 = 0
-        for acconut in self.allAccounts() {
-            total = acconut.balance + total
+    func accountWithAccountID(_ accountID:String) -> HGCAccount? {
+         if let set = self.accounts?.allObjects as? [HGCAccount] {
+            return set.first { (account) -> Bool in
+                if let accID = account.accountID() {
+                    if accountID.lowercased() == accID.stringRepresentation().lowercased() {
+                        return true
+                    }
+                }
+                return false
+            }
         }
-        return total
+        return nil
     }
 }

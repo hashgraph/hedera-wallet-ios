@@ -1,9 +1,17 @@
 //
-//  SecureAppSettings.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra on 24/11/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import Foundation
@@ -19,11 +27,11 @@ class SecureAppSettings : SecureAppSettingsProtocol {
     static let `default` : SecureAppSettings = SecureAppSettings();
     
     private func saveObject(_ object:Any, forKey:String) {
-        KFKeychain.save(object, forKey: forKey)
+        KeychainWrapper.save(object, forKey: forKey)
     }
     
     private func getObject(_ key:String) -> Any? {
-        return KFKeychain.loadObject(forKey: key)
+        return KeychainWrapper.loadObject(forKey: key)
     }
     
     private func getString(_ key: String) -> String? {
@@ -55,15 +63,18 @@ class SecureAppSettings : SecureAppSettingsProtocol {
         return getData(SecureAppSettings.keySeed)
     }
     
-    public func clearSeed() {
-        KFKeychain.deleteObject(forKey: SecureAppSettings.keySeed)
-    }
-    
     public func setPIN(_ pin:String) {
         saveObject(pin, forKey: SecureAppSettings.keyWalletPin)
     }
     
     public func getPIN() -> String? {
         return getString(SecureAppSettings.keyWalletPin)
+    }
+    
+    public func clear() throws {
+        if getSeed() != nil && !KeychainWrapper.deleteObject(forKey: SecureAppSettings.keySeed) {
+            throw NSError.init(domain: "Fail to clear seed", code: 0, userInfo: nil)
+        }
+        KeychainWrapper.deleteObject(forKey: SecureAppSettings.keyWalletPin)
     }
 }

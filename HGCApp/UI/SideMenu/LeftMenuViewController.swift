@@ -1,9 +1,17 @@
 //
-//  LeftMenuViewController.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 26/10/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 
@@ -13,10 +21,8 @@ import MessageUI
 protocol  LeftMenuViewControllerDelegate : class{
     func openSync()
     func openAbout()
-    func exportKey()
     func pushPage(_ page:UIViewController)
     func switchPage(_ page:UIViewController)
-
 }
 
 fileprivate class MenuSection {
@@ -39,12 +45,16 @@ fileprivate class Menu {
         return Menu.init(title: NSLocalizedString("Default Account", comment: ""), name: "defaultAcc")
     }
     
-    static func otherAcc() -> Menu {
-        return Menu.init(title: NSLocalizedString("Other User Account", comment: ""), name: "otherAcc")
+    static func accViewer() -> Menu {
+           return Menu.init(title: NSLocalizedString("Account Viewer", comment: ""), name: "accViewer")
+       }
+    
+    static func createAcc() -> Menu {
+        return Menu.init(title: NSLocalizedString("Create Account", comment: ""), name: "createAcc")
     }
     
     static func backup() -> Menu {
-        return Menu.init(title: NSLocalizedString("Backup Phrases", comment: ""), name: "BACKUP")
+        return Menu.init(title: NSLocalizedString("Recovery Phrase", comment: ""), name: "BACKUP")
     }
     
     static func requests() -> Menu {
@@ -52,12 +62,16 @@ fileprivate class Menu {
     }
     
     static func sync() -> Menu {
-        return Menu.init(title: NSLocalizedString("Synchronize Data", comment: ""), name: "SYNCHRONIZE")
+        return Menu.init(title: NSLocalizedString("Get Records", comment: ""), name: "getRecords")
     }
     
     static func nodes() -> Menu {
         return Menu.init(title: NSLocalizedString("Nodes", comment: ""), name: "NODES")
     }
+    
+    static func exchangeRate() -> Menu {
+           return Menu.init(title: NSLocalizedString("Exchange Rate", comment: ""), name: "exchangeRate")
+       }
     
     static func quit() -> Menu {
         return Menu.init(title: NSLocalizedString("QUIT", comment: ""), name: "QUIT")
@@ -67,20 +81,16 @@ fileprivate class Menu {
         return Menu.init(title: NSLocalizedString("LOGS", comment: ""), name: "LOGS")
     }
     
-    static func exportKey() -> Menu {
-        return Menu.init(title: NSLocalizedString("Export Key", comment: ""), name: "Export Key")
+    static func payToExchange() -> Menu {
+        return Menu.init(title: NSLocalizedString("Pay to Third Party", comment: ""), name: "Pay to exchange")
     }
     
     static func clearCache() -> Menu {
         return Menu.init(title: NSLocalizedString("CLEAR CACHE", comment: ""), name: "clearCache")
     }
     
-    static func enableBiometricAth() -> Menu {
-        return Menu.init(title:(AppDelegate.authManager.isFaceIdAvailable() ? NSLocalizedString("Enable FaceID", comment: "") : NSLocalizedString("Enable Fingerprint ID", comment: "")), name: "enableBiometricAth")
-    }
-    
-    static func enablePin() -> Menu {
-        return Menu.init(title: NSLocalizedString("Enable PIN", comment: ""), name: "enablePin")
+    static func updateKey() -> Menu {
+        return Menu.init(title: NSLocalizedString("UPDATE KEY", comment: ""), name: "updateKey")
     }
     
     static func profile() -> Menu {
@@ -90,6 +100,11 @@ fileprivate class Menu {
     static func appInfo() -> Menu {
         return Menu.init(title: NSLocalizedString("App Information", comment: ""), name: "appInfo")
     }
+    
+    static func masterReset() -> Menu {
+        return Menu.init(title: NSLocalizedString("Master Reset", comment: ""), name: "masterReset")
+    }
+    
 }
 
 class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -98,11 +113,12 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var menuButton : UIButton!;
     var accounts:[HGCAccount] = []
     
-    private var sections : [MenuSection] = [MenuSection.init(title: NSLocalizedString("Accounts", comment: ""), items: [Menu.defaultAcc()]),
-                                            MenuSection.init(title: NSLocalizedString("Activity", comment: ""),items: [Menu.requests()]),
-                                            MenuSection.init(title: NSLocalizedString("Security", comment: ""), items: [Menu.backup(), Menu.exportKey(), Menu.enableBiometricAth(), Menu.enablePin()]),
-                                            MenuSection.init(title: NSLocalizedString("Network", comment: ""), items: [Menu.nodes(), Menu.sync()]),
-                                            MenuSection.init(title: NSLocalizedString("About", comment: ""), items: [Menu.profile(), Menu.appInfo()])]
+    private var sections : [MenuSection] = [MenuSection.init(title: NSLocalizedString("Accounts", comment: ""), items: [Menu.defaultAcc(), Menu.accViewer()]),
+                                            MenuSection.init(title: NSLocalizedString("Activity", comment: ""),items: [Menu.requests(), Menu.createAcc()]),
+                                            MenuSection.init(title: NSLocalizedString("Security", comment: ""), items: [Menu.backup(),
+                                                                                                                        Menu.updateKey()]),
+                                            MenuSection.init(title: NSLocalizedString("Network", comment: ""), items: [Menu.nodes(), Menu.exchangeRate() ,Menu.sync()]),
+                                            MenuSection.init(title: NSLocalizedString("About", comment: ""), items: [Menu.profile(), Menu.appInfo(), Menu.masterReset()])]
     
     weak var delegate : LeftMenuViewControllerDelegate?
 
@@ -124,13 +140,13 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let menu0 = sections[0].items[0]
-        if let accName = HGCWallet.masterWallet()?.allAccounts().first?.name {
-            menu0.title = accName
-        }
+        let menu0 = sections[0].items.filter { (m) -> Bool in
+            return m.name == Menu.defaultAcc().name
+            }.first
         
-        let menu = sections[2].items[3]
-        menu.title = AppDelegate.authManager.currentAuthType() == .PIN ? NSLocalizedString("Change PIN", comment: "") : NSLocalizedString("Enable PIN", comment: "")
+        if let accName = HGCWallet.masterWallet()?.allAccounts().first?.name {
+            menu0?.title = accName
+        }
         self.tableView.reloadData()
     }
     
@@ -138,6 +154,38 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         AppDelegate.getInstance().slideMenuController()?.hideRightView(animated: true, completionHandler: {
             
         })
+    }
+    
+    func goToPayExchange() {
+        let alert = UIAlertController.alert(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("PAY_EXCHANGE_MESSAGE", comment: ""))
+        alert.addConfirmButton(title: NSLocalizedString("Agree", comment: "")) { (action) in
+            let model = TransferViewModel.init(fromAccount: HGCWallet.masterWallet()!.allAccounts().first!, thirdParty: true)
+            let vc = PayViewController.getInstance(model: model)
+            vc.navigationItem.hidesBackButton = true
+            self.delegate?.pushPage(vc)
+        }
+        alert.addDismissButton(title: NSLocalizedString("Decline", comment: ""), nil)
+        alert.showAlert()
+    }
+    
+    func doMasterReset() {
+        let onReset = {
+            do {
+                try WalletHelper.resetWallet()
+                AppDelegate.getInstance().switchToWelcome()
+
+            } catch  {
+                Globals.showGenericAlert(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("There were some issues while doing wallet reset. We recommend deleting the wallet and install it again.", comment: "")) { (action) in
+                    WalletHelper.quit()
+                }
+            }
+
+        }
+            
+            Globals.showConfirmationAlert(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("You are about to perform a Master Reset on your wallet, this will remove all keys, accounts, and recovery words from this device, this will not change anything on the Network. Please save all your recovery words before this step.", comment: ""), onConfirm: {
+                onReset()
+                
+            }, onDismiss: nil)
     }
     
     func emailLogs() {
@@ -191,8 +239,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 let vc = AccountDetailsViewController.getInstance(HGCWallet.masterWallet()!.allAccounts().first!)
                 self.delegate?.pushPage(vc)
                 
-            case Menu.otherAcc().name:
-                let vc = AccountListViewController.getInstance()
+            case Menu.accViewer().name:
+                let vc = AccountViewerViewController.getInstance()
                 self.delegate?.pushPage(vc)
             
             case Menu.requests().name:
@@ -206,39 +254,40 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 
             case Menu.sync().name:
                 self.delegate?.openSync()
-                
+            
+            case Menu.masterReset().name:
+                self.doMasterReset()
                 
             case Menu.nodes().name:
                 let vc = NodesTableViewController.getInstance()
                 vc.navigationItem.hidesBackButton = true
                 self.delegate?.pushPage(vc)
-                
-            case Menu.exportKey().name:
-                self.delegate?.exportKey()
+            case Menu.exchangeRate().name:
+                let vc = ExchangeRateViewController.getInstance()
+                self.delegate?.pushPage(vc)
+            
+            case Menu.payToExchange().name:
+                self.goToPayExchange()
                 
             case Menu.profile().name:
                 let vc = SettingsTableViewController.getInstance()
                 vc.navigationItem.hidesBackButton = true
                 self.delegate?.pushPage(vc)
-                
+            case Menu.createAcc().name:
+                let vc = CreateAccountViewController.getInstance(CreateAccountViewModel.init(fromAccount: WalletHelper.defaultPayerAccount()!))
+                vc.navigationItem.hidesBackButton = true
+                self.delegate?.pushPage(vc)
             case Menu.appInfo().name:
                 let vc = AboutViewController.getInstance()
                 vc.navigationItem.hidesBackButton = true
                 self.delegate?.pushPage(vc)
-                
-            case Menu.enablePin().name:
-                AppDelegate.authManager.onComplete = self.onAuthComplete
-                AppDelegate.authManager.setupPIN()
-                
-            case Menu.enableBiometricAth().name:
-                if AppDelegate.authManager.currentAuthType() != .biometric {
-                    AppDelegate.authManager.onComplete = self.onAuthComplete
-                    AppDelegate.authManager.setupBiometricAuth(animated: true)
+            case Menu.updateKey().name:
+                if WalletHelper.accountID() != nil {
+                    AppDelegate.getInstance().switchToUpdateKey()
+
                 } else {
-                    Globals.showGenericErrorAlert(title: "", message:(AppDelegate.authManager.isFaceIdAvailable() ? NSLocalizedString("You already have FaceID enabled", comment: "") : NSLocalizedString("You already have Fingerprint ID enabled", comment: "")))
+                    Globals.showGenericAlert(title: NSLocalizedString("Account is not linked", comment: ""), message: "")
                 }
-                
-                
             default: break
                 
             }
@@ -271,11 +320,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func onAuthComplete(success:Bool) {
-        if success {
-            
-        }
-    }
     
     deinit {
         NotificationCenter.default.removeObserver(self);

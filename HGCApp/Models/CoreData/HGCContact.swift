@@ -1,10 +1,17 @@
 //
-//  HGCContact+CoreDataClass.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 23/11/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
 //
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import Foundation
@@ -46,10 +53,14 @@ extension HGCContact {
     }
     
     @discardableResult
-    static func addAlias(name:String?, address:String) -> HGCContact? {
+    static func addAlias(name:String?, address:String, host:String? = nil) -> HGCContact? {
         if address.isEmpty { return nil}
         if let alias = HGCContact.getContact(address) {
             alias.name = name
+            if let host = host {
+                alias.host = host
+            }
+            
             CoreDataManager.shared.saveContext()
             return alias
             
@@ -58,28 +69,39 @@ extension HGCContact {
             let contact = NSEntityDescription.insertNewObject(forEntityName: HGCContact.entityName, into: context) as! HGCContact
             contact.name = name
             contact.publicKeyID = address
+            contact.host = host
             CoreDataManager.shared.saveContext()
             return contact
         }
         
     }
     
-    static func isVarified(name:String?, address:String?) -> Bool {
-        
-        if name == nil || address == nil { return false}
-        if name!.isEmpty || address!.isEmpty { return false}
-        if let account = HGCWallet.masterWallet()?.accountWithAccountID(address!) {
-            if account.name == name {
-                return true
-            }
+    private var infoMap:[String:Any] {
+        do {
+            return try JSONSerialization.jsonObject(with: (self.info ?? "").data(using: .utf8)!, options: JSONSerialization.ReadingOptions.allowFragments) as! [String: Any]
+        } catch {
+            return [:]
         }
-        
-        if let alias = HGCContact.getContact(address!) {
-            if alias.name == name {
-                return alias.verified
-            }
+    }
+    
+    private func saveInfo(map:[String:Any]) {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: map, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+            info = String.init(data: data, encoding: .utf8)
+        } catch {
+            
         }
-        
-        return false
+    }
+    
+    
+    var host:String? {
+        get {
+            return infoMap["host"] as? String
+        }
+        set {
+            var infoDict = infoMap
+            infoDict["host"] = newValue
+            saveInfo(map: infoDict)
+        }
     }
 }

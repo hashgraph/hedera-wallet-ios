@@ -179,6 +179,28 @@ static inline NSUInteger MnemonicIntegerFrom11Bits(uint8_t* buf, int bitIndex) {
     return entropy;
 }
 
++ (NSData*) seedForWords:(NSArray*)words password:(NSString*)password {
+    password = password ?: @"";
+    
+    NSData* mnemonic = [[words componentsJoinedByString:@" "] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData* salt = [[@"mnemonic" stringByAppendingString:password] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    const NSUInteger seedLength = 64;
+    NSMutableData* seed = [NSMutableData dataWithLength:seedLength];
+    
+    CCKeyDerivationPBKDF(kCCPBKDF2,
+                         mnemonic.bytes,
+                         mnemonic.length,
+                         salt.bytes,
+                         salt.length,
+                         kCCPRFHmacAlgSHA512,
+                         2048,
+                         seed.mutableBytes,
+                         seedLength);
+    
+    return seed;
+}
+
 - (NSData *)sha256:(NSData *)data {
     unsigned char hash[CC_SHA256_DIGEST_LENGTH];
     CC_LONG len = (uint32_t)[data length];

@@ -1,9 +1,17 @@
 //
-//  UpdateBalanceOperation.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra on 26/08/18.
-//  Copyright © 2018 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import Foundation
@@ -12,58 +20,57 @@ import SwiftGRPC
 
 class UpdateBalanceOperation : BaseOperation {
     private var coreDataManager = CoreDataManager.shared
+    var accounts:[HGCAccount]
+    
+    init(accounts:[HGCAccount]) {
+        self.accounts = accounts
+    }
     
     override func main() {
         super.main()
         NotificationCenter.default.post(name: .onBalanceServiceStateChanged, object: nil)
-        let context = coreDataManager.mainContext
-        if let wallet = HGCWallet.masterWallet(context) {
-            self.fetchBalance(accounts: wallet.allAccounts(), context: context)
-        }
+        self.fetchBalance(accounts: accounts)
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.01) {
             NotificationCenter.default.post(name: .onBalanceServiceStateChanged, object: nil)
         }
         
+        DispatchQueue.main.async {
+            self.coreDataManager.saveContext()
+        }
+        
     }
     
-    private func fetchBalance(accounts : [HGCAccount], context:NSManagedObjectContext) {
+    private func fetchBalance(accounts : [HGCAccount]) {
         if accounts.count <= 0 { return }
-        let payerAccount = accounts.first!
+        let payerAccountID = HGCAccountID.init(from: "0.0.0")!
         var errors = Set<String>()
         for account in accounts {
             if let accID = account.accountID() {
-                let q = APIRequestBuilder.getBalanceQuery(fromAccount: payerAccount, accountID: accID, node: node.accountID)
-                Logger.instance.log(message: q.textFormatString(), event: .i)
-               
                 do {
-                    let response = try cryptoClient.cryptoGetBalance(q)
-                    Logger.instance.log(message: response.textFormatString(), event: .i)
-                    let status = response.cryptogetAccountBalance.header.nodeTransactionPrecheckCode
+                    let txnBuilder = TransactionBuilder.init(payerCredentials: nil, payerAccount: payerAccountID)
+                    let param = GetBalanceParam.init(accID)
+                    let response = try grpc.perform(param, txnBuilder)
+                    let status = response.response.cryptogetAccountBalance.header.nodeTransactionPrecheckCode
                     switch status {
                     case .ok:
-                        let bal = response.cryptogetAccountBalance
+                        let bal = response.response.cryptogetAccountBalance
                         account.balance = Int64(bal.balance)
                         account.lastBalanceCheck = Date()
-                    case .invalidAccountID:
-                        account.clearData()
-                        errors.insert("\(NSLocalizedString("invalidAccountID", comment: "")) \(accID.stringRepresentation())")
-                    case .payerAccountNotFound:
-                        account.clearData()
-                        errors.insert("\(NSLocalizedString("payerAccountNotFound", comment: "")) \(accID.stringRepresentation())")
                         break
+                    case .invalidAccountID, .accountDeleted, .accountIDDoesNotExist:
+                        account.clearData()
+                        fallthrough
                     default:
-                        errors.insert(status.getErrorMessage())
+                        errors.insert("\(status.getErrorMessage()) \(accID.stringRepresentation())")
                     }
                     
                 } catch {
                     errors.insert(desc(error))
-                    Logger.instance.log(message:desc(error), event: .i)
+                    Logger.instance.log(message:desc(error), event: .e)
                     break
                 }
             }
         }
-        self.coreDataManager.saveContext()
-        
         if !errors.isEmpty {
             errorMessage = errors.joined(separator: "\n")
         }

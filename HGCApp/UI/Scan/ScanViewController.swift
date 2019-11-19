@@ -1,9 +1,17 @@
 //
-//  ScanViewController.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 23/07/18.
-//  Copyright © 2018 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -15,6 +23,8 @@ protocol ScanViewControllerDelegate : class {
 }
 
 class ScanViewController: UIViewController {
+
+    var message:String?
 
     @IBOutlet weak var scanView : UIView!
     @IBOutlet weak var captionLabel : UILabel!
@@ -35,6 +45,10 @@ class ScanViewController: UIViewController {
         self.errorLabel.font = Font.regularFont(12.0)
         self.errorLabel.textColor = UIColor.red
         scanner = MTBBarcodeScanner(previewView: self.scanView)
+        
+        if let m = message {
+            self.captionLabel.text = m
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +75,9 @@ class ScanViewController: UIViewController {
                                 #endif
                                 results.append(stringValue)
                             }
-                            self.delegate?.scanViewControllerDidScan(self, results: results)
+                            if !results.isEmpty {
+                                self.delegate?.scanViewControllerDidScan(self, results: results)
+                            }
                         }
                     })
                 } catch {

@@ -1,71 +1,92 @@
 [
     {
-        "host": "35.237.207.94",
+        "host": "35.196.146.2",
         "port": 50211,
         "accountNum": 3,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.245.161.101",
+        "host": "35.245.91.14",
         "port": 50211,
         "accountNum": 4,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.238.76.75",
+        "host": "34.67.95.76",
         "port": 50211,
         "accountNum": 5,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.247.38.188",
+        "host": "35.203.145.150",
         "port": 50211,
         "accountNum": 6,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.203.66.141",
+        "host": "34.94.112.161",
         "port": 50211,
         "accountNum": 7,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.236.47.70",
+        "host": "34.95.37.183",
         "port": 50211,
         "accountNum": 8,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.246.64.165",
+        "host": "34.76.213.6",
         "port": 50211,
         "accountNum": 9,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.246.137.43",
+        "host": "34.89.53.144",
         "port": 50211,
         "accountNum": 10,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.189.241.222",
+        "host": "35.198.144.75",
         "port": 50211,
         "accountNum": 11,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.204.96.224",
+        "host": "34.90.15.85",
         "port": 50211,
         "accountNum": 12,
+        "shardNum": 0,
+        "realmNum": 0
+    },
+    {
+        "host": "34.92.29.237",
+        "port": 50211,
+        "accountNum": 13,
+        "shardNum": 0,
+        "realmNum": 0
+    },
+    {
+        "host": "35.194.216.81",
+        "port": 50211,
+        "accountNum": 14,
+        "shardNum": 0,
+        "realmNum": 0
+    },
+    {
+        "host": "34.84.108.224",
+        "port": 50211,
+        "accountNum": 15,
         "shardNum": 0,
         "realmNum": 0
     }

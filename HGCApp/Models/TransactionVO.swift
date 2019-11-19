@@ -1,9 +1,17 @@
 //
-//  TransactionVO.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 24/07/18.
-//  Copyright © 2018 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -26,7 +34,7 @@ class TransactionVO {
     private var amount: Int64?
     
     init?(_ txn:Proto_TransactionRecord) {
-        txnID = txn.transactionID.stringRepresentation()
+        txnID = txn.transactionID.protoHexRepresentation()
         feeCharged = txn.transactionFee
         note = txn.memo
         switch txn.receipt.status {
@@ -38,14 +46,31 @@ class TransactionVO {
             consensus = .failed
         }
         if !txn.transferList.accountAmounts.isEmpty {
+            var maxAmount:Int64 = 0
             for obj in txn.transferList.accountAmounts {
-                if obj.amount > 0 {
-                    toAccountID = obj.accountID.hgcAccountID().stringRepresentation()
-                    amount = obj.amount
-                } else {
-                    fromAccountID = obj.accountID.hgcAccountID().stringRepresentation()
+                if maxAmount <= abs(obj.amount) {
+                    maxAmount = abs(obj.amount)
+                    if obj.amount > 0 {
+                        toAccountID = obj.accountID.hgcAccountID().stringRepresentation()
+                        amount = obj.amount
+                    } else {
+                        fromAccountID = obj.accountID.hgcAccountID().stringRepresentation()
+                        amount = abs(obj.amount)
+                    }
                 }
             }
+            
+            if fromAccountID == nil || toAccountID == nil {
+                amount = txn.transferList.accountAmounts.compactMap { (amt) -> Int64? in
+                    if amt.amount < 0 {
+                        return abs(amt.amount)
+                    } else {
+                        return nil
+                    }
+                }.reduce(0, +)
+                feeCharged = 0
+            }
+            
         } else {
             return nil
         }
@@ -53,7 +78,7 @@ class TransactionVO {
     
     init?(_ txn:Proto_Transaction) {
         let body = txn.transactionBody()
-        txnID = body.transactionID.stringRepresentation()
+        txnID = body.transactionID.protoHexRepresentation()
         feeCharged = body.transactionFee
         note = body.memo
         if body.cryptoTransfer.hasTransfers {
@@ -65,6 +90,12 @@ class TransactionVO {
                 } else {
                     fromAccountID = obj.accountID.hgcAccountID().stringRepresentation()
                 }
+            }
+        } else {
+            if body.cryptoCreateAccount.hasKey {
+                amount = Int64(body.cryptoCreateAccount.initialBalance)
+                toAccountID = ""
+                fromAccountID = body.transactionID.accountID.hgcAccountID().stringRepresentation()
             }
         }
     }
@@ -89,6 +120,10 @@ class TransactionVO {
                                 vo.consensus = .success
                             default:
                                 vo.consensus = .failed
+                            }
+                            
+                            if receipt.accountID.accountNum > 0 {
+                                vo.toAccountID = receipt.accountID.hgcAccountID().stringRepresentation()
                             }
                         }
                     }
@@ -121,5 +156,12 @@ class TransactionVO {
     
     func displayAmount() -> UInt64 {
         return UInt64(amount ?? 0)
+    }
+    
+    func txnIDUserString() -> String {
+        if let data  = txnID.hexadecimal(), let txnID = try? Proto_TransactionID(serializedData: data) {
+            return txnID.stringRepresentation
+        }
+        return ""
     }
 }

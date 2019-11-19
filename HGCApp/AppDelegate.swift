@@ -1,18 +1,27 @@
 //
-//  AppDelegate.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 23/10/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
 import Branch
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    private var window: UIWindow?
+    internal var window: UIWindow?
     private var splashWindow: UIWindow?
     static var authManager : AuthManager!
 
@@ -23,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         HGCStyle.customizeAppearance();
         
         // load address book
-        _ = APIAddressBookService.defaultAddressBook
+        APIAddressBookService.defaultAddressBook.loadAddressBook()
         
         // register branch.io instance
         setupBranchIO(launchOptions)
@@ -55,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         splashWindow?.isHidden = true
+        AppConfigService.defaultService.updateExchangeRate()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -75,19 +85,44 @@ extension AppDelegate {
     }
     
     func setupWindows() {
+        IQKeyboardManager.shared.enable = true
         splashWindow = UIWindow.init(frame: UIScreen.main.bounds)
         splashWindow?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: Bundle.main).instantiateInitialViewController()
         splashWindow?.windowLevel = UIWindow.Level.init(rawValue: 3)
         window = UIWindow.init(frame: UIScreen.main.bounds)
         AppDelegate.authManager = AuthManager.init(mainWindow: window!)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(AppDelegate.onOnboardDidSuccess), name:WalletHelper.onboardDidSuccess, object: nil)
+        
         if WalletHelper.isOnboarded() {
-            window?.rootViewController = mainViewController()
+            window?.rootViewController = WalletHelper.canDoBip32Migration() ? migrationViewController() : mainViewController()
             window?.makeKeyAndVisible()
         } else {
-            NotificationCenter.default.addObserver(self, selector:#selector(AppDelegate.onOnboardDidSuccess), name:WalletHelper.onboardDidSuccess, object: nil)
             window?.rootViewController = welcomeViewController()
             window?.makeKeyAndVisible()
         }
+    }
+    
+    private func switchToMain() {
+        let mainVC = self.mainViewController();
+        UIView.transition(with: self.window!, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+            self.window?.rootViewController = mainVC
+        }, completion: nil)
+    }
+    
+    func switchToWelcome() {
+        let welcomeVC = self.welcomeViewController();
+        UIView.transition(with: self.window!, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+            self.window?.rootViewController = welcomeVC
+        }, completion: nil)
+    }
+    
+    func switchToUpdateKey() {
+        let vc = migrationViewController();
+        self.window?.rootViewController = vc
+        UIView.transition(with: self.window!, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+            self.window?.rootViewController = vc
+        }, completion: nil)
     }
     
     func slideMenuController() -> LGSideMenuController? {
@@ -115,16 +150,21 @@ extension AppDelegate {
     }
     
     func welcomeViewController() -> UIViewController {
-        let vc  = OnboardingViewController.getInstance()
+        let vc  = OnboardingViewController.getInstance(root: WalletSetupOptionsViewController.getInstance())
+        vc.title = NSLocalizedString("Get Started on Hedera", comment: "")
+        let navVC = UINavigationController.init(rootViewController: vc)
+        return navVC
+    }
+    
+    func migrationViewController() -> UIViewController {
+        let vc  = OnboardingViewController.getInstance(root: Bip32MigrationPromptVC.getInstance(delegate: self, forKeyUpdate: !WalletHelper.canDoBip32Migration()))
+        vc.title = NSLocalizedString("Hedera Wallet", comment: "")
         let navVC = UINavigationController.init(rootViewController: vc)
         return navVC
     }
     
     @objc func onOnboardDidSuccess() {
-        let mainVC = self.mainViewController();
-        UIView.transition(from: (self.window?.rootViewController?.view)!, to: (mainVC.view)!, duration: 0.5, options: .transitionFlipFromLeft) { (finished: Bool) in
-            self.window?.rootViewController = mainVC
-        }
+        switchToMain()
     }
     
     func setupBranchIO(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
@@ -141,6 +181,34 @@ extension AppDelegate {
                 Logger.instance.log(message: error!.localizedDescription, event: .e)
             }
         })
+    }
+}
+
+extension AppDelegate : Bip32MigrationDelegate {
+    func bip32MigrationRetry(_ vc: UIViewController) {
+        vc.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    var oldKey: HGCKeyPairProtocol {
+        return WalletHelper.defaultPayerAccount()!.key()
+    }
+    
+    var accountID: HGCAccountID {
+        return WalletHelper.accountID()!
+    }
+    
+    func bip32MigrationAborted() {
+        switchToMain()
+    }
+    
+    func bip32MigrationSuccessful(_ newSeed: HGCSeed, _ accountID: HGCAccountID) {
+        let wallet = HGCWallet.masterWallet()
+        wallet?.keyDerivationType = .bip32
+        WalletHelper.defaultPayerAccount()?.publicKey = nil
+        SecureAppSettings.default.setSeed(newSeed.entropy)
+        CoreDataManager.shared.saveContext()
+        AppSettings.setNeedsToShownBip39Mnemonic()
+        switchToMain()
     }
 }
 

@@ -1,26 +1,35 @@
 //
-//  RestoreAccountIDViewController.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra on 25/01/19.
-//  Copyright © 2019 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
 import ActiveLabel
+import MBProgressHUD
 
 class RestoreAccountIDViewController: UIViewController {
 
     private var seed:HGCSeed!
-    private var sigantureOption : SignatureOption!
+    private var keyDerivation:KeyDerivation?
 
     @IBOutlet weak var messageLabel : ActiveLabel!
     @IBOutlet weak var textField : HGCTextField!
 
-    static func getInstance(_ signatureOption:SignatureOption, _ seed : HGCSeed) -> RestoreAccountIDViewController {
+    static func getInstance(_ seed : HGCSeed, _ keyDerivation:KeyDerivation?) -> RestoreAccountIDViewController {
         let vc = Globals.welcomeStoryboard().instantiateViewController(withIdentifier: "restoreAccountIDViewController") as! RestoreAccountIDViewController
         vc.seed = seed
-        vc.sigantureOption = signatureOption
+        vc.keyDerivation = keyDerivation
         vc.title = NSLocalizedString("Enter Account ID", comment: "")
         return vc
     }
@@ -31,6 +40,7 @@ class RestoreAccountIDViewController: UIViewController {
         self.view.backgroundColor = Color.pageBackgroundColor()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon-close"), style: .plain, target: self, action: #selector(onCloseButtonTap))
         self.textField.placeholder = NSLocalizedString("ACCOUNTID_PLACEHOLDER", comment: "")
+        textField.keyboardType = .default
         messageLabel.textColor = Color.primaryTextColor()
         messageLabel.font = Font.regularFontLarge()
         let customType = ActiveType.custom(pattern: "\\shedera portal\\b") //Looks for "supports"
@@ -52,11 +62,71 @@ class RestoreAccountIDViewController: UIViewController {
     }
     
     @IBAction func onDoneButtonTap() {
+        if let accountID = HGCAccountID.init(from: self.textField.text?.trim()) {
+            if let kd = keyDerivation {
+                askForMigration(kd: kd)
+            } else {
+    
+                let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                let op = DetectWalletOperation.init(entropy: seed, accountID: accountID)
+                op.completionBlock = {
+                    DispatchQueue.main.async {
+                        MBProgressHUD.hide(hud)
+                        if let kd = op.keyDerivation {
+                            self.askForMigration(kd: kd)
+                        } else {
+                            Globals.showGenericErrorAlert(title: "Cannot restore wallet", message: op.errorMessage)
+                        }
+                    }
+                }
+                BaseOperation.operationQueue.addOperation(op)
+            }
+            
+            
+        } else {
+            Globals.showGenericErrorAlert(title: "", message: NSLocalizedString("Invalid account ID", comment: ""))
+        }
+    }
+    
+    func askForMigration(kd:KeyDerivation) {
+        if kd == .hgc {
+            let vc = Bip32MigrationPromptVC.getInstance(delegate: self)
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            onRestoreSuccess(kd, seed)
+        }
+    }
+    
+    func onRestoreSuccess(_ kd:KeyDerivation, _ hgcSeed:HGCSeed) {
         let accountID = HGCAccountID.init(from: self.textField.text?.trim())
         Globals.showGenericAlert(title: NSLocalizedString("Wallet restored successfully", comment: ""), message: "")
-        let vc = PINSetupViewController.getInstance(sigantureOption, seed, accountID)
+        let vc = PINSetupViewController.getInstance(kd, hgcSeed, accountID)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension RestoreAccountIDViewController : Bip32MigrationDelegate {
+    func bip32MigrationRetry(_ vc: UIViewController) {
+        vc.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    var oldKey: HGCKeyPairProtocol {
+        return EDKeyChain.init(hgcSeed: seed).key(at: 0)
+    }
+    
+    var accountID: HGCAccountID {
+        return HGCAccountID.init(from: self.textField.text?.trim())!
+    }
+    
+    func bip32MigrationAborted() {
+        onRestoreSuccess(.hgc, seed)
+    }
+    
+    func bip32MigrationSuccessful(_ newSeed: HGCSeed, _ accountID: HGCAccountID) {
+        AppSettings.setNeedsToShownBip39Mnemonic()
+        onRestoreSuccess(.bip32, newSeed)
+    }
+    
 }
 
 // Helper function inserted by Swift 4.2 migrator.

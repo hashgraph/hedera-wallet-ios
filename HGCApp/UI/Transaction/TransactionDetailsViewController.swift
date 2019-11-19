@@ -1,9 +1,17 @@
 //
-//  TransactionDetailsViewController.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 29/11/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -72,16 +80,6 @@ class TransactionDetailsViewController: UITableViewController {
         Globals.copyString(self.transaction.toAccountID)
     }
     
-    @IBAction func onFromVerfyButtonTap() {
-        let vc = VerifyAliasViewController.getInstance(name: HGCContact.alias(self.transaction.fromAccountID!)!, address: self.transaction.fromAccountID!)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func onToVerfyButtonTap() {
-        let vc = VerifyAliasViewController.getInstance(name: HGCContact.alias(self.transaction.toAccountID!)!, address: self.transaction.toAccountID!)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     @IBAction func onCloseButtonTap() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -110,7 +108,8 @@ extension TransactionDetailsViewController  {
             cell.captionLabel.text = NSLocalizedString("FROM", comment: "")
             cell.copyButton.isHidden = false
             var fromName : String? = nil
-            
+            cell.keyLabel.text = " "
+            cell.nameLabel.text = ""
             if let fromAddress = transaction.fromAccountID {
                 cell.allowEditing = !self.isMyAccount(fromAddress)
                 if let name = HGCContact.alias(fromAddress) {
@@ -118,8 +117,6 @@ extension TransactionDetailsViewController  {
                 }
                 cell.nameLabel.text = fromName
                 cell.keyLabel.text = fromAddress
-                cell.actionButton.isHidden = fromName == nil || HGCContact.isVarified(name: fromName, address: fromAddress)
-                cell.actionButton.setTitle(NSLocalizedString("VERIFY", comment: ""), for: .normal)
             }
     
             return cell
@@ -129,6 +126,8 @@ extension TransactionDetailsViewController  {
             cell.delegate = self
             cell.copyButton.isHidden = false
             cell.captionLabel.text = "TO"
+            cell.keyLabel.text = " "
+            cell.nameLabel.text = ""
             var toName : String? = nil
             if let toAddress = transaction.toAccountID {
                 cell.allowEditing = !self.isMyAccount(toAddress)
@@ -138,8 +137,6 @@ extension TransactionDetailsViewController  {
                 
                 cell.nameLabel.text = toName
                 cell.keyLabel.text = toAddress
-                cell.actionButton.isHidden = toName == nil || HGCContact.isVarified(name: toName, address: toAddress)
-                cell.actionButton.setTitle(NSLocalizedString("VERIFY", comment: ""), for: .normal)
             }
             
             return cell
@@ -162,7 +159,7 @@ extension TransactionDetailsViewController  {
                 status = NSLocalizedString("TXN_STATUS_UNKNOWN", comment: "")
             }
             
-            cell.dateTimeLabel.text = cell.dateTimeLabel.text! + "  status: \(status)"
+            cell.dateTimeLabel.text = transaction.txnIDUserString() + "\n" + cell.dateTimeLabel.text! + "  status: \(status)"
             cell.setTextColor(transaction.isDebit() ? Color.positiveColor() : Color.negativeColor())
             return cell
             
@@ -175,7 +172,8 @@ extension TransactionDetailsViewController  {
             
         case TransactionDetailsViewController.rowIndexFee:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeeTableCell", for: indexPath) as! FeeTableCell
-            cell.feeLabel.setAmount(transaction.feeCharged.toCoins())
+            cell.feeLabel.setAmount(transaction.feeCharged.toHBar())
+            cell.feeCaptionLabel.text = NSLocalizedString("FEE", comment: "")
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "accountAddressTableCell", for: indexPath) as! AddressTableViewCell
@@ -186,16 +184,6 @@ extension TransactionDetailsViewController  {
 }
 
 extension TransactionDetailsViewController : TxnDetailsAddressTableCellDelegate {
-    func txnAddressTableViewCellDidTapActionButton(_ cell: TxnDetailsAddressTableCell) {
-        if let indexPath = self.tableView.indexPath(for: cell) {
-            if indexPath.row == TransactionDetailsViewController.rowIndexFrom {
-                self.onFromVerfyButtonTap()
-                
-            } else if indexPath.row == TransactionDetailsViewController.rowIndexTo {
-                self.onToVerfyButtonTap()
-            }
-        }
-    }
     
     func txnAddressTableViewCellDidTapCopyButton(_ cell: TxnDetailsAddressTableCell) {
         if let indexPath = self.tableView.indexPath(for: cell) {

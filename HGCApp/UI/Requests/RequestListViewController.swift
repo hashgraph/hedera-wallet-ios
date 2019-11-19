@@ -1,9 +1,17 @@
 //
-//  RequestListViewController.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 06/12/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -49,8 +57,8 @@ extension RequestListViewController : UITableViewDelegate, UITableViewDataSource
 extension RequestListViewController : RequestTableCellDelegate {
     func requestTableCellDidTapOnPayButton(_ cell: RequestTableCell) {
         let indexPath = self.tableView.indexPath(for: cell)
-        let vc = PayViewController.getInstance()
-        vc.request = self.requests[(indexPath?.row)!]
+        let model = TransferViewModel.init(fromAccount: HGCWallet.masterWallet()!.allAccounts().first!, thirdParty: false, request: requests[(indexPath?.row)!])
+        let vc = PayViewController.getInstance(model: model)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

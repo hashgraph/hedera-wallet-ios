@@ -1,76 +1,52 @@
 //
-//  TransferOperation.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 24/08/18.
-//  Copyright © 2018 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import Foundation
 
 class TransferOperation: BaseOperation {
+    let param: TransferParam
     let fromAccount: HGCAccount
-    let toAccount: HGCAccountID
-    let toAccountName: String?
-    let amount:UInt64
-    let notes:String?
-    let fee:UInt64
-    
-    init(fromAccount:HGCAccount, toAccount:HGCAccountID, toAccountName:String?, amount:UInt64, notes:String?, fee:UInt64) {
+
+    init(fromAccount: HGCAccount, param:TransferParam) {
+        self.param = param
         self.fromAccount = fromAccount
-        self.toAccount = toAccount
-        self.toAccountName = toAccountName
-        self.amount = amount
-        self.notes = notes
-        self.fee = fee
     }
     
     override func main() {
         super.main()
-        let r = APIRequestBuilder.requestForTransfer(fromAccount: self.fromAccount, toAccount: toAccount, amount: self.amount, notes: self.notes, node: node.accountID, fee: fee)
-        Logger.instance.log(message: r.textFormatString(), event: .i)
+        
         do {
-            let response = try cryptoClient.cryptoTransfer(r)
-            Logger.instance.log(message: response.textFormatString(), event: .i)
-            switch response.nodeTransactionPrecheckCode {
+            let pair = try grpc.perform(param, fromAccount.getTransactionBuilder())
+            switch pair.response.nodeTransactionPrecheckCode {
             case .ok:
-                let savedTxn = self.saveTransaction(txn:r)
-                sleep(1)
-                var isSuccess = false
-                for _ in 1...3 {
-                    let receiptReq = APIRequestBuilder.requestForGetTxnReceipt(fromAccount: self.fromAccount, paramTxnId: r.transactionBody().transactionID, node: node.accountID)
-                    Logger.instance.log(message: receiptReq.textFormatString(), event: .i)
-                    
-                    do {
-                        let receiptRes = try cryptoClient.getTransactionReceipts(receiptReq)
-                        Logger.instance.log(message: receiptRes.textFormatString(), event: .i)
-                        if receiptRes.transactionGetReceipt.hasReceipt {
-                            switch receiptRes.transactionGetReceipt.receipt.status {
-                            case .unknown:
-                                self.errorMessage = "Unable to fetch receipt, status unknown"
-                                break
-                            case .success:
-                                isSuccess = true
-                            default:
-                                self.errorMessage = receiptRes.transactionGetReceipt.receipt.status.getErrorMessage()
-                            }
-                        }
-                        savedTxn.receipt = try? receiptRes.serializedData()
-                        
-                    } catch {
-                        Logger.instance.log(message: desc(error), event: .e)
-                        errorMessage = desc(error)
-                        break
+                let savedTxn = self.saveTransaction(txn:pair.transaction)
+                do {
+                    let receiptRes = try getReceipt(acc: fromAccount.accountID()!, txnID: pair.transaction.transactionBody().transactionID)
+                    savedTxn.receipt = try? receiptRes.serializedData()
+                    let status = receiptRes.transactionGetReceipt.receipt.status
+                    if status != .success {
+                        errorMessage = status.getErrorMessage()
                     }
-                    if isSuccess {
-                        self.errorMessage = nil
-                        break
-                    }
-                    sleep(2)
+
+                } catch {
+                    errorMessage = desc(error)
                 }
                 
             default:
-                self.errorMessage = response.nodeTransactionPrecheckCode.getErrorMessage()
+                self.errorMessage = pair.response.nodeTransactionPrecheckCode.getErrorMessage()
             }
             
         } catch {
@@ -82,8 +58,8 @@ class TransferOperation: BaseOperation {
     }
     
     func saveTransaction(txn: Proto_Transaction) -> HGCRecord {
-        let record = self.fromAccount.createTransaction(toAccountID: self.toAccount, txn:txn)
-        HGCContact.addAlias(name: self.toAccountName, address: self.toAccount.stringRepresentation())
+        let record = self.fromAccount.createTransaction(toAccountID: param.toAccount, txn:txn)
+        HGCContact.addAlias(name: param.toAccountName, address: param.toAccount.stringRepresentation())
         return record
     }
 }

@@ -1,18 +1,27 @@
 //
-//  NodesTableViewController.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra on 21/09/18.
-//  Copyright © 2018 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
+import MBProgressHUD
 
 class NodesTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var nodes = [HGCNode]()
     @IBOutlet weak var tableView:UITableView!
-
+ 
     static func getInstance() -> NodesTableViewController {
         return Globals.developerToolsStoryboard().instantiateViewController(withIdentifier: "nodesTableViewController") as! NodesTableViewController
     }
@@ -22,14 +31,14 @@ class NodesTableViewController: UIViewController, UITableViewDelegate, UITableVi
         self.title = NSLocalizedString("NODES", comment: "")
         _ = APIAddressBookService.defaultAddressBook;
         if allowEditingNet {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title:NSLocalizedString("Add", comment: ""), style: .plain, target: self, action: #selector(NodesTableViewController.onAddButtonTap))
+            self.navigationItem.rightBarButtonItems = [UIBarButtonItem.init(title:NSLocalizedString("Add", comment: ""), style: .plain, target: self, action: #selector(NodesTableViewController.onAddButtonTap)), UIBarButtonItem.init(title:NSLocalizedString("Copy", comment: ""), style: .plain, target: self, action: #selector(NodesTableViewController.onCopyButtonTap))]
         }
         self.tableView.backgroundColor = Color.pageBackgroundColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        nodes = HGCNode.getAllNodes(activeOnly: false)
+        nodes = HGCNode.getAllNodes(activeOnly: false, context: CoreDataManager.shared.mainContext)
         self.tableView.reloadData()
     }
     
@@ -37,7 +46,32 @@ class NodesTableViewController: UIViewController, UITableViewDelegate, UITableVi
         let vc = ChangeIPViewController.getInstance(node: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func onCopyButtonTap() {
+        let string = APIAddressBookService.defaultAddressBook.getAddressBookString()
+        Globals.copyString(string)
+        Globals.showGenericAlert(title: NSLocalizedString("Copied", comment: ""), message: NSLocalizedString("Nodes copied to clipboard.", comment: ""))
+    }
 
+    @IBAction func onRefreshButtonTap() {
+        let onRefresh = {
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            APIAddressBookService.defaultAddressBook.updateAddressBook(context: CoreDataManager.shared.mainContext) { [weak self] (e) in
+                if let error = e {
+                    Globals.showGenericAlert(title: NSLocalizedString("Error", comment: ""), message: error)
+                }
+                hud.hide(animated: true)
+                self?.nodes = HGCNode.getAllNodes(activeOnly: false, context: CoreDataManager.shared.mainContext)
+                self?.tableView.reloadData()
+            }
+        }
+        
+        Globals.showConfirmationAlert(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("REFRESH_NODES_WARNING", comment: ""), onConfirm: {
+            AppSettings.setAskedForQueryCostWarning(true)
+            onRefresh()
+        }) {}
+    }
+    
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nodes.count

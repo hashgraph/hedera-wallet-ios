@@ -1,9 +1,17 @@
 //
-//  HGCSeedTests.swift
-//  HGCAppTests
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 11/05/18.
-//  Copyright © 2018 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import XCTest
@@ -89,5 +97,14 @@ class HGCSeedTests: HGCAppTests {
                      "cruise","run"]
         let seed = HGCSeed.init(words: words)
         XCTAssert(seed == nil)
+    }
+    
+    func testBip39ComaptibilityWithLedgerWallet() {
+        let words = "draft struggle fitness mimic mountain rare lonely grocery topple wreck satoshi kangaroo balcony odor tiger crush bamboo parent monkey afraid elite earn hundred learn"
+        let seed = Mnemonic.seed(forWords: words.components(separatedBy: " "), password: "")!
+    XCTAssertEqual("60691cded1328c5799e36d72aec3842b5230d376ce9b1177b3dc8c79d2d715b099c486fbf91a93ebadcaf473fafa79d5d694c013bcc561c130c447e3f84659f4",seed.hex)
+        let ckd = Ed25519Derivation.init(seed: seed).derived(at: 44).derived(at: 3030).derived(at: 0).derived(at: 0).derived(at: 0)
+        let publicKeyHex = HGCEdKeyPair.init(seed: ckd.raw).publicKeyString
+        XCTAssertEqual("00516a26d75230616da9b18b27fa4d1ce68ca6dbb6db5ee42dc63f35c977310f", publicKeyHex)
     }
 }

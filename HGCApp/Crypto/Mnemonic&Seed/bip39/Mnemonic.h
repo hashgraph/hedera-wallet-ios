@@ -8,5 +8,6 @@
 
 - (id) initWithEntropy:(NSData*)entropy;
 - (id) initWithWords:(NSArray<NSString *>*)words;
++ (NSData*) seedForWords:(NSArray*)words password:(NSString*)password;
 
 @end

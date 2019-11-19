@@ -1,9 +1,17 @@
 //
-//  WalletView.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 22/11/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -11,6 +19,7 @@ import UIKit
 protocol WalletViewDelegate: class {
     func walletViewDidTapOnPay(_ walletView:WalletView)
     func walletViewDidTapOnRequest(_ walletView:WalletView)
+    func walletViewDidTapOnCreateAccountRequest(_ walletView:WalletView)
 }
 
 class WalletView: UIViewController {
@@ -19,6 +28,9 @@ class WalletView: UIViewController {
     @IBOutlet weak var currencyLabel : UILabel!
     @IBOutlet weak var loadingIndicator : UIActivityIndicatorView?
     @IBOutlet weak var lastUpdatedAt : UILabel!
+    @IBOutlet weak var requestButton : UIButton!
+    @IBOutlet weak var payButton : UIButton!
+    @IBOutlet weak var requestAccountIDButton : UIButton!
 
 
     weak var delegate: WalletViewDelegate?
@@ -56,32 +68,38 @@ class WalletView: UIViewController {
         reloadUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadUI()
+    }
+    
     private func reloadUI() {
         var nanoCoins : Int64!
         if let acc = account {
             nanoCoins = acc.balance
-            
-        } else {
-            nanoCoins = HGCWallet.masterWallet()?.totalBalance() ?? 0
         }
-        self.coinBalanceLabel.text = nanoCoins.toCoins().formatHGCShort()
-        self.balanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).format$()
+        
+        self.coinBalanceLabel.text = nanoCoins.toHBar().formatHGCShort()
+        self.balanceLabel.text = CurrencyConverter.shared.convertTo$value(nanoCoins).formatUSD()
         loadingIndicator?.isHidden = !BalanceService.defaultService.isRunning()
         if let date = account?.lastBalanceCheck {
             self.lastUpdatedAt.text = String(format: NSLocalizedString("LAST_UPDATED_", comment: ""), date.toString())
         } else {
             self.lastUpdatedAt.text = ""
         }
+        
+        let hasAccountSetup = account?.accountID() != nil
+        payButton.isHidden = !hasAccountSetup
+        requestButton.isHidden = !hasAccountSetup
+        requestAccountIDButton.isHidden = hasAccountSetup
     }
     
     @objc private func onBalanceLableTap() {
-        var nanoCoins : Int64!
+        var nanoCoins : Int64 = 0
         if let acc = account {
             nanoCoins = acc.balance
-        } else {
-            nanoCoins = HGCWallet.masterWallet()?.totalBalance() ?? 0
         }
-        Globals.showGenericAlert(title: NSLocalizedString("HBAR", comment: ""), message: nanoCoins.toCoins().formatHGC())
+        Globals.showGenericAlert(title: NSLocalizedString("HBAR", comment: ""), message: nanoCoins.toHBar().formatHGC())
     }
     
     @objc private func onAccountUpdate() {
@@ -94,5 +112,9 @@ class WalletView: UIViewController {
     
     @IBAction func onPayButtonTap() {
         self.delegate?.walletViewDidTapOnPay(self)
+    }
+    
+    @IBAction func onRequestAccountIDButtonTap() {
+        self.delegate?.walletViewDidTapOnCreateAccountRequest(self)
     }
 }

@@ -88,7 +88,7 @@ public extension BioMetricAuthenticator {
     }
     
     /// checks if device supports face id authentication
-    public func faceIDAvailable() -> Bool {
+    func faceIDAvailable() -> Bool {
         if #available(iOS 11.0, *) {
             let context = LAContext()
             return (context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: nil) && context.biometryType == .faceID)
@@ -97,7 +97,7 @@ public extension BioMetricAuthenticator {
     }
     
     /// checks if device supports touch id authentication
-    public func touchIDAvailable() -> Bool {
+    func touchIDAvailable() -> Bool {
         let context = LAContext()
         var error: NSError?
         

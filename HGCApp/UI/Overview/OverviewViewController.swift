@@ -1,9 +1,17 @@
 //
-//  OverviewViewController.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 21/11/17.
-//  Copyright © 2017 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -60,15 +68,19 @@ class OverviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.onAccountUpdate), name: .onAccountUpdate, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.onNewAccountCreated), name: .onNewAccountCreated, object: nil)
-        NotificationCenter.default.addObserver(forName: .onTransactionsUpdate, object: nil, queue: OperationQueue.main) { (notif) in
-            self.onTransactionsUpdate()
+        
+        NotificationCenter.default.addObserver(forName: .onAccountUpdate, object: nil, queue: OperationQueue.main) {[weak self] (notif) in
+                  self?.onAccountUpdate()
+        }
+                      
+        NotificationCenter.default.addObserver(forName: .onTransactionsUpdate, object: nil, queue: OperationQueue.main) {[weak self] (notif) in
+            self?.onTransactionsUpdate()
         }
         
-        NotificationCenter.default.addObserver(forName: .onTransactionsServiceStateChanged, object: nil, queue: OperationQueue.main) { (notif) in
-            self.onTransactionServiceStateUpdate()
+        NotificationCenter.default.addObserver(forName: .onTransactionsServiceStateChanged, object: nil, queue: OperationQueue.main) {[weak self] (notif) in
+            self?.onTransactionServiceStateUpdate()
         }
+        
         self.noTxnLabel.font = Font.lightFontSmall()
         self.tableView.estimatedRowHeight = 100.0
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -215,6 +227,10 @@ class OverviewViewController: UIViewController {
     func isDetailToggleExpanded() -> Bool {
         return self.accountDetailToggleHeight.constant == 0 ? false : true
     }
+    
+    deinit {
+        print("OverviewViewController deinit")
+    }
 }
 
 extension OverviewViewController : UIPageViewControllerDelegate, UIPageViewControllerDataSource {
@@ -269,10 +285,8 @@ extension OverviewViewController : UITableViewDelegate, UITableViewDataSource {
 
 extension OverviewViewController : WalletViewDelegate {
     func walletViewDidTapOnPay(_ walletView: WalletView) {
-        let vc = PayViewController.getInstance()
-        if let account = walletView.account {
-            vc.fromAccount = account
-        }
+        let model = TransferViewModel.init(fromAccount: walletView.account ?? HGCWallet.masterWallet()!.allAccounts().first!)
+        let vc = PayViewController.getInstance(model:model)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func walletViewDidTapOnRequest(_ walletView: WalletView) {
@@ -281,5 +295,15 @@ extension OverviewViewController : WalletViewDelegate {
             vc.toAccount = account
         }
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func walletViewDidTapOnCreateAccountRequest(_ walletView: WalletView) {
+        if let account = walletView.account {
+            let request = CreateAccountRequestParams.init(publicKey: account.publicKeyAddress())
+            let vc = QRPreviewController.getInstance(request.asQRCode())
+            vc.title = NSLocalizedString("Create Account Request", comment: "")
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
 }

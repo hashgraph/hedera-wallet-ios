@@ -1,9 +1,17 @@
 //
-//  EDKeyChain.swift
-//  HGCApp
+//  Copyright 2019 Hedera Hashgraph LLC
 //
-//  Created by Surendra  on 19/04/18.
-//  Copyright © 2018 HGC. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 import UIKit
@@ -30,8 +38,24 @@ class EDKeyChain : HGCKeyChainProtocol {
         password.append(Data(bytes: &index,
                              count: MemoryLayout.size(ofValue: index)))
         let salt = Data.init(hex: "ff")
-        return Data.init(bytes: try! PKCS5.PBKDF2(password: password.bytes, salt: salt.bytes, iterations: 2048, keyLength: keyLength, variant: .sha512).calculate())
+        return Data.init(try! PKCS5.PBKDF2(password: password.bytes, salt: salt.bytes, iterations: 2048, keyLength: keyLength, variant: .sha512).calculate())
     }
+}
+
+class EDBip32KeyChain : HGCKeyChainProtocol {
+    private var hgcSeed : HGCSeed
+    
+    init(hgcSeed:HGCSeed) {
+        self.hgcSeed = hgcSeed
+    }
+    
+    func key(at index: Int) -> HGCKeyPairProtocol! {
+        let words = Mnemonic.init(entropy: hgcSeed.entropy)!.words
+        let seed = Mnemonic.seed(forWords: words, password: "")!
+        let ckd = Ed25519Derivation.init(seed: seed).derived(at: 44).derived(at: 3030).derived(at: 0).derived(at: 0).derived(at: UInt32(index))
+        return HGCEdKeyPair.init(seed: ckd.raw)
+    }
+
 }
 
 class HGCEdKeyPair : HGCKeyPairProtocol {
@@ -45,7 +69,7 @@ class HGCEdKeyPair : HGCKeyPairProtocol {
     }
     
     public var publicKeyData: Data! {
-        return Data.init(bytes: keyPair.publicKey.bytes)
+        return Data.init(keyPair.publicKey.bytes)
     }
     
     public var privateKeyData: Data! {
@@ -53,7 +77,7 @@ class HGCEdKeyPair : HGCKeyPairProtocol {
     }
     
     public var publicKeyString: String! {
-        return Data.init(bytes: keyPair.publicKey.bytes).hex
+        return Data.init(keyPair.publicKey.bytes).hex
     }
     
     public var privateKeyString: String! {
@@ -61,7 +85,7 @@ class HGCEdKeyPair : HGCKeyPairProtocol {
     }
     
     public func signMessage(_ message: Data!) -> Data! {
-        return  Data.init(bytes: keyPair.sign(message.bytes()))
+        return  Data.init(keyPair.sign(message.bytes()))
     }
     
     public func verify(_ signature: Data!, message: Data!) -> Bool {

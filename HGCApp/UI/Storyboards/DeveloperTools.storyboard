@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,19 +17,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8Xo-Na-U2B">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="AZY-hz-DQe" id="vPh-ws-xjG"/>
                                     <outlet property="delegate" destination="AZY-hz-DQe" id="RmY-hC-dQ2"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15R-tG-EOw">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ttx-dx-EUd">
+                                        <rect key="frame" x="112.5" y="10" width="150" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HN4-tB-Ivf" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="Ubp-Bh-NBN"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="REFRESH"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onRefreshButtonTap" destination="AZY-hz-DQe" eventType="touchUpInside" id="aM9-Qv-Jix"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="ttx-dx-EUd" firstAttribute="top" secondItem="15R-tG-EOw" secondAttribute="top" constant="10" id="57K-W2-Y2W"/>
+                                    <constraint firstItem="ttx-dx-EUd" firstAttribute="centerX" secondItem="15R-tG-EOw" secondAttribute="centerX" id="ZJc-LL-ZYN"/>
+                                    <constraint firstAttribute="bottom" secondItem="ttx-dx-EUd" secondAttribute="bottom" constant="10" id="uzx-q2-i5l"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="F1g-b9-o9u" firstAttribute="trailing" secondItem="8Xo-Na-U2B" secondAttribute="trailing" id="21u-FA-IGX"/>
+                            <constraint firstItem="15R-tG-EOw" firstAttribute="trailing" secondItem="8Xo-Na-U2B" secondAttribute="trailing" id="Jb2-K0-cGI"/>
                             <constraint firstItem="8Xo-Na-U2B" firstAttribute="leading" secondItem="F1g-b9-o9u" secondAttribute="leading" id="XDL-pP-fNx"/>
-                            <constraint firstItem="F1g-b9-o9u" firstAttribute="bottom" secondItem="8Xo-Na-U2B" secondAttribute="bottom" id="oQ5-0U-ZY7"/>
+                            <constraint firstItem="15R-tG-EOw" firstAttribute="top" secondItem="8Xo-Na-U2B" secondAttribute="bottom" id="hIb-yf-jrG"/>
+                            <constraint firstItem="15R-tG-EOw" firstAttribute="bottom" secondItem="F1g-b9-o9u" secondAttribute="bottom" id="n41-cl-Upr"/>
+                            <constraint firstItem="15R-tG-EOw" firstAttribute="leading" secondItem="8Xo-Na-U2B" secondAttribute="leading" id="o7q-ac-xKo"/>
                             <constraint firstItem="8Xo-Na-U2B" firstAttribute="top" secondItem="F1g-b9-o9u" secondAttribute="top" id="svN-lP-w20"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F1g-b9-o9u"/>
@@ -42,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usO-VC-1Br" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1067" y="187"/>
+            <point key="canvasLocation" x="-1068" y="186.65667166416793"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="5EV-FN-kRi">
@@ -75,7 +105,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tdc-HV-48c">
-                                <rect key="frame" x="8" y="40" width="359" height="279"/>
+                                <rect key="frame" x="8" y="20" width="359" height="279"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htt-ME-aiR">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="17"/>
@@ -85,7 +115,6 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 225.230.11.22" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDs-G1-Tgn" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="25" width="359" height="40"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         <connections>
@@ -103,7 +132,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="2YG-kE-mov"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         <connections>
@@ -118,7 +146,6 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 10.20.55" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5SG-rU-qbR" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="171" width="359" height="40"/>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                         <connections>
@@ -157,7 +184,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fg-lP-33F">
-                                <rect key="frame" x="8" y="361" width="359" height="50"/>
+                                <rect key="frame" x="8" y="341" width="359" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0W-1A-11Z" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                         <rect key="frame" x="129.5" y="10" width="100" height="30"/>
@@ -214,7 +241,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="gkP-th-Yyp">
-                                <rect key="frame" x="0.0" y="40" width="375" height="243.5"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="243.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUD-76-I2f">
                                         <rect key="frame" x="165.5" y="0.0" width="44" height="21.5"/>
