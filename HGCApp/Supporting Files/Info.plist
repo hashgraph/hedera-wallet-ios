@@ -60,9 +60,9 @@
 	<string>Can we access your FaceID to recognize you?</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>StyreneA-Light.otf</string>
-		<string>StyreneA-Regular.otf</string>
-		<string>StyreneA-Thin.otf</string>
+		<string>StyreneA-Light.ttf</string>
+		<string>StyreneA-Regular.ttf</string>
+		<string>StyreneA-Thin.ttf</string>
 		<string>HederaH-Light.otf</string>
 		<string>HederaH-Regular.otf</string>
 		<string>HederaH-Thin.otf</string>

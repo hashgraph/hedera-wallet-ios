@@ -142,15 +142,15 @@ class Font {
     
     
     static func regularFont(_ size:CGFloat) -> UIFont {
-        return UIFont.init(name: "StyreneA-Regular", size: size)!
+        return UIFont.init(name: "StyreneAApp-Regular", size: size)!
     }
     
     static func lightFont(_ size:CGFloat) -> UIFont {
-        return UIFont.init(name: "StyreneA-Light", size: size)!
+        return UIFont.init(name: "StyreneAApp-Light", size: size)!
     }
     
     static func thinFont(_ size:CGFloat) -> UIFont {
-        return UIFont.init(name: "StyreneA-Thin", size: size)!
+        return UIFont.init(name: "StyreneAApp-Thin", size: size)!
     }
     
     static func hgcRegularFont(_ size:CGFloat) -> UIFont {
