@@ -60,6 +60,43 @@ read_param_type() {
     fi
 }
 
+READ_OPTION_HELP=0
+READ_OPTION_VERSION=0
+read_options() {
+    SHIFTED=0
+    READ_OPTION_HELP=0
+    READ_OPTION_VERSION=0
+    while : ; do
+        PARAM_TYPE=`read_param_type "$1"`
+        case $PARAM_TYPE in
+            $PARAM_SHORT_OPTION) {
+                if [ "$1" = '-h' ] ; then
+                    READ_OPTION_HELP=1
+                else
+                    printf '\nInvalid short option "%s".\n' "$1" >&2
+                    READ_OPTION_HELP=2
+                fi
+            };;
+            $PARAM_LONG_OPTION) {
+                if [ "$1" = '--help' ] ; then
+                    READ_OPTION_HELP=1
+                elif [ "$1" = '--version' ] ; then
+                    READ_OPTION_VERSION=1
+                else
+                    printf '\nInvalid long option "%s".\n' "$1" >&2
+                    READ_OPTION_HELP=2
+                fi
+            };;
+            *) {
+                break
+            };;
+        esac
+        shift
+        SHIFTED=`expr $SHIFTED + 1`
+    done
+    return $SHIFTED
+}
+
 ########
 # Body #
 ########
@@ -69,35 +106,10 @@ read_param_type() {
 # Read parameters.
 #
 
-HELP=0
-VERSION=0
-while : ; do
-    PARAM_TYPE=`read_param_type "$1"`
-    case $PARAM_TYPE in
-        $PARAM_SHORT_OPTION) {
-            if [ "$1" = '-h' ] ; then
-                HELP=1
-            else
-                printf '\nInvalid short option "%s".\n' "$1" >&2
-                HELP=2
-            fi
-        };;
-        $PARAM_LONG_OPTION) {
-            if [ "$1" = '--help' ] ; then
-                HELP=1
-            elif [ "$1" = '--version' ] ; then
-                VERSION=1
-            else
-                printf '\nInvalid long option "%s".\n' "$1" >&2
-                HELP=2
-            fi
-        };;
-        *) {
-            break
-        };;
-    esac
-    shift
-done
+read_options "$@"
+shift $?
+HELP=$READ_OPTION_HELP
+VERSION=$READ_OPTION_VERSION
 
 # Read command.
 COMMAND=""
