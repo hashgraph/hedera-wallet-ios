@@ -26,13 +26,15 @@ SEMVER="0.1.0"
 USAGE="$0: Run test commands.
 
 Usage:
-  $0 (<-h>|<--help>)
+  $0 (<-h>|<--help>|<--version>)
 
 Options:
   -h | --help  Output this message.
+  --version    Output the version number.
 
 Examples:
   $0 --help
+  $0 --version
 "
 
 # Parameter types
@@ -68,6 +70,7 @@ read_param_type() {
 #
 
 HELP=0
+VERSION=0
 while : ; do
     PARAM_TYPE=`read_param_type "$1"`
     case $PARAM_TYPE in
@@ -82,6 +85,8 @@ while : ; do
         $PARAM_LONG_OPTION) {
             if [ "$1" = '--help' ] ; then
                 HELP=1
+            elif [ "$1" = '--version' ] ; then
+                VERSION=1
             else
                 printf '\nInvalid long option "%s".\n' "$1" >&2
                 HELP=2
@@ -101,8 +106,7 @@ if [ $# -gt 0 ] ; then
     shift
 else
     # Default command is currently '--help'.
-    HELP=1
-    COMMAND=""
+    COMMAND='--help'
 fi
 
 
@@ -111,10 +115,24 @@ fi
 #
 
 
+perform_version() {
+    printf "%s\n" "$SEMVER"
+}
+
 # Note that -h and --help are promoted to commands if provided as a script
 # option, and override any other behavior.
 if [ $HELP -eq 0 ] ; then
+    # Version is promoted to a command overrides any other command.
+    if [ $VERSION -ne 0 ] ; then
+        COMMAND='version'
+    fi
     case $COMMAND in
+        '--help') {
+            HELP=1
+        };;
+        'version') {
+            perform_version
+        };;
         *) {
             printf '\nInvalid command "%s".\n' "$COMMAND" >&2
             HELP=2
