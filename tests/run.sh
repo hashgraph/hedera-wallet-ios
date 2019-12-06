@@ -204,9 +204,11 @@ Examples:
     fi
 
     # Reject excess parameters, if any.
-    reject_excess_parameters "$@"
-    if [ $? -ne 0 ] ; then
-        CMD_HELP=2
+    if [ $CMD_HELP -eq 0 ] ; then
+        reject_excess_parameters "$@"
+        if [ $? -ne 0 ] ; then
+            CMD_HELP=2
+        fi
     fi
 
     #
@@ -274,9 +276,11 @@ Examples:
     fi
 
     # Reject excess parameters, if any.
-    reject_excess_parameters "$@"
-    if [ $? -ne 0 ] ; then
-        CMD_HELP=2
+    if [ $CMD_HELP -eq 0 ] ; then
+        reject_excess_parameters "$@"
+        if [ $? -ne 0 ] ; then
+            CMD_HELP=2
+        fi
     fi
 
     #
