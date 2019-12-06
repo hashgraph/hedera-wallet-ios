@@ -29,6 +29,7 @@ Usage:
   $0 [options]
   $0 simulator_uuid [-h|--help]
   $0 app_data_dir [-h|--help]
+  $0 clear_app_data (-h|--help)
 
 Options:
   -h | --help  Output this message.
@@ -41,6 +42,7 @@ Examples:
   $0 simulator_uuid
   $0 app_data_dir --help
   $0 app_data_dir 00000000-0000-0000-0000-000000000000
+  $0 clear_app_data -h
 "
 
 # Parameter types
@@ -307,6 +309,55 @@ Examples:
     fi
 }
 
+perform_clear_app_data() {
+    CMD_USAGE="$0 clear_app_data: Clear the app data directory.
+
+Usage:
+  $0 clear_app_data (-h|--help)
+
+Options:
+  -h|--help  Output this message.
+
+Examples:
+  $0 clear_app_data -h
+"
+
+    #
+    # Read parameters.
+    #
+
+    # Read optional parameters.
+    read_options "$@"
+    shift $?
+    CMD_HELP=$READ_OPTION_HELP
+    if [ $READ_OPTION_VERSION -ne 0 ] ; then
+        printf '\nVersion option not supported by command.\n' >&2
+        CMD_HELP=2
+    fi
+
+    # Reject excess parameters, if any.
+    if [ $CMD_HELP -eq 0 ] ; then
+        reject_excess_parameters "$@"
+        if [ $? -ne 0 ] ; then
+            CMD_HELP=2
+        fi
+    fi
+
+    #
+    # Perform clearance of app data.
+    #
+
+    if [ $CMD_HELP -eq 0 ] ; then
+
+        # Not yet implemented.
+        possibly_show_help 2 "$CMD_USAGE"
+    else
+        possibly_show_help $CMD_HELP "$CMD_USAGE"
+        return 0
+    fi
+
+}
+
 # Note that -h and --help are promoted to commands if provided as a script
 # option, and override any other behavior.
 if [ $HELP -eq 0 ] ; then
@@ -338,6 +389,9 @@ if [ $HELP -eq 0 ] ; then
             else
                 exit $RESULT
             fi
+        };;
+        'clear_app_data') {
+            perform_clear_app_data "$@"
         };;
         *) {
             printf '\nInvalid command "%s".\n' "$COMMAND" >&2
