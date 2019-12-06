@@ -35,7 +35,11 @@ Options:
   -h | --help  Output this message.
   --version    Output the version number.
 
+Parameters:
+  [Default]    Clear app data for the default simulator.
+
 Examples:
+  $0
   $0 --help
   $0 --version
   $0 simulator_uuid -h
@@ -165,8 +169,7 @@ if [ $# -gt 0 ] ; then
     COMMAND="$1"
     shift
 else
-    # Default command is currently '--help'.
-    COMMAND='--help'
+    COMMAND='--default'
 fi
 
 
@@ -434,8 +437,28 @@ if [ $HELP -eq 0 ] ; then
         COMMAND='version'
     fi
     case $COMMAND in
-        '--help') {
-            HELP=1
+        '--default') {
+            perform_simulator_uuid
+            if [ $? -ne 0 ] ; then
+                printf '\nFailed determining simulator UUID.\n' >&2
+                exit 1
+            fi
+            if [ "$SIM_UUIDS" != "" -a \
+                `printf '%s\n' "$SIM_UUIDS" | wc -l` -ne 1 ] ; then
+                printf '\nSimulator UUID not an exact match or empty.\n' >&2
+                exit 1
+            fi
+            perform_app_data_dir "$SIM_UUIDS"
+            if [ $? -ne 0 ] ; then
+                printf '\nFailed determining app data directory.\n' >&2
+                exit 1
+            fi
+            perform_clear_app_data "$SIM_UUIDS" "$APP_DATA_DIR"
+            if [ $? -ne 0 ] ; then
+                printf '\nFailed clearing app data directory.\n' >&2
+                exit 1
+            fi
+            exit 0
         };;
         'version') {
             perform_version
