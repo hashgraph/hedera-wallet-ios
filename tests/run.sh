@@ -28,6 +28,7 @@ USAGE="$0: Run test commands.
 Usage:
   $0 [options]
   $0 simulator_uuid [-h|--help]
+  $0 app_data_dir (-h|--help)
 
 Options:
   -h | --help  Output this message.
@@ -37,6 +38,7 @@ Examples:
   $0 --help
   $0 --version
   $0 simulator_uuid -h
+  $0 app_data_dir --help
 "
 
 # Parameter types
@@ -231,6 +233,51 @@ Examples:
     fi
 }
 
+perform_app_data_dir() {
+    CMD_USAGE="$0 app_data_dir: Get the app data directory under a simulator.
+
+Usage:
+  $0 app_data_dir (-h|--help)
+
+Options:
+  -h|--help  Output this message.
+
+Examples:
+  $0 app_data_dir -h
+"
+
+    #
+    # Read parameters.
+    #
+
+    # Read optional parameters.
+    read_options "$@"
+    shift $?
+    CMD_HELP=$READ_OPTION_HELP
+    if [ $READ_OPTION_VERSION -ne 0 ] ; then
+        printf '\nVersion option not supported by command.\n' >&2
+        CMD_HELP=2
+    fi
+
+    # Reject excess parameters, if any.
+    reject_excess_parameters "$@"
+    if [ $? -ne 0 ] ; then
+        CMD_HELP=2
+    fi
+
+    #
+    # Perform lookup of app data directory.
+    #
+
+    if [ $CMD_HELP -eq 0 ] ; then
+        # Command not implemented.
+        possibly_show_help 2 "$CMD_USAGE"
+    else
+        APP_DATA_DIR=''
+        possibly_show_help $CMD_HELP "$CMD_USAGE"
+    fi
+}
+
 # Note that -h and --help are promoted to commands if provided as a script
 # option, and override any other behavior.
 if [ $HELP -eq 0 ] ; then
@@ -253,6 +300,9 @@ if [ $HELP -eq 0 ] ; then
             else
                 exit $RESULT
             fi
+        };;
+        'app_data_dir') {
+            perform_app_data_dir "$@"
         };;
         *) {
             printf '\nInvalid command "%s".\n' "$COMMAND" >&2
