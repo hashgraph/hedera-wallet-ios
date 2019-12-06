@@ -28,7 +28,7 @@ USAGE="$0: Run test commands.
 Usage:
   $0 [options]
   $0 simulator_uuid [-h|--help]
-  $0 app_data_dir (-h|--help)
+  $0 app_data_dir [-h|--help]
 
 Options:
   -h | --help  Output this message.
@@ -39,6 +39,7 @@ Examples:
   $0 --version
   $0 simulator_uuid -h
   $0 app_data_dir --help
+  $0 app_data_dir 00000000-0000-0000-0000-000000000000
 "
 
 # Parameter types
@@ -233,17 +234,19 @@ Examples:
     fi
 }
 
+APP_DATA_DIR=''
 perform_app_data_dir() {
     CMD_USAGE="$0 app_data_dir: Get the app data directory under a simulator.
 
 Usage:
-  $0 app_data_dir (-h|--help)
+  $0 app_data_dir [-h|--help]
 
 Options:
   -h|--help  Output this message.
 
 Examples:
   $0 app_data_dir -h
+  $0 app_data_dir 00000000-0000-0000-0000-000000000000
 "
 
     #
@@ -259,6 +262,17 @@ Examples:
         CMD_HELP=2
     fi
 
+    # Read positional parameters.
+    if [ $CMD_HELP -eq 0 ] ; then
+        if [ $# -gt 0 ] ; then
+            ADD_SIM_UUID="$1"
+            shift
+        else
+            printf '\nNo simulator UUID provided.\n' >&2
+            CMD_HELP=2
+        fi
+    fi
+
     # Reject excess parameters, if any.
     reject_excess_parameters "$@"
     if [ $? -ne 0 ] ; then
@@ -270,11 +284,21 @@ Examples:
     #
 
     if [ $CMD_HELP -eq 0 ] ; then
-        # Command not implemented.
-        possibly_show_help 2 "$CMD_USAGE"
+
+        # Simple function call against simctl.
+        ADD_APP_BUNDLE_ID="com.hedera.wallet.dev"
+        APP_DATA_DIR=`xcrun simctl get_app_container "$ADD_SIM_UUID" "$ADD_APP_BUNDLE_ID"`
+        RESULT=$?
+        if [ $RESULT -eq 0 ] ; then
+            return 0
+        else
+            printf '\nUnable to look up app data directory.\n' >&2
+            return 1
+        fi
     else
         APP_DATA_DIR=''
         possibly_show_help $CMD_HELP "$CMD_USAGE"
+        return 0
     fi
 }
 
@@ -303,6 +327,12 @@ if [ $HELP -eq 0 ] ; then
         };;
         'app_data_dir') {
             perform_app_data_dir "$@"
+            RESULT=$?
+            if [ $RESULT -eq 0 ] ; then
+                printf '%s\n' "$APP_DATA_DIR"
+            else
+                exit $RESULT
+            fi
         };;
         *) {
             printf '\nInvalid command "%s".\n' "$COMMAND" >&2
