@@ -169,14 +169,18 @@ perform_version() {
     printf "%s\n" "$SEMVER"
 }
 
+SIM_UUIDS=''
 perform_simulator_uuid() {
     CMD_USAGE="$0 simulator_uuid: Find a simulator UUID.
 
 Usage:
-  $0 simulator_uuid (-h|--help)
+  $0 simulator_uuid [-h|--help]
 
 Options:
     -h|--help    Output this message.
+
+Parameters:
+    [default] Find an iPhone 8 running iOS 13.2.
 
 Examples:
   $0 simulator_uuid
@@ -202,12 +206,29 @@ Examples:
         CMD_HELP=2
     fi
 
-    # Command not yet supported.
-    if [ $CMD_HELP -eq 0 ] ; then
-        CMD_HELP=1
-    fi
+    #
+    # Perform listing of simulator UUIDs.
+    #
 
-    possibly_show_help $CMD_HELP "$CMD_USAGE"
+    if [ $CMD_HELP -eq 0 ] ; then
+
+        # Generate the list of matching devices.
+        LISTING=`xcrun simctl list devices "iOS 13.2"`
+        UUID_ERE='[[:xdigit:]]{8}-([[:xdigit:]]{4}-){3}[[:xdigit:]]{12}'
+        MATCH="^[[:space:]]*iPhone 8 \\(($UUID_ERE)\\).*"
+        SIM_UUIDS=`printf '%s' "$LISTING" | sed -n -E -e "s/$MATCH/\1/p"`
+        if [ $? -ne 0 ] ; then
+            SIM_UUIDS=''
+            printf 'Problem listing simulated devices.\n' >&2
+            return 1
+        else
+            return 0
+        fi
+    else
+        SIM_UUIDS=''
+        possibly_show_help $CMD_HELP "$CMD_USAGE"
+        return 0
+    fi
 }
 
 # Note that -h and --help are promoted to commands if provided as a script
@@ -226,6 +247,12 @@ if [ $HELP -eq 0 ] ; then
         };;
         'simulator_uuid') {
             perform_simulator_uuid "$@"
+            RESULT=$?
+            if [ $RESULT -eq 0 ] ; then
+                printf '%s\n' "$SIM_UUIDS"
+            else
+                exit $RESULT
+            fi
         };;
         *) {
             printf '\nInvalid command "%s".\n' "$COMMAND" >&2
