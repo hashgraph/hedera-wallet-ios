@@ -28,8 +28,8 @@ USAGE="$0: Run test commands.
 Usage:
   $0 [options]
   $0 simulator_uuid [-h|--help]
-  $0 app_data_dir [-h|--help]
-  $0 clear_app_data (-h|--help)
+  $0 app_data_dir [-h|--help] <simulator uuid>
+  $0 clear_app_data [-h|--help] <simulator uuid> <app data dir>
 
 Options:
   -h | --help  Output this message.
@@ -43,6 +43,8 @@ Examples:
   $0 app_data_dir --help
   $0 app_data_dir 00000000-0000-0000-0000-000000000000
   $0 clear_app_data -h
+  $0 clear_app_data 00000000-0000-0000-0000-000000000000 \
+/Users/username/Library/Developer/CoreSimulator/Devices/00000000-0000-0000-0000-000000000000/data/Containers/Data/Application/00000000-0000-0000-0000-000000000000
 "
 
 # Parameter types
@@ -50,6 +52,8 @@ PARAM_NOT_OPTION=0
 PARAM_SHORT_OPTION=1
 PARAM_LONG_OPTION=2
 
+# Regular expression matching UUIDs.
+UUID_ERE='[[:xdigit:]]{8}-([[:xdigit:]]{4}-){3}[[:xdigit:]]{12}'
 
 #############
 # Functions #
@@ -222,7 +226,6 @@ Examples:
 
         # Generate the list of matching devices.
         LISTING=`xcrun simctl list devices "iOS 13.2"`
-        UUID_ERE='[[:xdigit:]]{8}-([[:xdigit:]]{4}-){3}[[:xdigit:]]{12}'
         MATCH="^[[:space:]]*iPhone 8 \\(($UUID_ERE)\\).*"
         SIM_UUIDS=`printf '%s' "$LISTING" | sed -n -E -e "s/$MATCH/\1/p"`
         if [ $? -ne 0 ] ; then
@@ -244,7 +247,7 @@ perform_app_data_dir() {
     CMD_USAGE="$0 app_data_dir: Get the app data directory under a simulator.
 
 Usage:
-  $0 app_data_dir [-h|--help]
+  $0 app_data_dir [-h|--help] <simulator uuid>
 
 Options:
   -h|--help  Output this message.
@@ -314,13 +317,19 @@ perform_clear_app_data() {
     CMD_USAGE="$0 clear_app_data: Clear the app data directory.
 
 Usage:
-  $0 clear_app_data (-h|--help)
+  $0 clear_app_data [-h|--help] <simulator uuid> <app data dir>
 
 Options:
   -h|--help  Output this message.
 
+Parameters:
+  simulator uuid  The UUID for a specific simulator.
+  app data dir    The app data directory to clear.
+
 Examples:
   $0 clear_app_data -h
+  $0 clear_app_data 00000000-0000-0000-0000-000000000000 \
+/Users/username/Library/Developer/CoreSimulator/Devices/00000000-0000-0000-0000-000000000000/data/Containers/Data/Application/00000000-0000-0000-0000-000000000000
 "
 
     #
@@ -334,6 +343,33 @@ Examples:
     if [ $READ_OPTION_VERSION -ne 0 ] ; then
         printf '\nVersion option not supported by command.\n' >&2
         CMD_HELP=2
+    fi
+
+    if [ $CMD_HELP -eq 0 ] ; then
+        if [ $# -gt 1 ] ; then
+            CLR_SIM_UUID="$1"
+            CLR_APP_DATA_DIR="$2"
+            shift 2
+            MATCH=`printf '%s' "$CLR_SIM_UUID" | sed -n -E -e "/$UUID_ERE/p" \
+                | wc -l`
+            if [ $MATCH -eq 0 ] ; then
+                printf '\nParameter 1, sim_uuid, not a UUID.\n' >&2
+                CMD_HELP=2
+            fi
+            PART1='/Users/.*/Library/Developer/CoreSimulator/Devices/'
+            PART2='/data/Containers/Data/Application/'
+            MATCH=`printf '%s' "$CLR_APP_DATA_DIR" | \
+                sed -n -E -e "s|$PART1$CLR_SIM_UUID$PART2$UUID_ERE|&|p" | \
+                wc -l`
+            if [ "$MATCH" -eq 0 ] ; then
+                printf '\nCowardly refusing to delete unusual path:\n%s\n' \
+                   "$CLR_APP_DATA_DIR" >&2
+                return 1
+            fi
+        else
+            printf '\nInsufficient parameters.\n' >&2
+            CMD_HELP=2
+        fi
     fi
 
     # Reject excess parameters, if any.
@@ -350,8 +386,39 @@ Examples:
 
     if [ $CMD_HELP -eq 0 ] ; then
 
-        # Not yet implemented.
-        possibly_show_help 2 "$CMD_USAGE"
+        CLR_APP_BUNDLE_ID='com.hedera.wallet.dev'
+
+        # See if the simulator is running.
+        SIM_BOOTED=`xcrun simctl list devices booted | \
+            sed -n -E -e "/$CLR_SIM_UUID/p" | \
+            wc -l`
+        if [ $? -ne 0 ] ; then
+            printf '\nFailed to list booted simulators.\n' >&2
+            return 1
+        fi
+        if [ $SIM_BOOTED -gt 1 ] ; then
+            printf '\nUnexpected result: simulators share UUID??\n' >&2
+            return 3
+        fi
+        SIM_SHUTDOWN=$SIM_BOOTED
+
+        # Terminate the simulator.
+        xcrun simctl shutdown "$CLR_SIM_UUID"
+        if [ $? -ne 0 ] ; then
+            printf '\nSimulator did not shut down, cowardly exiting.\n' >&2
+            return 1
+        fi
+
+        # Clear the app data directory.
+        rm -rf "$CLR_APP_DATA_DIR/*"
+
+        # Run the simulator.  Do not run the app.
+        xcrun simctl boot "$CLR_SIM_UUID"
+        if [ $? -ne 0 ] ; then
+            printf '\nWarning: simulator could not be booted.\n' >&2
+        fi
+
+        return 0
     else
         possibly_show_help $CMD_HELP "$CMD_USAGE"
         return 0
@@ -393,6 +460,7 @@ if [ $HELP -eq 0 ] ; then
         };;
         'clear_app_data') {
             perform_clear_app_data "$@"
+            exit $?
         };;
         *) {
             printf '\nInvalid command "%s".\n' "$COMMAND" >&2
