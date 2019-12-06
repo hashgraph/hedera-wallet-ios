@@ -38,6 +38,7 @@ Examples:
   $0 --help
   $0 --version
   $0 simulator_uuid -h
+  $0 simulator_uuid
   $0 app_data_dir --help
   $0 app_data_dir 00000000-0000-0000-0000-000000000000
 "
