@@ -97,6 +97,25 @@ read_options() {
     return $SHIFTED
 }
 
+possibly_show_help() {
+    SHOW_HELP=$1
+    SHOW_USAGE="$2"
+    case $SHOW_HELP in
+        1) {
+            printf '%s\n' "$SHOW_USAGE"
+            exit 0
+        };;
+        0) {
+            :
+        };;
+        2|*) {
+            printf '\nPrinting usage.\n\n%s\n' "$SHOW_USAGE" >&2
+            exit 2
+        };;
+    esac
+}
+
+
 ########
 # Body #
 ########
@@ -152,16 +171,4 @@ if [ $HELP -eq 0 ] ; then
     esac
 fi
 
-case $HELP in
-    1) {
-        printf '%s\n' "$USAGE"
-        exit 0
-    };;
-    0) {
-        :
-    };;
-    2|*) {
-        printf '\nPrinting usage.\n\n%s\n' "$USAGE" >&2
-        exit 2
-    };;
-esac
+possibly_show_help $HELP "$USAGE"
