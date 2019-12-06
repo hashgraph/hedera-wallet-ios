@@ -294,7 +294,8 @@ Examples:
 
         # Simple function call against simctl.
         ADD_APP_BUNDLE_ID="com.hedera.wallet.dev"
-        APP_DATA_DIR=`xcrun simctl get_app_container "$ADD_SIM_UUID" "$ADD_APP_BUNDLE_ID"`
+        APP_DATA_DIR=`xcrun simctl get_app_container \
+            "$ADD_SIM_UUID" "$ADD_APP_BUNDLE_ID" data`
         RESULT=$?
         if [ $RESULT -eq 0 ] ; then
             return 0
