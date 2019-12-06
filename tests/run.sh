@@ -26,7 +26,8 @@ SEMVER="0.1.0"
 USAGE="$0: Run test commands.
 
 Usage:
-  $0 (<-h>|<--help>|<--version>)
+  $0 [options]
+  $0 simulator_uuid [-h|--help]
 
 Options:
   -h | --help  Output this message.
@@ -35,6 +36,7 @@ Options:
 Examples:
   $0 --help
   $0 --version
+  $0 simulator_uuid -h
 "
 
 # Parameter types
@@ -97,6 +99,23 @@ read_options() {
     return $SHIFTED
 }
 
+reject_excess_parameters() {
+    if [ $# -ne 0 ] ; then
+        LC=`printf '%s' "$1" | wc -c`
+        W2=`printf '%s' "$1" | cut -c2`
+        W1=`printf '%s' "$W2" | cut -c1`
+        if [ "$W2" = '--' ] ; then
+            printf 'Options not allowed after positional parameters.\n' >&2
+        elif [ "$LC" -eq 2 -a "$W1" = '-' ] ; then
+            printf 'Options not allowed after positional parameters.\n' >&2
+        else
+            printf 'No further positional paramaters allowed.\n' >&2
+        fi
+        return 1
+    fi
+    return 0
+}
+
 possibly_show_help() {
     SHOW_HELP=$1
     SHOW_USAGE="$2"
@@ -150,6 +169,47 @@ perform_version() {
     printf "%s\n" "$SEMVER"
 }
 
+perform_simulator_uuid() {
+    CMD_USAGE="$0 simulator_uuid: Find a simulator UUID.
+
+Usage:
+  $0 simulator_uuid (-h|--help)
+
+Options:
+    -h|--help    Output this message.
+
+Examples:
+  $0 simulator_uuid
+  $0 simulator_uuid -h
+"
+
+    #
+    # Read parameters.
+    #
+
+    # Read optional parameters.
+    read_options "$@"
+    shift $?
+    CMD_HELP=$READ_OPTION_HELP
+    if [ $READ_OPTION_VERSION -ne 0 ] ; then
+        printf '\nVersion option not supported by command.\n' >&2
+        CMD_HELP=2
+    fi
+
+    # Reject excess parameters, if any.
+    reject_excess_parameters "$@"
+    if [ $? -ne 0 ] ; then
+        CMD_HELP=2
+    fi
+
+    # Command not yet supported.
+    if [ $CMD_HELP -eq 0 ] ; then
+        CMD_HELP=1
+    fi
+
+    possibly_show_help $CMD_HELP "$CMD_USAGE"
+}
+
 # Note that -h and --help are promoted to commands if provided as a script
 # option, and override any other behavior.
 if [ $HELP -eq 0 ] ; then
@@ -163,6 +223,9 @@ if [ $HELP -eq 0 ] ; then
         };;
         'version') {
             perform_version
+        };;
+        'simulator_uuid') {
+            perform_simulator_uuid "$@"
         };;
         *) {
             printf '\nInvalid command "%s".\n' "$COMMAND" >&2
