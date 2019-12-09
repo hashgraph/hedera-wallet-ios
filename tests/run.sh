@@ -29,14 +29,14 @@ Usage:
   $0 [options]
   $0 simulator_uuid [-h|--help]
   $0 app_data_dir [-h|--help] <simulator uuid>
-  $0 clear_app_data [-h|--help] <simulator uuid> <app data dir>
+  $0 clear_app_data [-h|--help] [<simulator uuid> [<app data dir>]]
 
 Options:
   -h | --help  Output this message.
   --version    Output the version number.
 
 Parameters:
-  [Default]    Clear app data for the default simulator.
+  [Default]    Output this message.
 
 Examples:
   $0
@@ -47,6 +47,7 @@ Examples:
   $0 app_data_dir --help
   $0 app_data_dir 00000000-0000-0000-0000-000000000000
   $0 clear_app_data -h
+  $0 clear_app_data
   $0 clear_app_data 00000000-0000-0000-0000-000000000000 \
 /Users/username/Library/Developer/CoreSimulator/Devices/00000000-0000-0000-0000-000000000000/data/Containers/Data/Application/00000000-0000-0000-0000-000000000000
 "
@@ -169,7 +170,7 @@ if [ $# -gt 0 ] ; then
     COMMAND="$1"
     shift
 else
-    COMMAND='--default'
+    COMMAND='--help'
 fi
 
 
@@ -320,7 +321,7 @@ perform_clear_app_data() {
     CMD_USAGE="$0 clear_app_data: Clear the app data directory.
 
 Usage:
-  $0 clear_app_data [-h|--help] <simulator uuid> <app data dir>
+  $0 clear_app_data [-h|--help] [<simulator uuid> [<app data dir>]]
 
 Options:
   -h|--help  Output this message.
@@ -347,31 +348,54 @@ Examples:
         printf '\nVersion option not supported by command.\n' >&2
         CMD_HELP=2
     fi
-
     if [ $CMD_HELP -eq 0 ] ; then
-        if [ $# -gt 1 ] ; then
+        if [ $# -gt 0 ] ; then
             CLR_SIM_UUID="$1"
-            CLR_APP_DATA_DIR="$2"
-            shift 2
-            MATCH=`printf '%s' "$CLR_SIM_UUID" | sed -n -E -e "/$UUID_ERE/p" \
-                | wc -l`
-            if [ $MATCH -eq 0 ] ; then
-                printf '\nParameter 1, sim_uuid, not a UUID.\n' >&2
-                CMD_HELP=2
-            fi
-            PART1='/Users/.*/Library/Developer/CoreSimulator/Devices/'
-            PART2='/data/Containers/Data/Application/'
-            MATCH=`printf '%s' "$CLR_APP_DATA_DIR" | \
-                sed -n -E -e "s|$PART1$CLR_SIM_UUID$PART2$UUID_ERE|&|p" | \
-                wc -l`
-            if [ "$MATCH" -eq 0 ] ; then
-                printf '\nCowardly refusing to delete unusual path:\n%s\n' \
-                   "$CLR_APP_DATA_DIR" >&2
+            shift
+        else
+            perform_simulator_uuid
+            if [ $? -ne 0 ] ; then
+                printf '\nFailed determining simulator UUID.\n' >&2
                 return 1
             fi
+            if [ "$SIM_UUIDS" != "" -a \
+                `printf '%s\n' "$SIM_UUIDS" | wc -l` -ne 1 ] ; then
+                printf '\nSimulator UUID not an exact match or empty.\n' >&2
+                return 1
+            fi
+            CLR_SIM_UUID="$SIM_UUIDS"
+        fi
+        if [ $# -gt 0 ] ; then
+            CLR_APP_DATA_DIR="$1"
+            shift
         else
-            printf '\nInsufficient parameters.\n' >&2
+            perform_app_data_dir "$CLR_SIM_UUID"
+            if [ $? -ne 0 ] ; then
+                printf '\nFailed determining app data directory.\n' >&2
+                return 1
+            fi
+            CLR_APP_DATA_DIR="$APP_DATA_DIR"
+        fi
+    fi
+    if [ $CMD_HELP -eq 0 ] ; then
+        reject_excess_parameters "$@"
+    fi
+    if [ $CMD_HELP -eq 0 ] ; then
+        MATCH=`printf '%s' "$CLR_SIM_UUID" | sed -n -E -e "/$UUID_ERE/p" \
+            | wc -l`
+        if [ $MATCH -eq 0 ] ; then
+            printf '\nParameter 1, sim_uuid, not a UUID.\n' >&2
             CMD_HELP=2
+        fi
+        PART1='/Users/.*/Library/Developer/CoreSimulator/Devices/'
+        PART2='/data/Containers/Data/Application/'
+        MATCH=`printf '%s' "$CLR_APP_DATA_DIR" | \
+            sed -n -E -e "s|$PART1$CLR_SIM_UUID$PART2$UUID_ERE|&|p" | \
+            wc -l`
+        if [ "$MATCH" -eq 0 ] ; then
+            printf '\nCowardly refusing to delete unusual path:\n%s\n' \
+               "$CLR_APP_DATA_DIR" >&2
+            return 1
         fi
     fi
 
@@ -437,28 +461,8 @@ if [ $HELP -eq 0 ] ; then
         COMMAND='version'
     fi
     case $COMMAND in
-        '--default') {
-            perform_simulator_uuid
-            if [ $? -ne 0 ] ; then
-                printf '\nFailed determining simulator UUID.\n' >&2
-                exit 1
-            fi
-            if [ "$SIM_UUIDS" != "" -a \
-                `printf '%s\n' "$SIM_UUIDS" | wc -l` -ne 1 ] ; then
-                printf '\nSimulator UUID not an exact match or empty.\n' >&2
-                exit 1
-            fi
-            perform_app_data_dir "$SIM_UUIDS"
-            if [ $? -ne 0 ] ; then
-                printf '\nFailed determining app data directory.\n' >&2
-                exit 1
-            fi
-            perform_clear_app_data "$SIM_UUIDS" "$APP_DATA_DIR"
-            if [ $? -ne 0 ] ; then
-                printf '\nFailed clearing app data directory.\n' >&2
-                exit 1
-            fi
-            exit 0
+        '--help') {
+            HELP=1
         };;
         'version') {
             perform_version
