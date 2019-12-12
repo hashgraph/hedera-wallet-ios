@@ -58,6 +58,16 @@
                ReferencedContainer = "container:HGCApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35B8ABD81F9E5642003E4F57"
+               BuildableName = "HGCAppUITests.xctest"
+               BlueprintName = "HGCAppUITests"
+               ReferencedContainer = "container:HGCApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
