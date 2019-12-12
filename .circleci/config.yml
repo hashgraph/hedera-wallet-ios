@@ -1,7 +1,7 @@
 # .circleci/config.yml
 version: 2
 jobs:
-  build-and-test:
+  ios-environment-setup:
     macos:
       xcode: "11.0.0"
     environment:
@@ -9,36 +9,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install CocoaPods Gem
-          command: gem install cocoapods
-      - run:
-          name: Fetch CocoaPods Specs
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-
-      - run:
-          name: Install ProtoBuf
-          command: brew install protobuf
-      - run:
-          name: Install Swift-protobuf
-          command: brew install swift-protobuf
-      - run:
-          name: Install APp
-          command: pod install --verbose
-      # - run:
-      #     name: Build and run tests
-      #     command: fastlane scan
-      #     environment:
-      #       SCAN_DEVICE: iPhone 8
-      #       SCAN_SCHEME: WebTests
-
-      - store_test_results:
-          path: output/scan
-      - store_artifacts:
-          path: output
+          name: Print Homebrew Information
+          command: .circleci/scripts/print_homebrew_info.sh
 
 workflows:
   version: 2
-  build-and-test:
+  build-and-unit-test:
     jobs:
-      - build-and-test
+      - ios-environment-setup
