@@ -11,6 +11,9 @@ jobs:
       - run:
           name: Print Homebrew Information
           command: .circleci/scripts/print_homebrew_info.sh
+      - run:
+          name: Brew User Ruby
+          command: .circleci/scripts/brew_user_ruby.sh
 
 workflows:
   version: 2
