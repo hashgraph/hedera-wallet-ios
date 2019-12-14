@@ -20,6 +20,9 @@ jobs:
       - run:
           name: Install Cocoapods
           command: gem install cocoapods --user-install
+      - run:
+          name: Install Dependencies
+          command: .circleci/scripts/install_dependencies.sh
 
 workflows:
   version: 2
