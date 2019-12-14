@@ -17,6 +17,9 @@ jobs:
       - run:
           name: Print Ruby and Gem Information
           command: .circleci/scripts/print_ruby_gem_info.sh
+      - run:
+          name: Install Cocoapods
+          command: gem install cocoapods --user-install
 
 workflows:
   version: 2
