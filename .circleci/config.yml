@@ -14,6 +14,9 @@ jobs:
       - run:
           name: Brew User Ruby
           command: .circleci/scripts/brew_user_ruby.sh
+      - run:
+          name: Print Ruby and Gem Information
+          command: .circleci/scripts/print_ruby_gem_info.sh
 
 workflows:
   version: 2
