@@ -310,6 +310,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "leftMenuCell", for: indexPath) as! LeftMenuCell;
         let menu = self.sections[indexPath.section].items[indexPath.row]
         cell.menuTitle.text = menu.title;
+        cell.accessibilityIdentifier = menu.title + " Cell"
         cell.menuImageView.image = nil
         return cell;
     }

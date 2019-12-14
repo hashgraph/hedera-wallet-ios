@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -123,6 +123,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eM-uM-tXC" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="280" height="44"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Security PIN"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="dRj-HT-PHV"/>
                                         </constraints>
@@ -141,6 +142,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="Security Setup Options View Root"/>
                         <constraints>
                             <constraint firstItem="NI7-aX-rzo" firstAttribute="centerX" secondItem="dlg-EL-zLN" secondAttribute="centerX" id="83X-6I-Ufh"/>
                             <constraint firstItem="NI7-aX-rzo" firstAttribute="centerY" secondItem="dlg-EL-zLN" secondAttribute="centerY" id="BZO-h9-HqF"/>
@@ -426,6 +428,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwo-lg-EUS" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Backup Phrase Done"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="aYm-Uu-5gY"/>
                                                 </constraints>
@@ -463,6 +466,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QHE-le-W5X">
                                 <rect key="frame" x="30" y="144.66666666666666" width="354" height="129.99999999999997"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Backup Phrase Text View"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -477,6 +481,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="Backup Wallet View Root"/>
                         <constraints>
                             <constraint firstItem="76i-xc-OII" firstAttribute="top" secondItem="mjZ-LG-daZ" secondAttribute="top" constant="30" id="4fj-ss-0Vb"/>
                             <constraint firstItem="QHE-le-W5X" firstAttribute="trailing" secondItem="ODh-rP-JqO" secondAttribute="trailing" id="6uo-Xb-8Oa"/>
@@ -546,6 +551,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNO-4x-9Wd" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="104.33333333333331" width="280" height="44"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Onboard Existing Account"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="aZI-I6-zBd"/>
                                         </constraints>
@@ -564,6 +570,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="Wallet Setup Options View Root"/>
                         <constraints>
                             <constraint firstItem="jog-cm-KWh" firstAttribute="top" secondItem="Rfv-XX-OyT" secondAttribute="bottom" constant="40" id="AwZ-18-kgd"/>
                             <constraint firstItem="jog-cm-KWh" firstAttribute="centerX" secondItem="Oye-Tb-uC8" secondAttribute="centerX" id="Ytf-1h-9qc"/>
@@ -662,16 +669,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you don't know the account number, you can get it from the hedera portal " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zc1-8P-Log" customClass="ActiveLabel" customModule="ActiveLabel">
-                                <rect key="frame" x="20" y="74" width="374" height="40.666666666666657"/>
+                                <rect key="frame" x="20" y="74" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSe-w5-ZXY" customClass="HGCBoxView" customModule="HGCApp" customModuleProvider="target">
-                                <rect key="frame" x="20" y="154.66666666666666" width="374" height="44"/>
+                                <rect key="frame" x="20" y="155" width="374" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dhR-d9-Yk4" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Restore Account ID Text Field"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
@@ -686,13 +694,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTo-8b-hcJ">
-                                <rect key="frame" x="0.0" y="238.66666666666663" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="239" width="414" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ofX-NG-Rkx">
-                                        <rect key="frame" x="147" y="20.000000000000028" width="120" height="30"/>
+                                        <rect key="frame" x="147" y="20" width="120" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEw-8Q-FVi" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Restore Account ID Done"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="120" id="J1g-tm-Vy3"/>
                                                 </constraints>
@@ -729,6 +738,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="Restore Account ID View Root"/>
                         <constraints>
                             <constraint firstItem="RTo-8b-hcJ" firstAttribute="top" secondItem="wSe-w5-ZXY" secondAttribute="bottom" constant="40" id="4Oq-Br-nFb"/>
                             <constraint firstItem="RTo-8b-hcJ" firstAttribute="leading" secondItem="p2h-Go-CPv" secondAttribute="leading" id="8k6-WY-4Ft"/>

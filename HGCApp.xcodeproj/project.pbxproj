@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0ADD4223A5735D0069AD41 /* OnboardExistingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */; };
 		1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */; };
 		1808C31C22488D8300FD7F45 /* TransactionBody.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */; };
 		1815081921858B3000890123 /* IPUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815080B21858B3000890123 /* IPUtility.swift */; };
@@ -300,6 +301,7 @@
 
 /* Begin PBXFileReference section */
 		0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
+		0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardExistingTests.swift; sourceTree = "<group>"; };
 		10905C2F9BF793846D9D8B8C /* Pods-HGCApp.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.pb.swift; sourceTree = "<group>"; };
 		1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionBody.pb.swift; sourceTree = "<group>"; };
@@ -1156,6 +1158,7 @@
 			isa = PBXGroup;
 			children = (
 				35B8ABDD1F9E5642003E4F57 /* HGCAppUITests.swift */,
+				0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */,
 				35B8ABDF1F9E5642003E4F57 /* Info.plist */,
 			);
 			name = HGCAppUITests;
@@ -1906,6 +1909,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0ADD4223A5735D0069AD41 /* OnboardExistingTests.swift in Sources */,
 				35B8ABDE1F9E5642003E4F57 /* HGCAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
