@@ -36,6 +36,16 @@ if [ ! -d "$SCRIPTS_DIR" ] ; then
 fi
 printf 'PASSED.\n'
 
+printf '%.71s ' "Checking for XCode command line tools$DOTS"
+XCODE_OUTPUT=`xcrun --find xcodebuild 2>&1`
+XCODE_PRESENT=$?
+if [ $XCODE_PRESENT -eq 0 ] ; then
+    printf 'PRESENT.\n'
+else
+    printf 'MISSING.\n'
+    printf '%s' "$XCODE_OUTPUT"
+fi
+
 # WIP
 printf '%.71s FAILED.\n' "Checking that the script is fully written$DOTS"
 print_error_followup
