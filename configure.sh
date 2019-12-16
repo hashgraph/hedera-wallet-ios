@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -o nounset
 DOTS='........................................................................'
+SCRIPTS_DIR='.circleci/scripts'
 
 # Help support
 while [ $# -ne 0 ] ; do
@@ -25,7 +26,7 @@ printf '\nConfiguring the Hedera iOS wallet project for the first time.\n'
 printf '\nPlease note that this script may not work on all machines.\n'
 
 printf '%.71s ' "Checking the current working directory$DOTS"
-if [ ! -d .circleci/scripts ] ; then
+if [ ! -d "$SCRIPTS_DIR" ] ; then
     printf 'FAILED.\n'
     printf '\nExecute this script from the root directory of the ' >&2
     printf 'hedera-wallet-ios directory (the\nlocation of this script) ' >&2
