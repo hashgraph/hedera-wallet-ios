@@ -2,6 +2,18 @@
 set -o nounset
 DOTS='........................................................................'
 
+# Help support
+while [ $# -ne 0 ] ; do
+    if [ "$1" = '-h' -o "$1" = '--help' -o "$1" = 'help' ] ; then
+        printf '%s\n' "$0 - configure the environment for building the wallet"
+        printf '\nUsage:\n'
+        printf '    configure.sh\n'
+        printf '\nPlease note that this script may not work on all machines.\n'
+        printf '\n'
+        exit 0
+    fi
+done
+
 print_error_followup() {
     printf '\nYour configuration is incomplete.  Please contact '
     printf '%s on our\n' "'Robert Strickland#4049'"
