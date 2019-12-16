@@ -46,6 +46,15 @@ else
     printf '%s' "$XCODE_OUTPUT"
 fi
 
+printf '%.71s ' "Checking for Homebrew$DOTS"
+BREW_OUTPUT=`which brew`
+BREW_PRESENT=$?
+if [ $BREW_PRESENT -eq 0 ] ; then
+    printf 'PRESENT.\n'
+else
+    printf 'MISSING.\n'
+fi
+
 # WIP
 printf '%.71s FAILED.\n' "Checking that the script is fully written$DOTS"
 print_error_followup
