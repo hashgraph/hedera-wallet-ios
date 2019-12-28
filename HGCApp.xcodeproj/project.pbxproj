@@ -1952,6 +1952,7 @@
 		180E7445232A55CF00D88BB6 /* Release_Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_BUNDLE_ID = com.hedera.wallet.dev;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
@@ -2019,7 +2020,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AB0BA9A4CE992D31E5ECBE8 /* Pods-HGCApp.release_dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
@@ -2062,7 +2063,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5AB1530F17F1EF6914EB09C1 /* Pods-HGCAppTests.release_dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2082,7 +2083,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
@@ -2098,6 +2099,7 @@
 		18BF967421C225C300055B2A /* Release_Prod */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_BUNDLE_ID = com.hedera.wallet;
 				APP_DISPLAY_NAME = "Hedera Wallet";
@@ -2158,7 +2160,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8FE43EB0DCBB809E2D466E54 /* Pods-HGCApp.release_prod.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
@@ -2200,7 +2202,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1920A55AAD1E5A8784CEB57 /* Pods-HGCAppTests.release_prod.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2220,7 +2222,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
@@ -2236,6 +2238,7 @@
 		35B8ABE01F9E5642003E4F57 /* Debug_Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_BUNDLE_ID = com.hedera.wallet.dev;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
@@ -2303,7 +2306,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1097166A5E8714810905884 /* Pods-HGCApp.debug_dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
@@ -2346,7 +2349,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 39EBE814F7DCB0063CC4FF7D /* Pods-HGCAppTests.debug_dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2366,7 +2369,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
