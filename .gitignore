@@ -1,3 +1,14 @@
+# MacOS directory store
+.DS_Store
+
+# Vim
+.*.swp
+.*.swo
+
+# Project-specific: generated Protobuf, gRPC output directories
+/proto-swift/
+/proto-grpc-swift/
+
 # Created by https://www.gitignore.io/api/swift,xcode,objective-c
 # Edit at https://www.gitignore.io/?templates=swift,xcode,objective-c
 
@@ -36,7 +47,7 @@ xcuserdata/
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-# Pods/
+Pods/
 # Add this line if you want to avoid checking in source code from the Xcode workspace
 # *.xcworkspace
 
