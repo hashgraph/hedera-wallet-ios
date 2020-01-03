@@ -187,11 +187,8 @@
 		35477F5D1FDFB6A30035EF2D /* RequestOptionsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35477F5B1FDFB6A30035EF2D /* RequestOptionsTableCell.swift */; };
 		35477F5E1FDFB6A30035EF2D /* RequestOptionsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35477F5C1FDFB6A30035EF2D /* RequestOptionsTableCell.xib */; };
 		354AE1D420B58857001E0D02 /* HGCWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1D320B58857001E0D02 /* HGCWalletTests.swift */; };
-		354AE1DB20B814D9001E0D02 /* StyreneA-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1D520B814D9001E0D02 /* StyreneA-Thin.otf */; };
-		354AE1DC20B814D9001E0D02 /* StyreneA-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1D620B814D9001E0D02 /* StyreneA-Regular.otf */; };
 		354AE1DD20B814D9001E0D02 /* HederaH-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1D720B814D9001E0D02 /* HederaH-Regular.otf */; };
 		354AE1DE20B814D9001E0D02 /* HederaH-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1D820B814D9001E0D02 /* HederaH-Thin.otf */; };
-		354AE1DF20B814D9001E0D02 /* StyreneA-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1D920B814D9001E0D02 /* StyreneA-Light.otf */; };
 		354AE1E020B814D9001E0D02 /* HederaH-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1DA20B814D9001E0D02 /* HederaH-Light.otf */; };
 		354AE1E220B8192B001E0D02 /* HGCAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */; };
 		3567E6901FCECA8900ED9F67 /* TransactionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567E68F1FCECA8900ED9F67 /* TransactionDetailsViewController.swift */; };
@@ -259,6 +256,15 @@
 		C94D163721326C3800212900 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D163621326C3800212900 /* BaseOperation.swift */; };
 		C94D163D21326CEA00212900 /* UpdateTransactionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D163C21326CEA00212900 /* UpdateTransactionsOperation.swift */; };
 		C94D163F21326D4400212900 /* UpdateBalanceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D163E21326D4400212900 /* UpdateBalanceOperation.swift */; };
+		D543CD2223996299006CA213 /* StyreneA-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */; };
+		D543CD2323996299006CA213 /* StyreneA-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */; };
+		D543CD2423996299006CA213 /* StyreneA-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */; };
+		D543CD2523996299006CA213 /* StyreneA-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2023996298006CA213 /* StyreneA-Light.ttf */; };
+		D543CD2623996299006CA213 /* StyreneA-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2023996298006CA213 /* StyreneA-Light.ttf */; };
+		D543CD2723996299006CA213 /* StyreneA-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2023996298006CA213 /* StyreneA-Light.ttf */; };
+		D543CD2823996299006CA213 /* StyreneA-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2123996299006CA213 /* StyreneA-Thin.ttf */; };
+		D543CD2923996299006CA213 /* StyreneA-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2123996299006CA213 /* StyreneA-Thin.ttf */; };
+		D543CD2A23996299006CA213 /* StyreneA-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2123996299006CA213 /* StyreneA-Thin.ttf */; };
 		D5F72D4223575CDB00EBB2D2 /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
 		D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */; };
 /* End PBXBuildFile section */
@@ -490,11 +496,8 @@
 		35477F5B1FDFB6A30035EF2D /* RequestOptionsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOptionsTableCell.swift; sourceTree = "<group>"; };
 		35477F5C1FDFB6A30035EF2D /* RequestOptionsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestOptionsTableCell.xib; sourceTree = "<group>"; };
 		354AE1D320B58857001E0D02 /* HGCWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCWalletTests.swift; sourceTree = "<group>"; };
-		354AE1D520B814D9001E0D02 /* StyreneA-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Thin.otf"; sourceTree = "<group>"; };
-		354AE1D620B814D9001E0D02 /* StyreneA-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Regular.otf"; sourceTree = "<group>"; };
 		354AE1D720B814D9001E0D02 /* HederaH-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HederaH-Regular.otf"; sourceTree = "<group>"; };
 		354AE1D820B814D9001E0D02 /* HederaH-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HederaH-Thin.otf"; sourceTree = "<group>"; };
-		354AE1D920B814D9001E0D02 /* StyreneA-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Light.otf"; sourceTree = "<group>"; };
 		354AE1DA20B814D9001E0D02 /* HederaH-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HederaH-Light.otf"; sourceTree = "<group>"; };
 		354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCAccountTests.swift; sourceTree = "<group>"; };
 		3567E68F1FCECA8900ED9F67 /* TransactionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewController.swift; sourceTree = "<group>"; };
@@ -597,6 +600,9 @@
 		CED278BA5CAB6EFB025FFE16 /* Pods-HGCApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release.xcconfig"; sourceTree = "<group>"; };
 		D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp_HGCAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48720E8954DD6D6903AC125 /* Pods-HGCAppTests.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
+		D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Regular.ttf"; sourceTree = "<group>"; };
+		D543CD2023996298006CA213 /* StyreneA-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Light.ttf"; sourceTree = "<group>"; };
+		D543CD2123996299006CA213 /* StyreneA-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Thin.ttf"; sourceTree = "<group>"; };
 		D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModelTests.swift; sourceTree = "<group>"; };
 		D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_prod.xcconfig"; sourceTree = "<group>"; };
 		DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; sourceTree = "<group>"; };
@@ -1277,9 +1283,9 @@
 		35FCF7C91FDC018D004F4C09 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				354AE1D920B814D9001E0D02 /* StyreneA-Light.otf */,
-				354AE1D620B814D9001E0D02 /* StyreneA-Regular.otf */,
-				354AE1D520B814D9001E0D02 /* StyreneA-Thin.otf */,
+				D543CD2023996298006CA213 /* StyreneA-Light.ttf */,
+				D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */,
+				D543CD2123996299006CA213 /* StyreneA-Thin.ttf */,
 				354AE1DA20B814D9001E0D02 /* HederaH-Light.otf */,
 				354AE1D720B814D9001E0D02 /* HederaH-Regular.otf */,
 				354AE1D820B814D9001E0D02 /* HederaH-Thin.otf */,
@@ -1453,6 +1459,7 @@
 				35B8ABC81F9E5642003E4F57 /* LaunchScreen.storyboard in Resources */,
 				353C9A2D20DA6D070055CF20 /* tokens-eth.json in Resources */,
 				1832085022001D19004311D7 /* Localizable.strings in Resources */,
+				D543CD2223996299006CA213 /* StyreneA-Regular.ttf in Resources */,
 				C91E4FB720D5549E00996A93 /* DeveloperTools.storyboard in Resources */,
 				1851A6582156551C00752A80 /* nodes-testnet.json in Resources */,
 				35477F3E1FDE76690035EF2D /* QRScanTableCell.xib in Resources */,
@@ -1460,17 +1467,17 @@
 				3537388A1FDD4437009999F2 /* AddressOptionsTableCell.xib in Resources */,
 				18F94473232BFF3600AF4B76 /* InfoTableCell.xib in Resources */,
 				35E9C7CA1FF267990042078C /* TxnDetailsAddressTableCell.xib in Resources */,
+				D543CD2523996299006CA213 /* StyreneA-Light.ttf in Resources */,
 				351779EE20E7A3B400E31997 /* SmartContract.storyboard in Resources */,
 				354AE1DE20B814D9001E0D02 /* HederaH-Thin.otf in Resources */,
 				18F7E23B2199E8DA00166B56 /* feeScheduleproto.txt in Resources */,
-				354AE1DC20B814D9001E0D02 /* StyreneA-Regular.otf in Resources */,
 				185E96912154FE8800C2B698 /* nodes-mainnet.json in Resources */,
 				35732A7A1FEC042500EB23ED /* MyAddressTableCell.xib in Resources */,
 				352801761FE281B70077979D /* BalanceTableCell.xib in Resources */,
 				184664F522ED50E00009DE91 /* PublicKeyInputCell.xib in Resources */,
 				35B8ABC51F9E5642003E4F57 /* Assets.xcassets in Resources */,
+				D543CD2823996299006CA213 /* StyreneA-Thin.ttf in Resources */,
 				35477F431FDE805A0035EF2D /* ActionButtonTableCell.xib in Resources */,
-				354AE1DB20B814D9001E0D02 /* StyreneA-Thin.otf in Resources */,
 				35E7C61C1FCD80D700346A51 /* AccountDetailView.xib in Resources */,
 				35477F5E1FDFB6A30035EF2D /* RequestOptionsTableCell.xib in Resources */,
 				35477F541FDFA8030035EF2D /* ContactInputTableCell.xib in Resources */,
@@ -1479,7 +1486,6 @@
 				18BF965F21C17E7600055B2A /* terms.txt in Resources */,
 				353738841FDD25A2009999F2 /* AddressTableViewCell.xib in Resources */,
 				35B8ABC31F9E5642003E4F57 /* Main.storyboard in Resources */,
-				354AE1DF20B814D9001E0D02 /* StyreneA-Light.otf in Resources */,
 				354AE1DD20B814D9001E0D02 /* HederaH-Regular.otf in Resources */,
 				35FCF6401FDD4AC700BA1EB1 /* AmountTableViewCell.xib in Resources */,
 				354AE1E020B814D9001E0D02 /* HederaH-Light.otf in Resources */,
@@ -1493,6 +1499,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D543CD2623996299006CA213 /* StyreneA-Light.ttf in Resources */,
+				D543CD2323996299006CA213 /* StyreneA-Regular.ttf in Resources */,
+				D543CD2923996299006CA213 /* StyreneA-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1500,6 +1509,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D543CD2723996299006CA213 /* StyreneA-Light.ttf in Resources */,
+				D543CD2423996299006CA213 /* StyreneA-Regular.ttf in Resources */,
+				D543CD2A23996299006CA213 /* StyreneA-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
