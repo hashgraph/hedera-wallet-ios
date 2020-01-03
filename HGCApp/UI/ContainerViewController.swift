@@ -64,12 +64,14 @@ class ContainerViewController: UIViewController {
         homeButton.addTarget(self, action:  #selector(onHomeBuutonTap), for: .touchUpInside)
         
         let refreshButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
+        refreshButton.accessibilityIdentifier = "Refresh"
         refreshButton.setImage(UIImage.init(named: "icon-sync"), for: .normal)
         refreshButton.contentEdgeInsets.right = -30
         refreshButton.addTarget(self, action:  #selector(onRefreshButtonTap), for: .touchUpInside)
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: homeButton)
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem.init(image: UIImage.init(named: "icon-menu"), style: .plain, target: self, action: #selector(onMenuButtonTap)), UIBarButtonItem.init(customView: refreshButton)]
+        self.navigationItem.rightBarButtonItems?[0].accessibilityIdentifier = "Side Menu Button"
         
         self.embededNavCtrl.navigationBar.barTintColor = Color.titleBarBackgroundColor()
         self.embededNavCtrl.navigationBar.tintColor = Color.primaryTextColor()

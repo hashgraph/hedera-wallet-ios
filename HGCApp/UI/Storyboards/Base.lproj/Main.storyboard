@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,6 +49,7 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F36-1n-IHc">
                                                 <rect key="frame" x="157.5" y="-5" width="60" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Account Details Drawer Button"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="a24-wD-lzO"/>
                                                     <constraint firstAttribute="width" constant="60" id="esc-4q-Hbj"/>
@@ -209,6 +210,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="Overview View Root"/>
                         <constraints>
                             <constraint firstItem="Bc7-rD-GGi" firstAttribute="leading" secondItem="wTd-7A-eOp" secondAttribute="leading" id="15L-Er-5uI"/>
                             <constraint firstItem="Bc7-rD-GGi" firstAttribute="top" secondItem="wTd-7A-eOp" secondAttribute="top" id="a92-2S-z9k"/>
@@ -1126,6 +1128,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="985.301" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pwY-BL-4pD">
                                                         <rect key="frame" x="0.0" y="0.0" width="156.5" height="50.5"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Account Balance"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1327,6 +1330,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="Account Details View Root"/>
                         <constraints>
                             <constraint firstItem="izc-P5-gl4" firstAttribute="top" secondItem="8QG-yI-BAW" secondAttribute="top" id="8LK-5M-bar"/>
                             <constraint firstItem="8QG-yI-BAW" firstAttribute="bottom" secondItem="izc-P5-gl4" secondAttribute="bottom" id="XiP-HZ-1vs"/>
