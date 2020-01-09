@@ -17,6 +17,10 @@
 import UIKit
 import SwiftyJSON
 
+extension Notification.Name {
+    static let onExchangeRateChange = Notification.Name("onExchangeRateChange")
+}
+
 class AppConfigService {
     static let defaultService : AppConfigService = AppConfigService();
     private var exchangeRate:Double = 0.12

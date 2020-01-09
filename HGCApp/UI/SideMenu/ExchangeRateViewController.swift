@@ -29,6 +29,10 @@ class ExchangeRateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(forName: .onExchangeRateChange, object: nil, queue: OperationQueue.main)
+        { [weak self] _ in
+            self?.reloadUI()
+        }
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         navigationItem.hidesBackButton = true

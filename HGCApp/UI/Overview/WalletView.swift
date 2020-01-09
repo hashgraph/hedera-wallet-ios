@@ -52,7 +52,10 @@ class WalletView: UIViewController {
         NotificationCenter.default.addObserver(forName: .onBalanceServiceStateChanged, object: nil, queue: OperationQueue.main) { (notif) in
             self.onAccountUpdate()
         }
-        
+        NotificationCenter.default.addObserver(forName: .onExchangeRateChange, object: nil, queue: OperationQueue.main)
+        { [weak self] _ in
+            self?.reloadUI()
+        }
         coinBalanceLabel.isUserInteractionEnabled = true
         coinBalanceLabel.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(WalletView.onBalanceLableTap)))
         

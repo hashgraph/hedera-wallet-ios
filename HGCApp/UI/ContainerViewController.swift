@@ -179,6 +179,7 @@ class ContainerViewController: UIViewController {
     @IBAction func onRefreshButtonTap() {
         setTab(.home)
         WalletHelper.syncBalance()
+        AppConfigService.defaultService.updateExchangeRate()
     }
 }
 
