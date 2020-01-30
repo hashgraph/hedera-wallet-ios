@@ -15,14 +15,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYa-LY-kuW" userLabel="margin">
-                    <rect key="frame" x="20" y="0.0" width="335" height="1"/>
+                    <rect key="frame" x="20" y="20" width="335" height="1"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="M0r-rm-XCi"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="P0r-ih-LhW">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="329"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="329"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXd-t0-unX" userLabel="NickName">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
