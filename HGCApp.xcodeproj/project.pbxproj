@@ -302,6 +302,7 @@
 /* Begin PBXFileReference section */
 		0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardExistingTests.swift; sourceTree = "<group>"; };
+		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
 		10905C2F9BF793846D9D8B8C /* Pods-HGCApp.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.pb.swift; sourceTree = "<group>"; };
 		1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionBody.pb.swift; sourceTree = "<group>"; };
@@ -2428,12 +2429,13 @@
 		350DF3031FC68A6E0006166C /* hgc.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */,
 				182FD133235053020071A09A /* hgc-4.xcdatamodel */,
 				18EC4CE8227F00F7006B3461 /* hgc-3.xcdatamodel */,
 				183208522204784E004311D7 /* hgc-2.xcdatamodel */,
 				350DF3041FC68A6E0006166C /* hgc.xcdatamodel */,
 			);
-			currentVersion = 182FD133235053020071A09A /* hgc-4.xcdatamodel */;
+			currentVersion = 0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */;
 			path = hgc.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
