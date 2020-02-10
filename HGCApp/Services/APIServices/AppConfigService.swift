@@ -24,7 +24,7 @@ extension Notification.Name {
 class AppConfigService {
     static let defaultService : AppConfigService = AppConfigService();
     private var exchangeRate:Double = 0.12
-    private let exchanges : [Exchange:String] = [.bitrex:bitrex, .okcoin:okcoin, .liquid:liquid]
+    private let exchanges : [Exchange:String] = [.bittrex:bittrex, .okcoin:okcoin, .liquid:liquid]
 
     init() {
         loadExchangeRate()

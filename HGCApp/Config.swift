@@ -36,6 +36,6 @@ let privacyPolicy = "https://www.hedera.com/privacy"
 
 let maxAllowedMemoLength = 100
 
-let bitrex = "https://api.bittrex.com/api/v1.1/public/getticker?market=USD-HBAR"
+let bittrex = "https://api.bittrex.com/api/v1.1/public/getticker?market=USD-HBAR"
 let liquid = "https://api.liquid.com/products/557"
 let okcoin = "https://www.okcoin.com/api/spot/v3/instruments/HBAR-USD/ticker"
