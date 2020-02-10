@@ -32,7 +32,8 @@ class QRPreviewController: ContentViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "icon-close"), style: .plain, target: self, action: #selector(onCloseButtonTap))
 
-        self.qrLabel.text = qrString
+        self.qrLabel.text = "" // FIXME: remove this code all the way back to root
+                               // was: qrString
         Logger.instance.log(message: qrString, event: .d)
     }
     
