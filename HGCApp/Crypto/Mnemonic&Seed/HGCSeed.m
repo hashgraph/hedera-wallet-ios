@@ -1,17 +1,5 @@
 //
-//  Copyright 2019 Hedera Hashgraph LLC
-//
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
-//
-//  http://www.apache.org/licenses/LICENSE-2.0
-//
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
+// https://github.com/oleganza/CoreBitcoin/blob/master/LICENSE.txt
 //
 
 #import "HGCSeed.h"
@@ -20,9 +8,9 @@
 @import  JKBigInteger;
 
 @interface HGCSeed()
-    
+
 @property (nonatomic, strong) NSMutableData *scrumbledData;
-    
+
 @end
 
 @implementation  HGCSeed
@@ -36,7 +24,7 @@
         NSLog(@"entropy.length must be 32, not {%lu}",(unsigned long)entropy.length);
         return nil;
     }
-    
+
     NSMutableData *seed = [NSMutableData dataWithData:entropy];
     Byte crc = [self crc8:seed length:seed.length];
     NSMutableData *mutableData = [[NSMutableData alloc] initWithCapacity:33];
@@ -46,14 +34,14 @@
         [mutableData appendBytes:&xor length:1];
     }
     [mutableData appendBytes:&crc length:1];
-    
+
     HGCSeed *hgcSeed = [[HGCSeed alloc] init];
     hgcSeed.scrumbledData = [NSMutableData dataWithData:mutableData];
-    
+
     [seed resetBytesInRange:NSMakeRange(0, seed.length)];
     [mutableData resetBytesInRange:NSMakeRange(0, mutableData.length)];
     return hgcSeed;
-     
+
 }
 
 + (instancetype) seedWithWords:(NSArray<NSString *> *)allWords {
@@ -65,7 +53,7 @@
         NSLog(@"words.count must be 22, not {%lu}",(unsigned long)allWords.count);
         return nil;
     }
-    
+
     NSMutableArray<NSNumber *> *indices = [NSMutableArray array];
     NSArray<NSString *> *words = [self lowecasedWords];
     for (NSString *word in allWords) {
@@ -74,7 +62,7 @@
             NSLog(@"Invalid word list");
             return nil;
         }
-        
+
         [indices addObject:[NSNumber numberWithUnsignedInt:index]];
     }
     int dataLen = 33;
@@ -86,13 +74,13 @@
         Byte xor = num^crc;
         [entropy appendBytes:&xor length:1];
     }
-    
+
     Byte expectedCrc = [self crc8:entropy length:entropy.length];
     if (crc != expectedCrc) {
         NSLog(@"Invalid word list: fails the cyclic redundency check");
         return nil;
     }
-    
+
     return [HGCSeed seedWithEntropy:entropy];
 }
 
@@ -129,7 +117,7 @@
 
 - (NSArray<NSString *> *)toWords {
     NSArray<NSNumber *> *fromDigits = [HGCSeed arrayFromData:self.scrumbledData];
-    
+
     NSArray<NSString *> *allWords = [HGCSeed words];
     NSMutableArray<NSString *> *words = [NSMutableArray array];
     NSArray *indexes = [HGCSeed convertRadix:fromDigits fromRadix:256 toRadix:(int)allWords.count toLength:22];
@@ -147,14 +135,14 @@
 - (void) dealloc {
     [self.scrumbledData resetBytesInRange:NSMakeRange(0, self.scrumbledData.length)];
 }
-    
+
 + (NSArray <NSNumber *> *)convertRadix:(NSArray <NSNumber *> *)number fromRadix:(int)fromRadix toRadix:(int)toRadix toLength:(int)toLength {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:toLength];
-    
+
     JKBigInteger *num = [[JKBigInteger alloc] initWithString:@"0"];
     JKBigInteger *fromR = [[JKBigInteger alloc] initWithUnsignedLong:fromRadix];
     JKBigInteger *toR = [[JKBigInteger alloc] initWithUnsignedLong:toRadix];
-    
+
     for (int i = 0; i < number.count; i++) { // convert number ==> BigInteger
         num = [num multiply:fromR];
         num = [num add:[[JKBigInteger alloc] initWithUnsignedLong:number[i].integerValue]];
@@ -176,7 +164,7 @@
     }
     return ary;
 }
-    
+
 + (NSArray<NSString *> *)lowecasedWords {
     NSMutableArray<NSString *> *words = [NSMutableArray arrayWithArray:[HGCSeed words]];
     for (int i = 0; i < words.count ; i++) {
@@ -755,4 +743,3 @@
                                         @"zinc",@"zombie",@"zone"]; }
 
 @end
-
