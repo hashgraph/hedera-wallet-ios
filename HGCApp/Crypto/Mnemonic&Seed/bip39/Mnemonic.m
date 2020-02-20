@@ -1,10 +1,14 @@
+//
+// https://github.com/oleganza/CoreBitcoin/blob/master/LICENSE.txt
+//
+
 #import "Mnemonic.h"
 #include <CommonCrypto/CommonKeyDerivation.h>
 
 typedef NS_ENUM(int8_t, MnemonicWordListType) {
     // English wordlist specified by BIP39.
     MnemonicWordListTypeEnglish = 0,
-    
+
     // If this is specified when importing mnemonic, checksum can not be verified.
     MnemonicWordListTypeUnknown = -1,
 };
@@ -78,7 +82,7 @@ static inline NSUInteger MnemonicIntegerFrom11Bits(uint8_t* buf, int bitIndex) {
         _wordListType = MnemonicWordListTypeEnglish;
         // If the list is given, get the entropy from it
         _entropy = [self entropyFromWords:_words wordListType:_wordListType];
-        
+
         // If failed to read entropy it's because words are malformed and/or checksum failed.
         if (!_entropy) return nil;
     }
@@ -181,13 +185,13 @@ static inline NSUInteger MnemonicIntegerFrom11Bits(uint8_t* buf, int bitIndex) {
 
 + (NSData*) seedForWords:(NSArray*)words password:(NSString*)password {
     password = password ?: @"";
-    
+
     NSData* mnemonic = [[words componentsJoinedByString:@" "] dataUsingEncoding:NSUTF8StringEncoding];
     NSData* salt = [[@"mnemonic" stringByAppendingString:password] dataUsingEncoding:NSUTF8StringEncoding];
-    
+
     const NSUInteger seedLength = 64;
     NSMutableData* seed = [NSMutableData dataWithLength:seedLength];
-    
+
     CCKeyDerivationPBKDF(kCCPBKDF2,
                          mnemonic.bytes,
                          mnemonic.length,
@@ -197,7 +201,7 @@ static inline NSUInteger MnemonicIntegerFrom11Bits(uint8_t* buf, int bitIndex) {
                          2048,
                          seed.mutableBytes,
                          seedLength);
-    
+
     return seed;
 }
 
@@ -206,7 +210,7 @@ static inline NSUInteger MnemonicIntegerFrom11Bits(uint8_t* buf, int bitIndex) {
     CC_LONG len = (uint32_t)[data length];
     if ( CC_SHA256([data bytes], len, hash) )
         return [NSData dataWithBytes:hash length:CC_SHA256_DIGEST_LENGTH];
-    
+
     return nil;
 }
 
@@ -412,4 +416,3 @@ static inline NSUInteger MnemonicIntegerFrom11Bits(uint8_t* buf, int bitIndex) {
 
 
 @end
-
