@@ -13,7 +13,6 @@ pod 'IQKeyboardManagerSwift'
 
 pod 'JKBigInteger', '~> 0.0.1'
 pod 'SwiftyJSON', '5.0.0'
-pod 'Branch'
 pod 'SwiftGRPC', '0.8.1'
 pod 'CryptoSwift', '1.0.0'
 

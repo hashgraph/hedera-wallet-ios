@@ -15,7 +15,6 @@
 //
 
 import UIKit
-import Branch
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
@@ -34,9 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // load address book
         APIAddressBookService.defaultAddressBook.loadAddressBook()
         
-        // register branch.io instance
-        setupBranchIO(launchOptions)
-        
         if WalletHelper.isOnboarded() {
             // Authenticate
             AppDelegate.authManager.authenticate(AppDelegate.authManager.currentAuthType(), animated: false)
@@ -46,16 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let branchHandled = Branch.getInstance().application(app, open: url, options: options)
-        if !branchHandled {
-            RedirectManager.shared.onUrlReceived(url)
-        }
+
+        RedirectManager.shared.onUrlReceived(url)
         return true
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        let branchHandled = Branch.getInstance().continue(userActivity)
-        return branchHandled
+
+        return false
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -166,22 +160,6 @@ extension AppDelegate {
     
     @objc func onOnboardDidSuccess() {
         switchToMain()
-    }
-    
-    func setupBranchIO(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        Branch.setUseTestBranchKey(isDevMode)
-        let branch: Branch = Branch.getInstance()
-        branch.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
-            if error == nil {
-                if let banchParams = params as? [String: Any] {
-                    Logger.instance.log(message: banchParams.description, event: .i)
-                    
-                    RedirectManager.shared.onBranchParamsReceived(banchParams)
-                }
-            } else {
-                Logger.instance.log(message: error!.localizedDescription, event: .e)
-            }
-        })
     }
 }
 

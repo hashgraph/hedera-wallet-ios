@@ -7,9 +7,6 @@ PODS:
   - BoringSSL/Implementation (10.0.6):
     - BoringSSL/Interface (= 10.0.6)
   - BoringSSL/Interface (10.0.6)
-  - Branch (0.29.0):
-    - Branch/Core (= 0.29.0)
-  - Branch/Core (0.29.0)
   - CryptoSwift (1.0.0)
   - gRPC-Core (1.12.0):
     - gRPC-Core/Implementation (= 1.12.0)
@@ -19,16 +16,16 @@ PODS:
     - gRPC-Core/Interface (= 1.12.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.12.0)
-  - IQKeyboardManagerSwift (6.5.1)
+  - IQKeyboardManagerSwift (6.5.5)
   - JKBigInteger (0.0.1)
   - LGSideMenuController (2.1.1)
   - MBProgressHUD (1.1.0)
   - MTBBarcodeScanner (5.0.11)
-  - nanopb (0.3.901):
-    - nanopb/decode (= 0.3.901)
-    - nanopb/encode (= 0.3.901)
-  - nanopb/decode (0.3.901)
-  - nanopb/encode (0.3.901)
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
   - SwiftGRPC (0.8.1):
     - BoringSSL (~> 10.0)
     - gRPC-Core (~> 1.12.0)
@@ -39,7 +36,6 @@ PODS:
 DEPENDENCIES:
   - ABPadLockScreen (= 3.4.2)
   - ActiveLabel (= 1.0.1)
-  - Branch
   - CryptoSwift (= 1.0.0)
   - IQKeyboardManagerSwift
   - JKBigInteger (~> 0.0.1)
@@ -54,7 +50,6 @@ SPEC REPOS:
     - ABPadLockScreen
     - ActiveLabel
     - BoringSSL
-    - Branch
     - CryptoSwift
     - gRPC-Core
     - IQKeyboardManagerSwift
@@ -71,19 +66,18 @@ SPEC CHECKSUMS:
   ABPadLockScreen: 6edd4e5fd580a9f60f55b3ec59011ebec2801a8e
   ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
-  Branch: 6e7421e1f3c0adebdf80008a40a74969b2603cf8
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   gRPC-Core: 9696b220565b283e021cf2722d473a4a74b7622a
-  IQKeyboardManagerSwift: 9ac7524fad9f9fe9a3b98c927e7772471ca546d2
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   JKBigInteger: 7f3894ca331bf271a8e2ee0d5329707ca6eda6e0
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
-  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   SwiftGRPC: e9621ce75cca7a642a1f87a7a5b47c29a05e6cc4
   SwiftProtobuf: 84cd6b8f4fd2fc3d9fbd80a0aaf2e957d52824ec
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 2be78ecd1333bd9f96f512dfc1437192a6cb4e81
+PODFILE CHECKSUM: 8270080743cf7df7a284bf6ce4ed2e61cc092ffc
 
 COCOAPODS: 1.8.4
