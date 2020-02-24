@@ -191,4 +191,3 @@ extension AppDelegate : Bip32MigrationDelegate {
     }
 }
 
-
