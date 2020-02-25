@@ -3,11 +3,21 @@ version: 2
 jobs:
   ios-environment-setup:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.3.1"
     environment:
       FL_OUTPUT_DIR: output
     steps:
+      # Repository cache
+      - restore-cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - source-v1-{{ .Branch }}-
+            - source-v1-
       - checkout
+      - save-cache:
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - .git
       - run:
           name: Print Homebrew Information
           command: .circleci/scripts/print_homebrew_info.sh

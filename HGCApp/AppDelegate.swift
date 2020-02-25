@@ -16,6 +16,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import LGSideMenuController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

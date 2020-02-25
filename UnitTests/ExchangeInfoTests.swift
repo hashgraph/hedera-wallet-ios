@@ -15,7 +15,7 @@
 //
 
 import XCTest
-@testable import HGCApp
+@testable import HederaWallet
 
 /// Unit tests for the ExchangeInfo class.
 class ExchangeInfoTests: XCTestCase {

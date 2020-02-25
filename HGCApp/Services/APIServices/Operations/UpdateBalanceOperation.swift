@@ -16,7 +16,7 @@
 
 import Foundation
 import CoreData
-import SwiftGRPC
+import GRPC
 
 class UpdateBalanceOperation : BaseOperation {
     private var coreDataManager = CoreDataManager.shared
