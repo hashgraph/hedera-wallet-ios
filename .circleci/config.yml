@@ -33,6 +33,27 @@ jobs:
       - run:
           name: Install Dependencies
           command: .circleci/scripts/install_dependencies.sh
+      - run:
+          name: Build for testing
+          command: xcodebuild build-for-testing
+            -workspace HGCApp.xcworkspace
+            -scheme Debug
+            -configuration Debug
+            -destination 'platform=iOS Simulator,name=iPhone 8'
+      - run:
+          name: Run unit tests
+          command: xcodebuild test-without-building
+            -workspace HGCApp.xcworkspace
+            -scheme Debug
+            -configuration Debug
+            -destination 'platform=iOS Simulator,name=iPhone 8'
+      - run:
+          name: Build for running
+          command: xcodebuild build
+            -workspace HGCApp.xcworkspace
+            -scheme Debug
+            -configuration Debug
+            -destination 'platform=iOS Simulator,name=iPhone 8'
 
 workflows:
   version: 2
