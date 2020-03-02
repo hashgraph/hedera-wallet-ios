@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Account" representedClassName="HGCAccount" syncable="YES" codeGenerationType="class">
+        <attribute name="accountId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="accountNumber" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="accountType" optional="YES" attributeType="String" defaultValueString="auto"/>
+        <attribute name="balance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isArchived" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isHidden" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="lastBalanceCheck" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="publicKey" optional="YES" attributeType="Binary"/>
+        <attribute name="realmId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="shardId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="requests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Request" inverseName="account" inverseEntity="Request"/>
+        <relationship name="tokens" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="SCToken" inverseName="account" inverseEntity="SCToken"/>
+        <relationship name="wallet" maxCount="1" deletionRule="Nullify" destinationEntity="Wallet" inverseName="accounts" inverseEntity="Wallet"/>
+    </entity>
+    <entity name="Contact" representedClassName="HGCContact" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="info" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="publicKeyID" optional="YES" attributeType="String"/>
+        <attribute name="verified" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Node" representedClassName="HGCNode" syncable="YES" codeGenerationType="class">
+        <attribute name="accountNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="disabled" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="host" optional="YES" attributeType="String"/>
+        <attribute name="lastCheckedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="port" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="realmNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="shardNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" attributeType="String" defaultValueString="unknown"/>
+    </entity>
+    <entity name="NodeListVersion" representedClassName="NodeListVersion" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Record" representedClassName="HGCRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="confirmed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="fromAccountID" optional="YES" attributeType="String"/>
+        <attribute name="receipt" optional="YES" attributeType="Binary"/>
+        <attribute name="response" optional="YES" attributeType="Binary"/>
+        <attribute name="toAccountID" optional="YES" attributeType="String"/>
+        <attribute name="transaction" optional="YES" attributeType="Binary"/>
+        <attribute name="txnID" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Request" representedClassName="HGCRequest" syncable="YES" codeGenerationType="class">
+        <attribute name="accountNum" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="-1" usesScalarValueType="YES"/>
+        <attribute name="fromAddress" optional="YES" attributeType="String"/>
+        <attribute name="fromName" optional="YES" attributeType="String"/>
+        <attribute name="importTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="mobileID" optional="YES" attributeType="String"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="notificationRequested" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="requests" inverseEntity="Account"/>
+    </entity>
+    <entity name="SCToken" representedClassName="SCToken" syncable="YES" codeGenerationType="class">
+        <attribute name="balance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="contractID" attributeType="String"/>
+        <attribute name="decimals" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString="My Token"/>
+        <attribute name="symbol" attributeType="String"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="tokens" inverseEntity="Account"/>
+    </entity>
+    <entity name="Wallet" representedClassName="HGCWallet" syncable="YES" codeGenerationType="class">
+        <attribute name="keyDerivation" optional="YES" attributeType="String"/>
+        <attribute name="numAccounts" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="signatureAlgorithm" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="walletId" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES"/>
+        <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Account" inverseName="wallet" inverseEntity="Account"/>
+    </entity>
+    <elements>
+        <element name="Account" positionX="-54" positionY="18" width="128" height="268"/>
+        <element name="Contact" positionX="-18" positionY="117" width="128" height="135"/>
+        <element name="Node" positionX="-36" positionY="126" width="128" height="163"/>
+        <element name="Record" positionX="-36" positionY="54" width="128" height="165"/>
+        <element name="Request" positionX="0" positionY="126" width="128" height="180"/>
+        <element name="SCToken" positionX="-36" positionY="126" width="128" height="135"/>
+        <element name="Wallet" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="NodeListVersion" positionX="-36" positionY="126" width="128" height="58"/>
+    </elements>
+</model>
