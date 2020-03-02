@@ -302,6 +302,7 @@
 /* Begin PBXFileReference section */
 		0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardExistingTests.swift; sourceTree = "<group>"; };
+		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
 		10905C2F9BF793846D9D8B8C /* Pods-HGCApp.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.pb.swift; sourceTree = "<group>"; };
 		1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionBody.pb.swift; sourceTree = "<group>"; };
@@ -521,7 +522,7 @@
 		35B63BD11FA1F5C500E29423 /* LeftMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
 		35B63BD61FA200F200E29423 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		35B896C420DD5E6100734F27 /* SCToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCToken.swift; sourceTree = "<group>"; };
-		35B8ABBA1F9E5642003E4F57 /* HGCApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HGCApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hedera Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B8ABBD1F9E5642003E4F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35B8ABC21F9E5642003E4F57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35B8ABC41F9E5642003E4F57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1115,7 +1116,7 @@
 		35B8ABBB1F9E5642003E4F57 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				35B8ABBA1F9E5642003E4F57 /* HGCApp.app */,
+				35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */,
 				35B8ABCE1F9E5642003E4F57 /* HGCAppTests.xctest */,
 				35B8ABD91F9E5642003E4F57 /* HGCAppUITests.xctest */,
 			);
@@ -1350,7 +1351,7 @@
 			);
 			name = HGCApp;
 			productName = HGCApp;
-			productReference = 35B8ABBA1F9E5642003E4F57 /* HGCApp.app */;
+			productReference = 35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 		35B8ABCD1F9E5642003E4F57 /* HGCAppTests */ = {
@@ -1953,10 +1954,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APP_BUNDLE_ID = com.hedera.wallet.dev;
+				APP_BUNDLE_ID = com.hedera.wallet;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
-				BUILD_NUM = 129;
+				BUILD_NUM = 131;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2026,6 +2027,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 131;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_BITCODE = NO;
@@ -2046,11 +2048,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.129;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.3.131;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.wallet;
+				PRODUCT_NAME = "Hedera Wallet";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Dev Distro Cert Apple Store";
+				PROVISIONING_PROFILE_SPECIFIER = "Hedera Distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2102,7 +2104,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet;
 				APP_DISPLAY_NAME = "Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "";
-				BUILD_NUM = 129;
+				BUILD_NUM = 131;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2165,6 +2167,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hedera Hashgraph LLC (7J42NV34C4)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 131;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_BITCODE = NO;
@@ -2185,9 +2188,9 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.129;
+				MARKETING_VERSION = 1.3.131;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hedera Wallet";
 				PROVISIONING_PROFILE = "01a085c0-d213-4208-bd9d-a0d7c0577bc0";
 				PROVISIONING_PROFILE_SPECIFIER = "Hedera Distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
@@ -2240,7 +2243,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet.dev;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
-				BUILD_NUM = 129;
+				BUILD_NUM = 131;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2307,9 +2310,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 131;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_BITCODE = NO;
@@ -2330,9 +2334,9 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.129;
+				MARKETING_VERSION = 1.3.131;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hedera Wallet";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "Robert's iOS Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
@@ -2390,7 +2394,7 @@
 				18BF967421C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Release_Dev;
 		};
 		35B8ABE21F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCApp" */ = {
 			isa = XCConfigurationList;
@@ -2400,7 +2404,7 @@
 				18BF967521C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Release_Dev;
 		};
 		35B8ABE51F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppTests" */ = {
 			isa = XCConfigurationList;
@@ -2410,7 +2414,7 @@
 				18BF967621C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Release_Dev;
 		};
 		35B8ABE81F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -2420,7 +2424,7 @@
 				18BF967721C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Release_Dev;
 		};
 /* End XCConfigurationList section */
 
@@ -2428,12 +2432,13 @@
 		350DF3031FC68A6E0006166C /* hgc.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */,
 				182FD133235053020071A09A /* hgc-4.xcdatamodel */,
 				18EC4CE8227F00F7006B3461 /* hgc-3.xcdatamodel */,
 				183208522204784E004311D7 /* hgc-2.xcdatamodel */,
 				350DF3041FC68A6E0006166C /* hgc.xcdatamodel */,
 			);
-			currentVersion = 182FD133235053020071A09A /* hgc-4.xcdatamodel */;
+			currentVersion = 0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */;
 			path = hgc.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -53,6 +53,9 @@ class CoreDataManager : CoreDataManagerProtocol {
                  */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
+            DispatchQueue.main.async {
+                self.performPossibleNodeListUpdate()
+            }
         })
         return container
     }()
@@ -99,5 +102,26 @@ class CoreDataManager : CoreDataManagerProtocol {
              print("Attempted to clear persistent store: " + error.localizedDescription)
             throw error
           }
+    }
+
+    private func performPossibleNodeListUpdate() {
+        let request = NodeListVersion.fetchRequest() as NSFetchRequest<NodeListVersion>
+        var version = (try? mainContext.fetch(request))?.first
+        let update = { () -> Bool in
+            switch version {
+            case .none: return true
+            case .some(let v): return v.number < 5
+            }
+        }()
+        guard update else { return }
+        HGCNode.deleteAll(context: mainContext)
+        APIAddressBookService.defaultAddressBook.loadAddressBook()
+        if version == nil {
+            version = NSEntityDescription.insertNewObject(forEntityName: "NodeListVersion",
+                                                          into: mainContext) as? NodeListVersion
+        }
+        guard let newVersion = version else { return }
+        newVersion.number = 5
+        try? mainContext.save()
     }
 }
