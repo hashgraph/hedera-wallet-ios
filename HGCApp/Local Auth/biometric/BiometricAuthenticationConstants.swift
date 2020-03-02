@@ -1,3 +1,11 @@
+//
+//  BiometricAuthenticationConstants.swift
+//  BiometricAuthentication
+//
+//  Created by Rushi on 27/10/17.
+//  Copyright © 2018 Rushi Sangani. All rights reserved.
+//  see LICENSE file for more details
+
 import Foundation
 import LocalAuthentication
 

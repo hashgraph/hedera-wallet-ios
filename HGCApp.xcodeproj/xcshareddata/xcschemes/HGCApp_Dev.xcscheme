@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "35B8ABB91F9E5642003E4F57"
-               BuildableName = "HGCApp.app"
+               BuildableName = "Hedera Wallet.app"
                BlueprintName = "HGCApp"
                ReferencedContainer = "container:HGCApp.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35B8ABB91F9E5642003E4F57"
-            BuildableName = "HGCApp.app"
+            BuildableName = "Hedera Wallet.app"
             BlueprintName = "HGCApp"
             ReferencedContainer = "container:HGCApp.xcodeproj">
          </BuildableReference>
@@ -42,7 +42,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35B8ABB91F9E5642003E4F57"
-            BuildableName = "HGCApp.app"
+            BuildableName = "Hedera Wallet.app"
             BlueprintName = "HGCApp"
             ReferencedContainer = "container:HGCApp.xcodeproj">
          </BuildableReference>
@@ -55,6 +55,16 @@
                BlueprintIdentifier = "35B8ABCD1F9E5642003E4F57"
                BuildableName = "HGCAppTests.xctest"
                BlueprintName = "HGCAppTests"
+               ReferencedContainer = "container:HGCApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35B8ABD81F9E5642003E4F57"
+               BuildableName = "HGCAppUITests.xctest"
+               BlueprintName = "HGCAppUITests"
                ReferencedContainer = "container:HGCApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -76,7 +86,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35B8ABB91F9E5642003E4F57"
-            BuildableName = "HGCApp.app"
+            BuildableName = "Hedera Wallet.app"
             BlueprintName = "HGCApp"
             ReferencedContainer = "container:HGCApp.xcodeproj">
          </BuildableReference>
@@ -93,7 +103,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "35B8ABB91F9E5642003E4F57"
-            BuildableName = "HGCApp.app"
+            BuildableName = "Hedera Wallet.app"
             BlueprintName = "HGCApp"
             ReferencedContainer = "container:HGCApp.xcodeproj">
          </BuildableReference>

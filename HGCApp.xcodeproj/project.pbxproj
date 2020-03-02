@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0ADD4223A5735D0069AD41 /* OnboardExistingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */; };
 		1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */; };
 		1808C31C22488D8300FD7F45 /* TransactionBody.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */; };
 		1815081921858B3000890123 /* IPUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815080B21858B3000890123 /* IPUtility.swift */; };
@@ -247,6 +248,7 @@
 		35FCF6401FDD4AC700BA1EB1 /* AmountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FCF63E1FDD4AC700BA1EB1 /* AmountTableViewCell.xib */; };
 		35FCF7C11FD9502C004F4C09 /* HGCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C01FD9502B004F4C09 /* HGCLabel.swift */; };
 		35FCF7C31FD95710004F4C09 /* HGCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C21FD95710004F4C09 /* HGCTextField.swift */; };
+		9D83543BB9043C75010072C6 /* Pods_HGCApp_HGCAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */; };
 		C91E4FB520D5114200996A93 /* DeveloerToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FB420D5114200996A93 /* DeveloerToolViewController.swift */; };
 		C91E4FB720D5549E00996A93 /* DeveloperTools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91E4FB620D5549E00996A93 /* DeveloperTools.storyboard */; };
 		C91E4FBB20D5608200996A93 /* DeveloperMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FBA20D5608200996A93 /* DeveloperMenuTableCell.swift */; };
@@ -265,7 +267,6 @@
 		D543CD2A23996299006CA213 /* StyreneA-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2123996299006CA213 /* StyreneA-Thin.ttf */; };
 		D5F72D4223575CDB00EBB2D2 /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
 		D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */; };
-		FE44D9C0D0F6479D5ADF3C5C /* Pods_HGCAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695EB65D4494CE94AC792990 /* Pods_HGCAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,6 +301,8 @@
 
 /* Begin PBXFileReference section */
 		0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
+		0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardExistingTests.swift; sourceTree = "<group>"; };
+		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
 		10905C2F9BF793846D9D8B8C /* Pods-HGCApp.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.pb.swift; sourceTree = "<group>"; };
 		1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionBody.pb.swift; sourceTree = "<group>"; };
@@ -519,7 +522,7 @@
 		35B63BD11FA1F5C500E29423 /* LeftMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
 		35B63BD61FA200F200E29423 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		35B896C420DD5E6100734F27 /* SCToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCToken.swift; sourceTree = "<group>"; };
-		35B8ABBA1F9E5642003E4F57 /* HGCApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HGCApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hedera Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B8ABBD1F9E5642003E4F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35B8ABC21F9E5642003E4F57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35B8ABC41F9E5642003E4F57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -573,7 +576,6 @@
 		5FBE734F0E8B5646CE91ED93 /* Pods-HGCAppUITests.debug_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_prod.xcconfig"; sourceTree = "<group>"; };
 		6001C4B4B2FC6D969C7EC1A4 /* Pods-HGCApp.debug_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_prod.xcconfig"; sourceTree = "<group>"; };
 		630A0086C2BD83470A4AB34A /* Pods-HGCAppTests.debug_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.debug_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.debug_prod_oc.xcconfig"; sourceTree = "<group>"; };
-		695EB65D4494CE94AC792990 /* Pods_HGCAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C8228D048F7E267F3D4B70 /* Pods-HGCApp.debug_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		6AB0BA9A4CE992D31E5ECBE8 /* Pods-HGCApp.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev.xcconfig"; sourceTree = "<group>"; };
 		7900765FDCE4C72C6CFC503B /* Pods-HGCApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -597,12 +599,16 @@
 		C94D163E21326D4400212900 /* UpdateBalanceOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBalanceOperation.swift; sourceTree = "<group>"; };
 		CAFF7BC70E9B76A911C180A0 /* Pods-HGCAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CED278BA5CAB6EFB025FFE16 /* Pods-HGCApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release.xcconfig"; sourceTree = "<group>"; };
+		D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp_HGCAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48720E8954DD6D6903AC125 /* Pods-HGCAppTests.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Regular.ttf"; sourceTree = "<group>"; };
 		D543CD2023996298006CA213 /* StyreneA-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Light.ttf"; sourceTree = "<group>"; };
 		D543CD2123996299006CA213 /* StyreneA-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Thin.ttf"; sourceTree = "<group>"; };
 		D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModelTests.swift; sourceTree = "<group>"; };
+		D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_prod.xcconfig"; sourceTree = "<group>"; };
+		DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
 		EC013F53B393F09D57054E92 /* Pods-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -627,7 +633,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE44D9C0D0F6479D5ADF3C5C /* Pods_HGCAppUITests.framework in Frameworks */,
+				9D83543BB9043C75010072C6 /* Pods_HGCApp_HGCAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,6 +748,9 @@
 				B8012DE459093DB379F90D33 /* Pods-HGCAppUITests.debug_prod_oc.xcconfig */,
 				4E0C676537D81394E3AB0BC0 /* Pods-HGCAppUITests.release_dev_oc.xcconfig */,
 				0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */,
+				EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */,
+				DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */,
+				D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1107,7 +1116,7 @@
 		35B8ABBB1F9E5642003E4F57 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				35B8ABBA1F9E5642003E4F57 /* HGCApp.app */,
+				35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */,
 				35B8ABCE1F9E5642003E4F57 /* HGCAppTests.xctest */,
 				35B8ABD91F9E5642003E4F57 /* HGCAppUITests.xctest */,
 			);
@@ -1150,6 +1159,7 @@
 			isa = PBXGroup;
 			children = (
 				35B8ABDD1F9E5642003E4F57 /* HGCAppUITests.swift */,
+				0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */,
 				35B8ABDF1F9E5642003E4F57 /* Info.plist */,
 			);
 			name = HGCAppUITests;
@@ -1315,7 +1325,7 @@
 			children = (
 				DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */,
 				880D056128F0B700DE4D7D69 /* Pods_HGCAppTests.framework */,
-				695EB65D4494CE94AC792990 /* Pods_HGCAppUITests.framework */,
+				D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1341,7 +1351,7 @@
 			);
 			name = HGCApp;
 			productName = HGCApp;
-			productReference = 35B8ABBA1F9E5642003E4F57 /* HGCApp.app */;
+			productReference = 35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 		35B8ABCD1F9E5642003E4F57 /* HGCAppTests */ = {
@@ -1371,6 +1381,7 @@
 				35B8ABD51F9E5642003E4F57 /* Sources */,
 				35B8ABD61F9E5642003E4F57 /* Frameworks */,
 				35B8ABD71F9E5642003E4F57 /* Resources */,
+				82C8ADD629A53EC6628E92D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1568,6 +1579,52 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HGCApp/Pods-HGCApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		82C8ADD629A53EC6628E92D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ABPadLockScreen/ABPadLockScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
+				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGRPC/SwiftGRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ABPadLockScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		949832083CC4647F1DDC13E8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1615,7 +1672,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HGCAppUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HGCApp-HGCAppUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1853,6 +1910,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0ADD4223A5735D0069AD41 /* OnboardExistingTests.swift in Sources */,
 				35B8ABDE1F9E5642003E4F57 /* HGCAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1896,10 +1954,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APP_BUNDLE_ID = com.hedera.wallet.dev;
+				APP_BUNDLE_ID = com.hedera.wallet;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
-				BUILD_NUM = 129;
+				BUILD_NUM = 131;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1966,9 +2024,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 131;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_BITCODE = NO;
@@ -1989,11 +2048,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.129;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.3.131;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.wallet;
+				PRODUCT_NAME = "Hedera Wallet";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "distribution-dev-hedera-wallet";
+				PROVISIONING_PROFILE_SPECIFIER = "Hedera Distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2023,7 +2082,7 @@
 		};
 		180E7448232A55CF00D88BB6 /* Release_Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 367AB6BC295AD93C78CFA2EA /* Pods-HGCAppUITests.release_dev.xcconfig */;
+			baseConfigurationReference = DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2032,7 +2091,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HGCApp;
 			};
@@ -2045,7 +2104,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet;
 				APP_DISPLAY_NAME = "Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "";
-				BUILD_NUM = 129;
+				BUILD_NUM = 131;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2108,6 +2167,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hedera Hashgraph LLC (7J42NV34C4)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 131;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_BITCODE = NO;
@@ -2128,11 +2188,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.129;
+				MARKETING_VERSION = 1.3.131;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hedera Wallet";
 				PROVISIONING_PROFILE = "01a085c0-d213-4208-bd9d-a0d7c0577bc0";
-				PROVISIONING_PROFILE_SPECIFIER = "AppStore-HederaWallet";
+				PROVISIONING_PROFILE_SPECIFIER = "Hedera Distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2161,7 +2221,7 @@
 		};
 		18BF967721C225C300055B2A /* Release_Prod */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DA34554D9D036E2BE8FEB76 /* Pods-HGCAppUITests.release_prod.xcconfig */;
+			baseConfigurationReference = D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2170,7 +2230,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HGCApp;
 			};
@@ -2183,7 +2243,7 @@
 				APP_BUNDLE_ID = com.hedera.wallet.dev;
 				APP_DISPLAY_NAME = "Dev Hedera Wallet";
 				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
-				BUILD_NUM = 129;
+				BUILD_NUM = 131;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2250,9 +2310,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 131;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_BITCODE = NO;
@@ -2273,11 +2334,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.129;
+				MARKETING_VERSION = 1.3.131;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hedera Wallet";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "dev-hedera-wallet";
+				PROVISIONING_PROFILE_SPECIFIER = "Robert's iOS Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -2307,7 +2368,7 @@
 		};
 		35B8ABE91F9E5642003E4F57 /* Debug_Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC013F53B393F09D57054E92 /* Pods-HGCAppUITests.debug_dev.xcconfig */;
+			baseConfigurationReference = EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -2316,7 +2377,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HGCApp;
 			};
@@ -2333,7 +2394,7 @@
 				18BF967421C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Release_Dev;
 		};
 		35B8ABE21F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCApp" */ = {
 			isa = XCConfigurationList;
@@ -2343,7 +2404,7 @@
 				18BF967521C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Release_Dev;
 		};
 		35B8ABE51F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppTests" */ = {
 			isa = XCConfigurationList;
@@ -2353,7 +2414,7 @@
 				18BF967621C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Release_Dev;
 		};
 		35B8ABE81F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -2363,7 +2424,7 @@
 				18BF967721C225C300055B2A /* Release_Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug_Dev;
+			defaultConfigurationName = Release_Dev;
 		};
 /* End XCConfigurationList section */
 
@@ -2371,12 +2432,13 @@
 		350DF3031FC68A6E0006166C /* hgc.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */,
 				182FD133235053020071A09A /* hgc-4.xcdatamodel */,
 				18EC4CE8227F00F7006B3461 /* hgc-3.xcdatamodel */,
 				183208522204784E004311D7 /* hgc-2.xcdatamodel */,
 				350DF3041FC68A6E0006166C /* hgc.xcdatamodel */,
 			);
-			currentVersion = 182FD133235053020071A09A /* hgc-4.xcdatamodel */;
+			currentVersion = 0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */;
 			path = hgc.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

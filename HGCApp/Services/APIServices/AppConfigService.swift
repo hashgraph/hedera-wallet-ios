@@ -17,10 +17,14 @@
 import UIKit
 import SwiftyJSON
 
+extension Notification.Name {
+    static let onExchangeRateChange = Notification.Name("onExchangeRateChange")
+}
+
 class AppConfigService {
     static let defaultService : AppConfigService = AppConfigService();
     private var exchangeRate:Double = 0.12
-    private let exchanges : [Exchange:String] = [.bitrex:bitrex, .okcoin:okcoin, .liquid:liquid]
+    private let exchanges : [Exchange:String] = [.bittrex:bittrex, .okcoin:okcoin, .liquid:liquid]
 
     init() {
         loadExchangeRate()
@@ -109,14 +113,14 @@ class AppConfigService {
                    task.resume()
                }
     }
-    
+
+    /// Load our exchange rate property with the median of all exchange rates that were reported to us.
     private func loadExchangeRate() {
-        let rates:[Double] = getAllRates().compactMap { (info) -> Double? in
-            return info.last
-        }
-        if !rates.isEmpty {
-            exchangeRate =  rates.reduce(0, +)/Double(rates.count)
-        }
+        let rates: [Double] = getAllRates().compactMap{ $0.last }.sorted()
+        guard !rates.isEmpty else { return }
+        let lowerMedianIndex = rates.count / 2
+        let offset = rates.count % 2 == 0 ? 1 : 0
+        exchangeRate = (rates[lowerMedianIndex] + rates[lowerMedianIndex - offset]) / 2
     }
     
     func getAllRates() -> [ExchangeRateInfo] {

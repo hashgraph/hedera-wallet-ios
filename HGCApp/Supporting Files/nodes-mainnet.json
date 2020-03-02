@@ -68,5 +68,26 @@
         "accountNum": 12,
         "shardNum": 0,
         "realmNum": 0
+    },
+    {
+        "host": "35.234.132.107",
+        "port": 50211,
+        "accountNum": 13,
+        "shardNum": 0,
+        "realmNum": 0
+    },
+    {
+        "host": "35.236.2.27",
+        "port": 50211,
+        "accountNum": 14,
+        "shardNum": 0,
+        "realmNum": 0
+    },
+    {
+        "host": "35.228.11.53",
+        "port": 50211,
+        "accountNum": 15,
+        "shardNum": 0,
+        "realmNum": 0
     }
 ]

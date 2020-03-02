@@ -31,6 +31,7 @@ class HGCKeyboardToolBar: UIToolbar {
     private func setup() {
         let flexi = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem.init(title: "Dismiss", style: .plain, target: self, action: #selector(self.onDoneTap))
+        doneButton.accessibilityIdentifier = "Dismiss Keyboard"
         self.items = [flexi,doneButton]
     }
     

@@ -17,7 +17,7 @@
 import SwiftyJSON
 
 enum Exchange: String {
-      case bitrex
+      case bittrex
       case okcoin
       case liquid
 }
@@ -31,8 +31,8 @@ class ExchangeRateInfo: NSObject {
     
     init(exchange:Exchange, json:JSON, date:Date? = nil) {
         switch exchange {
-        case .bitrex:
-            exchangeName = "bitrex"
+        case .bittrex:
+            exchangeName = "Bittrex"
             let last = json["result"]["Last"].doubleValue
             if last > 0 {
                 self.last = last
@@ -46,7 +46,7 @@ class ExchangeRateInfo: NSObject {
                 self.ask = ask
             }
         case .liquid:
-            exchangeName = "liquid"
+            exchangeName = "Liquid"
             let last = json["last_traded_price"].doubleValue
             if last > 0 {
                 self.last = last
@@ -60,7 +60,7 @@ class ExchangeRateInfo: NSObject {
                 self.ask = ask
             }
         case .okcoin:
-            exchangeName = "okcoin"
+            exchangeName = "OKCoin"
             let last = json["last"].doubleValue
             if last > 0 {
                 self.last = last

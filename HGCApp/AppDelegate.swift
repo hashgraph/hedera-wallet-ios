@@ -90,6 +90,7 @@ extension AppDelegate {
         splashWindow?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: Bundle.main).instantiateInitialViewController()
         splashWindow?.windowLevel = UIWindow.Level.init(rawValue: 3)
         window = UIWindow.init(frame: UIScreen.main.bounds)
+        window!.accessibilityIdentifier = "Main Window"
         AppDelegate.authManager = AuthManager.init(mainWindow: window!)
         
         NotificationCenter.default.addObserver(self, selector:#selector(AppDelegate.onOnboardDidSuccess), name:WalletHelper.onboardDidSuccess, object: nil)
