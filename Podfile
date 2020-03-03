@@ -19,4 +19,8 @@ target 'HGCApp' do
   target 'UnitTests' do
     inherit! :complete
   end
+
+  target 'IntegrationTests' do
+    inherit! :complete
+  end
 end
