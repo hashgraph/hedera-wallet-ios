@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "Ed25519",
+        "repositoryURL": "https://github.com/arensic/Ed25519",
+        "state": {
+          "branch": "master",
+          "revision": "6940e470301c7e9a32201beff609c5906626cc08",
+          "version": null
+        }
+      },
+      {
         "package": "GRPC",
         "repositoryURL": "https://github.com/grpc/grpc-swift.git",
         "state": {

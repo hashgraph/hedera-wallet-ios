@@ -17,6 +17,7 @@
 import UIKit
 import CommonCrypto
 import CryptoSwift
+import Ed25519
 
 class EDKeyChain : HGCKeyChainProtocol {
     private var hgcSeed : HGCSeed
@@ -60,12 +61,12 @@ class EDBip32KeyChain : HGCKeyChainProtocol {
 
 class HGCEdKeyPair : HGCKeyPairProtocol {
     let seed:Data
-    let keyPair:EdKeyPair
+    let keyPair:KeyPair
     
     init(seed:Data) {
         self.seed = seed
-        let edSeed = try? EdSeed.init(bytes: seed.bytes)
-        keyPair = EdKeyPair.init(seed: edSeed!)
+        let edSeed = try? Seed.init(bytes: seed.bytes)
+        keyPair = KeyPair.init(seed: edSeed!)
     }
     
     public var publicKeyData: Data! {
