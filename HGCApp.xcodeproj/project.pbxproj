@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		0B0ADD4223A5735D0069AD41 /* OnboardExistingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */; };
 		0B138927240D7D8200D638B2 /* FileService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B138926240D7D8200D638B2 /* FileService.grpc.swift */; };
-		0B52DAC4240F0877008678EA /* Ed25519 in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAC3240F0877008678EA /* Ed25519 */; };
-		0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737CE240EADF200AE3E01 /* SwiftProtobuf */; };
-		0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737D1240EAE3900AE3E01 /* GRPC */; };
-		0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DA240EC1CE00AE3E01 /* CryptoSwift */; };
-		0BA737DE240EC1E700AE3E01 /* ActiveLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DD240EC1E700AE3E01 /* ActiveLabel */; };
-		0BA737E1240EC20C00AE3E01 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */; };
-		0BA737E4240EC22E00AE3E01 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E3240EC22E00AE3E01 /* MBProgressHUD */; };
-		0BA737E7240EC24C00AE3E01 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E6240EC24C00AE3E01 /* SwiftyJSON */; };
+		0B52DAC4240F0877008678EA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAC3240F0877008678EA /* SwiftPackageProductDependency */; };
+		0B52DAD5240F11EC008678EA /* HGCSeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */; };
+		0BA737CF240EADF200AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737CE240EADF200AE3E01 /* SwiftPackageProductDependency */; };
+		0BA737D2240EAE3900AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737D1240EAE3900AE3E01 /* SwiftPackageProductDependency */; };
+		0BA737DB240EC1CE00AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DA240EC1CE00AE3E01 /* SwiftPackageProductDependency */; };
+		0BA737DE240EC1E700AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DD240EC1E700AE3E01 /* SwiftPackageProductDependency */; };
+		0BA737E1240EC20C00AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E0240EC20C00AE3E01 /* SwiftPackageProductDependency */; };
+		0BA737E4240EC22E00AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E3240EC22E00AE3E01 /* SwiftPackageProductDependency */; };
+		0BA737E7240EC24C00AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E6240EC24C00AE3E01 /* SwiftPackageProductDependency */; };
 		0BC7FBE62404361A00553F77 /* ExchangeInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */; };
 		1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */; };
 		1808C31C22488D8300FD7F45 /* TransactionBody.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */; };
@@ -223,7 +224,6 @@
 		35BBC0021FD7C3CE00F20A3A /* RequestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BBC0011FD7C3CE00F20A3A /* RequestTableCell.swift */; };
 		35BE68591FC7EF7B00D01F5C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE68581FC7EF7B00D01F5C /* AppSettings.swift */; };
 		35BE685C1FC7F1FF00D01F5C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE685B1FC7F1FF00D01F5C /* PayViewController.swift */; };
-		35DD3E9F20A55E3F005A5F53 /* HGCSeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */; };
 		35DD3EA420A59355005A5F53 /* EDKeyPairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */; };
 		35DD3EB620A5AB61005A5F53 /* EDKeyChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */; };
 		35E7C6111FCBE1C600346A51 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6101FCBE1C500346A51 /* KeychainWrapper.m */; };
@@ -242,6 +242,7 @@
 		35FCF7C31FD95710004F4C09 /* HGCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C21FD95710004F4C09 /* HGCTextField.swift */; };
 		96331B4381C24FC7BCBDDE3A /* Pods_HGCApp_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52659E5E0300104856E310C9 /* Pods_HGCApp_UnitTests.framework */; };
 		9D83543BB9043C75010072C6 /* Pods_HGCApp_HGCAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */; };
+		B5C2F11071F074A7CEAD4366 /* Pods_HGCApp_IntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F1776A030DFBB0F2BD7B1D /* Pods_HGCApp_IntegrationTests.framework */; };
 		C91E4FB520D5114200996A93 /* DeveloerToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FB420D5114200996A93 /* DeveloerToolViewController.swift */; };
 		C91E4FB720D5549E00996A93 /* DeveloperTools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91E4FB620D5549E00996A93 /* DeveloperTools.storyboard */; };
 		C91E4FBB20D5608200996A93 /* DeveloperMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FBA20D5608200996A93 /* DeveloperMenuTableCell.swift */; };
@@ -263,6 +264,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0B52DAD0240F1146008678EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35B8ABB21F9E5642003E4F57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35B8ABB91F9E5642003E4F57;
+			remoteInfo = HGCApp;
+		};
 		0BA73793240DCDE200AE3E01 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35B8ABB21F9E5642003E4F57 /* Project object */;
@@ -300,11 +308,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0031F7015ACE3A9FDF85D8D4 /* Pods-HGCApp-IntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-IntegrationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-IntegrationTests/Pods-HGCApp-IntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		01FB3E5C862B51F5A50D2BF4 /* Pods-HGCAppTests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.dev.xcconfig"; sourceTree = "<group>"; };
 		0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardExistingTests.swift; sourceTree = "<group>"; };
 		0B138926240D7D8200D638B2 /* FileService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.grpc.swift; sourceTree = "<group>"; };
 		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
+		0B52DACB240F1146008678EA /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B52DACF240F1146008678EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BC7FBDA2404360100553F77 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BC7FBDE2404360100553F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeInfoTests.swift; sourceTree = "<group>"; };
@@ -564,6 +575,7 @@
 		5FBE734F0E8B5646CE91ED93 /* Pods-HGCAppUITests.debug_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_prod.xcconfig"; sourceTree = "<group>"; };
 		6001C4B4B2FC6D969C7EC1A4 /* Pods-HGCApp.debug_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_prod.xcconfig"; sourceTree = "<group>"; };
 		630A0086C2BD83470A4AB34A /* Pods-HGCAppTests.debug_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.debug_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.debug_prod_oc.xcconfig"; sourceTree = "<group>"; };
+		69C76EAAFD5D1EE3E968E9B6 /* Pods-HGCApp-IntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-IntegrationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-IntegrationTests/Pods-HGCApp-IntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		69C8228D048F7E267F3D4B70 /* Pods-HGCApp.debug_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		6AB0BA9A4CE992D31E5ECBE8 /* Pods-HGCApp.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev.xcconfig"; sourceTree = "<group>"; };
 		7900765FDCE4C72C6CFC503B /* Pods-HGCApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -600,6 +612,7 @@
 		D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_prod.xcconfig"; sourceTree = "<group>"; };
 		DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8F1776A030DFBB0F2BD7B1D /* Pods_HGCApp_IntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp_IntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
 		EBEF463EC91E7DCEE3C3D201 /* Pods-HGCApp-HGCAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EC013F53B393F09D57054E92 /* Pods-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
@@ -611,6 +624,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0B52DAC8240F1146008678EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5C2F11071F074A7CEAD4366 /* Pods_HGCApp_IntegrationTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0BC7FBD72404360100553F77 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -623,15 +644,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B52DAC4240F0877008678EA /* Ed25519 in Frameworks */,
+				0B52DAC4240F0877008678EA /* BuildFile in Frameworks */,
 				D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */,
-				0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */,
-				0BA737E7240EC24C00AE3E01 /* SwiftyJSON in Frameworks */,
-				0BA737DE240EC1E700AE3E01 /* ActiveLabel in Frameworks */,
-				0BA737E4240EC22E00AE3E01 /* MBProgressHUD in Frameworks */,
-				0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */,
-				0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */,
-				0BA737E1240EC20C00AE3E01 /* IQKeyboardManagerSwift in Frameworks */,
+				0BA737DB240EC1CE00AE3E01 /* BuildFile in Frameworks */,
+				0BA737E7240EC24C00AE3E01 /* BuildFile in Frameworks */,
+				0BA737DE240EC1E700AE3E01 /* BuildFile in Frameworks */,
+				0BA737E4240EC22E00AE3E01 /* BuildFile in Frameworks */,
+				0BA737CF240EADF200AE3E01 /* BuildFile in Frameworks */,
+				0BA737D2240EAE3900AE3E01 /* BuildFile in Frameworks */,
+				0BA737E1240EC20C00AE3E01 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +675,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B52DACC240F1146008678EA /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */,
+				0B52DACF240F1146008678EA /* Info.plist */,
+			);
+			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
 		0BC7FBDB2404360100553F77 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -793,6 +823,8 @@
 				EDA349165463A16F3B2B5D93 /* Pods-HGCApp-HGCAppUITests.release.xcconfig */,
 				353C1EB30607C86B8590F9D8 /* Pods-HGCApp-UnitTests.debug.xcconfig */,
 				4B8B30A44155093D557542BA /* Pods-HGCApp-UnitTests.release.xcconfig */,
+				0031F7015ACE3A9FDF85D8D4 /* Pods-HGCApp-IntegrationTests.debug.xcconfig */,
+				69C76EAAFD5D1EE3E968E9B6 /* Pods-HGCApp-IntegrationTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1094,6 +1126,7 @@
 				35B8ABD11F9E5642003E4F57 /* HGCAppTests */,
 				35B8ABDC1F9E5642003E4F57 /* HGCAppUITests */,
 				0BC7FBDB2404360100553F77 /* UnitTests */,
+				0B52DACC240F1146008678EA /* IntegrationTests */,
 				35B8ABBB1F9E5642003E4F57 /* Products */,
 				246D90CC3DC4B6A67D76EB76 /* Pods */,
 				E8AAAA4568E7A32B9A1838C0 /* Frameworks */,
@@ -1107,6 +1140,7 @@
 				35B8ABCE1F9E5642003E4F57 /* HGCAppTests.xctest */,
 				35B8ABD91F9E5642003E4F57 /* HGCAppUITests.xctest */,
 				0BC7FBDA2404360100553F77 /* UnitTests.xctest */,
+				0B52DACB240F1146008678EA /* IntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1245,7 +1279,6 @@
 			isa = PBXGroup;
 			children = (
 				35DD3EB220A5AB30005A5F53 /* ED */,
-				35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */,
 			);
 			path = Crypto;
 			sourceTree = "<group>";
@@ -1314,6 +1347,7 @@
 				880D056128F0B700DE4D7D69 /* Pods_HGCAppTests.framework */,
 				D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */,
 				52659E5E0300104856E310C9 /* Pods_HGCApp_UnitTests.framework */,
+				E8F1776A030DFBB0F2BD7B1D /* Pods_HGCApp_IntegrationTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1321,6 +1355,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0B52DACA240F1146008678EA /* IntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B52DAD2240F1146008678EA /* Build configuration list for PBXNativeTarget "IntegrationTests" */;
+			buildPhases = (
+				59F811B0B6DC104E9A2F03FC /* [CP] Check Pods Manifest.lock */,
+				0B52DAC7240F1146008678EA /* Sources */,
+				0B52DAC8240F1146008678EA /* Frameworks */,
+				0B52DAC9240F1146008678EA /* Resources */,
+				A835F9A62967715F8D398F79 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B52DAD1240F1146008678EA /* PBXTargetDependency */,
+			);
+			name = IntegrationTests;
+			productName = IntegrationTests;
+			productReference = 0B52DACB240F1146008678EA /* IntegrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0BC7FBD92404360100553F77 /* UnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BC7FBE42404360100553F77 /* Build configuration list for PBXNativeTarget "UnitTests" */;
@@ -1367,14 +1421,14 @@
 			);
 			name = HGCApp;
 			packageProductDependencies = (
-				0BA737CE240EADF200AE3E01 /* SwiftProtobuf */,
-				0BA737D1240EAE3900AE3E01 /* GRPC */,
-				0BA737DA240EC1CE00AE3E01 /* CryptoSwift */,
-				0BA737DD240EC1E700AE3E01 /* ActiveLabel */,
-				0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */,
-				0BA737E3240EC22E00AE3E01 /* MBProgressHUD */,
-				0BA737E6240EC24C00AE3E01 /* SwiftyJSON */,
-				0B52DAC3240F0877008678EA /* Ed25519 */,
+				0BA737CE240EADF200AE3E01 /* SwiftPackageProductDependency */,
+				0BA737D1240EAE3900AE3E01 /* SwiftPackageProductDependency */,
+				0BA737DA240EC1CE00AE3E01 /* SwiftPackageProductDependency */,
+				0BA737DD240EC1E700AE3E01 /* SwiftPackageProductDependency */,
+				0BA737E0240EC20C00AE3E01 /* SwiftPackageProductDependency */,
+				0BA737E3240EC22E00AE3E01 /* SwiftPackageProductDependency */,
+				0BA737E6240EC24C00AE3E01 /* SwiftPackageProductDependency */,
+				0B52DAC3240F0877008678EA /* SwiftPackageProductDependency */,
 			);
 			productName = HGCApp;
 			productReference = 35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */;
@@ -1429,6 +1483,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = HGC;
 				TargetAttributes = {
+					0B52DACA240F1146008678EA = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 35B8ABB91F9E5642003E4F57;
+					};
 					0BC7FBD92404360100553F77 = {
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 35B8ABB91F9E5642003E4F57;
@@ -1469,14 +1527,14 @@
 			);
 			mainGroup = 35B8ABB11F9E5642003E4F57;
 			packageReferences = (
-				0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
-				0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */,
-				0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
-				0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */,
-				0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
-				0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */,
+				0BA737CD240EADF200AE3E01 /* RemoteSwiftPackageReference */,
+				0BA737D0240EAE3900AE3E01 /* RemoteSwiftPackageReference */,
+				0BA737D9240EC1CE00AE3E01 /* RemoteSwiftPackageReference */,
+				0BA737DC240EC1E700AE3E01 /* RemoteSwiftPackageReference */,
+				0BA737DF240EC20C00AE3E01 /* RemoteSwiftPackageReference */,
+				0BA737E2240EC22E00AE3E01 /* RemoteSwiftPackageReference */,
+				0BA737E5240EC24C00AE3E01 /* RemoteSwiftPackageReference */,
+				0B52DAC2240F0877008678EA /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 35B8ABBB1F9E5642003E4F57 /* Products */;
 			projectDirPath = "";
@@ -1486,11 +1544,19 @@
 				35B8ABCD1F9E5642003E4F57 /* HGCAppTests */,
 				35B8ABD81F9E5642003E4F57 /* HGCAppUITests */,
 				0BC7FBD92404360100553F77 /* UnitTests */,
+				0B52DACA240F1146008678EA /* IntegrationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0B52DAC9240F1146008678EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0BC7FBD82404360100553F77 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1602,6 +1668,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		59F811B0B6DC104E9A2F03FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HGCApp-IntegrationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		681698A5F7A9366EBAB6ADE0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1689,6 +1777,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A835F9A62967715F8D398F79 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-IntegrationTests/Pods-HGCApp-IntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-IntegrationTests/Pods-HGCApp-IntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HGCApp-IntegrationTests/Pods-HGCApp-IntegrationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AD47EB507CECC916A94318FC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1710,6 +1815,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0B52DAC7240F1146008678EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B52DAD5240F11EC008678EA /* HGCSeedTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0BC7FBD62404360100553F77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1922,7 +2035,6 @@
 				181968432318F5A600B19363 /* MockRPC.swift in Sources */,
 				18EEA98A234C39700049F754 /* AddressBookServiceTests.swift in Sources */,
 				354AE1D420B58857001E0D02 /* HGCWalletTests.swift in Sources */,
-				35DD3E9F20A55E3F005A5F53 /* HGCSeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1940,7 +2052,12 @@
 /* Begin PBXTargetDependency section */
 		0B52DAC6240F0898008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DAC5240F0898008678EA /* Ed25519 */;
+			productRef = 0B52DAC5240F0898008678EA;
+		};
+		0B52DAD1240F1146008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35B8ABB91F9E5642003E4F57 /* HGCApp */;
+			targetProxy = 0B52DAD0240F1146008678EA /* PBXContainerItemProxy */;
 		};
 		0BA73794240DCDE200AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1949,31 +2066,31 @@
 		};
 		0BA737D6240EC07700AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737D5240EC07700AE3E01 /* SwiftProtobuf */;
+			productRef = 0BA737D5240EC07700AE3E01;
 		};
 		0BA737D8240EC07E00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737D7240EC07E00AE3E01 /* GRPC */;
+			productRef = 0BA737D7240EC07E00AE3E01;
 		};
 		0BA737E9240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737E8240EC25C00AE3E01 /* CryptoSwift */;
+			productRef = 0BA737E8240EC25C00AE3E01;
 		};
 		0BA737EB240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737EA240EC25C00AE3E01 /* ActiveLabel */;
+			productRef = 0BA737EA240EC25C00AE3E01;
 		};
 		0BA737ED240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737EC240EC25C00AE3E01 /* IQKeyboardManagerSwift */;
+			productRef = 0BA737EC240EC25C00AE3E01;
 		};
 		0BA737EF240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737EE240EC25C00AE3E01 /* MBProgressHUD */;
+			productRef = 0BA737EE240EC25C00AE3E01;
 		};
 		0BA737F1240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737F0240EC25C00AE3E01 /* SwiftyJSON */;
+			productRef = 0BA737F0240EC25C00AE3E01;
 		};
 		35B8ABD01F9E5642003E4F57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2007,6 +2124,59 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0B52DAD3240F1146008678EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0031F7015ACE3A9FDF85D8D4 /* Pods-HGCApp-IntegrationTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J42NV34C4;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = IntegrationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.IntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hedera Wallet.app/Hedera Wallet";
+			};
+			name = Debug;
+		};
+		0B52DAD4240F1146008678EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69C76EAAFD5D1EE3E968E9B6 /* Pods-HGCApp-IntegrationTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J42NV34C4;
+				INFOPLIST_FILE = IntegrationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.IntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hedera Wallet.app/Hedera Wallet";
+			};
+			name = Release;
+		};
 		0BC7FBE22404360100553F77 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 353C1EB30607C86B8590F9D8 /* Pods-HGCApp-UnitTests.debug.xcconfig */;
@@ -2473,6 +2643,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0B52DAD2240F1146008678EA /* Build configuration list for PBXNativeTarget "IntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B52DAD3240F1146008678EA /* Debug */,
+				0B52DAD4240F1146008678EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		0BC7FBE42404360100553F77 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2521,7 +2700,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */ = {
+		0B52DAC2240F0877008678EA /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/arensic/Ed25519";
 			requirement = {
@@ -2529,7 +2708,7 @@
 				kind = branch;
 			};
 		};
-		0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+		0BA737CD240EADF200AE3E01 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-protobuf.git";
 			requirement = {
@@ -2537,7 +2716,7 @@
 				minimumVersion = 1.8.0;
 			};
 		};
-		0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+		0BA737D0240EAE3900AE3E01 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/grpc/grpc-swift.git";
 			requirement = {
@@ -2545,7 +2724,7 @@
 				kind = branch;
 			};
 		};
-		0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+		0BA737D9240EC1CE00AE3E01 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
@@ -2553,7 +2732,7 @@
 				minimumVersion = 1.3.0;
 			};
 		};
-		0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */ = {
+		0BA737DC240EC1E700AE3E01 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/optonaut/ActiveLabel.swift.git";
 			requirement = {
@@ -2561,7 +2740,7 @@
 				minimumVersion = 1.1.0;
 			};
 		};
-		0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		0BA737DF240EC20C00AE3E01 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -2569,7 +2748,7 @@
 				minimumVersion = 6.5.5;
 			};
 		};
-		0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+		0BA737E2240EC22E00AE3E01 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
 			requirement = {
@@ -2577,7 +2756,7 @@
 				minimumVersion = 1.2.0;
 			};
 		};
-		0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		0BA737E5240EC24C00AE3E01 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -2588,84 +2767,44 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0B52DAC3240F0877008678EA /* Ed25519 */ = {
+		0B52DAC3240F0877008678EA /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */;
+			package = 0B52DAC2240F0877008678EA /* RemoteSwiftPackageReference */;
 			productName = Ed25519;
 		};
-		0B52DAC5240F0898008678EA /* Ed25519 */ = {
+		0BA737CE240EADF200AE3E01 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */;
-			productName = Ed25519;
-		};
-		0BA737CE240EADF200AE3E01 /* SwiftProtobuf */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			package = 0BA737CD240EADF200AE3E01 /* RemoteSwiftPackageReference */;
 			productName = SwiftProtobuf;
 		};
-		0BA737D1240EAE3900AE3E01 /* GRPC */ = {
+		0BA737D1240EAE3900AE3E01 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			package = 0BA737D0240EAE3900AE3E01 /* RemoteSwiftPackageReference */;
 			productName = GRPC;
 		};
-		0BA737D5240EC07700AE3E01 /* SwiftProtobuf */ = {
+		0BA737DA240EC1CE00AE3E01 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobuf;
-		};
-		0BA737D7240EC07E00AE3E01 /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
-		};
-		0BA737DA240EC1CE00AE3E01 /* CryptoSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			package = 0BA737D9240EC1CE00AE3E01 /* RemoteSwiftPackageReference */;
 			productName = CryptoSwift;
 		};
-		0BA737DD240EC1E700AE3E01 /* ActiveLabel */ = {
+		0BA737DD240EC1E700AE3E01 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */;
+			package = 0BA737DC240EC1E700AE3E01 /* RemoteSwiftPackageReference */;
 			productName = ActiveLabel;
 		};
-		0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */ = {
+		0BA737E0240EC20C00AE3E01 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = 0BA737DF240EC20C00AE3E01 /* RemoteSwiftPackageReference */;
 			productName = IQKeyboardManagerSwift;
 		};
-		0BA737E3240EC22E00AE3E01 /* MBProgressHUD */ = {
+		0BA737E3240EC22E00AE3E01 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			package = 0BA737E2240EC22E00AE3E01 /* RemoteSwiftPackageReference */;
 			productName = MBProgressHUD;
 		};
-		0BA737E6240EC24C00AE3E01 /* SwiftyJSON */ = {
+		0BA737E6240EC24C00AE3E01 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		0BA737E8240EC25C00AE3E01 /* CryptoSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
-			productName = CryptoSwift;
-		};
-		0BA737EA240EC25C00AE3E01 /* ActiveLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */;
-			productName = ActiveLabel;
-		};
-		0BA737EC240EC25C00AE3E01 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-		0BA737EE240EC25C00AE3E01 /* MBProgressHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
-			productName = MBProgressHUD;
-		};
-		0BA737F0240EC25C00AE3E01 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 0BA737E5240EC24C00AE3E01 /* RemoteSwiftPackageReference */;
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */

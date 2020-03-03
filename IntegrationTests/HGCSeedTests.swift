@@ -15,9 +15,9 @@
 //
 
 import XCTest
-@testable import HGCApp
+@testable import HederaWallet
 
-class HGCSeedTests: HGCAppTests {
+class HGCSeedTests: XCTestCase {
     
     // Entropy
     func testSeedCreatedByEntropy() {
