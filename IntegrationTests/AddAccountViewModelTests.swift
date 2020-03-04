@@ -15,11 +15,11 @@
 //
 
 import XCTest
-@testable import HGCApp
+@testable import HederaWallet
 import CoreData
 
 
-class AddAccountViewModelTests: HGCAppTests {
+class AddAccountViewModelTests: XCTestCase {
     
     class AddAccountViewModelDelegateImpl : AddAccountViewModelDelegate {
         

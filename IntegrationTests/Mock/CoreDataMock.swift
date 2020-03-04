@@ -16,7 +16,7 @@
 
 import Foundation
 import CoreData
-@testable import HGCApp
+@testable import HederaWallet
 
 class MockCoreDataManager : CoreDataManagerProtocol {
     @available(iOS 10.0, *)

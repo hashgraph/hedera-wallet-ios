@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		0B0ADD4223A5735D0069AD41 /* OnboardExistingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */; };
 		0B138927240D7D8200D638B2 /* FileService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B138926240D7D8200D638B2 /* FileService.grpc.swift */; };
-		0B52DAC4240F0877008678EA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAC3240F0877008678EA /* SwiftPackageProductDependency */; };
-		0B52DAD5240F11EC008678EA /* HGCSeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */; };
-		0BA737CF240EADF200AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737CE240EADF200AE3E01 /* SwiftPackageProductDependency */; };
-		0BA737D2240EAE3900AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737D1240EAE3900AE3E01 /* SwiftPackageProductDependency */; };
-		0BA737DB240EC1CE00AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DA240EC1CE00AE3E01 /* SwiftPackageProductDependency */; };
-		0BA737DE240EC1E700AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DD240EC1E700AE3E01 /* SwiftPackageProductDependency */; };
-		0BA737E1240EC20C00AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E0240EC20C00AE3E01 /* SwiftPackageProductDependency */; };
-		0BA737E4240EC22E00AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E3240EC22E00AE3E01 /* SwiftPackageProductDependency */; };
-		0BA737E7240EC24C00AE3E01 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E6240EC24C00AE3E01 /* SwiftPackageProductDependency */; };
+		0B52DAC4240F0877008678EA /* Ed25519 in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAC3240F0877008678EA /* Ed25519 */; };
+		0B52DAD6240F1546008678EA /* EDKeyPairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */; };
+		0B52DAD7240F1546008678EA /* EDKeyChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */; };
+		0B52DAD8240F154A008678EA /* HGCSeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */; };
+		0B52DADD240F15E4008678EA /* CoreDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DADC240F15E4008678EA /* CoreDataMock.swift */; };
+		0B52DADE240F1807008678EA /* AddressBookServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEA989234C39700049F754 /* AddressBookServiceTests.swift */; };
+		0B52DAE0240F1861008678EA /* MockRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DADF240F1861008678EA /* MockRPC.swift */; };
+		0B52DAE4240F19F6008678EA /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAE3240F19F6008678EA /* GRPC */; };
+		0B52DAE524101788008678EA /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
+		0B52DAE6241017B0008678EA /* HGCWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1D320B58857001E0D02 /* HGCWalletTests.swift */; };
+		0B52DAE7241017B5008678EA /* HGCAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */; };
+		0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737CE240EADF200AE3E01 /* SwiftProtobuf */; };
+		0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737D1240EAE3900AE3E01 /* GRPC */; };
+		0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DA240EC1CE00AE3E01 /* CryptoSwift */; };
+		0BA737DE240EC1E700AE3E01 /* ActiveLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DD240EC1E700AE3E01 /* ActiveLabel */; };
+		0BA737E1240EC20C00AE3E01 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */; };
+		0BA737E4240EC22E00AE3E01 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E3240EC22E00AE3E01 /* MBProgressHUD */; };
+		0BA737E7240EC24C00AE3E01 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E6240EC24C00AE3E01 /* SwiftyJSON */; };
 		0BC7FBE62404361A00553F77 /* ExchangeInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */; };
 		1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */; };
 		1808C31C22488D8300FD7F45 /* TransactionBody.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */; };
 		1815081921858B3000890123 /* IPUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815080B21858B3000890123 /* IPUtility.swift */; };
 		1817120322B8054200A0C754 /* Bip32MigrationErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1817120222B8054200A0C754 /* Bip32MigrationErrorVC.swift */; };
-		181968432318F5A600B19363 /* MockRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181968412318F35D00B19363 /* MockRPC.swift */; };
 		182DD86722C477BB00203637 /* GRPCWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182DD86622C477BB00203637 /* GRPCWrapper.swift */; };
 		182FD135235083010071A09A /* AccountViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182FD134235083010071A09A /* AccountViewerViewController.swift */; };
 		1832084E21FB6410004311D7 /* RestoreAccountIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832084D21FB6410004311D7 /* RestoreAccountIDViewController.swift */; };
@@ -73,14 +81,12 @@
 		18EC4C6F227E7ED7006B3461 /* SystemDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC4C6C227E7ED7006B3461 /* SystemDelete.pb.swift */; };
 		18EC4C70227E7ED7006B3461 /* ContractDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC4C6D227E7ED7006B3461 /* ContractDelete.pb.swift */; };
 		18EE0AB6225F726000FCFA5B /* FeeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EE0AB4225F726000FCFA5B /* FeeBuilder.swift */; };
-		18EEA98A234C39700049F754 /* AddressBookServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEA989234C39700049F754 /* AddressBookServiceTests.swift */; };
 		18F7E23B2199E8DA00166B56 /* feeScheduleproto.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18F7E22C2199E8DA00166B56 /* feeScheduleproto.txt */; };
 		18F7E23C2199E8DA00166B56 /* addressBookproto.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18F7E23A2199E8DA00166B56 /* addressBookproto.txt */; };
 		18F94472232BFF3600AF4B76 /* InfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F94470232BFF3600AF4B76 /* InfoTableCell.swift */; };
 		18F94473232BFF3600AF4B76 /* InfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F94471232BFF3600AF4B76 /* InfoTableCell.xib */; };
 		18FED0B922A9185400227585 /* Bip32MigrationBackupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FED0B822A9185400227585 /* Bip32MigrationBackupVC.swift */; };
 		18FED0BB22A9187100227585 /* Bip32MigrationConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FED0BA22A9187100227585 /* Bip32MigrationConfirmVC.swift */; };
-		2B341434848A85229D7A08AE /* Pods_HGCAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880D056128F0B700DE4D7D69 /* Pods_HGCAppTests.framework */; };
 		3504B9C120FEFB72003CC4E7 /* HGCPublickKeyAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504B9C020FEFB72003CC4E7 /* HGCPublickKeyAddress.swift */; };
 		3504B9C320FF148F003CC4E7 /* HGCAccountID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504B9C220FF148F003CC4E7 /* HGCAccountID.swift */; };
 		3504B9E921004F1F003CC4E7 /* FileDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504B9C521004F1F003CC4E7 /* FileDelete.pb.swift */; };
@@ -181,11 +187,9 @@
 		35477F5A1FDFAE9B0035EF2D /* HGCBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35477F591FDFAE9B0035EF2D /* HGCBoxView.swift */; };
 		35477F5D1FDFB6A30035EF2D /* RequestOptionsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35477F5B1FDFB6A30035EF2D /* RequestOptionsTableCell.swift */; };
 		35477F5E1FDFB6A30035EF2D /* RequestOptionsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35477F5C1FDFB6A30035EF2D /* RequestOptionsTableCell.xib */; };
-		354AE1D420B58857001E0D02 /* HGCWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1D320B58857001E0D02 /* HGCWalletTests.swift */; };
 		354AE1DD20B814D9001E0D02 /* HederaH-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1D720B814D9001E0D02 /* HederaH-Regular.otf */; };
 		354AE1DE20B814D9001E0D02 /* HederaH-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1D820B814D9001E0D02 /* HederaH-Thin.otf */; };
 		354AE1E020B814D9001E0D02 /* HederaH-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 354AE1DA20B814D9001E0D02 /* HederaH-Light.otf */; };
-		354AE1E220B8192B001E0D02 /* HGCAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */; };
 		3567E6901FCECA8900ED9F67 /* TransactionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567E68F1FCECA8900ED9F67 /* TransactionDetailsViewController.swift */; };
 		3567E6921FCEDC0D00ED9F67 /* AppConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3567E6911FCEDC0D00ED9F67 /* AppConfigService.swift */; };
 		35732A791FEC042500EB23ED /* MyAddressTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35732A771FEC042500EB23ED /* MyAddressTableCell.swift */; };
@@ -193,7 +197,6 @@
 		35732A7C1FEC10B200EB23ED /* HGCKeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35732A7B1FEC10B200EB23ED /* HGCKeyboardToolBar.swift */; };
 		35732A7E1FED0BD800EB23ED /* WalletSetupOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35732A7D1FED0BD800EB23ED /* WalletSetupOptionsViewController.swift */; };
 		3578AA4B1FC9BD7C00D5158D /* SignatureOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578AA4A1FC9BD7C00D5158D /* SignatureOption.swift */; };
-		357EA9D720B19674009CDBBF /* CoreDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EA9D620B19674009CDBBF /* CoreDataMock.swift */; };
 		357EA9D920B19B9D009CDBBF /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EA9D820B19B9C009CDBBF /* Date+Additions.swift */; };
 		357F0373209B108400FDCFED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357F0372209B108400FDCFED /* Logger.swift */; };
 		35827E7620888C80000E84B0 /* EDKeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35827E7520888C80000E84B0 /* EDKeyChain.swift */; };
@@ -210,7 +213,6 @@
 		35B8ABC31F9E5642003E4F57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B8ABC11F9E5642003E4F57 /* Main.storyboard */; };
 		35B8ABC51F9E5642003E4F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B8ABC41F9E5642003E4F57 /* Assets.xcassets */; };
 		35B8ABC81F9E5642003E4F57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35B8ABC61F9E5642003E4F57 /* LaunchScreen.storyboard */; };
-		35B8ABD31F9E5642003E4F57 /* HGCAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8ABD21F9E5642003E4F57 /* HGCAppTests.swift */; };
 		35B8ABDE1F9E5642003E4F57 /* HGCAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8ABDD1F9E5642003E4F57 /* HGCAppUITests.swift */; };
 		35B8ABEE1F9F4962003E4F57 /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8ABED1F9F4962003E4F57 /* UserAgreementViewController.swift */; };
 		35B8ABF01F9F4A70003E4F57 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8ABEF1F9F49AA003E4F57 /* Globals.swift */; };
@@ -224,8 +226,6 @@
 		35BBC0021FD7C3CE00F20A3A /* RequestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BBC0011FD7C3CE00F20A3A /* RequestTableCell.swift */; };
 		35BE68591FC7EF7B00D01F5C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE68581FC7EF7B00D01F5C /* AppSettings.swift */; };
 		35BE685C1FC7F1FF00D01F5C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE685B1FC7F1FF00D01F5C /* PayViewController.swift */; };
-		35DD3EA420A59355005A5F53 /* EDKeyPairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */; };
-		35DD3EB620A5AB61005A5F53 /* EDKeyChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */; };
 		35E7C6111FCBE1C600346A51 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6101FCBE1C500346A51 /* KeychainWrapper.m */; };
 		35E7C6151FCD244300346A51 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6141FCD244300346A51 /* CurrencyConverter.swift */; };
 		35E7C6171FCD7F8800346A51 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6161FCD7F8800346A51 /* AccountDetailView.swift */; };
@@ -251,15 +251,11 @@
 		C94D163D21326CEA00212900 /* UpdateTransactionsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D163C21326CEA00212900 /* UpdateTransactionsOperation.swift */; };
 		C94D163F21326D4400212900 /* UpdateBalanceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D163E21326D4400212900 /* UpdateBalanceOperation.swift */; };
 		D543CD2223996299006CA213 /* StyreneA-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */; };
-		D543CD2323996299006CA213 /* StyreneA-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */; };
 		D543CD2423996299006CA213 /* StyreneA-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */; };
 		D543CD2523996299006CA213 /* StyreneA-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2023996298006CA213 /* StyreneA-Light.ttf */; };
-		D543CD2623996299006CA213 /* StyreneA-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2023996298006CA213 /* StyreneA-Light.ttf */; };
 		D543CD2723996299006CA213 /* StyreneA-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2023996298006CA213 /* StyreneA-Light.ttf */; };
 		D543CD2823996299006CA213 /* StyreneA-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2123996299006CA213 /* StyreneA-Thin.ttf */; };
-		D543CD2923996299006CA213 /* StyreneA-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2123996299006CA213 /* StyreneA-Thin.ttf */; };
 		D543CD2A23996299006CA213 /* StyreneA-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D543CD2123996299006CA213 /* StyreneA-Thin.ttf */; };
-		D5F72D4223575CDB00EBB2D2 /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
 		D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -272,13 +268,6 @@
 			remoteInfo = HGCApp;
 		};
 		0BA73793240DCDE200AE3E01 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 35B8ABB21F9E5642003E4F57 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 35B8ABB91F9E5642003E4F57;
-			remoteInfo = HGCApp;
-		};
-		35B8ABCF1F9E5642003E4F57 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35B8ABB21F9E5642003E4F57 /* Project object */;
 			proxyType = 1;
@@ -316,6 +305,8 @@
 		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
 		0B52DACB240F1146008678EA /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B52DACF240F1146008678EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B52DADC240F15E4008678EA /* CoreDataMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMock.swift; sourceTree = "<group>"; };
+		0B52DADF240F1861008678EA /* MockRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRPC.swift; sourceTree = "<group>"; };
 		0BC7FBDA2404360100553F77 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BC7FBDE2404360100553F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeInfoTests.swift; sourceTree = "<group>"; };
@@ -324,7 +315,6 @@
 		1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionBody.pb.swift; sourceTree = "<group>"; };
 		1815080B21858B3000890123 /* IPUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPUtility.swift; sourceTree = "<group>"; };
 		1817120222B8054200A0C754 /* Bip32MigrationErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip32MigrationErrorVC.swift; sourceTree = "<group>"; };
-		181968412318F35D00B19363 /* MockRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRPC.swift; sourceTree = "<group>"; };
 		182DD86622C477BB00203637 /* GRPCWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRPCWrapper.swift; sourceTree = "<group>"; };
 		182FD133235053020071A09A /* hgc-4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-4.xcdatamodel"; sourceTree = "<group>"; };
 		182FD134235083010071A09A /* AccountViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewerViewController.swift; sourceTree = "<group>"; };
@@ -505,7 +495,6 @@
 		35732A7B1FEC10B200EB23ED /* HGCKeyboardToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCKeyboardToolBar.swift; sourceTree = "<group>"; };
 		35732A7D1FED0BD800EB23ED /* WalletSetupOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSetupOptionsViewController.swift; sourceTree = "<group>"; };
 		3578AA4A1FC9BD7C00D5158D /* SignatureOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureOption.swift; sourceTree = "<group>"; };
-		357EA9D620B19674009CDBBF /* CoreDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMock.swift; sourceTree = "<group>"; };
 		357EA9D820B19B9C009CDBBF /* Date+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
 		357F0372209B108400FDCFED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		35827E7520888C80000E84B0 /* EDKeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDKeyChain.swift; sourceTree = "<group>"; };
@@ -525,9 +514,6 @@
 		35B8ABC41F9E5642003E4F57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35B8ABC71F9E5642003E4F57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35B8ABC91F9E5642003E4F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		35B8ABCE1F9E5642003E4F57 /* HGCAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HGCAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		35B8ABD21F9E5642003E4F57 /* HGCAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCAppTests.swift; sourceTree = "<group>"; };
-		35B8ABD41F9E5642003E4F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35B8ABD91F9E5642003E4F57 /* HGCAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HGCAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B8ABDD1F9E5642003E4F57 /* HGCAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCAppUITests.swift; sourceTree = "<group>"; };
 		35B8ABDF1F9E5642003E4F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -628,6 +614,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B52DAE4240F19F6008678EA /* GRPC in Frameworks */,
 				B5C2F11071F074A7CEAD4366 /* Pods_HGCApp_IntegrationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,23 +631,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B52DAC4240F0877008678EA /* BuildFile in Frameworks */,
+				0B52DAC4240F0877008678EA /* Ed25519 in Frameworks */,
 				D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */,
-				0BA737DB240EC1CE00AE3E01 /* BuildFile in Frameworks */,
-				0BA737E7240EC24C00AE3E01 /* BuildFile in Frameworks */,
-				0BA737DE240EC1E700AE3E01 /* BuildFile in Frameworks */,
-				0BA737E4240EC22E00AE3E01 /* BuildFile in Frameworks */,
-				0BA737CF240EADF200AE3E01 /* BuildFile in Frameworks */,
-				0BA737D2240EAE3900AE3E01 /* BuildFile in Frameworks */,
-				0BA737E1240EC20C00AE3E01 /* BuildFile in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		35B8ABCB1F9E5642003E4F57 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2B341434848A85229D7A08AE /* Pods_HGCAppTests.framework in Frameworks */,
+				0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */,
+				0BA737E7240EC24C00AE3E01 /* SwiftyJSON in Frameworks */,
+				0BA737DE240EC1E700AE3E01 /* ActiveLabel in Frameworks */,
+				0BA737E4240EC22E00AE3E01 /* MBProgressHUD in Frameworks */,
+				0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */,
+				0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */,
+				0BA737E1240EC20C00AE3E01 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,16 +657,32 @@
 		0B52DACC240F1146008678EA /* IntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
-				35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */,
+				0B52DADB240F15E4008678EA /* Mock */,
+				D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */,
+				18EEA989234C39700049F754 /* AddressBookServiceTests.swift */,
+				35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */,
+				35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */,
+				354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */,
+				354AE1D320B58857001E0D02 /* HGCWalletTests.swift */,
 				0B52DACF240F1146008678EA /* Info.plist */,
 			);
 			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
+		0B52DADB240F15E4008678EA /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				0B52DADC240F15E4008678EA /* CoreDataMock.swift */,
+				0B52DADF240F1861008678EA /* MockRPC.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		0BC7FBDB2404360100553F77 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */,
+				35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */,
 				0BC7FBDE2404360100553F77 /* Info.plist */,
 			);
 			path = UnitTests;
@@ -1003,15 +998,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		354AE1D220B58814001E0D02 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				354AE1D320B58857001E0D02 /* HGCWalletTests.swift */,
-				354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		3578AA451FC97A0F00D5158D /* KeychainItemWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1036,15 +1022,6 @@
 				187530732264F13900E284C0 /* HAPI+HGCPublickKeyAddress.swift */,
 			);
 			path = HAPI;
-			sourceTree = "<group>";
-		};
-		357EA9D520B19651009CDBBF /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				357EA9D620B19674009CDBBF /* CoreDataMock.swift */,
-				181968412318F35D00B19363 /* MockRPC.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		357F03712099FFC900FDCFED /* Views */ = {
@@ -1123,7 +1100,6 @@
 			isa = PBXGroup;
 			children = (
 				35B8ABBC1F9E5642003E4F57 /* HGCApp */,
-				35B8ABD11F9E5642003E4F57 /* HGCAppTests */,
 				35B8ABDC1F9E5642003E4F57 /* HGCAppUITests */,
 				0BC7FBDB2404360100553F77 /* UnitTests */,
 				0B52DACC240F1146008678EA /* IntegrationTests */,
@@ -1137,7 +1113,6 @@
 			isa = PBXGroup;
 			children = (
 				35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */,
-				35B8ABCE1F9E5642003E4F57 /* HGCAppTests.xctest */,
 				35B8ABD91F9E5642003E4F57 /* HGCAppUITests.xctest */,
 				0BC7FBDA2404360100553F77 /* UnitTests.xctest */,
 				0B52DACB240F1146008678EA /* IntegrationTests.xctest */,
@@ -1160,21 +1135,6 @@
 				35B8ABEC1F9E5768003E4F57 /* Supporting Files */,
 			);
 			path = HGCApp;
-			sourceTree = "<group>";
-		};
-		35B8ABD11F9E5642003E4F57 /* HGCAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				35B8ABD21F9E5642003E4F57 /* HGCAppTests.swift */,
-				354AE1D220B58814001E0D02 /* Models */,
-				357EA9D520B19651009CDBBF /* Mock */,
-				35DD3E9D20A55DF5005A5F53 /* Crypto */,
-				18EEA989234C39700049F754 /* AddressBookServiceTests.swift */,
-				35B8ABD41F9E5642003E4F57 /* Info.plist */,
-				D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */,
-			);
-			name = HGCAppTests;
-			path = tests/HGCAppTests;
 			sourceTree = "<group>";
 		};
 		35B8ABDC1F9E5642003E4F57 /* HGCAppUITests */ = {
@@ -1275,23 +1235,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		35DD3E9D20A55DF5005A5F53 /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				35DD3EB220A5AB30005A5F53 /* ED */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
-		35DD3EB220A5AB30005A5F53 /* ED */ = {
-			isa = PBXGroup;
-			children = (
-				35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */,
-				35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */,
-			);
-			path = ED;
-			sourceTree = "<group>";
-		};
 		35F8D5C4212F0FA500A033A6 /* proto-grpc-swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -1368,9 +1311,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				0B52DAE2240F19F2008678EA /* PBXTargetDependency */,
 				0B52DAD1240F1146008678EA /* PBXTargetDependency */,
 			);
 			name = IntegrationTests;
+			packageProductDependencies = (
+				0B52DAE3240F19F6008678EA /* GRPC */,
+			);
 			productName = IntegrationTests;
 			productReference = 0B52DACB240F1146008678EA /* IntegrationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1421,37 +1368,18 @@
 			);
 			name = HGCApp;
 			packageProductDependencies = (
-				0BA737CE240EADF200AE3E01 /* SwiftPackageProductDependency */,
-				0BA737D1240EAE3900AE3E01 /* SwiftPackageProductDependency */,
-				0BA737DA240EC1CE00AE3E01 /* SwiftPackageProductDependency */,
-				0BA737DD240EC1E700AE3E01 /* SwiftPackageProductDependency */,
-				0BA737E0240EC20C00AE3E01 /* SwiftPackageProductDependency */,
-				0BA737E3240EC22E00AE3E01 /* SwiftPackageProductDependency */,
-				0BA737E6240EC24C00AE3E01 /* SwiftPackageProductDependency */,
-				0B52DAC3240F0877008678EA /* SwiftPackageProductDependency */,
+				0BA737CE240EADF200AE3E01 /* SwiftProtobuf */,
+				0BA737D1240EAE3900AE3E01 /* GRPC */,
+				0BA737DA240EC1CE00AE3E01 /* CryptoSwift */,
+				0BA737DD240EC1E700AE3E01 /* ActiveLabel */,
+				0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */,
+				0BA737E3240EC22E00AE3E01 /* MBProgressHUD */,
+				0BA737E6240EC24C00AE3E01 /* SwiftyJSON */,
+				0B52DAC3240F0877008678EA /* Ed25519 */,
 			);
 			productName = HGCApp;
 			productReference = 35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */;
 			productType = "com.apple.product-type.application";
-		};
-		35B8ABCD1F9E5642003E4F57 /* HGCAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 35B8ABE51F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppTests" */;
-			buildPhases = (
-				949832083CC4647F1DDC13E8 /* [CP] Check Pods Manifest.lock */,
-				35B8ABCA1F9E5642003E4F57 /* Sources */,
-				35B8ABCB1F9E5642003E4F57 /* Frameworks */,
-				35B8ABCC1F9E5642003E4F57 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				35B8ABD01F9E5642003E4F57 /* PBXTargetDependency */,
-			);
-			name = HGCAppTests;
-			productName = HGCAppTests;
-			productReference = 35B8ABCE1F9E5642003E4F57 /* HGCAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		35B8ABD81F9E5642003E4F57 /* HGCAppUITests */ = {
 			isa = PBXNativeTarget;
@@ -1504,12 +1432,6 @@
 							};
 						};
 					};
-					35B8ABCD1F9E5642003E4F57 = {
-						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
-						TestTargetID = 35B8ABB91F9E5642003E4F57;
-					};
 					35B8ABD81F9E5642003E4F57 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Manual;
@@ -1527,24 +1449,23 @@
 			);
 			mainGroup = 35B8ABB11F9E5642003E4F57;
 			packageReferences = (
-				0BA737CD240EADF200AE3E01 /* RemoteSwiftPackageReference */,
-				0BA737D0240EAE3900AE3E01 /* RemoteSwiftPackageReference */,
-				0BA737D9240EC1CE00AE3E01 /* RemoteSwiftPackageReference */,
-				0BA737DC240EC1E700AE3E01 /* RemoteSwiftPackageReference */,
-				0BA737DF240EC20C00AE3E01 /* RemoteSwiftPackageReference */,
-				0BA737E2240EC22E00AE3E01 /* RemoteSwiftPackageReference */,
-				0BA737E5240EC24C00AE3E01 /* RemoteSwiftPackageReference */,
-				0B52DAC2240F0877008678EA /* RemoteSwiftPackageReference */,
+				0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */,
+				0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */,
 			);
 			productRefGroup = 35B8ABBB1F9E5642003E4F57 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				35B8ABB91F9E5642003E4F57 /* HGCApp */,
-				35B8ABCD1F9E5642003E4F57 /* HGCAppTests */,
-				35B8ABD81F9E5642003E4F57 /* HGCAppUITests */,
 				0BC7FBD92404360100553F77 /* UnitTests */,
 				0B52DACA240F1146008678EA /* IntegrationTests */,
+				35B8ABD81F9E5642003E4F57 /* HGCAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1606,16 +1527,6 @@
 				354AE1E020B814D9001E0D02 /* HederaH-Light.otf in Resources */,
 				35477F581FDFAC3A0035EF2D /* QRPreviewTableCell.xib in Resources */,
 				35477F471FDE82D30035EF2D /* TXNOptionsTableCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		35B8ABCC1F9E5642003E4F57 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D543CD2623996299006CA213 /* StyreneA-Light.ttf in Resources */,
-				D543CD2323996299006CA213 /* StyreneA-Regular.ttf in Resources */,
-				D543CD2923996299006CA213 /* StyreneA-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1741,24 +1652,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		949832083CC4647F1DDC13E8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HGCAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A45816F058F6A3F6FC984B84 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1819,7 +1712,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B52DAD5240F11EC008678EA /* HGCSeedTests.swift in Sources */,
+				0B52DADD240F15E4008678EA /* CoreDataMock.swift in Sources */,
+				0B52DADE240F1807008678EA /* AddressBookServiceTests.swift in Sources */,
+				0B52DAE7241017B5008678EA /* HGCAccountTests.swift in Sources */,
+				0B52DAD6240F1546008678EA /* EDKeyPairTests.swift in Sources */,
+				0B52DAD7240F1546008678EA /* EDKeyChainTests.swift in Sources */,
+				0B52DAE6241017B0008678EA /* HGCWalletTests.swift in Sources */,
+				0B52DAE524101788008678EA /* AddAccountViewModelTests.swift in Sources */,
+				0B52DAE0240F1861008678EA /* MockRPC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1828,6 +1728,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC7FBE62404361A00553F77 /* ExchangeInfoTests.swift in Sources */,
+				0B52DAD8240F154A008678EA /* HGCSeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2022,22 +1923,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		35B8ABCA1F9E5642003E4F57 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				35DD3EA420A59355005A5F53 /* EDKeyPairTests.swift in Sources */,
-				354AE1E220B8192B001E0D02 /* HGCAccountTests.swift in Sources */,
-				357EA9D720B19674009CDBBF /* CoreDataMock.swift in Sources */,
-				35B8ABD31F9E5642003E4F57 /* HGCAppTests.swift in Sources */,
-				D5F72D4223575CDB00EBB2D2 /* AddAccountViewModelTests.swift in Sources */,
-				35DD3EB620A5AB61005A5F53 /* EDKeyChainTests.swift in Sources */,
-				181968432318F5A600B19363 /* MockRPC.swift in Sources */,
-				18EEA98A234C39700049F754 /* AddressBookServiceTests.swift in Sources */,
-				354AE1D420B58857001E0D02 /* HGCWalletTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		35B8ABD51F9E5642003E4F57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2052,12 +1937,15 @@
 /* Begin PBXTargetDependency section */
 		0B52DAC6240F0898008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DAC5240F0898008678EA;
 		};
 		0B52DAD1240F1146008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 35B8ABB91F9E5642003E4F57 /* HGCApp */;
 			targetProxy = 0B52DAD0240F1146008678EA /* PBXContainerItemProxy */;
+		};
+		0B52DAE2240F19F2008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DAE1240F19F2008678EA /* GRPC */;
 		};
 		0BA73794240DCDE200AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2066,36 +1954,24 @@
 		};
 		0BA737D6240EC07700AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737D5240EC07700AE3E01;
 		};
 		0BA737D8240EC07E00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737D7240EC07E00AE3E01;
 		};
 		0BA737E9240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737E8240EC25C00AE3E01;
 		};
 		0BA737EB240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737EA240EC25C00AE3E01;
 		};
 		0BA737ED240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737EC240EC25C00AE3E01;
 		};
 		0BA737EF240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737EE240EC25C00AE3E01;
 		};
 		0BA737F1240EC25C00AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0BA737F0240EC25C00AE3E01;
-		};
-		35B8ABD01F9E5642003E4F57 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 35B8ABB91F9E5642003E4F57 /* HGCApp */;
-			targetProxy = 35B8ABCF1F9E5642003E4F57 /* PBXContainerItemProxy */;
 		};
 		35B8ABDB1F9E5642003E4F57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2440,30 +2316,6 @@
 			};
 			name = Debug;
 		};
-		180E7447232A55CF00D88BB6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC427FB8B3BE1B226EC5DDDC /* Pods-HGCAppTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Y6G863755L;
-				INFOPLIST_FILE = tests/HGCAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hedera Wallet.app/Hedera Wallet";
-			};
-			name = Debug;
-		};
 		180E7448232A55CF00D88BB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EBEF463EC91E7DCEE3C3D201 /* Pods-HGCApp-HGCAppUITests.debug.xcconfig */;
@@ -2595,30 +2447,6 @@
 			};
 			name = Release;
 		};
-		18BF967621C225C300055B2A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2166CDD3C91C3CEC9B9FD9D3 /* Pods-HGCAppTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Y6G863755L;
-				INFOPLIST_FILE = tests/HGCAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hedera Wallet.app/Hedera Wallet";
-			};
-			name = Release;
-		};
 		18BF967721C225C300055B2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EDA349165463A16F3B2B5D93 /* Pods-HGCApp-HGCAppUITests.release.xcconfig */;
@@ -2679,15 +2507,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		35B8ABE51F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				180E7447232A55CF00D88BB6 /* Debug */,
-				18BF967621C225C300055B2A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		35B8ABE81F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2700,7 +2519,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0B52DAC2240F0877008678EA /* RemoteSwiftPackageReference */ = {
+		0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/arensic/Ed25519";
 			requirement = {
@@ -2708,7 +2527,7 @@
 				kind = branch;
 			};
 		};
-		0BA737CD240EADF200AE3E01 /* RemoteSwiftPackageReference */ = {
+		0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-protobuf.git";
 			requirement = {
@@ -2716,7 +2535,7 @@
 				minimumVersion = 1.8.0;
 			};
 		};
-		0BA737D0240EAE3900AE3E01 /* RemoteSwiftPackageReference */ = {
+		0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/grpc/grpc-swift.git";
 			requirement = {
@@ -2724,7 +2543,7 @@
 				kind = branch;
 			};
 		};
-		0BA737D9240EC1CE00AE3E01 /* RemoteSwiftPackageReference */ = {
+		0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
@@ -2732,7 +2551,7 @@
 				minimumVersion = 1.3.0;
 			};
 		};
-		0BA737DC240EC1E700AE3E01 /* RemoteSwiftPackageReference */ = {
+		0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/optonaut/ActiveLabel.swift.git";
 			requirement = {
@@ -2740,7 +2559,7 @@
 				minimumVersion = 1.1.0;
 			};
 		};
-		0BA737DF240EC20C00AE3E01 /* RemoteSwiftPackageReference */ = {
+		0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -2748,7 +2567,7 @@
 				minimumVersion = 6.5.5;
 			};
 		};
-		0BA737E2240EC22E00AE3E01 /* RemoteSwiftPackageReference */ = {
+		0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
 			requirement = {
@@ -2756,7 +2575,7 @@
 				minimumVersion = 1.2.0;
 			};
 		};
-		0BA737E5240EC24C00AE3E01 /* RemoteSwiftPackageReference */ = {
+		0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -2767,44 +2586,54 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0B52DAC3240F0877008678EA /* SwiftPackageProductDependency */ = {
+		0B52DAC3240F0877008678EA /* Ed25519 */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B52DAC2240F0877008678EA /* RemoteSwiftPackageReference */;
+			package = 0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */;
 			productName = Ed25519;
 		};
-		0BA737CE240EADF200AE3E01 /* SwiftPackageProductDependency */ = {
+		0B52DAE1240F19F2008678EA /* GRPC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737CD240EADF200AE3E01 /* RemoteSwiftPackageReference */;
-			productName = SwiftProtobuf;
-		};
-		0BA737D1240EAE3900AE3E01 /* SwiftPackageProductDependency */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D0240EAE3900AE3E01 /* RemoteSwiftPackageReference */;
+			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = GRPC;
 		};
-		0BA737DA240EC1CE00AE3E01 /* SwiftPackageProductDependency */ = {
+		0B52DAE3240F19F6008678EA /* GRPC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D9240EC1CE00AE3E01 /* RemoteSwiftPackageReference */;
+			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		0BA737CE240EADF200AE3E01 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		0BA737D1240EAE3900AE3E01 /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		0BA737DA240EC1CE00AE3E01 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
-		0BA737DD240EC1E700AE3E01 /* SwiftPackageProductDependency */ = {
+		0BA737DD240EC1E700AE3E01 /* ActiveLabel */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737DC240EC1E700AE3E01 /* RemoteSwiftPackageReference */;
+			package = 0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */;
 			productName = ActiveLabel;
 		};
-		0BA737E0240EC20C00AE3E01 /* SwiftPackageProductDependency */ = {
+		0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737DF240EC20C00AE3E01 /* RemoteSwiftPackageReference */;
+			package = 0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
-		0BA737E3240EC22E00AE3E01 /* SwiftPackageProductDependency */ = {
+		0BA737E3240EC22E00AE3E01 /* MBProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737E2240EC22E00AE3E01 /* RemoteSwiftPackageReference */;
+			package = 0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
 			productName = MBProgressHUD;
 		};
-		0BA737E6240EC24C00AE3E01 /* SwiftPackageProductDependency */ = {
+		0BA737E6240EC24C00AE3E01 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0BA737E5240EC24C00AE3E01 /* RemoteSwiftPackageReference */;
+			package = 0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */

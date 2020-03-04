@@ -15,9 +15,9 @@
 //
 
 import XCTest
-@testable import HGCApp
+@testable import HederaWallet
 
-class HGCAccountTests: HGCAppTests {
+class HGCAccountTests: XCTestCase {
     
 //    static func createATestAccount (_ coreDataManager: MockCoreDataManager) {
 //        let entropy = "aabbccdd11223344aabbccdd11223344aaaaaaaabbbbcc".hexadecimal()!
