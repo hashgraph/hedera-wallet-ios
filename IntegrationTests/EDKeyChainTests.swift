@@ -15,20 +15,28 @@
 //
 
 import XCTest
-@testable import HGCApp
+@testable import HederaWallet
 
-class HGCAppTests: XCTestCase {
+class EDKeyChainTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var keyChain : EDKeyChain? {
+        get {
+            let seed = HGCSeed.init(entropy: "aabbccdd11223344aabbccdd11223344aaaaaaaabbbbcc213344aaaaaaaabbbb".hexadecimal()! as Data)
+            return EDKeyChain.init(hgcSeed: seed!)
+        }
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testKeyChainCreation() {
+        XCTAssert(self.keyChain != nil)
     }
     
-    
+    func testChileKeyCreation() {
+        let key0 = keyChain!.key(at: 0)
+        XCTAssert(key0 != nil)
+        print(key0!.publicKeyData.hex)
+        let key1 = keyChain?.key(at: 1)
+        XCTAssert(key1 != nil)
+        print(key1!.publicKeyData.hex)
+    }
     
 }

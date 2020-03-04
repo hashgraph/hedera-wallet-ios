@@ -15,7 +15,8 @@
 //
 
 import UIKit
-@testable import HGCApp
+import GRPC
+@testable import HederaWallet
 
 class MockRPC: HAPIRPCProtocol {
     var queryResponse: Proto_Response?
@@ -23,20 +24,34 @@ class MockRPC: HAPIRPCProtocol {
     var error: Error?
     
     var cryptoClient: Proto_CryptoServiceServiceClient {
-        let client = Proto_CryptoServiceServiceClient.init(address: node.address(), secure: false)
-        client.timeout = timeout
+        let target = ConnectionTarget.hostAndPort(node.host, Int(node.port))
+        let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+        let config = ClientConnection.Configuration(target: target, eventLoopGroup: group)
+        let connection = ClientConnection(configuration: config)
+        var callOptions = CallOptions()
+        callOptions.timeout = timeout
+        let client = Proto_CryptoServiceServiceClient(channel: connection, defaultCallOptions: callOptions)
         return client
     }
     
-    var tokenClient: Proto_SmartContractServiceServiceClient {
-        return Proto_SmartContractServiceServiceClient.init(address: node.address(), secure: false)
-    }
-    
     var fileClient: Proto_FileServiceServiceClient {
-        return Proto_FileServiceServiceClient.init(address: node.address(), secure: false)
+        let target = ConnectionTarget.hostAndPort(node.host, Int(node.port))
+        let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+        let config = ClientConnection.Configuration(target: target, eventLoopGroup: group)
+        let connection = ClientConnection(configuration: config)
+        var callOptions = CallOptions()
+        callOptions.timeout = timeout
+        return Proto_FileServiceServiceClient(channel: connection, defaultCallOptions: callOptions)
     }
     
-    var timeout: TimeInterval = 0
+    var timeout: GRPCTimeout
+
+    init() {
+        guard let timeout = try? GRPCTimeout.seconds(0) else {
+            fatalError("Timeout not valid?!?")
+        }
+        self.timeout = timeout
+    }
     
     var node: HGCNodeVO = HGCNodeVO.init(host: "", port: 0, accountID: HGCAccountID.init(shardId: 0, realmId: 0, accountId: 0))
     

@@ -15,9 +15,9 @@
 //
 
 import XCTest
-@testable import HGCApp
+@testable import HederaWallet
 
-class HGCWalletTests: HGCAppTests {
+class HGCWalletTests: XCTestCase {
 //    func testCreation() {
 //        let coreDataManager = MockCoreDataManager.init()
 //        HGCWallet.createMasterWallet(signatureAlgorith: Int16(SignatureOption.ED25519.rawValue), coreDataManager: coreDataManager)

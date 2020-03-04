@@ -8,19 +8,15 @@ target 'HGCApp' do
   pod 'LGSideMenuController', '2.1.1'
   pod 'MTBBarcodeScanner', '5.0.11'
 
-  target 'HGCAppTests' do
-    inherit! :search_paths
-  end
-
-  target 'HGCAppUITests' do
-    inherit! :complete
-  end
-
   target 'UnitTests' do
     inherit! :complete
   end
 
   target 'IntegrationTests' do
+    inherit! :complete
+  end
+
+  target 'HGCAppUITests' do
     inherit! :complete
   end
 end

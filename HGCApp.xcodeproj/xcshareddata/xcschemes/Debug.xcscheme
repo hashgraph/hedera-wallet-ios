@@ -95,6 +95,11 @@
                BlueprintName = "IntegrationTests"
                ReferencedContainer = "container:HGCApp.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AddressBookServiceTests/testUpdateAddressBookFromRemote()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

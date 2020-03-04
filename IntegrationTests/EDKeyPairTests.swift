@@ -16,9 +16,9 @@
 
 import XCTest
 
-@testable import HGCApp
+@testable import HederaWallet
 
-class EDKeyPairTests: HGCAppTests {
+class EDKeyPairTests: XCTestCase {
     
     func keyPair() -> HGCEdKeyPair {
         let data = "aabbccdd11223344aabbccdd11223344aaaaaaaabbbbcc59aa2244116688bb22".hexadecimal()!
