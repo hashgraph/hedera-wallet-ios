@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "BiometricAuthentication",
+        "repositoryURL": "https://github.com/rushisangani/BiometricAuthentication.git",
+        "state": {
+          "branch": null,
+          "revision": "085569f12692a964ef580d4ec6e04956e879929a",
+          "version": "3.1.2"
+        }
+      },
+      {
         "package": "CryptoSwift",
         "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
         "state": {

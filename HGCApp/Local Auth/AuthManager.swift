@@ -17,6 +17,7 @@
 import UIKit
 import LocalAuthentication
 import ABPadLockScreen
+import BiometricAuthentication
 
 public enum AuthType: String {
     case biometric = "biometric"
@@ -113,20 +114,23 @@ class AuthManager: NSObject {
     private func doBiometricAuth(forSetup: Bool, animated:Bool) {
         window.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: Bundle.main).instantiateInitialViewController()
         setShow(true, animated: animated, completion: nil)
-        BioMetricAuthenticator.authenticateWithBioMetrics(reason: "Logging in with \(biometricTypeName())", success: {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
-                self.setCurrentAuthType(.biometric)
-                self.finish(forSetup: forSetup, success: true, animated: true)
-            })
-            
-        }) { (error) in
-            Globals.showGenericAlert(title: "Error", message: (error).message(), handler: { (action) in
-                if !forSetup {
-                    WalletHelper.quit()
-                }
-                self.finish(forSetup: forSetup, success: false, animated: true)
-            })
-        }
+        BioMetricAuthenticator.authenticateWithBioMetrics(reason: "Logging in with \(biometricTypeName())", completion: {
+            (result: Result<Bool, AuthenticationError>) -> Void in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
+                    self.setCurrentAuthType(.biometric)
+                    self.finish(forSetup: forSetup, success: true, animated: true)
+                })
+            case .failure(let error):
+                Globals.showGenericAlert(title: "Error", message: (error).message(), handler: { (action) in
+                    if !forSetup {
+                        WalletHelper.quit()
+                    }
+                    self.finish(forSetup: forSetup, success: false, animated: true)
+                })
+            }
+        })
     }
     
     private func setShow(_ show:Bool, animated:Bool = false, completion: (() -> Void)? = nil) {

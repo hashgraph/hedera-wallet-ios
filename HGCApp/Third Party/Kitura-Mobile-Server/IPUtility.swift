@@ -1,4 +1,3 @@
-
 /*
  * Copyright IBM Corporation 2017
  *
@@ -14,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+// Original: https://github.com/IBM-Swift/Kitura-Mobile-Server/blob/1e17b0e9bb6b55d8df13d5571704caaf2b37e038/KituraiOS/IPUtility.swift
+
 import Foundation
 
 class IPUtility {
