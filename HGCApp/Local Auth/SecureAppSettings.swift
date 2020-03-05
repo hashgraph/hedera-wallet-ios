@@ -27,11 +27,11 @@ class SecureAppSettings : SecureAppSettingsProtocol {
     static let `default` : SecureAppSettings = SecureAppSettings();
     
     private func saveObject(_ object:Any, forKey:String) {
-        KeychainWrapper.save(object, forKey: forKey)
+        KFKeychain.save(object, forKey: forKey)
     }
     
     private func getObject(_ key:String) -> Any? {
-        return KeychainWrapper.loadObject(forKey: key)
+        return KFKeychain.loadObject(forKey: key)
     }
     
     private func getString(_ key: String) -> String? {
@@ -72,9 +72,9 @@ class SecureAppSettings : SecureAppSettingsProtocol {
     }
     
     public func clear() throws {
-        if getSeed() != nil && !KeychainWrapper.deleteObject(forKey: SecureAppSettings.keySeed) {
+        if getSeed() != nil && !KFKeychain.deleteObject(forKey: SecureAppSettings.keySeed) {
             throw NSError.init(domain: "Fail to clear seed", code: 0, userInfo: nil)
         }
-        KeychainWrapper.deleteObject(forKey: SecureAppSettings.keyWalletPin)
+        KFKeychain.deleteObject(forKey: SecureAppSettings.keyWalletPin)
     }
 }

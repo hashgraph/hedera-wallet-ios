@@ -4,6 +4,6 @@
 
 #import "Mnemonic.h"
 #import "HGCSeed.h"
-#import "KeychainWrapper.h"
+#import "KFKeychain.h"
 #import "HGCKeyProtocol.h"
 #import "UIView+NSLayoutConstraints.h"

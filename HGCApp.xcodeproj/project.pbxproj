@@ -20,6 +20,11 @@
 		0B52DAE524101788008678EA /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
 		0B52DAE6241017B0008678EA /* HGCWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1D320B58857001E0D02 /* HGCWalletTests.swift */; };
 		0B52DAE7241017B5008678EA /* HGCAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */; };
+		0B52DAED2411655C008678EA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DAEC2411655C008678EA /* LICENSE.txt */; };
+		0B52DAF1241172AA008678EA /* BiometricAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAF0241172AA008678EA /* BiometricAuthentication */; };
+		0B52DAF524118F3F008678EA /* BiometricAuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DAF224118F3F008678EA /* BiometricAuthenticationConstants.swift */; };
+		0B52DAF624118F3F008678EA /* AuthenticationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DAF324118F3F008678EA /* AuthenticationErrors.swift */; };
+		0B52DAF724118F3F008678EA /* BioMetricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DAF424118F3F008678EA /* BioMetricAuthenticator.swift */; };
 		0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737CE240EADF200AE3E01 /* SwiftProtobuf */; };
 		0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737D1240EAE3900AE3E01 /* GRPC */; };
 		0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DA240EC1CE00AE3E01 /* CryptoSwift */; };
@@ -53,9 +58,6 @@
 		1862557B22F1B1BC00D001E9 /* Freeze.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862557922F1B1BC00D001E9 /* Freeze.pb.swift */; };
 		1862557C22F1B1BC00D001E9 /* FreezeService.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862557A22F1B1BC00D001E9 /* FreezeService.pb.swift */; };
 		187530552260940600E284C0 /* SecureAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187530542260940600E284C0 /* SecureAppSettings.swift */; };
-		1875305B226094B800E284C0 /* BioMetricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18753058226094B800E284C0 /* BioMetricAuthenticator.swift */; };
-		1875305C226094B800E284C0 /* BiometricAuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18753059226094B800E284C0 /* BiometricAuthenticationConstants.swift */; };
-		1875305D226094B800E284C0 /* AuthenticationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875305A226094B800E284C0 /* AuthenticationErrors.swift */; };
 		187530642262F74100E284C0 /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187530632262F74100E284C0 /* CryptoUtils.swift */; };
 		1875306E2264F09500E284C0 /* HAPI+HGCAccountID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875306D2264F09500E284C0 /* HAPI+HGCAccountID.swift */; };
 		187530702264F0D100E284C0 /* HAPI+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875306F2264F0D100E284C0 /* HAPI+TimeInterval.swift */; };
@@ -226,7 +228,7 @@
 		35BBC0021FD7C3CE00F20A3A /* RequestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BBC0011FD7C3CE00F20A3A /* RequestTableCell.swift */; };
 		35BE68591FC7EF7B00D01F5C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE68581FC7EF7B00D01F5C /* AppSettings.swift */; };
 		35BE685C1FC7F1FF00D01F5C /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE685B1FC7F1FF00D01F5C /* PayViewController.swift */; };
-		35E7C6111FCBE1C600346A51 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6101FCBE1C500346A51 /* KeychainWrapper.m */; };
+		35E7C6111FCBE1C600346A51 /* KFKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6101FCBE1C500346A51 /* KFKeychain.m */; };
 		35E7C6151FCD244300346A51 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6141FCD244300346A51 /* CurrencyConverter.swift */; };
 		35E7C6171FCD7F8800346A51 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6161FCD7F8800346A51 /* AccountDetailView.swift */; };
 		35E7C61A1FCD7FC100346A51 /* UIView+NSLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E7C6181FCD7FC000346A51 /* UIView+NSLayoutConstraints.m */; };
@@ -302,11 +304,18 @@
 		0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardExistingTests.swift; sourceTree = "<group>"; };
 		0B138926240D7D8200D638B2 /* FileService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.grpc.swift; sourceTree = "<group>"; };
+		0B313F232411B3FB001E39B1 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
 		0B52DACB240F1146008678EA /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B52DACF240F1146008678EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B52DADC240F15E4008678EA /* CoreDataMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMock.swift; sourceTree = "<group>"; };
 		0B52DADF240F1861008678EA /* MockRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRPC.swift; sourceTree = "<group>"; };
+		0B52DAEA24116353008678EA /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		0B52DAEC2411655C008678EA /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		0B52DAEE241170AB008678EA /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		0B52DAF224118F3F008678EA /* BiometricAuthenticationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticationConstants.swift; sourceTree = "<group>"; };
+		0B52DAF324118F3F008678EA /* AuthenticationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationErrors.swift; sourceTree = "<group>"; };
+		0B52DAF424118F3F008678EA /* BioMetricAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioMetricAuthenticator.swift; sourceTree = "<group>"; };
 		0BC7FBDA2404360100553F77 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BC7FBDE2404360100553F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeInfoTests.swift; sourceTree = "<group>"; };
@@ -337,9 +346,6 @@
 		1862557922F1B1BC00D001E9 /* Freeze.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Freeze.pb.swift; sourceTree = "<group>"; };
 		1862557A22F1B1BC00D001E9 /* FreezeService.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreezeService.pb.swift; sourceTree = "<group>"; };
 		187530542260940600E284C0 /* SecureAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAppSettings.swift; sourceTree = "<group>"; };
-		18753058226094B800E284C0 /* BioMetricAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioMetricAuthenticator.swift; sourceTree = "<group>"; };
-		18753059226094B800E284C0 /* BiometricAuthenticationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticationConstants.swift; sourceTree = "<group>"; };
-		1875305A226094B800E284C0 /* AuthenticationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationErrors.swift; sourceTree = "<group>"; };
 		187530632262F74100E284C0 /* CryptoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtils.swift; sourceTree = "<group>"; };
 		1875306D2264F09500E284C0 /* HAPI+HGCAccountID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HAPI+HGCAccountID.swift"; sourceTree = "<group>"; };
 		1875306F2264F0D100E284C0 /* HAPI+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HAPI+TimeInterval.swift"; sourceTree = "<group>"; };
@@ -532,8 +538,8 @@
 		35DD3E9E20A55E3F005A5F53 /* HGCSeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCSeedTests.swift; sourceTree = "<group>"; };
 		35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDKeyPairTests.swift; sourceTree = "<group>"; };
 		35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDKeyChainTests.swift; sourceTree = "<group>"; };
-		35E7C60F1FCBE1C500346A51 /* KeychainWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
-		35E7C6101FCBE1C500346A51 /* KeychainWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		35E7C60F1FCBE1C500346A51 /* KFKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KFKeychain.h; sourceTree = "<group>"; };
+		35E7C6101FCBE1C500346A51 /* KFKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KFKeychain.m; sourceTree = "<group>"; };
 		35E7C6141FCD244300346A51 /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
 		35E7C6161FCD7F8800346A51 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		35E7C6181FCD7FC000346A51 /* UIView+NSLayoutConstraints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+NSLayoutConstraints.m"; sourceTree = "<group>"; };
@@ -632,6 +638,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B52DAC4240F0877008678EA /* Ed25519 in Frameworks */,
+				0B52DAF1241172AA008678EA /* BiometricAuthentication in Frameworks */,
 				D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */,
 				0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */,
 				0BA737E7240EC24C00AE3E01 /* SwiftyJSON in Frameworks */,
@@ -678,6 +685,47 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		0B52DAE824115767008678EA /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				0B52DAF82411A1C2008678EA /* Kitura-Mobile-Server */,
+				0B52DAE924115A07008678EA /* CoreBitcoin */,
+				3578AA451FC97A0F00D5158D /* Keychain-iOS-ObjC */,
+				0B52DAEB24116441008678EA /* StellarSDK */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		0B52DAE924115A07008678EA /* CoreBitcoin */ = {
+			isa = PBXGroup;
+			children = (
+				352801771FE4E2430077979D /* HGCSeed.h */,
+				352801781FE4E2430077979D /* HGCSeed.m */,
+				18A65AD722101E4100221FFD /* Mnemonic.h */,
+				18A65AD822101E4100221FFD /* Mnemonic.m */,
+				0B52DAEA24116353008678EA /* LICENSE.txt */,
+			);
+			path = CoreBitcoin;
+			sourceTree = "<group>";
+		};
+		0B52DAEB24116441008678EA /* StellarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				0B52DAEC2411655C008678EA /* LICENSE.txt */,
+				189692A622970BE40042FF24 /* Ed25519Derivation.swift */,
+			);
+			path = StellarSDK;
+			sourceTree = "<group>";
+		};
+		0B52DAF82411A1C2008678EA /* Kitura-Mobile-Server */ = {
+			isa = PBXGroup;
+			children = (
+				0B313F232411B3FB001E39B1 /* LICENSE.txt */,
+				1815080B21858B3000890123 /* IPUtility.swift */,
+			);
+			path = "Kitura-Mobile-Server";
+			sourceTree = "<group>";
+		};
 		0BC7FBDB2404360100553F77 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,7 +739,6 @@
 		187530562260946D00E284C0 /* Local Auth */ = {
 			isa = PBXGroup;
 			children = (
-				3578AA451FC97A0F00D5158D /* KeychainItemWrapper */,
 				18753057226094B800E284C0 /* biometric */,
 				352BAAAA1FA86B1400186CE1 /* AuthManager.swift */,
 				187530542260940600E284C0 /* SecureAppSettings.swift */,
@@ -702,42 +749,21 @@
 		18753057226094B800E284C0 /* biometric */ = {
 			isa = PBXGroup;
 			children = (
-				18753058226094B800E284C0 /* BioMetricAuthenticator.swift */,
-				18753059226094B800E284C0 /* BiometricAuthenticationConstants.swift */,
-				1875305A226094B800E284C0 /* AuthenticationErrors.swift */,
+				0B52DAF324118F3F008678EA /* AuthenticationErrors.swift */,
+				0B52DAF224118F3F008678EA /* BiometricAuthenticationConstants.swift */,
+				0B52DAF424118F3F008678EA /* BioMetricAuthenticator.swift */,
 			);
 			path = biometric;
-			sourceTree = "<group>";
-		};
-		18A65AD622100DDF00221FFD /* bip39 */ = {
-			isa = PBXGroup;
-			children = (
-				18A65AD722101E4100221FFD /* Mnemonic.h */,
-				18A65AD822101E4100221FFD /* Mnemonic.m */,
-			);
-			path = bip39;
 			sourceTree = "<group>";
 		};
 		18EE0AB0225F6CF800FCFA5B /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				18EE0AB1225F6D5900FCFA5B /* Mnemonic&Seed */,
-				35B63BA01FA1C6FE00E29423 /* Keys */,
+				35827E7B208898B8000E84B0 /* HGCKeyProtocol.h */,
 				35827E7520888C80000E84B0 /* EDKeyChain.swift */,
 				187530632262F74100E284C0 /* CryptoUtils.swift */,
-				189692A622970BE40042FF24 /* Ed25519Derivation.swift */,
 			);
 			path = Crypto;
-			sourceTree = "<group>";
-		};
-		18EE0AB1225F6D5900FCFA5B /* Mnemonic&Seed */ = {
-			isa = PBXGroup;
-			children = (
-				352801771FE4E2430077979D /* HGCSeed.h */,
-				352801781FE4E2430077979D /* HGCSeed.m */,
-				18A65AD622100DDF00221FFD /* bip39 */,
-			);
-			path = "Mnemonic&Seed";
 			sourceTree = "<group>";
 		};
 		18EE0AB3225F6F5600FCFA5B /* APIServices */ = {
@@ -998,13 +1024,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		3578AA451FC97A0F00D5158D /* KeychainItemWrapper */ = {
+		3578AA451FC97A0F00D5158D /* Keychain-iOS-ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				35E7C60F1FCBE1C500346A51 /* KeychainWrapper.h */,
-				35E7C6101FCBE1C500346A51 /* KeychainWrapper.m */,
+				0B52DAEE241170AB008678EA /* LICENSE.md */,
+				35E7C60F1FCBE1C500346A51 /* KFKeychain.h */,
+				35E7C6101FCBE1C500346A51 /* KFKeychain.m */,
 			);
-			path = KeychainItemWrapper;
+			path = "Keychain-iOS-ObjC";
 			sourceTree = "<group>";
 		};
 		3578AA491FC97A1F00D5158D /* HAPI */ = {
@@ -1039,14 +1066,6 @@
 				35B8ABF81F9F528A003E4F57 /* AlertController+Add.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		35B63BA01FA1C6FE00E29423 /* Keys */ = {
-			isa = PBXGroup;
-			children = (
-				35827E7B208898B8000E84B0 /* HGCKeyProtocol.h */,
-			);
-			path = Keys;
 			sourceTree = "<group>";
 		};
 		35B63BCF1FA1EE0500E29423 /* UI */ = {
@@ -1133,6 +1152,7 @@
 				35C6001C209C78A900E0259C /* Services */,
 				35B8ABF31F9F4B89003E4F57 /* Utilities & Managers */,
 				35B8ABEC1F9E5768003E4F57 /* Supporting Files */,
+				0B52DAE824115767008678EA /* Third Party */,
 			);
 			path = HGCApp;
 			sourceTree = "<group>";
@@ -1192,7 +1212,6 @@
 				357F0372209B108400FDCFED /* Logger.swift */,
 				357EA9D820B19B9C009CDBBF /* Date+Additions.swift */,
 				35B63BD61FA200F200E29423 /* QRCode.swift */,
-				1815080B21858B3000890123 /* IPUtility.swift */,
 			);
 			path = "Utilities & Managers";
 			sourceTree = "<group>";
@@ -1357,14 +1376,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				0B52DAC6240F0898008678EA /* PBXTargetDependency */,
-				0BA737E9240EC25C00AE3E01 /* PBXTargetDependency */,
-				0BA737EB240EC25C00AE3E01 /* PBXTargetDependency */,
-				0BA737ED240EC25C00AE3E01 /* PBXTargetDependency */,
-				0BA737EF240EC25C00AE3E01 /* PBXTargetDependency */,
-				0BA737F1240EC25C00AE3E01 /* PBXTargetDependency */,
-				0BA737D8240EC07E00AE3E01 /* PBXTargetDependency */,
-				0BA737D6240EC07700AE3E01 /* PBXTargetDependency */,
+				0B52DAFC2411A378008678EA /* PBXTargetDependency */,
+				0B52DAFE2411A378008678EA /* PBXTargetDependency */,
+				0B52DB002411A378008678EA /* PBXTargetDependency */,
+				0B52DB022411A378008678EA /* PBXTargetDependency */,
+				0B52DB042411A378008678EA /* PBXTargetDependency */,
+				0B52DB062411A378008678EA /* PBXTargetDependency */,
+				0B52DB082411A378008678EA /* PBXTargetDependency */,
+				0B52DB0A2411A378008678EA /* PBXTargetDependency */,
+				0B52DB0C2411A378008678EA /* PBXTargetDependency */,
 			);
 			name = HGCApp;
 			packageProductDependencies = (
@@ -1376,6 +1396,7 @@
 				0BA737E3240EC22E00AE3E01 /* MBProgressHUD */,
 				0BA737E6240EC24C00AE3E01 /* SwiftyJSON */,
 				0B52DAC3240F0877008678EA /* Ed25519 */,
+				0B52DAF0241172AA008678EA /* BiometricAuthentication */,
 			);
 			productName = HGCApp;
 			productReference = 35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */;
@@ -1457,6 +1478,7 @@
 				0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */,
+				0B52DAEF241172AA008678EA /* XCRemoteSwiftPackageReference "BiometricAuthentication" */,
 			);
 			productRefGroup = 35B8ABBB1F9E5642003E4F57 /* Products */;
 			projectDirPath = "";
@@ -1507,6 +1529,7 @@
 				351779EE20E7A3B400E31997 /* SmartContract.storyboard in Resources */,
 				354AE1DE20B814D9001E0D02 /* HederaH-Thin.otf in Resources */,
 				18F7E23B2199E8DA00166B56 /* feeScheduleproto.txt in Resources */,
+				0B52DAED2411655C008678EA /* LICENSE.txt in Resources */,
 				185E96912154FE8800C2B698 /* nodes-mainnet.json in Resources */,
 				35732A7A1FEC042500EB23ED /* MyAddressTableCell.xib in Resources */,
 				352801761FE281B70077979D /* BalanceTableCell.xib in Resources */,
@@ -1746,7 +1769,7 @@
 				35BE685C1FC7F1FF00D01F5C /* PayViewController.swift in Sources */,
 				3528017D1FE6601E0077979D /* NewWalletViewController.swift in Sources */,
 				352BAAAB1FA86B1400186CE1 /* AuthManager.swift in Sources */,
-				35E7C6111FCBE1C600346A51 /* KeychainWrapper.m in Sources */,
+				35E7C6111FCBE1C600346A51 /* KFKeychain.m in Sources */,
 				3504B9C120FEFB72003CC4E7 /* HGCPublickKeyAddress.swift in Sources */,
 				189692A722970BE40042FF24 /* Ed25519Derivation.swift in Sources */,
 				18EC4C6F227E7ED7006B3461 /* SystemDelete.pb.swift in Sources */,
@@ -1812,7 +1835,7 @@
 				1837AB4221A7CC890003FD57 /* TransactionGetFastRecord.pb.swift in Sources */,
 				0B138927240D7D8200D638B2 /* FileService.grpc.swift in Sources */,
 				188705AF22A131CE00055276 /* TransactionBuilder.swift in Sources */,
-				1875305D226094B800E284C0 /* AuthenticationErrors.swift in Sources */,
+				0B52DAF524118F3F008678EA /* BiometricAuthenticationConstants.swift in Sources */,
 				1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */,
 				3528017F1FE668E20077979D /* BackupWalletViewController.swift in Sources */,
 				353287B11FE6822C00BCDE4F /* SettingsTableViewController.swift in Sources */,
@@ -1872,6 +1895,7 @@
 				3504B9F721004F1F003CC4E7 /* CryptoGetAccountBalance.pb.swift in Sources */,
 				3504B9FB21004F1F003CC4E7 /* FileUpdate.pb.swift in Sources */,
 				3511E9B421146BB800B8861E /* SmartContractService.pb.swift in Sources */,
+				0B52DAF724118F3F008678EA /* BioMetricAuthenticator.swift in Sources */,
 				35B63BD21FA1F5C600E29423 /* LeftMenuViewController.swift in Sources */,
 				3504BA1921071003003CC4E7 /* TransactionVO.swift in Sources */,
 				35B9639F2130290F005EC9E2 /* BalanceService.swift in Sources */,
@@ -1890,6 +1914,7 @@
 				3567E6921FCEDC0D00ED9F67 /* AppConfigService.swift in Sources */,
 				187530642262F74100E284C0 /* CryptoUtils.swift in Sources */,
 				3504BA0C21004F1F003CC4E7 /* FileGetInfo.pb.swift in Sources */,
+				0B52DAF624118F3F008678EA /* AuthenticationErrors.swift in Sources */,
 				35732A7E1FED0BD800EB23ED /* WalletSetupOptionsViewController.swift in Sources */,
 				3504B9FD21004F1F003CC4E7 /* CryptoGetAccountRecords.pb.swift in Sources */,
 				350DF3401FC6A0870006166C /* HGCWallet.swift in Sources */,
@@ -1900,11 +1925,9 @@
 				3504BA0A21004F1F003CC4E7 /* Transaction.pb.swift in Sources */,
 				C91E4FBB20D5608200996A93 /* DeveloperMenuTableCell.swift in Sources */,
 				35F8D5C8212F0FA500A033A6 /* CryptoService.grpc.swift in Sources */,
-				1875305B226094B800E284C0 /* BioMetricAuthenticator.swift in Sources */,
 				3504B9EA21004F1F003CC4E7 /* ContractCallLocal.pb.swift in Sources */,
 				3504BA0521004F1F003CC4E7 /* CryptoAddClaim.pb.swift in Sources */,
 				35A73EDE21219FFD00634845 /* TokenVO.swift in Sources */,
-				1875305C226094B800E284C0 /* BiometricAuthenticationConstants.swift in Sources */,
 				3504BA0921004F1F003CC4E7 /* ContractCall.pb.swift in Sources */,
 				3504B9F321004F1F003CC4E7 /* ResponseHeader.pb.swift in Sources */,
 				35477F3D1FDE76690035EF2D /* QRScanTableCell.swift in Sources */,
@@ -1935,9 +1958,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0B52DAC6240F0898008678EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-		};
 		0B52DAD1240F1146008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 35B8ABB91F9E5642003E4F57 /* HGCApp */;
@@ -1947,31 +1967,46 @@
 			isa = PBXTargetDependency;
 			productRef = 0B52DAE1240F19F2008678EA /* GRPC */;
 		};
+		0B52DAFC2411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DAFB2411A378008678EA /* SwiftProtobuf */;
+		};
+		0B52DAFE2411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DAFD2411A378008678EA /* GRPC */;
+		};
+		0B52DB002411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DAFF2411A378008678EA /* CryptoSwift */;
+		};
+		0B52DB022411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DB012411A378008678EA /* ActiveLabel */;
+		};
+		0B52DB042411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DB032411A378008678EA /* IQKeyboardManagerSwift */;
+		};
+		0B52DB062411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DB052411A378008678EA /* MBProgressHUD */;
+		};
+		0B52DB082411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DB072411A378008678EA /* SwiftyJSON */;
+		};
+		0B52DB0A2411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DB092411A378008678EA /* Ed25519 */;
+		};
+		0B52DB0C2411A378008678EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B52DB0B2411A378008678EA /* BiometricAuthentication */;
+		};
 		0BA73794240DCDE200AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 35B8ABB91F9E5642003E4F57 /* HGCApp */;
 			targetProxy = 0BA73793240DCDE200AE3E01 /* PBXContainerItemProxy */;
-		};
-		0BA737D6240EC07700AE3E01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-		};
-		0BA737D8240EC07E00AE3E01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-		};
-		0BA737E9240EC25C00AE3E01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-		};
-		0BA737EB240EC25C00AE3E01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-		};
-		0BA737ED240EC25C00AE3E01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-		};
-		0BA737EF240EC25C00AE3E01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-		};
-		0BA737F1240EC25C00AE3E01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
 		};
 		35B8ABDB1F9E5642003E4F57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2527,6 +2562,14 @@
 				kind = branch;
 			};
 		};
+		0B52DAEF241172AA008678EA /* XCRemoteSwiftPackageReference "BiometricAuthentication" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rushisangani/BiometricAuthentication.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.2;
+			};
+		};
 		0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-protobuf.git";
@@ -2600,6 +2643,56 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = GRPC;
+		};
+		0B52DAF0241172AA008678EA /* BiometricAuthentication */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B52DAEF241172AA008678EA /* XCRemoteSwiftPackageReference "BiometricAuthentication" */;
+			productName = BiometricAuthentication;
+		};
+		0B52DAFB2411A378008678EA /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		0B52DAFD2411A378008678EA /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		0B52DAFF2411A378008678EA /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+		0B52DB012411A378008678EA /* ActiveLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */;
+			productName = ActiveLabel;
+		};
+		0B52DB032411A378008678EA /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		0B52DB052411A378008678EA /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+		0B52DB072411A378008678EA /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		0B52DB092411A378008678EA /* Ed25519 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */;
+			productName = Ed25519;
+		};
+		0B52DB0B2411A378008678EA /* BiometricAuthentication */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B52DAEF241172AA008678EA /* XCRemoteSwiftPackageReference "BiometricAuthentication" */;
+			productName = BiometricAuthentication;
 		};
 		0BA737CE240EADF200AE3E01 /* SwiftProtobuf */ = {
 			isa = XCSwiftPackageProductDependency;
