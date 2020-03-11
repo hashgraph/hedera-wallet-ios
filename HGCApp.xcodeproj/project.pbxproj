@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		0B0ADD4223A5735D0069AD41 /* OnboardExistingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */; };
 		0B138927240D7D8200D638B2 /* FileService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B138926240D7D8200D638B2 /* FileService.grpc.swift */; };
-		0B313F262412A243001E39B1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0B313F242412A243001E39B1 /* LICENSE */; };
-		0B313F272412A243001E39B1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0B313F252412A243001E39B1 /* README.md */; };
-		0B313F292412A297001E39B1 /* NOTICE in Resources */ = {isa = PBXBuildFile; fileRef = 0B313F282412A297001E39B1 /* NOTICE */; };
 		0B313F2B241302EB001E39B1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0B313F2A241302EB001E39B1 /* LICENSE */; };
 		0B313F2D24130DDB001E39B1 /* NOTICE in Resources */ = {isa = PBXBuildFile; fileRef = 0B313F2C24130DDB001E39B1 /* NOTICE */; };
+		0B313F2F241946BF001E39B1 /* LicenseAndNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B313F2E241946BF001E39B1 /* LicenseAndNoticeViewController.swift */; };
 		0B52DAC4240F0877008678EA /* Ed25519 in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAC3240F0877008678EA /* Ed25519 */; };
 		0B52DAD6240F1546008678EA /* EDKeyPairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */; };
 		0B52DAD7240F1546008678EA /* EDKeyChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */; };
@@ -25,7 +23,6 @@
 		0B52DAE524101788008678EA /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
 		0B52DAE6241017B0008678EA /* HGCWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1D320B58857001E0D02 /* HGCWalletTests.swift */; };
 		0B52DAE7241017B5008678EA /* HGCAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */; };
-		0B52DAED2411655C008678EA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0B52DAEC2411655C008678EA /* LICENSE.txt */; };
 		0B52DAF1241172AA008678EA /* BiometricAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAF0241172AA008678EA /* BiometricAuthentication */; };
 		0B52DAF524118F3F008678EA /* BiometricAuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DAF224118F3F008678EA /* BiometricAuthenticationConstants.swift */; };
 		0B52DAF624118F3F008678EA /* AuthenticationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DAF324118F3F008678EA /* AuthenticationErrors.swift */; };
@@ -313,6 +310,7 @@
 		0B313F282412A297001E39B1 /* NOTICE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
 		0B313F2A241302EB001E39B1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0B313F2C24130DDB001E39B1 /* NOTICE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
+		0B313F2E241946BF001E39B1 /* LicenseAndNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAndNoticeViewController.swift; sourceTree = "<group>"; };
 		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
 		0B52DACB240F1146008678EA /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B52DACF240F1146008678EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1017,6 +1015,7 @@
 				3528017E1FE668E20077979D /* BackupWalletViewController.swift */,
 				1832084D21FB6410004311D7 /* RestoreAccountIDViewController.swift */,
 				35B63B951F9F5B0700E29423 /* PINSetupViewController.swift */,
+				0B313F2E241946BF001E39B1 /* LicenseAndNoticeViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1445,7 +1444,6 @@
 				1832085022001D19004311D7 /* Localizable.strings in Resources */,
 				D543CD2223996299006CA213 /* StyreneA-Regular.ttf in Resources */,
 				C91E4FB720D5549E00996A93 /* DeveloperTools.storyboard in Resources */,
-				0B313F292412A297001E39B1 /* NOTICE in Resources */,
 				1851A6582156551C00752A80 /* nodes-testnet.json in Resources */,
 				35477F3E1FDE76690035EF2D /* QRScanTableCell.xib in Resources */,
 				35B8ABF51F9F4BB7003E4F57 /* Welcome.storyboard in Resources */,
@@ -1456,7 +1454,6 @@
 				351779EE20E7A3B400E31997 /* SmartContract.storyboard in Resources */,
 				354AE1DE20B814D9001E0D02 /* HederaH-Thin.otf in Resources */,
 				18F7E23B2199E8DA00166B56 /* feeScheduleproto.txt in Resources */,
-				0B52DAED2411655C008678EA /* LICENSE.txt in Resources */,
 				185E96912154FE8800C2B698 /* nodes-mainnet.json in Resources */,
 				35732A7A1FEC042500EB23ED /* MyAddressTableCell.xib in Resources */,
 				352801761FE281B70077979D /* BalanceTableCell.xib in Resources */,
@@ -1473,12 +1470,10 @@
 				18BF965F21C17E7600055B2A /* terms.txt in Resources */,
 				353738841FDD25A2009999F2 /* AddressTableViewCell.xib in Resources */,
 				35B8ABC31F9E5642003E4F57 /* Main.storyboard in Resources */,
-				0B313F262412A243001E39B1 /* LICENSE in Resources */,
 				354AE1DD20B814D9001E0D02 /* HederaH-Regular.otf in Resources */,
 				35FCF6401FDD4AC700BA1EB1 /* AmountTableViewCell.xib in Resources */,
 				354AE1E020B814D9001E0D02 /* HederaH-Light.otf in Resources */,
 				35477F581FDFAC3A0035EF2D /* QRPreviewTableCell.xib in Resources */,
-				0B313F272412A243001E39B1 /* README.md in Resources */,
 				35477F471FDE82D30035EF2D /* TXNOptionsTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1866,6 +1861,7 @@
 				3523E7331FD7012500CD488B /* URLRequestBuilder.swift in Sources */,
 				35FCF63F1FDD4AC700BA1EB1 /* AmountTableViewCell.swift in Sources */,
 				35E7C61E1FCDB01C00346A51 /* AddAccountViewController.swift in Sources */,
+				0B313F2F241946BF001E39B1 /* LicenseAndNoticeViewController.swift in Sources */,
 				188705A9229E3AFC00055276 /* FileContentOperation.swift in Sources */,
 				C94D163F21326D4400212900 /* UpdateBalanceOperation.swift in Sources */,
 				3504BA0B21004F1F003CC4E7 /* TransactionResponse.pb.swift in Sources */,
