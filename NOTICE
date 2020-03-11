@@ -1,0 +1,55 @@
+Hedera Wallet for iOS
+Copyright 2018-2020 Hedera Hashgraph LLC
+
+This product includes software developed at
+Hedera Hashgraph LLC (https://www.hedera.com/).
+
+Use of the Hedera Network, which this product uses,
+requires the user to follow certain Terms.
+Please see https://www.hedera.com/terms.
+
+-------------------------------------------------------------------------------
+
+This product contains Kitura-Mobile-Server's 'IPUtility.swift'.
+
+  * LICENSE (Apache License 2.0):
+    * HGCApp/Third Party/Kitura-Mobile-Server/LICENSE.txt
+  * HOMEPAGE:
+    * https://github.com/IBM-Swift/Kitura-Mobile-Server
+  * SOURCE:
+    * https://github.com/IBM-Swift/Kitura-Mobile-Server/blob/1e17b0e9bb6b55d8df13d5571704caaf2b37e038/KituraiOS/IPUtility.swift
+
+---
+
+This product contains a derivation of CoreBitcoin's 'Mnemonic' files.
+
+  * LICENSE (Public Domain Dedication):
+    * HGCApp/Third Party/CoreBitcoin/LICENSE.txt
+  * HOMEPAGE:
+    * https://github.com/oleganza/CoreBitcoin
+  * SOURCES:
+    * https://github.com/oleganza/CoreBitcoin/blob/4d85239705090079a8664afd28d690ccbeb8f929/CoreBitcoin/BTCMnemonic.h
+    * https://github.com/oleganza/CoreBitcoin/blob/4d85239705090079a8664afd28d690ccbeb8f929/CoreBitcoin/BTCMnemonic.m
+
+---
+
+This product contains Keychain-iOS-ObjC.
+
+  * LICENSE (MIT License):
+    * HGCApp/Third Party/Keychain-iOS-ObjC/LICENSE.md
+  * HOMEPAGE:
+    * https://github.com/Keyflow/Keychain-iOS-ObjC
+  * SOURCES:
+    * https://github.com/Keyflow/Keychain-iOS-ObjC/blob/3f72d5be25d0f650a2fc959d11f2914828feb674/KFKeychain.h
+    * https://github.com/Keyflow/Keychain-iOS-ObjC/blob/3f72d5be25d0f650a2fc959d11f2914828feb674/KFKeychain.m
+
+---
+
+This project contains a derivation of StellarSDK's 'Ed25519Derivation.swift'.
+
+  * LICENSE (Apache License 2.0):
+    * HGCApp/Third Party/StellarSDK/LICENSE.txt
+  * HOMEPAGE:
+    * https://github.com/Soneso/stellar-ios-mac-sdk
+  * SOURCES:
+    * https://github.com/Soneso/stellar-ios-mac-sdk/blob/081b58088d1a7c8f899cf72917a87cf572ca4597/stellarsdk/stellarsdk/crypto/Ed25519Derivation.swift

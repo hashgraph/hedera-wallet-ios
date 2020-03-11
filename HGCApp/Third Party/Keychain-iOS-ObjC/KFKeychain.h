@@ -1,5 +1,3 @@
-// Original: https://github.com/Keyflow/Keychain-iOS-ObjC/blob/3f72d5be25d0f650a2fc959d11f2914828feb674/KFKeychain.h
-
 #import <Foundation/Foundation.h>
 
 @interface KFKeychain : NSObject
