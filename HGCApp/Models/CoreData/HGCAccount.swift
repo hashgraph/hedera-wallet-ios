@@ -25,6 +25,7 @@ extension HGCAccount {
     public static let entityName = "Account"
     
     func key() -> HGCKeyPairProtocol {
+        // [RAS FIXME]
         return self.wallet!.keyChain()!.key(at: Int(self.accountNumber))
     }
     

@@ -45,6 +45,7 @@ class NewWalletViewController: UIViewController {
         self.messageLabel.font = Font.regularFontVeryLarge()
         
         if WalletHelper.isOnboarded() {
+            // [RAS FIXME]
             self.seed = HGCSeed.init(entropy: SecureAppSettings.default.getSeed()!)
             self.doneButton.removeFromSuperview();
             

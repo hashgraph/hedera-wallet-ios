@@ -12,6 +12,12 @@
 		0B313F2B241302EB001E39B1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0B313F2A241302EB001E39B1 /* LICENSE */; };
 		0B313F2D24130DDB001E39B1 /* NOTICE in Resources */ = {isa = PBXBuildFile; fileRef = 0B313F2C24130DDB001E39B1 /* NOTICE */; };
 		0B313F2F241946BF001E39B1 /* LicenseAndNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B313F2E241946BF001E39B1 /* LicenseAndNoticeViewController.swift */; };
+		0B313F34241BF270001E39B1 /* SeedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B313F33241BF270001E39B1 /* SeedKey.swift */; };
+		0B313F36241C1B1E001E39B1 /* SeedKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B313F35241C1B1E001E39B1 /* SeedKeyTests.swift */; };
+		0B313F382422A551001E39B1 /* SeedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B313F372422A551001E39B1 /* SeedFile.swift */; };
+		0B313F3A24242DAC001E39B1 /* RecoveryPhraseWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B313F3924242DAC001E39B1 /* RecoveryPhraseWarningViewController.swift */; };
+		0B313F43242562D7001E39B1 /* SeedFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B313F42242562D7001E39B1 /* SeedFileTests.swift */; };
+		0B313F4524256A5F001E39B1 /* SecureAppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B313F4424256A5F001E39B1 /* SecureAppSettingsTests.swift */; };
 		0B52DAC4240F0877008678EA /* Ed25519 in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAC3240F0877008678EA /* Ed25519 */; };
 		0B52DAD6240F1546008678EA /* EDKeyPairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EA320A59355005A5F53 /* EDKeyPairTests.swift */; };
 		0B52DAD7240F1546008678EA /* EDKeyChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */; };
@@ -19,7 +25,6 @@
 		0B52DADD240F15E4008678EA /* CoreDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DADC240F15E4008678EA /* CoreDataMock.swift */; };
 		0B52DADE240F1807008678EA /* AddressBookServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEA989234C39700049F754 /* AddressBookServiceTests.swift */; };
 		0B52DAE0240F1861008678EA /* MockRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DADF240F1861008678EA /* MockRPC.swift */; };
-		0B52DAE4240F19F6008678EA /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0B52DAE3240F19F6008678EA /* GRPC */; };
 		0B52DAE524101788008678EA /* AddAccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F72D4123575CDB00EBB2D2 /* AddAccountViewModelTests.swift */; };
 		0B52DAE6241017B0008678EA /* HGCWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1D320B58857001E0D02 /* HGCWalletTests.swift */; };
 		0B52DAE7241017B5008678EA /* HGCAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */; };
@@ -311,6 +316,12 @@
 		0B313F2A241302EB001E39B1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0B313F2C24130DDB001E39B1 /* NOTICE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
 		0B313F2E241946BF001E39B1 /* LicenseAndNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseAndNoticeViewController.swift; sourceTree = "<group>"; };
+		0B313F33241BF270001E39B1 /* SeedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedKey.swift; sourceTree = "<group>"; };
+		0B313F35241C1B1E001E39B1 /* SeedKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedKeyTests.swift; sourceTree = "<group>"; };
+		0B313F372422A551001E39B1 /* SeedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedFile.swift; sourceTree = "<group>"; };
+		0B313F3924242DAC001E39B1 /* RecoveryPhraseWarningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoveryPhraseWarningViewController.swift; sourceTree = "<group>"; };
+		0B313F42242562D7001E39B1 /* SeedFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedFileTests.swift; sourceTree = "<group>"; };
+		0B313F4424256A5F001E39B1 /* SecureAppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAppSettingsTests.swift; sourceTree = "<group>"; };
 		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
 		0B52DACB240F1146008678EA /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B52DACF240F1146008678EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -583,7 +594,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B52DAE4240F19F6008678EA /* GRPC in Frameworks */,
 				B5C2F11071F074A7CEAD4366 /* Pods_HGCApp_IntegrationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +634,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B313F32241BF24E001E39B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B313F372422A551001E39B1 /* SeedFile.swift */,
+				0B313F33241BF270001E39B1 /* SeedKey.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0B52DACC240F1146008678EA /* IntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +653,9 @@
 				35DD3EB520A5AB61005A5F53 /* EDKeyChainTests.swift */,
 				354AE1E120B8192B001E0D02 /* HGCAccountTests.swift */,
 				354AE1D320B58857001E0D02 /* HGCWalletTests.swift */,
+				0B313F42242562D7001E39B1 /* SeedFileTests.swift */,
+				0B313F35241C1B1E001E39B1 /* SeedKeyTests.swift */,
+				0B313F4424256A5F001E39B1 /* SecureAppSettingsTests.swift */,
 				0B52DACF240F1146008678EA /* Info.plist */,
 			);
 			path = IntegrationTests;
@@ -871,6 +893,7 @@
 		350EA11A1FC536990092DDEB /* Overview */ = {
 			isa = PBXGroup;
 			children = (
+				0B313F3924242DAC001E39B1 /* RecoveryPhraseWarningViewController.swift */,
 				350EA1171FC49EB00092DDEB /* OverviewViewController.swift */,
 				350EA11B1FC5373E0092DDEB /* WalletView.swift */,
 				350EA1231FC53F810092DDEB /* TransactionTableCell.swift */,
@@ -1064,6 +1087,7 @@
 		35B8ABBC1F9E5642003E4F57 /* HGCApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B313F32241BF24E001E39B1 /* Model */,
 				1851A6482156240000752A80 /* Config.swift */,
 				35B8ABBD1F9E5642003E4F57 /* AppDelegate.swift */,
 				18EE0AB0225F6CF800FCFA5B /* Crypto */,
@@ -1259,7 +1283,6 @@
 			);
 			name = IntegrationTests;
 			packageProductDependencies = (
-				0B52DAE3240F19F6008678EA /* GRPC */,
 			);
 			productName = IntegrationTests;
 			productReference = 0B52DACB240F1146008678EA /* IntegrationTests.xctest */;
@@ -1660,11 +1683,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B313F4524256A5F001E39B1 /* SecureAppSettingsTests.swift in Sources */,
 				0B52DADD240F15E4008678EA /* CoreDataMock.swift in Sources */,
 				0B52DADE240F1807008678EA /* AddressBookServiceTests.swift in Sources */,
 				0B52DAE7241017B5008678EA /* HGCAccountTests.swift in Sources */,
 				0B52DAD6240F1546008678EA /* EDKeyPairTests.swift in Sources */,
 				0B52DAD7240F1546008678EA /* EDKeyChainTests.swift in Sources */,
+				0B313F36241C1B1E001E39B1 /* SeedKeyTests.swift in Sources */,
+				0B313F43242562D7001E39B1 /* SeedFileTests.swift in Sources */,
 				0B52DAE6241017B0008678EA /* HGCWalletTests.swift in Sources */,
 				0B52DAE524101788008678EA /* AddAccountViewModelTests.swift in Sources */,
 				0B52DAE0240F1861008678EA /* MockRPC.swift in Sources */,
@@ -1693,6 +1719,7 @@
 				3504B9FE21004F1F003CC4E7 /* ContractGetInfo.pb.swift in Sources */,
 				35BE685C1FC7F1FF00D01F5C /* PayViewController.swift in Sources */,
 				3528017D1FE6601E0077979D /* NewWalletViewController.swift in Sources */,
+				0B313F382422A551001E39B1 /* SeedFile.swift in Sources */,
 				352BAAAB1FA86B1400186CE1 /* AuthManager.swift in Sources */,
 				35E7C6111FCBE1C600346A51 /* KFKeychain.m in Sources */,
 				3504B9C120FEFB72003CC4E7 /* HGCPublickKeyAddress.swift in Sources */,
@@ -1786,6 +1813,7 @@
 				350DF3441FC6AFD80006166C /* AccountListViewController.swift in Sources */,
 				18324105228929AA00CC5C98 /* TransferViewModel.swift in Sources */,
 				3504BA0821004F1F003CC4E7 /* CryptoGetStakers.pb.swift in Sources */,
+				0B313F3A24242DAC001E39B1 /* RecoveryPhraseWarningViewController.swift in Sources */,
 				353738891FDD4437009999F2 /* AddressOptionsTableCell.swift in Sources */,
 				3504B9F821004F1F003CC4E7 /* CryptoGetClaim.pb.swift in Sources */,
 				35932B951FCEA72B00C74D67 /* AccountDetailsViewController.swift in Sources */,
@@ -1800,6 +1828,7 @@
 				35BBC0001FD7C2BE00F20A3A /* RequestListViewController.swift in Sources */,
 				350DF3001FC688BD0006166C /* CoreDataManager.swift in Sources */,
 				350DF3461FC6B0E00006166C /* AccountTableCell.swift in Sources */,
+				0B313F34241BF270001E39B1 /* SeedKey.swift in Sources */,
 				353738861FDD3C15009999F2 /* HGCSwitch.swift in Sources */,
 				3504BA0021004F1F003CC4E7 /* FileAppend.pb.swift in Sources */,
 				35B63BD31FA1F5C600E29423 /* LeftMenuCell.swift in Sources */,
@@ -2561,11 +2590,6 @@
 			productName = Ed25519;
 		};
 		0B52DAE1240F19F2008678EA /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
-		};
-		0B52DAE3240F19F6008678EA /* GRPC */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = GRPC;

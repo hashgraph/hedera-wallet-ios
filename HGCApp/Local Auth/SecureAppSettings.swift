@@ -20,17 +20,18 @@ protocol SecureAppSettingsProtocol {
     func getSeed() -> Data?
 }
 
-class SecureAppSettings : SecureAppSettingsProtocol {
+class SecureAppSettings: SecureAppSettingsProtocol {
     private static let keyWalletPin = "walletPin"
-    private static let keySeed = "hgc-seed"
+    private static let oldKeySeed = "hgc-seed"
     
-    static let `default` : SecureAppSettings = SecureAppSettings();
+    static let `default` = SecureAppSettings()
     
-    private func saveObject(_ object:Any, forKey:String) {
-        KFKeychain.save(object, forKey: forKey)
+    private func saveObject(_ object: Any, forKey: String) -> Bool {
+        let didSave = KFKeychain.save(object, forKey: forKey)
+        return didSave
     }
     
-    private func getObject(_ key:String) -> Any? {
+    private func getObject(_ key: String) -> Any? {
         return KFKeychain.loadObject(forKey: key)
     }
     
@@ -55,15 +56,54 @@ class SecureAppSettings : SecureAppSettingsProtocol {
         return nil
     }
     
-    public func setSeed(_ seed:Data) {
-        saveObject(seed, forKey: SecureAppSettings.keySeed)
+    public func setSeed(_ seed: Data) -> Bool {
+        guard let key = SeedKey(createIfMissing: true) else {
+            return false
+        }
+        guard let encryptedSeed = key.encrypt(seed) else {
+            return false
+        }
+        if !SeedFile.create(encryptedSeed) {
+            return false
+        }
+        let didDelete = KFKeychain.deleteObject(forKey: SecureAppSettings.oldKeySeed)
+        if didDelete {
+            Logger.instance.log(message: "Deleted old seed in Keychain", event: .i)
+        }
+        return true
     }
     
     public func getSeed() -> Data? {
-        return getData(SecureAppSettings.keySeed)
+        let encryptedSeedOpt = SeedFile.read()
+        let keyOpt = SeedKey(createIfMissing: false)
+        if let encryptedSeed = encryptedSeedOpt, let key = keyOpt {
+            guard let seed = key.decrypt(encryptedSeed) else {
+                return nil
+            }
+            return seed
+        }
+        else {
+            let seed = getData(SecureAppSettings.oldKeySeed)
+            if case .some(let realSeed) = seed {
+                Logger.instance.log(message: "Found seed in deprecated Keychain", event: .i)
+                if setSeed(realSeed) {
+                    Logger.instance.log(message: "Successfully migrated seed to file", event: .i)
+                    let didDelete = KFKeychain.deleteObject(forKey: SecureAppSettings.oldKeySeed)
+                    if !didDelete {
+                        Logger.instance.log(message: "Unable to delete seed in deprecated storage", event: .w)
+                    }
+                }
+                else {
+                    Logger.instance.log(message: "Unable to migrate seed to file", event: .e)
+                    // TODO: better handle opportunity to recover
+                    return nil
+                }
+            }
+            return seed
+        }
     }
     
-    public func setPIN(_ pin:String) {
+    public func setPIN(_ pin: String) {
         saveObject(pin, forKey: SecureAppSettings.keyWalletPin)
     }
     
@@ -71,10 +111,28 @@ class SecureAppSettings : SecureAppSettingsProtocol {
         return getString(SecureAppSettings.keyWalletPin)
     }
     
-    public func clear() throws {
-        if getSeed() != nil && !KFKeychain.deleteObject(forKey: SecureAppSettings.keySeed) {
-            throw NSError.init(domain: "Fail to clear seed", code: 0, userInfo: nil)
+    public func clear() -> Bool {
+        // TODO: better logging
+        var success = true
+        success = (SeedFile.delete() != nil) && success
+        if getObject(SecureAppSettings.oldKeySeed) != nil {
+            success = KFKeychain.deleteObject(forKey: SecureAppSettings.oldKeySeed) && success
         }
-        KFKeychain.deleteObject(forKey: SecureAppSettings.keyWalletPin)
+        if getObject(SecureAppSettings.keyWalletPin) != nil {
+            success = KFKeychain.deleteObject(forKey: SecureAppSettings.keyWalletPin) && success
+        }
+        return success
+    }
+
+    // Deprecated but available for testing
+
+    public func oldSetSeed(_ seed: Data) -> Bool {
+        let didSet = saveObject(seed, forKey: SecureAppSettings.oldKeySeed)
+        return didSet
+    }
+
+    public func oldGetSeed() -> Data? {
+        let seed = getData(SecureAppSettings.oldKeySeed)
+        return seed
     }
 }
