@@ -13,6 +13,11 @@ if [ $? -ne 0 ] ; then
     exit 1
 fi
 protoc --grpc-swift_out=Server=false:../proto-grpc-swift CryptoService.proto FileService.proto
+if [ $? -ne 0 ] ; then
+    printf 'failed building gRPC client\n'
+    popd
+    exit 1
+fi
 sed -i '' '/extension .* GRPCProtobufPayload/d' ../proto-grpc-swift/FileService.grpc.swift
 if [ $? -ne 0 ] ; then
     printf 'failed building gRPC client\n'
