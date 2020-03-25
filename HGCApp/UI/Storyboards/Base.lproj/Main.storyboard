@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Overview View Controller-->
         <scene sceneID="WA8-fc-x33">
             <objects>
-                <viewController storyboardIdentifier="overviewViewController" id="89A-xd-fJd" customClass="OverviewViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="overviewViewController" id="89A-xd-fJd" customClass="OverviewViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IrA-SS-nPX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="txnCell" rowHeight="150" id="Uqw-jz-TV1" customClass="TransactionTableCell" customModule="HGCApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="txnCell" rowHeight="150" id="Uqw-jz-TV1" customClass="TransactionTableCell" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uqw-jz-TV1" id="5h3-7F-7gV">
@@ -115,7 +115,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="218.999HGC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGh-Kp-FrF" customClass="HGCAmountLabel" customModule="HGCApp" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="218.999HGC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGh-Kp-FrF" customClass="HGCAmountLabel" customModule="HederaWallet" customModuleProvider="target">
                                                                     <rect key="frame" x="256" y="48" width="99" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.3622345374276808" green="0.93583154678344727" blue="0.42582318409559911" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -170,7 +170,7 @@
                                             <outlet property="delegate" destination="89A-xd-fJd" id="dN9-ed-rHV"/>
                                         </connections>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Transactions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-12-A5V" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Transactions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aF7-12-A5V" customClass="LocalizableLabel" customModule="HederaWallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="230" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.32991629459999999" alpha="1" colorSpace="calibratedWhite"/>
@@ -247,7 +247,7 @@
         <!--Exchange Rate View Controller-->
         <scene sceneID="I2W-oz-cWD">
             <objects>
-                <viewController storyboardIdentifier="exchangeRateViewController" id="iLP-a2-LUV" customClass="ExchangeRateViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exchangeRateViewController" id="iLP-a2-LUV" customClass="ExchangeRateViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hoV-w8-4G3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,7 +267,7 @@
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="611.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="250" id="5rX-ue-QXz" customClass="ExchangeRateCell" customModule="HGCApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="250" id="5rX-ue-QXz" customClass="ExchangeRateCell" customModule="HederaWallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5rX-ue-QXz" id="vth-kY-4My">
@@ -358,7 +358,7 @@
         <!--Add Account View Controller-->
         <scene sceneID="nVa-TH-Pyc">
             <objects>
-                <viewController storyboardIdentifier="addAccountViewController" id="37h-Te-5Ri" customClass="AddAccountViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addAccountViewController" id="37h-Te-5Ri" customClass="AddAccountViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsx-01-bwg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +375,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AS-gb-5IF" userLabel="NickName">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCOUNT NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-Xp-195" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCOUNT NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-Xp-195" customClass="LocalizableLabel" customModule="HederaWallet" customModuleProvider="target">
                                                                 <rect key="frame" x="20" y="0.0" width="112" height="25"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
@@ -387,7 +387,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbA-bx-nRO">
                                                                 <rect key="frame" x="20" y="30" width="335" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8i-tv-eqk" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8i-tv-eqk" customClass="HGCTextField" customModule="HederaWallet" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="11.5" width="335" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -418,7 +418,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgB-CV-Ua7" userLabel="AccountID">
                                                         <rect key="frame" x="0.0" y="85" width="375" height="70"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCOUNT ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFM-Rq-hwe" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCOUNT ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFM-Rq-hwe" customClass="LocalizableLabel" customModule="HederaWallet" customModuleProvider="target">
                                                                 <rect key="frame" x="20" y="0.0" width="86" height="25"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
@@ -430,7 +430,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5PK-13-fJ6">
                                                                 <rect key="frame" x="20" y="30" width="335" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Exm-Ow-SZp" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Exm-Ow-SZp" customClass="HGCTextField" customModule="HederaWallet" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="11.5" width="335" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -463,7 +463,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZVA-9A-TZV">
                                                 <rect key="frame" x="77.5" y="195" width="220" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gb-PN-jaA" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gb-PN-jaA" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                         <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -479,7 +479,7 @@
                                                             <action selector="onDeleteButtonTap" destination="37h-Te-5Ri" eventType="touchUpInside" id="mDY-H5-Hcl"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS2-Or-anH" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS2-Or-anH" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                         <rect key="frame" x="120" y="0.0" width="100" height="30"/>
                                                         <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                         <state key="normal" title="DONE">
@@ -542,7 +542,7 @@
         <!--Preview Controller-->
         <scene sceneID="THY-mp-v0C">
             <objects>
-                <viewController storyboardIdentifier="qrPreviewController" id="yPg-EX-tjv" customClass="QRPreviewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="qrPreviewController" id="yPg-EX-tjv" customClass="QRPreviewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kw1-gz-UbE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -603,7 +603,7 @@
         <!--Account List View Controller-->
         <scene sceneID="4Y9-Ox-WRb">
             <objects>
-                <viewController storyboardIdentifier="accountListViewController" id="9R1-1t-faL" customClass="AccountListViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accountListViewController" id="9R1-1t-faL" customClass="AccountListViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uko-x9-Ca0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -616,7 +616,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountTableCell" rowHeight="150" id="ov6-Qj-4N8" customClass="AccountTableCell" customModule="HGCApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountTableCell" rowHeight="150" id="ov6-Qj-4N8" customClass="AccountTableCell" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ov6-Qj-4N8" id="Ofl-wT-ezz">
@@ -734,7 +734,7 @@
         <!--Pay View Controller-->
         <scene sceneID="EbH-OO-PfS">
             <objects>
-                <viewController storyboardIdentifier="payViewController" id="5Yn-eH-fRD" customClass="PayViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="payViewController" id="5Yn-eH-fRD" customClass="PayViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RnA-Yt-iNg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -780,7 +780,7 @@
         <!--Container View Controller-->
         <scene sceneID="EIJ-B7-4B6">
             <objects>
-                <viewController storyboardIdentifier="containerViewController" id="87H-G1-prh" customClass="ContainerViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="containerViewController" id="87H-G1-prh" customClass="ContainerViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fqn-3Q-7rf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -809,7 +809,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bnz-7q-aqJ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVW-Dt-FAP" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVW-Dt-FAP" customClass="LocalizableLabel" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="-20" width="335" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -871,7 +871,7 @@
         <!--Contact Picker-->
         <scene sceneID="ebh-tl-wVK">
             <objects>
-                <viewController storyboardIdentifier="contactPicker" id="bee-6w-nek" customClass="ContactPicker" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="contactPicker" id="bee-6w-nek" customClass="ContactPicker" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eaL-9Q-mXM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -882,7 +882,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactTableViewCell" rowHeight="200" id="ped-YY-Fta" customClass="ContactTableViewCell" customModule="HGCApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactTableViewCell" rowHeight="200" id="ped-YY-Fta" customClass="ContactTableViewCell" customModule="HederaWallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ped-YY-Fta" id="wz5-pP-aFV">
@@ -904,7 +904,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTw-bE-Cjq" customClass="HGCBoxView" customModule="HGCApp" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTw-bE-Cjq" customClass="HGCBoxView" customModule="HederaWallet" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="40.5" width="335" height="40.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="toz-nv-d3k">
@@ -977,7 +977,7 @@
         <!--Fee Details View Controller-->
         <scene sceneID="zNx-5W-ycZ">
             <objects>
-                <viewController storyboardIdentifier="feeDetailsViewController" id="AlG-Jy-Lhd" customClass="FeeDetailsViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="feeDetailsViewController" id="AlG-Jy-Lhd" customClass="FeeDetailsViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="piv-eK-ZYt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1008,7 +1008,7 @@
         <!--Left Menu View Controller-->
         <scene sceneID="jPz-2R-W6S">
             <objects>
-                <viewController storyboardIdentifier="leftMenuViewController" id="zmn-m6-RFr" customClass="LeftMenuViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leftMenuViewController" id="zmn-m6-RFr" customClass="LeftMenuViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5gC-aE-4tI"/>
                         <viewControllerLayoutGuide type="bottom" id="TP2-IQ-qnS"/>
@@ -1037,7 +1037,7 @@
                                         <color key="separatorColor" white="0.12404203869047617" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="0.0" reuseIdentifier="leftMenuCell" id="mCJ-IG-Zlq" customClass="LeftMenuCell" customModule="HGCApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="0.0" reuseIdentifier="leftMenuCell" id="mCJ-IG-Zlq" customClass="LeftMenuCell" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mCJ-IG-Zlq" id="1mA-2A-Qd8">
@@ -1112,7 +1112,7 @@
         <!--Wallet View-->
         <scene sceneID="Vfw-5D-zKP">
             <objects>
-                <viewController storyboardIdentifier="walletView" id="INM-17-hlc" customClass="WalletView" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="walletView" id="INM-17-hlc" customClass="WalletView" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hLS-TJ-th4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1180,7 +1180,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cZT-Qo-xWb">
                                         <rect key="frame" x="-80" y="215" width="480" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOE-ra-Wgc" customClass="HGCButtonPrimary" customModule="HGCApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOE-ra-Wgc" customClass="HGCButtonPrimary" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
                                                 <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -1194,7 +1194,7 @@
                                                     <action selector="onRequestButtonTap" destination="INM-17-hlc" eventType="touchUpInside" id="TlT-8h-z2F"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NE6-wu-vCN" customClass="HGCButtonDestructive" customModule="HGCApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NE6-wu-vCN" customClass="HGCButtonDestructive" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="140" y="0.0" width="120" height="30"/>
                                                 <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="PAY">
@@ -1207,7 +1207,7 @@
                                                     <action selector="onPayButtonTap" destination="INM-17-hlc" eventType="touchUpInside" id="8D5-2n-WYd"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtR-xv-vJM" customClass="HGCButtonPrimary" customModule="HGCApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtR-xv-vJM" customClass="HGCButtonPrimary" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="280" y="0.0" width="200" height="30"/>
                                                 <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -1272,7 +1272,7 @@
         <!--Account Details View Controller-->
         <scene sceneID="i54-Na-WYL">
             <objects>
-                <viewController storyboardIdentifier="accountDetailsViewController" id="3jt-PK-pYs" customClass="AccountDetailsViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accountDetailsViewController" id="3jt-PK-pYs" customClass="AccountDetailsViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="smS-pY-asc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1286,7 +1286,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wJX-lv-RiU">
                                                 <rect key="frame" x="137.5" y="375" width="100" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGP-gj-zpg" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGP-gj-zpg" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                         <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -1350,7 +1350,7 @@
         <!--Scan View Controller-->
         <scene sceneID="TIB-QV-MjY">
             <objects>
-                <viewController storyboardIdentifier="scanViewController" id="t6f-Ej-t8e" customClass="ScanViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanViewController" id="t6f-Ej-t8e" customClass="ScanViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="70J-bb-SJs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1371,7 +1371,7 @@
                                                 <rect key="frame" x="20" y="9.5" width="295" height="547.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzR-I0-WfJ" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzR-I0-WfJ" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="117.5" y="567" width="100" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="LN7-KQ-Obs"/>
@@ -1441,7 +1441,7 @@
         <!--Transaction Details View Controller-->
         <scene sceneID="GsC-Fb-wZK">
             <objects>
-                <viewController storyboardIdentifier="transactionDetailsViewController" id="KEs-43-b1r" customClass="TransactionDetailsViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transactionDetailsViewController" id="KEs-43-b1r" customClass="TransactionDetailsViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mh4-tQ-zEn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1788,7 +1788,7 @@
         <!--Txn Request Composer-->
         <scene sceneID="lyk-rG-V7b">
             <objects>
-                <viewController storyboardIdentifier="txnRequestComposer" id="BHP-rK-Vqr" customClass="TxnRequestComposer" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="txnRequestComposer" id="BHP-rK-Vqr" customClass="TxnRequestComposer" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9U5-jf-BWn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2041,7 +2041,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gP9-kY-F7R">
                                                                 <rect key="frame" x="15" y="20" width="345" height="30"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLK-wP-oae" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLK-wP-oae" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                                         <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <constraints>
@@ -2055,7 +2055,7 @@
                                                                             <action selector="onRequestButtonTap" destination="INM-17-hlc" eventType="touchUpInside" id="GfW-dC-oni"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epL-Ye-YwE" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epL-Ye-YwE" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                                         <rect key="frame" x="120" y="0.0" width="100" height="30"/>
                                                                         <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" title="EMAIL">
@@ -2066,7 +2066,7 @@
                                                                             <action selector="onPayButtonTap" destination="INM-17-hlc" eventType="touchUpInside" id="7V8-gr-Ctc"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OY-z7-OBB" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OY-z7-OBB" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                                         <rect key="frame" x="240" y="0.0" width="105" height="30"/>
                                                                         <color key="backgroundColor" white="0.48140811010000001" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" title="TEXT">
@@ -2139,7 +2139,7 @@
         <!--Request List View Controller-->
         <scene sceneID="Vgl-wh-PHH">
             <objects>
-                <viewController storyboardIdentifier="requestListViewController" id="C5D-cq-flE" customClass="RequestListViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="requestListViewController" id="C5D-cq-flE" customClass="RequestListViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="287-hP-dV2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2152,7 +2152,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="requestTableCell" rowHeight="500" id="8dz-bU-ymZ" customClass="RequestTableCell" customModule="HGCApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="requestTableCell" rowHeight="500" id="8dz-bU-ymZ" customClass="RequestTableCell" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="500"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8dz-bU-ymZ" id="T3W-eW-Vir">
@@ -2183,7 +2183,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="218.999HGC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FX-UT-sYy" customClass="HGCAmountLabel" customModule="HGCApp" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="218.999HGC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FX-UT-sYy" customClass="HGCAmountLabel" customModule="HederaWallet" customModuleProvider="target">
                                                                             <rect key="frame" x="256" y="48" width="99" height="21"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" red="0.3622345374" green="0.93583154680000002" blue="0.42582318409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2216,7 +2216,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEi-SY-Lyo">
                                                                     <rect key="frame" x="0.0" y="111.5" width="375" height="47"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amE-gD-paF" customClass="LocalizableLabel" customModule="HGCApp" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amE-gD-paF" customClass="LocalizableLabel" customModule="HederaWallet" customModuleProvider="target">
                                                                             <rect key="frame" x="20" y="0.0" width="55.5" height="21"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -2242,7 +2242,7 @@
                                                                         <constraint firstItem="HUe-B6-Z7A" firstAttribute="top" secondItem="amE-gD-paF" secondAttribute="bottom" constant="5" id="tZs-fq-biT"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaw-wu-Ppg" customClass="HGCButtonDestructive" customModule="HGCApp" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaw-wu-Ppg" customClass="HGCButtonDestructive" customModule="HederaWallet" customModuleProvider="target">
                                                                     <rect key="frame" x="137.5" y="168.5" width="100" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="100" id="P1d-Uf-cOS"/>
@@ -2323,7 +2323,7 @@
         <!--Settings Table View Controller-->
         <scene sceneID="M95-bC-LSG">
             <objects>
-                <tableViewController storyboardIdentifier="settingsTableViewController" id="UTw-m0-oYd" customClass="SettingsTableViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="settingsTableViewController" id="UTw-m0-oYd" customClass="SettingsTableViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CrF-h8-eI9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2347,7 +2347,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aee-TO-io5" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aee-TO-io5" customClass="HGCTextField" customModule="HederaWallet" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="51" width="335" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -2391,7 +2391,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0KZ-sv-FY0" customClass="HGCTextField" customModule="HGCApp" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0KZ-sv-FY0" customClass="HGCTextField" customModule="HederaWallet" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="51" width="335" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -2442,7 +2442,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="E5j-0z-Khe">
                                                             <rect key="frame" x="20" y="40.5" width="235" height="30"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wa9-Ae-SGW" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wa9-Ae-SGW" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
                                                                     <state key="normal" title="Change PIN"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -2452,7 +2452,7 @@
                                                                         <action selector="onChangePinButtonTap" destination="UTw-m0-oYd" eventType="touchUpInside" id="3ne-4Y-6Ef"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INP-O9-2mU" customClass="HGCButton" customModule="HGCApp" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INP-O9-2mU" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
                                                                     <rect key="frame" x="91" y="0.0" width="144" height="30"/>
                                                                     <state key="normal" title="Enable Fingerprint ID"/>
                                                                     <userDefinedRuntimeAttributes>
@@ -2508,7 +2508,7 @@
         <!--Account Viewer View Controller-->
         <scene sceneID="DUj-tU-6HT">
             <objects>
-                <viewController storyboardIdentifier="accountViewerViewController" id="kKF-xT-IBT" customClass="AccountViewerViewController" customModule="HGCApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accountViewerViewController" id="kKF-xT-IBT" customClass="AccountViewerViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NLm-ef-ufm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2521,7 +2521,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountTableCell" rowHeight="150" id="Vhy-gE-ehs" customClass="AccountTableCell" customModule="HGCApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountTableCell" rowHeight="150" id="Vhy-gE-ehs" customClass="AccountTableCell" customModule="HederaWallet" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vhy-gE-ehs" id="FpD-f6-vIg">
@@ -2636,8 +2636,95 @@
             </objects>
             <point key="canvasLocation" x="-2151" y="-1576"/>
         </scene>
+        <!--Recovery Phrase Warning View Controller-->
+        <scene sceneID="vLz-Sf-tOu">
+            <objects>
+                <viewController storyboardIdentifier="RecoveryPhraseWarningViewController" id="jNN-rI-fKd" userLabel="Recovery Phrase Warning View Controller" customClass="RecoveryPhraseWarningViewController" customModule="HederaWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8eb-ho-4mo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The recovery phrase is your friend." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jD6-PI-DMl" customClass="LocalizableLabel" customModule="HederaWallet" customModuleProvider="target">
+                                <rect key="frame" x="20" y="15" width="335" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="Recovery phrase warning text"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVD-fl-bYc" customClass="HGCBoxView" customModule="HederaWallet" customModuleProvider="target">
+                                <rect key="frame" x="20" y="65.5" width="335" height="160"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="998" constant="160" id="Bdb-Rw-QI4"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="56P-hi-X53">
+                                <rect key="frame" x="50" y="85.5" width="275" height="120"/>
+                                <string key="text">words words words words words words words words words words words words words words words words words words words words words words words words</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cR0-1J-LhB">
+                                <rect key="frame" x="305" y="15.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5Ur-oH-vc5"/>
+                                    <constraint firstAttribute="height" constant="50" id="QSI-dc-fwF"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="14" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="icon-copy"/>
+                                <connections>
+                                    <action selector="onCopyButtonTap" destination="jNN-rI-fKd" eventType="touchUpInside" id="O9w-vJ-4p0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-cN-o4t" customClass="HGCButton" customModule="HederaWallet" customModuleProvider="target">
+                                <rect key="frame" x="130.5" y="617" width="114" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="Kuh-UU-EG9"/>
+                                </constraints>
+                                <state key="normal" title="I UNDERSTAND"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="DONE"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onDoneButtonTap" destination="jNN-rI-fKd" eventType="touchUpInside" id="DNk-sM-JMP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jD6-PI-DMl" firstAttribute="top" secondItem="fT3-e7-J1Z" secondAttribute="top" constant="15" id="0Ap-tY-t0m"/>
+                            <constraint firstItem="mVD-fl-bYc" firstAttribute="leading" secondItem="fT3-e7-J1Z" secondAttribute="leading" constant="20" id="1Lo-n8-Z5t"/>
+                            <constraint firstItem="56P-hi-X53" firstAttribute="leading" secondItem="mVD-fl-bYc" secondAttribute="leading" constant="30" id="Rfj-Cg-aOi"/>
+                            <constraint firstItem="56P-hi-X53" firstAttribute="top" secondItem="mVD-fl-bYc" secondAttribute="top" constant="20" id="StX-7H-qzI"/>
+                            <constraint firstItem="fT3-e7-J1Z" firstAttribute="trailing" secondItem="jD6-PI-DMl" secondAttribute="trailing" constant="20" id="UFx-xW-Efj"/>
+                            <constraint firstItem="mVD-fl-bYc" firstAttribute="top" secondItem="cR0-1J-LhB" secondAttribute="bottom" id="V9m-1q-dRh"/>
+                            <constraint firstItem="mVD-fl-bYc" firstAttribute="top" secondItem="jD6-PI-DMl" secondAttribute="bottom" constant="30" id="VZT-1f-kcV"/>
+                            <constraint firstItem="cR0-1J-LhB" firstAttribute="trailing" secondItem="mVD-fl-bYc" secondAttribute="trailing" id="ebI-ng-l7A"/>
+                            <constraint firstItem="56P-hi-X53" firstAttribute="bottom" secondItem="mVD-fl-bYc" secondAttribute="bottom" constant="-20" id="h2Q-ik-37b"/>
+                            <constraint firstItem="iqP-cN-o4t" firstAttribute="bottom" secondItem="fT3-e7-J1Z" secondAttribute="bottom" constant="-20" id="jCC-ev-e7u"/>
+                            <constraint firstItem="56P-hi-X53" firstAttribute="trailing" secondItem="mVD-fl-bYc" secondAttribute="trailing" constant="-30" id="jPB-nY-Opx"/>
+                            <constraint firstItem="jD6-PI-DMl" firstAttribute="leading" secondItem="fT3-e7-J1Z" secondAttribute="leading" constant="20" id="jtX-9i-qWK"/>
+                            <constraint firstItem="iqP-cN-o4t" firstAttribute="centerX" secondItem="8eb-ho-4mo" secondAttribute="centerX" id="oqp-dz-iI2"/>
+                            <constraint firstItem="fT3-e7-J1Z" firstAttribute="trailing" secondItem="mVD-fl-bYc" secondAttribute="trailing" constant="20" id="t7m-6I-cvu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fT3-e7-J1Z"/>
+                    </view>
+                    <connections>
+                        <outlet property="backupPhraseLabel" destination="56P-hi-X53" id="Whk-GB-wi6"/>
+                        <outlet property="doneButton" destination="iqP-cN-o4t" id="WzH-KV-3R4"/>
+                        <outlet property="messageLabel" destination="jD6-PI-DMl" id="JcB-FO-cMc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qiw-4O-HOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1495.6521739130435" y="869.86607142857144"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="icon-copy" width="14" height="16.5"/>
         <image name="icon-menu" width="22" height="12.5"/>
     </resources>
 </document>

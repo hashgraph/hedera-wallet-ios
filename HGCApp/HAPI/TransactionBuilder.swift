@@ -148,7 +148,7 @@ class GetTransactionReceiptParam: QueryParams {
     }
 
     func perform(query: Proto_Query, rpc: HAPIRPCProtocol) throws -> Proto_Response {
-        return try rpc.cryptoClient.getTransactionReceipts(query)
+        return try rpc.cryptoClient.getTransactionReceipts(query).response.wait()
     }
 }
 
@@ -169,7 +169,7 @@ class GetBalanceParam: QueryParams {
     }
 
     func perform(query: Proto_Query, rpc: HAPIRPCProtocol) throws -> Proto_Response {
-        return try rpc.cryptoClient.cryptoGetBalance(query)
+        return try rpc.cryptoClient.cryptoGetBalance(query).response.wait()
     }
 }
 
@@ -193,7 +193,7 @@ class UpdateAccountParam: TransactionParams {
     }
 
     func perform(transaction: Proto_Transaction, rpc: HAPIRPCProtocol) throws -> Proto_TransactionResponse {
-        return try rpc.cryptoClient.updateAccount(transaction)
+        return try rpc.cryptoClient.updateAccount(transaction).response.wait()
     }
 }
 
@@ -228,7 +228,7 @@ class GetFileContentParam: QueryParams {
     }
 
     func perform(query: Proto_Query, rpc: HAPIRPCProtocol) throws -> Proto_Response {
-        return try rpc.fileClient.getFileContent(query)
+        return try rpc.fileClient.getFileContent(query).response.wait()
     }
 }
 
@@ -257,7 +257,7 @@ struct CreateAccountParams: TransactionParams {
     }
 
     func perform(transaction: Proto_Transaction, rpc: HAPIRPCProtocol) throws -> Proto_TransactionResponse {
-        return try rpc.cryptoClient.createAccount(transaction)
+        return try rpc.cryptoClient.createAccount(transaction).response.wait()
     }
 }
 
@@ -286,7 +286,7 @@ class GetAccountInfoParam: QueryParams {
     }
 
     func perform(query: Proto_Query, rpc: HAPIRPCProtocol) throws -> Proto_Response {
-        return try rpc.cryptoClient.getAccountInfo(query)
+        return try rpc.cryptoClient.getAccountInfo(query).response.wait()
     }
 }
 
@@ -315,7 +315,7 @@ class GetAccountRecordParam : QueryParams {
     }
 
     func perform(query: Proto_Query, rpc: HAPIRPCProtocol) throws -> Proto_Response {
-        return try rpc.cryptoClient.getAccountRecords(query)
+        return try rpc.cryptoClient.getAccountRecords(query).response.wait()
     }
 }
 
@@ -344,7 +344,7 @@ class TransferParam: TransactionParams {
     }
 
     func perform(transaction: Proto_Transaction, rpc: HAPIRPCProtocol) throws -> Proto_TransactionResponse {
-        return try rpc.cryptoClient.cryptoTransfer(transaction)
+        return try rpc.cryptoClient.cryptoTransfer(transaction).response.wait()
     }
 }
 

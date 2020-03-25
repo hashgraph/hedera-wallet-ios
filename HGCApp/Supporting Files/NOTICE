@@ -1,0 +1,88 @@
+Hedera Wallet for iOS
+Copyright 2018-2020 Hedera Hashgraph LLC
+
+This product includes software developed at
+Hedera Hashgraph LLC (https://www.hedera.com/).
+
+Use of the Hedera Network, which this product uses,
+requires the user to follow certain Terms.
+Please see https://www.hedera.com/terms,
+accessible via the TERMS page.
+
+-------------------------------------------------------------------------------
+
+This product includes software developed by the "Marcin Krzyzanowski
+(http://krzyzanowskim.com/).
+
+---
+
+The swift-nio-ssl project is heavily influenced by Netty.
+
+  * LICENSE (Apache License 2.0):
+    * https://github.com/netty/netty/blob/4.1/LICENSE.txt
+  * HOMEPAGE:
+    * https://netty.io
+
+---
+
+This product contains a derivation of the Tony Stone's 'process_test_files.rb'.
+
+  * LICENSE (Apache License 2.0):
+    * https://www.apache.org/licenses/LICENSE-2.0
+  * HOMEPAGE:
+    * https://codegists.com/snippet/ruby/generate_xctest_linux_runnerrb_tonystone_ruby
+
+---
+
+This product contains code from boringssl.
+
+  * LICENSE (Combination ISC and OpenSSL license)
+    * https://boringssl.googlesource.com/boringssl/+/refs/heads/master/LICENSE
+  * HOMEPAGE:
+    * https://boringssl.googlesource.com/boringssl/
+
+---
+
+This product contains NodeJS's http-parser.
+
+  * LICENSE (MIT):
+    * https://github.com/nodejs/http-parser/blob/master/LICENSE-MIT
+  * HOMEPAGE:
+    * https://github.com/nodejs/http-parser
+
+---
+
+This product contains "cpp_magic.h" from Thomas Nixon & Jonathan Heathcote's uSHET
+
+  * LICENSE (MIT):
+    * https://github.com/18sg/uSHET/blob/master/LICENSE
+  * HOMEPAGE:
+    * https://github.com/18sg/uSHET
+
+---
+
+This product contains "sha1.c" and "sha1.h" from FreeBSD (Copyright (C) 1995, 1996, 1997, and 1998 WIDE Project)
+
+  * LICENSE (BSD-3):
+    * https://opensource.org/licenses/BSD-3-Clause
+  * HOMEPAGE:
+    * https://github.com/freebsd/freebsd/tree/master/sys/crypto
+
+---
+
+This product contains "ifaddrs-android.c" and "ifaddrs-android.h" from dxr.mozilla.org. Webrtc is the owner, but we use edited version from mozilla repo (Copyright (c) 2011, The WebRTC project authors. All rights reserved)
+
+  * LICENSE (BSD):
+    * https://webrtc.googlesource.com/src/+/master/LICENSE
+  * HOMEPAGE:
+    * https://webrtc.googlesource.com/
+
+---
+
+This product contains a derivation of Fabian Fett's 'Base64.swift'.
+
+  * LICENSE (Apache License 2.0):
+    * https://github.com/fabianfett/swift-base64-kit/blob/master/LICENSE
+  * HOMEPAGE:
+    * https://github.com/fabianfett/swift-base64-kit
+

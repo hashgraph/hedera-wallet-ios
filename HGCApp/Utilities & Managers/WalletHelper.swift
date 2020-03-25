@@ -33,14 +33,14 @@ class WalletHelper: NSObject {
             return EDBip32KeyChain.init(hgcSeed: HGCSeed.init(entropy: seed))
         }
     }
-    
-    static func getHGCSeed() -> HGCSeed? {
-        guard let seed = SecureAppSettings.default.getSeed(), let hgcSeed = HGCSeed.init(entropy: seed) else {
-                return nil
-        }
-        
-        return hgcSeed
-    }
+//
+//    static func getHGCSeed() -> HGCSeed? {
+//        guard let seed = SecureAppSettings.default.getSeed(), let hgcSeed = HGCSeed.init(entropy: seed) else {
+//                return nil
+//        }
+//
+//        return hgcSeed
+//    }
     
     static func accountID() -> HGCAccountID? {
         return HGCWallet.masterWallet()?.allAccounts().first?.accountID()
@@ -69,6 +69,7 @@ class WalletHelper: NSObject {
     }
 
     static func onboard(keyDerivation:KeyDerivation, seed:HGCSeed, accID:HGCAccountID? = nil) -> Bool {
+        // [RAS] FIXME
         SecureAppSettings.default.setSeed(seed.entropy)
         HGCWallet.createMasterWallet(signatureAlgorith: Int16(SignatureOption.ED25519.rawValue), accountID: accID, keyDerivation: keyDerivation)
         CoreDataManager.shared.saveContext()
@@ -91,6 +92,7 @@ class WalletHelper: NSObject {
     
     static func resetWallet() throws {
         // Clear keychain items
+        // [RAS] FIXME
         try SecureAppSettings.default.clear()
       
         // Clear DB

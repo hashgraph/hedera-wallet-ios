@@ -3,7 +3,10 @@ set -o nounset
 set -o errexit
 set -o pipefail
 brew install protobuf
-brew install swift-protobuf
-brew install grpc-swift
+git clone https://github.com/grpc/grpc-swift
+pushd ./grpc-swift
+git checkout nio
+make plugins
+popd
 pod install --verbose
-./gen-swift
+PATH="$(pwd)/grpc-swift:$PATH" ./gen-swift

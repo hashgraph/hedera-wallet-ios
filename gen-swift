@@ -1,12 +1,27 @@
+#!/usr/bin/env bash
 
-echo generating swift proto files
-get_files () {
-files="`ls *.proto`"
-}
+printf 'generating swift proto files\n'
+printf 'PATH=%s\n' "$PATH"
 mkdir -p proto-swift
 mkdir -p proto-grpc-swift
-cd proto
-get_files
+pushd proto
+files="`ls *.proto`"
 protoc --swift_out=../proto-swift $files
-protoc --swiftgrpc_out=../proto-grpc-swift $files
-cd ..
+if [ $? -ne 0 ] ; then
+    printf 'failed building swift protocol buffers\n'
+    popd
+    exit 1
+fi
+protoc --grpc-swift_out=Server=false:../proto-grpc-swift CryptoService.proto FileService.proto
+if [ $? -ne 0 ] ; then
+    printf 'failed building gRPC client\n'
+    popd
+    exit 1
+fi
+sed -i '' '/extension .* GRPCProtobufPayload/d' ../proto-grpc-swift/FileService.grpc.swift
+if [ $? -ne 0 ] ; then
+    printf 'failed building gRPC client\n'
+    popd
+    exit 1
+fi
+popd

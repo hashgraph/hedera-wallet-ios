@@ -66,4 +66,9 @@ class WalletSetupOptionsViewController: UIViewController {
         let vc = BackupWalletViewController.getInstance(SignatureOption.ED25519)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+
+    @IBAction func onAboutTap() {
+        let vc = AboutViewController.getInstance()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

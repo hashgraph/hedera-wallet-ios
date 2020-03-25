@@ -15,13 +15,12 @@
 //
 
 import UIKit
-import SwiftGRPC
+import GRPC
 
 protocol HAPIRPCProtocol {
-    var cryptoClient: Proto_CryptoServiceServiceClient { get }
-    var tokenClient: Proto_SmartContractServiceServiceClient { get }
-    var fileClient: Proto_FileServiceServiceClient { get }
-    var timeout:TimeInterval { get set }
+    var cryptoClient: Proto_CryptoServiceClient { get }
+    var fileClient: Proto_FileServiceClient { get }
+    var timeout: GRPCTimeout { get set }
     var node: HGCNodeVO { get }
 
     func perform(_ param:QueryParams, _ txnBuilder:TransactionBuilder) throws -> (query:Proto_Query, response:Proto_Response)
@@ -41,11 +40,17 @@ protocol QueryParams {
 
 class GRPCWrapper : HAPIRPCProtocol {
     var nodes:[HGCNodeVO]
-    var timeout:TimeInterval = 15
+    var timeout: GRPCTimeout
     private var currentNodeIndex:Int = 0
     
     init(nodes:[HGCNodeVO]) {
         self.nodes = nodes
+        do {
+        timeout = try GRPCTimeout.seconds(15)
+        }
+        catch {
+            fatalError("Can't make timeout of 15 seconds???")
+        }
         currentNodeIndex = randomIndex
     }
     
@@ -66,19 +71,26 @@ class GRPCWrapper : HAPIRPCProtocol {
     private var maxRetryCount:Int {
         return max(min(( nodes.count * 2 ) / 3, 10), 1)
     }
-    
-    var cryptoClient: Proto_CryptoServiceServiceClient {
-        let client = Proto_CryptoServiceServiceClient.init(address: node.address(), secure: false)
-        client.timeout = timeout
+
+    var cryptoClient: Proto_CryptoServiceClient {
+        let target = ConnectionTarget.hostAndPort(node.host, Int(node.port))
+        let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+        let config = ClientConnection.Configuration(target: target, eventLoopGroup: group)
+        let connection = ClientConnection(configuration: config)
+        var callOptions = CallOptions()
+        callOptions.timeout = timeout
+        let client = Proto_CryptoServiceClient(channel: connection, defaultCallOptions: callOptions)
         return client
     }
-    
-    var tokenClient: Proto_SmartContractServiceServiceClient {
-        return Proto_SmartContractServiceServiceClient.init(address: node.address(), secure: false)
-    }
-    
-    var fileClient: Proto_FileServiceServiceClient {
-        return Proto_FileServiceServiceClient.init(address: node.address(), secure: false)
+
+    var fileClient: Proto_FileServiceClient {
+        let target = ConnectionTarget.hostAndPort(node.host, Int(node.port))
+        let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+        let config = ClientConnection.Configuration(target: target, eventLoopGroup: group)
+        let connection = ClientConnection(configuration: config)
+        var callOptions = CallOptions()
+        callOptions.timeout = timeout
+        return Proto_FileServiceClient(channel: connection, defaultCallOptions: callOptions)
     }
     
     func perform(_ param:QueryParams, _ txnBuilder:TransactionBuilder) throws -> (query:Proto_Query, response:Proto_Response) {
@@ -102,9 +114,9 @@ class GRPCWrapper : HAPIRPCProtocol {
             return (transaction, res)
         }
     }
-    
-     func perform<T>(_ block:(() throws -> T)) throws -> T {
-        var e:Error? = nil
+
+    func perform<T>(_ block:(() throws -> T)) throws -> T {
+        var e: Error? = nil
         for _ in 1...maxRetryCount {
             do {
                 Logger.instance.log(message: " >>> \(node.address())", event: .i)
@@ -113,15 +125,10 @@ class GRPCWrapper : HAPIRPCProtocol {
             } catch {
                 e = error
                 var shouldRetry = false
-                if let rpcError = error as? RPCError {
-                    switch rpcError {
-                    case .callError(let result):
-                        switch result.statusCode {
-                        case .unavailable:
-                            shouldRetry = true
-                        default:
-                            break
-                        }
+                if let rpcStatus = error as? GRPCStatusTransformable {
+                    switch rpcStatus.makeGRPCStatus().code {
+                    case .unavailable:
+                        shouldRetry = true
                     default:
                         break
                     }

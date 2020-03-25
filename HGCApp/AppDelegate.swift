@@ -1,5 +1,5 @@
 //
-//  Copyright 2019 Hedera Hashgraph LLC
+//  Copyright 2019-2020 Hedera Hashgraph LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
 //
 
 import UIKit
-import Branch
 import IQKeyboardManagerSwift
+import LGSideMenuController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,10 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // load address book
         APIAddressBookService.defaultAddressBook.loadAddressBook()
         
-        // register branch.io instance
-        setupBranchIO(launchOptions)
-        
         if WalletHelper.isOnboarded() {
+            pushRecoveryPhraseWarning()
             // Authenticate
             AppDelegate.authManager.authenticate(AppDelegate.authManager.currentAuthType(), animated: false)
         }
@@ -46,16 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let branchHandled = Branch.getInstance().application(app, open: url, options: options)
-        if !branchHandled {
-            RedirectManager.shared.onUrlReceived(url)
-        }
+
+        RedirectManager.shared.onUrlReceived(url)
         return true
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        let branchHandled = Branch.getInstance().continue(userActivity)
-        return branchHandled
+
+        return false
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -66,10 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         splashWindow?.isHidden = true
         AppConfigService.defaultService.updateExchangeRate()
     }
-    
+
     func applicationWillEnterForeground(_ application: UIApplication) {
         splashWindow?.isHidden = true
         if WalletHelper.isOnboarded() && AppDelegate.authManager.shouldAskForAuth() {
+            pushRecoveryPhraseWarning()
             AppDelegate.authManager.authenticate(AppDelegate.authManager.currentAuthType(), animated: false)
         }
     }
@@ -167,21 +164,16 @@ extension AppDelegate {
     @objc func onOnboardDidSuccess() {
         switchToMain()
     }
-    
-    func setupBranchIO(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        Branch.setUseTestBranchKey(isDevMode)
-        let branch: Branch = Branch.getInstance()
-        branch.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
-            if error == nil {
-                if let banchParams = params as? [String: Any] {
-                    Logger.instance.log(message: banchParams.description, event: .i)
-                    
-                    RedirectManager.shared.onBranchParamsReceived(banchParams)
+
+    fileprivate func pushRecoveryPhraseWarning() {
+        if HGCWallet.masterWallet()?.didShowRecoveryPhraseWarning != .some(true) {
+            if let sideMenuController = window?.rootViewController as? LGSideMenuController {
+                if let navVc = sideMenuController.rootViewController {
+                    let warningVC = RecoveryPhraseWarningViewController.getInstance(.ED25519)
+                    navVc.show(warningVC, sender: nil)
                 }
-            } else {
-                Logger.instance.log(message: error!.localizedDescription, event: .e)
             }
-        })
+        }
     }
 }
 
@@ -206,11 +198,11 @@ extension AppDelegate : Bip32MigrationDelegate {
         let wallet = HGCWallet.masterWallet()
         wallet?.keyDerivationType = .bip32
         WalletHelper.defaultPayerAccount()?.publicKey = nil
+        // [RAS] FIXME
         SecureAppSettings.default.setSeed(newSeed.entropy)
         CoreDataManager.shared.saveContext()
         AppSettings.setNeedsToShownBip39Mnemonic()
         switchToMain()
     }
 }
-
 
