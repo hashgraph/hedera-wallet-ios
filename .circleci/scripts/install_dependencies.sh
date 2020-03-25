@@ -9,4 +9,4 @@ git checkout nio
 make plugins
 popd
 pod install --verbose
-PATH="$(pwd)/grpc-swift/:$PATH" ./gen-swift
+PATH="$(pwd)/grpc-swift:$PATH" ./gen-swift
