@@ -15,7 +15,7 @@
 //
 
 import Foundation
-import SwiftGRPC
+import GRPC
 
 class BaseOperation: Operation {
     var errorMessage:String?
@@ -26,23 +26,24 @@ class BaseOperation: Operation {
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
-    
-    func desc(_ error:Error) -> String {
-        if let rpcError = error as? RPCError {
-            switch rpcError {
-            case .timedOut:
-                return NSLocalizedString("Request timedOut", comment: "")
-            case .invalidMessageReceived:
-                return NSLocalizedString("Invalid message received", comment: "")
-            case .callError(let result):
-                print(result)
-                switch result.statusCode {
-                case .unavailable, .unknown, .deadlineExceeded:
-                    return "\(NSLocalizedString("Node is not reachable", comment: "")): " + grpc.node.host
-                default:
-                    return NSLocalizedString("Something went wrong, please try later.", comment: "")
-                }
-                
+
+    func desc(_ error: Error) -> String {
+        if error is GRPCTimeoutError {
+        }
+        else if error is GRPCError.RPCTimedOut {
+            return NSLocalizedString("Request timedOut", comment: "")
+        }
+        else if error is GRPCError.SerializationFailure ||
+                error is GRPCError.DeserializationFailure {
+            return NSLocalizedString("Invalid message received", comment: "")
+        }
+        else if let status = error as? GRPCStatusTransformable {
+            print(status)
+            switch status.makeGRPCStatus().code {
+            case .unavailable, .unknown, .deadlineExceeded:
+                return "\(NSLocalizedString("Node is not reachable", comment: "")): " + grpc.node.host
+            default:
+                return NSLocalizedString("Something went wrong, please try later.", comment: "")
             }
         } else if let str = error as? String {
             return str
@@ -198,6 +199,6 @@ extension Proto_ResponseCodeEnum {
 
 extension Error {
     var isRPCError: Bool {
-        return ((self as? RPCError) != nil)
+        return self is GRPCError
     }
 }

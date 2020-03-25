@@ -1,4 +1,4 @@
-# Hedera Mobile Wallet Beta-2019
+# Hedera Mobile Wallet 2020
 
 The Hedera HashGraph wallet is a software program that creates, stores and manages private and public keys, it also allows the user to interact with the Hedera Hashgraph Network. This wallet enables users to send and receive payments in Hedera native HBAR crypto currency and also monitor the balance.
 
@@ -36,10 +36,25 @@ Install Cocoapods.
 gem install cocoapods --user-install
 ```
 
-Install `protoc`, its protobuf Swift plugin, and the gRPC Swift plugin.
+Install `protoc`.
 
 ```bash
 brew install protobuf swift-protobuf grpc-swift
+```
+
+The Swift Protobuf and GRPC Swift modules provide `protoc-gen-swift` and
+`protoc-gen-grpc-swift` respectively.
+The `./gen-swift` script assumes these are on PATH,
+but the paths can be provided to the tool using `--plugin=$PLUGIN_PATH`.
+You can run `make plugins` from a GitHub clone to make these tools;
+there are likely other easier ways but I was just happy to have it working.
+Just be sure to use the NIO version, which is currently in the nio branch.
+
+```bash
+git clone https://github.com/grpc/grpc-swift.git/
+cd grpc-swift
+git checkout nio
+make plugins
 ```
 
 ## Building the Code

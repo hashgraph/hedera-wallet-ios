@@ -3,11 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0B0ADD4223A5735D0069AD41 /* OnboardExistingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */; };
+		0B138927240D7D8200D638B2 /* FileService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B138926240D7D8200D638B2 /* FileService.grpc.swift */; };
+		0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737CE240EADF200AE3E01 /* SwiftProtobuf */; };
+		0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737D1240EAE3900AE3E01 /* GRPC */; };
+		0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DA240EC1CE00AE3E01 /* CryptoSwift */; };
+		0BA737DE240EC1E700AE3E01 /* ActiveLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DD240EC1E700AE3E01 /* ActiveLabel */; };
+		0BA737E1240EC20C00AE3E01 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */; };
+		0BA737E4240EC22E00AE3E01 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E3240EC22E00AE3E01 /* MBProgressHUD */; };
+		0BA737E7240EC24C00AE3E01 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E6240EC24C00AE3E01 /* SwiftyJSON */; };
+		0BC7FBE62404361A00553F77 /* ExchangeInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */; };
 		1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */; };
 		1808C31C22488D8300FD7F45 /* TransactionBody.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */; };
 		1815081921858B3000890123 /* IPUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815080B21858B3000890123 /* IPUtility.swift */; };
@@ -242,12 +251,11 @@
 		35E9C7C91FF267990042078C /* TxnDetailsAddressTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E9C7C71FF267980042078C /* TxnDetailsAddressTableCell.swift */; };
 		35E9C7CA1FF267990042078C /* TxnDetailsAddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E9C7C81FF267980042078C /* TxnDetailsAddressTableCell.xib */; };
 		35F8D5C8212F0FA500A033A6 /* CryptoService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F8D5C5212F0FA500A033A6 /* CryptoService.grpc.swift */; };
-		35F8D5C9212F0FA500A033A6 /* SmartContractService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F8D5C6212F0FA500A033A6 /* SmartContractService.grpc.swift */; };
-		35F8D5CA212F0FA500A033A6 /* FileService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F8D5C7212F0FA500A033A6 /* FileService.grpc.swift */; };
 		35FCF63F1FDD4AC700BA1EB1 /* AmountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF63D1FDD4AC700BA1EB1 /* AmountTableViewCell.swift */; };
 		35FCF6401FDD4AC700BA1EB1 /* AmountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FCF63E1FDD4AC700BA1EB1 /* AmountTableViewCell.xib */; };
 		35FCF7C11FD9502C004F4C09 /* HGCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C01FD9502B004F4C09 /* HGCLabel.swift */; };
 		35FCF7C31FD95710004F4C09 /* HGCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FCF7C21FD95710004F4C09 /* HGCTextField.swift */; };
+		96331B4381C24FC7BCBDDE3A /* Pods_HGCApp_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52659E5E0300104856E310C9 /* Pods_HGCApp_UnitTests.framework */; };
 		9D83543BB9043C75010072C6 /* Pods_HGCApp_HGCAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */; };
 		C91E4FB520D5114200996A93 /* DeveloerToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E4FB420D5114200996A93 /* DeveloerToolViewController.swift */; };
 		C91E4FB720D5549E00996A93 /* DeveloperTools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91E4FB620D5549E00996A93 /* DeveloperTools.storyboard */; };
@@ -270,6 +278,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0BA73793240DCDE200AE3E01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35B8ABB21F9E5642003E4F57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35B8ABB91F9E5642003E4F57;
+			remoteInfo = HGCApp;
+		};
 		35B8ABCF1F9E5642003E4F57 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 35B8ABB21F9E5642003E4F57 /* Project object */;
@@ -300,9 +315,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01FB3E5C862B51F5A50D2BF4 /* Pods-HGCAppTests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.dev.xcconfig"; sourceTree = "<group>"; };
 		0AD87E7F256A51BD770B1BF0 /* Pods-HGCAppUITests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		0B0ADD4123A5735D0069AD41 /* OnboardExistingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardExistingTests.swift; sourceTree = "<group>"; };
+		0B138926240D7D8200D638B2 /* FileService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.grpc.swift; sourceTree = "<group>"; };
 		0B42E18023E34662003CE1B6 /* hgc-5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "hgc-5.xcdatamodel"; sourceTree = "<group>"; };
+		0BC7FBDA2404360100553F77 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BC7FBDE2404360100553F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeInfoTests.swift; sourceTree = "<group>"; };
 		10905C2F9BF793846D9D8B8C /* Pods-HGCApp.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		1808C31922488D8200FD7F45 /* ExchangeRate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRate.pb.swift; sourceTree = "<group>"; };
 		1808C31A22488D8300FD7F45 /* TransactionBody.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionBody.pb.swift; sourceTree = "<group>"; };
@@ -368,8 +388,11 @@
 		18F94471232BFF3600AF4B76 /* InfoTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableCell.xib; sourceTree = "<group>"; };
 		18FED0B822A9185400227585 /* Bip32MigrationBackupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip32MigrationBackupVC.swift; sourceTree = "<group>"; };
 		18FED0BA22A9187100227585 /* Bip32MigrationConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bip32MigrationConfirmVC.swift; sourceTree = "<group>"; };
+		1BA8DD737CBA1BC29B54B7F3 /* Pods-HGCApp-HGCAppUITests.prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.prod.xcconfig"; sourceTree = "<group>"; };
 		2166CDD3C91C3CEC9B9FD9D3 /* Pods-HGCAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		2E78F7F5863EF294F89ACAAA /* Pods-UnitTests.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.release_prod.xcconfig"; sourceTree = "<group>"; };
 		2F8DB5934EE7DEEEA27511C3 /* Pods-HGCApp.debug_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_prod_oc.xcconfig"; sourceTree = "<group>"; };
+		3270502BADA1E4D82B7D4136 /* Pods-HGCAppTests.prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.prod.xcconfig"; sourceTree = "<group>"; };
 		3504B9C020FEFB72003CC4E7 /* HGCPublickKeyAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCPublickKeyAddress.swift; sourceTree = "<group>"; };
 		3504B9C220FF148F003CC4E7 /* HGCAccountID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCAccountID.swift; sourceTree = "<group>"; };
 		3504B9C521004F1F003CC4E7 /* FileDelete.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDelete.pb.swift; sourceTree = "<group>"; };
@@ -480,6 +503,7 @@
 		353738871FDD4437009999F2 /* AddressOptionsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressOptionsTableCell.swift; sourceTree = "<group>"; };
 		353738881FDD4437009999F2 /* AddressOptionsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressOptionsTableCell.xib; sourceTree = "<group>"; };
 		353AB4611FE1300C0084042A /* HGCApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HGCApp.entitlements; sourceTree = "<group>"; };
+		353C1EB30607C86B8590F9D8 /* Pods-HGCApp-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		353C9A2C20DA6D060055CF20 /* tokens-eth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "tokens-eth.json"; sourceTree = "<group>"; };
 		35477F3B1FDE76690035EF2D /* QRScanTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanTableCell.swift; sourceTree = "<group>"; };
 		35477F3C1FDE76690035EF2D /* QRScanTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRScanTableCell.xib; sourceTree = "<group>"; };
@@ -561,15 +585,17 @@
 		35E9C7C71FF267980042078C /* TxnDetailsAddressTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxnDetailsAddressTableCell.swift; sourceTree = "<group>"; };
 		35E9C7C81FF267980042078C /* TxnDetailsAddressTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TxnDetailsAddressTableCell.xib; sourceTree = "<group>"; };
 		35F8D5C5212F0FA500A033A6 /* CryptoService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoService.grpc.swift; sourceTree = "<group>"; };
-		35F8D5C6212F0FA500A033A6 /* SmartContractService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartContractService.grpc.swift; sourceTree = "<group>"; };
-		35F8D5C7212F0FA500A033A6 /* FileService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.grpc.swift; sourceTree = "<group>"; };
 		35FCF63D1FDD4AC700BA1EB1 /* AmountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTableViewCell.swift; sourceTree = "<group>"; };
 		35FCF63E1FDD4AC700BA1EB1 /* AmountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmountTableViewCell.xib; sourceTree = "<group>"; };
 		35FCF7C01FD9502B004F4C09 /* HGCLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCLabel.swift; sourceTree = "<group>"; };
 		35FCF7C21FD95710004F4C09 /* HGCTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCTextField.swift; sourceTree = "<group>"; };
 		367AB6BC295AD93C78CFA2EA /* Pods-HGCAppUITests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		39EBE814F7DCB0063CC4FF7D /* Pods-HGCAppTests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.debug_dev.xcconfig"; sourceTree = "<group>"; };
+		4251B6F350CA91E9531F18F4 /* Pods-HGCApp-UnitTests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-UnitTests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests.debug_dev.xcconfig"; sourceTree = "<group>"; };
+		4755C9517176CE34AC9107D1 /* Pods-HGCApp-UnitTests.prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-UnitTests.prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests.prod.xcconfig"; sourceTree = "<group>"; };
+		4B8B30A44155093D557542BA /* Pods-HGCApp-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		4E0C676537D81394E3AB0BC0 /* Pods-HGCAppUITests.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
+		52659E5E0300104856E310C9 /* Pods_HGCApp_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5920569227B339376A414754 /* Pods-HGCAppTests.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		5AB1530F17F1EF6914EB09C1 /* Pods-HGCAppTests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		5DA34554D9D036E2BE8FEB76 /* Pods-HGCAppUITests.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release_prod.xcconfig"; sourceTree = "<group>"; };
@@ -579,14 +605,17 @@
 		69C8228D048F7E267F3D4B70 /* Pods-HGCApp.debug_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		6AB0BA9A4CE992D31E5ECBE8 /* Pods-HGCApp.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_dev.xcconfig"; sourceTree = "<group>"; };
 		7900765FDCE4C72C6CFC503B /* Pods-HGCApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7F03CA4945F4DFC603B41ED6 /* Pods-HGCApp-UnitTests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-UnitTests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		880D056128F0B700DE4D7D69 /* Pods_HGCAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89417D5C03EB230D6D641C53 /* Pods-HGCAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8DF1BD1340A8089A1AAFF425 /* Pods-UnitTests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		8FE43EB0DCBB809E2D466E54 /* Pods-HGCApp.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_prod.xcconfig"; sourceTree = "<group>"; };
 		A0C4F080E9F8E8293666E460 /* Pods-HGCAppTests.debug_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.debug_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.debug_prod.xcconfig"; sourceTree = "<group>"; };
 		A588E7CA3D05EBCA9E5AA25C /* Pods-HGCAppUITests.debug_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		A8D61A73F68FA4377436315B /* Pods-HGCAppTests.debug_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.debug_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.debug_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		B182A8E56D75D2EC9351F097 /* Pods-HGCApp.release_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release_prod_oc.xcconfig"; sourceTree = "<group>"; };
 		B8012DE459093DB379F90D33 /* Pods-HGCAppUITests.debug_prod_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_prod_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_prod_oc.xcconfig"; sourceTree = "<group>"; };
+		B98C8A6F8C3019C95E5D2279 /* Pods-HGCApp.prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.prod.xcconfig"; sourceTree = "<group>"; };
 		BC427FB8B3BE1B226EC5DDDC /* Pods-HGCAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1097166A5E8714810905884 /* Pods-HGCApp.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.debug_dev.xcconfig"; sourceTree = "<group>"; };
 		C1920A55AAD1E5A8784CEB57 /* Pods-HGCAppTests.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_prod.xcconfig"; sourceTree = "<group>"; };
@@ -600,6 +629,7 @@
 		CAFF7BC70E9B76A911C180A0 /* Pods-HGCAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CED278BA5CAB6EFB025FFE16 /* Pods-HGCApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.release.xcconfig"; sourceTree = "<group>"; };
 		D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp_HGCAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D13FA1A98AE7ED29859627CC /* Pods-HGCApp-HGCAppUITests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.dev.xcconfig"; sourceTree = "<group>"; };
 		D48720E8954DD6D6903AC125 /* Pods-HGCAppTests.release_dev_oc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppTests.release_dev_oc.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppTests/Pods-HGCAppTests.release_dev_oc.xcconfig"; sourceTree = "<group>"; };
 		D543CD1F23996298006CA213 /* StyreneA-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Regular.ttf"; sourceTree = "<group>"; };
 		D543CD2023996298006CA213 /* StyreneA-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyreneA-Light.ttf"; sourceTree = "<group>"; };
@@ -609,15 +639,36 @@
 		DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release_dev.xcconfig"; sourceTree = "<group>"; };
 		DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGCApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
+		EBEF463EC91E7DCEE3C3D201 /* Pods-HGCApp-HGCAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EC013F53B393F09D57054E92 /* Pods-HGCAppUITests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCAppUITests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCAppUITests/Pods-HGCAppUITests.debug_dev.xcconfig"; sourceTree = "<group>"; };
+		EDA349165463A16F3B2B5D93 /* Pods-HGCApp-HGCAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-HGCAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F136E2364035A2580359B9CF /* Pods-UnitTests.debug_dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.debug_dev.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.debug_dev.xcconfig"; sourceTree = "<group>"; };
+		F27D14B45B5AAF3F55BBEEB7 /* Pods-HGCApp-UnitTests.release_prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-UnitTests.release_prod.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests.release_prod.xcconfig"; sourceTree = "<group>"; };
+		F379DA0D2E1AD2CB223C2F26 /* Pods-HGCApp-UnitTests.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp-UnitTests.dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests.dev.xcconfig"; sourceTree = "<group>"; };
+		F9419D7134F4353D6A8C661E /* Pods-HGCApp.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGCApp.dev.xcconfig"; path = "Pods/Target Support Files/Pods-HGCApp/Pods-HGCApp.dev.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0BC7FBD72404360100553F77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96331B4381C24FC7BCBDDE3A /* Pods_HGCApp_UnitTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35B8ABB71F9E5642003E4F57 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D7367F659934327748C84A9C /* Pods_HGCApp.framework in Frameworks */,
+				0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */,
+				0BA737E7240EC24C00AE3E01 /* SwiftyJSON in Frameworks */,
+				0BA737DE240EC1E700AE3E01 /* ActiveLabel in Frameworks */,
+				0BA737E4240EC22E00AE3E01 /* MBProgressHUD in Frameworks */,
+				0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */,
+				0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */,
+				0BA737E1240EC20C00AE3E01 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +691,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BC7FBDB2404360100553F77 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				0BC7FBE52404361A00553F77 /* ExchangeInfoTests.swift */,
+				0BC7FBDE2404360100553F77 /* Info.plist */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
 		187530562260946D00E284C0 /* Local Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,6 +811,24 @@
 				EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */,
 				DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */,
 				D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */,
+				F136E2364035A2580359B9CF /* Pods-UnitTests.debug_dev.xcconfig */,
+				8DF1BD1340A8089A1AAFF425 /* Pods-UnitTests.release_dev.xcconfig */,
+				2E78F7F5863EF294F89ACAAA /* Pods-UnitTests.release_prod.xcconfig */,
+				4251B6F350CA91E9531F18F4 /* Pods-HGCApp-UnitTests.debug_dev.xcconfig */,
+				7F03CA4945F4DFC603B41ED6 /* Pods-HGCApp-UnitTests.release_dev.xcconfig */,
+				F27D14B45B5AAF3F55BBEEB7 /* Pods-HGCApp-UnitTests.release_prod.xcconfig */,
+				F9419D7134F4353D6A8C661E /* Pods-HGCApp.dev.xcconfig */,
+				B98C8A6F8C3019C95E5D2279 /* Pods-HGCApp.prod.xcconfig */,
+				D13FA1A98AE7ED29859627CC /* Pods-HGCApp-HGCAppUITests.dev.xcconfig */,
+				1BA8DD737CBA1BC29B54B7F3 /* Pods-HGCApp-HGCAppUITests.prod.xcconfig */,
+				F379DA0D2E1AD2CB223C2F26 /* Pods-HGCApp-UnitTests.dev.xcconfig */,
+				4755C9517176CE34AC9107D1 /* Pods-HGCApp-UnitTests.prod.xcconfig */,
+				01FB3E5C862B51F5A50D2BF4 /* Pods-HGCAppTests.dev.xcconfig */,
+				3270502BADA1E4D82B7D4136 /* Pods-HGCAppTests.prod.xcconfig */,
+				EBEF463EC91E7DCEE3C3D201 /* Pods-HGCApp-HGCAppUITests.debug.xcconfig */,
+				EDA349165463A16F3B2B5D93 /* Pods-HGCApp-HGCAppUITests.release.xcconfig */,
+				353C1EB30607C86B8590F9D8 /* Pods-HGCApp-UnitTests.debug.xcconfig */,
+				4B8B30A44155093D557542BA /* Pods-HGCApp-UnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1107,6 +1185,7 @@
 				35B8ABBC1F9E5642003E4F57 /* HGCApp */,
 				35B8ABD11F9E5642003E4F57 /* HGCAppTests */,
 				35B8ABDC1F9E5642003E4F57 /* HGCAppUITests */,
+				0BC7FBDB2404360100553F77 /* UnitTests */,
 				35B8ABBB1F9E5642003E4F57 /* Products */,
 				246D90CC3DC4B6A67D76EB76 /* Pods */,
 				E8AAAA4568E7A32B9A1838C0 /* Frameworks */,
@@ -1119,6 +1198,7 @@
 				35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */,
 				35B8ABCE1F9E5642003E4F57 /* HGCAppTests.xctest */,
 				35B8ABD91F9E5642003E4F57 /* HGCAppUITests.xctest */,
+				0BC7FBDA2404360100553F77 /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1275,8 +1355,7 @@
 			isa = PBXGroup;
 			children = (
 				35F8D5C5212F0FA500A033A6 /* CryptoService.grpc.swift */,
-				35F8D5C6212F0FA500A033A6 /* SmartContractService.grpc.swift */,
-				35F8D5C7212F0FA500A033A6 /* FileService.grpc.swift */,
+				0B138926240D7D8200D638B2 /* FileService.grpc.swift */,
 			);
 			path = "proto-grpc-swift";
 			sourceTree = SOURCE_ROOT;
@@ -1326,6 +1405,7 @@
 				DFC15EE575A38F9CEACD6F30 /* Pods_HGCApp.framework */,
 				880D056128F0B700DE4D7D69 /* Pods_HGCAppTests.framework */,
 				D0EF6B46DE3656C40632D95B /* Pods_HGCApp_HGCAppUITests.framework */,
+				52659E5E0300104856E310C9 /* Pods_HGCApp_UnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1333,6 +1413,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0BC7FBD92404360100553F77 /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BC7FBE42404360100553F77 /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				4ECE241578CBF6C998277AA5 /* [CP] Check Pods Manifest.lock */,
+				0BC7FBD62404360100553F77 /* Sources */,
+				0BC7FBD72404360100553F77 /* Frameworks */,
+				0BC7FBD82404360100553F77 /* Resources */,
+				885DB32208649FFFA7AF235B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BA73794240DCDE200AE3E01 /* PBXTargetDependency */,
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = 0BC7FBDA2404360100553F77 /* UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		35B8ABB91F9E5642003E4F57 /* HGCApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35B8ABE21F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCApp" */;
@@ -1348,8 +1448,24 @@
 			buildRules = (
 			);
 			dependencies = (
+				0BA737E9240EC25C00AE3E01 /* PBXTargetDependency */,
+				0BA737EB240EC25C00AE3E01 /* PBXTargetDependency */,
+				0BA737ED240EC25C00AE3E01 /* PBXTargetDependency */,
+				0BA737EF240EC25C00AE3E01 /* PBXTargetDependency */,
+				0BA737F1240EC25C00AE3E01 /* PBXTargetDependency */,
+				0BA737D8240EC07E00AE3E01 /* PBXTargetDependency */,
+				0BA737D6240EC07700AE3E01 /* PBXTargetDependency */,
 			);
 			name = HGCApp;
+			packageProductDependencies = (
+				0BA737CE240EADF200AE3E01 /* SwiftProtobuf */,
+				0BA737D1240EAE3900AE3E01 /* GRPC */,
+				0BA737DA240EC1CE00AE3E01 /* CryptoSwift */,
+				0BA737DD240EC1E700AE3E01 /* ActiveLabel */,
+				0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */,
+				0BA737E3240EC22E00AE3E01 /* MBProgressHUD */,
+				0BA737E6240EC24C00AE3E01 /* SwiftyJSON */,
+			);
 			productName = HGCApp;
 			productReference = 35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */;
 			productType = "com.apple.product-type.application";
@@ -1399,10 +1515,14 @@
 		35B8ABB21F9E5642003E4F57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = HGC;
 				TargetAttributes = {
+					0BC7FBD92404360100553F77 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 35B8ABB91F9E5642003E4F57;
+					};
 					35B8ABB91F9E5642003E4F57 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 1020;
@@ -1438,6 +1558,15 @@
 				Base,
 			);
 			mainGroup = 35B8ABB11F9E5642003E4F57;
+			packageReferences = (
+				0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */,
+				0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 35B8ABBB1F9E5642003E4F57 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1445,11 +1574,19 @@
 				35B8ABB91F9E5642003E4F57 /* HGCApp */,
 				35B8ABCD1F9E5642003E4F57 /* HGCAppTests */,
 				35B8ABD81F9E5642003E4F57 /* HGCAppUITests */,
+				0BC7FBD92404360100553F77 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0BC7FBD82404360100553F77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35B8ABB81F9E5642003E4F57 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1531,48 +1668,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/gen-swift\"\n";
+			shellScript = "##\"$SRCROOT/gen-swift\"\n";
+		};
+		4ECE241578CBF6C998277AA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HGCApp-UnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		681698A5F7A9366EBAB6ADE0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp/Pods-HGCApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ABPadLockScreen/ABPadLockScreen.framework",
-				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
-				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftGRPC/SwiftGRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp/Pods-HGCApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ABPadLockScreen.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp/Pods-HGCApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1584,45 +1714,33 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ABPadLockScreen/ABPadLockScreen.framework",
-				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
-				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftGRPC/SwiftGRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ABPadLockScreen.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		885DB32208649FFFA7AF235B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		949832083CC4647F1DDC13E8 /* [CP] Check Pods Manifest.lock */ = {
@@ -1682,6 +1800,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0BC7FBD62404360100553F77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BC7FBE62404361A00553F77 /* ExchangeInfoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35B8ABB61F9E5642003E4F57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1731,7 +1857,6 @@
 				353287BB1FE7C70600BCDE4F /* AboutViewController.swift in Sources */,
 				1862557C22F1B1BC00D001E9 /* FreezeService.pb.swift in Sources */,
 				187530552260940600E284C0 /* SecureAppSettings.swift in Sources */,
-				35F8D5CA212F0FA500A033A6 /* FileService.grpc.swift in Sources */,
 				184664F422ED50E00009DE91 /* PublicKeyInputCell.swift in Sources */,
 				3504B9FA21004F1F003CC4E7 /* TransactionReceipt.pb.swift in Sources */,
 				18A65AD922101E4200221FFD /* Mnemonic.m in Sources */,
@@ -1739,7 +1864,6 @@
 				187530742264F13900E284C0 /* HAPI+HGCPublickKeyAddress.swift in Sources */,
 				35B8ABBE1F9E5642003E4F57 /* AppDelegate.swift in Sources */,
 				351EEC082059812B00190DCF /* fe.c in Sources */,
-				35F8D5C9212F0FA500A033A6 /* SmartContractService.grpc.swift in Sources */,
 				18EE0AB6225F726000FCFA5B /* FeeBuilder.swift in Sources */,
 				35FCF7C11FD9502C004F4C09 /* HGCLabel.swift in Sources */,
 				188705A7229D261E00055276 /* FileFeeBuilder.swift in Sources */,
@@ -1769,6 +1893,7 @@
 				351EEC0E2059812B00190DCF /* seed.c in Sources */,
 				3504B9EB21004F1F003CC4E7 /* QueryHeader.pb.swift in Sources */,
 				1837AB4221A7CC890003FD57 /* TransactionGetFastRecord.pb.swift in Sources */,
+				0B138927240D7D8200D638B2 /* FileService.grpc.swift in Sources */,
 				188705AF22A131CE00055276 /* TransactionBuilder.swift in Sources */,
 				1875305D226094B800E284C0 /* AuthenticationErrors.swift in Sources */,
 				1808C31B22488D8300FD7F45 /* ExchangeRate.pb.swift in Sources */,
@@ -1918,6 +2043,39 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0BA73794240DCDE200AE3E01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35B8ABB91F9E5642003E4F57 /* HGCApp */;
+			targetProxy = 0BA73793240DCDE200AE3E01 /* PBXContainerItemProxy */;
+		};
+		0BA737D6240EC07700AE3E01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0BA737D5240EC07700AE3E01 /* SwiftProtobuf */;
+		};
+		0BA737D8240EC07E00AE3E01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0BA737D7240EC07E00AE3E01 /* GRPC */;
+		};
+		0BA737E9240EC25C00AE3E01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0BA737E8240EC25C00AE3E01 /* CryptoSwift */;
+		};
+		0BA737EB240EC25C00AE3E01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0BA737EA240EC25C00AE3E01 /* ActiveLabel */;
+		};
+		0BA737ED240EC25C00AE3E01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0BA737EC240EC25C00AE3E01 /* IQKeyboardManagerSwift */;
+		};
+		0BA737EF240EC25C00AE3E01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0BA737EE240EC25C00AE3E01 /* MBProgressHUD */;
+		};
+		0BA737F1240EC25C00AE3E01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0BA737F0240EC25C00AE3E01 /* SwiftyJSON */;
+		};
 		35B8ABD01F9E5642003E4F57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 35B8ABB91F9E5642003E4F57 /* HGCApp */;
@@ -1950,13 +2108,159 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		180E7445232A55CF00D88BB6 /* Release_Dev */ = {
+		0BC7FBE22404360100553F77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 353C1EB30607C86B8590F9D8 /* Pods-HGCApp-UnitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7J42NV34C4;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = UnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hedera Wallet.app/Hedera Wallet";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		0BC7FBE32404360100553F77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B8B30A44155093D557542BA /* Pods-HGCApp-UnitTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7J42NV34C4;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = UnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hedera Wallet.app/Hedera Wallet";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		180E7445232A55CF00D88BB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_BUNDLE_ID = com.hedera.wallet;
-				APP_DISPLAY_NAME = "Dev Hedera Wallet";
-				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
+				APP_DISPLAY_NAME = "Hedera Wallet";
 				BUILD_NUM = 131;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1986,9 +2290,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CUSTOM_URL_SCHEMA = hgcdev;
+				CUSTOM_URL_SCHEMA = hgc;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2013,19 +2319,20 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
-			name = Release_Dev;
+			name = Debug;
 		};
-		180E7446232A55CF00D88BB6 /* Release_Dev */ = {
+		180E7446232A55CF00D88BB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AB0BA9A4CE992D31E5ECBE8 /* Pods-HGCApp.release_dev.xcconfig */;
+			baseConfigurationReference = 7900765FDCE4C72C6CFC503B /* Pods-HGCApp.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Popowycz (BAN4R536PT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex Popowycz (BAN4R536PT)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 131;
 				DEFINES_MODULE = YES;
@@ -2046,64 +2353,76 @@
 					"$(SRCROOT)/HGCApp/'Utilities & Managers'/Keys/ED25519/CEd25519/include",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.3.131;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.wallet.dev;
+				PRODUCT_MODULE_NAME = HederaWallet;
 				PRODUCT_NAME = "Hedera Wallet";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Hedera Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "Robert's iOS Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release_Dev;
+			name = Debug;
 		};
-		180E7447232A55CF00D88BB6 /* Release_Dev */ = {
+		180E7447232A55CF00D88BB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AB1530F17F1EF6914EB09C1 /* Pods-HGCAppTests.release_dev.xcconfig */;
+			baseConfigurationReference = BC427FB8B3BE1B226EC5DDDC /* Pods-HGCAppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y6G863755L;
 				INFOPLIST_FILE = tests/HGCAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGCApp.app/HGCApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hedera Wallet.app/Hedera Wallet";
 			};
-			name = Release_Dev;
+			name = Debug;
 		};
-		180E7448232A55CF00D88BB6 /* Release_Dev */ = {
+		180E7448232A55CF00D88BB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEA9BFA42E2956A0400CC33E /* Pods-HGCApp-HGCAppUITests.release_dev.xcconfig */;
+			baseConfigurationReference = EBEF463EC91E7DCEE3C3D201 /* Pods-HGCApp-HGCAppUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HGCApp;
 			};
-			name = Release_Dev;
+			name = Debug;
 		};
-		18BF967421C225C300055B2A /* Release_Prod */ = {
+		18BF967421C225C300055B2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_BUNDLE_ID = com.hedera.wallet;
 				APP_DISPLAY_NAME = "Hedera Wallet";
-				BRANCHIO_TEST_DOMAIN_PREFIX = "";
 				BUILD_NUM = 131;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2133,9 +2452,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				CUSTOM_URL_SCHEMA = hgc;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2151,20 +2472,22 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release_Prod;
+			name = Release;
 		};
-		18BF967521C225C300055B2A /* Release_Prod */ = {
+		18BF967521C225C300055B2A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FE43EB0DCBB809E2D466E54 /* Pods-HGCApp.release_prod.xcconfig */;
+			baseConfigurationReference = CED278BA5CAB6EFB025FFE16 /* Pods-HGCApp.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hedera Hashgraph LLC (7J42NV34C4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hedera Hashgraph LLC (7J42NV34C4)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 131;
@@ -2186,10 +2509,14 @@
 					"$(SRCROOT)/HGCApp/'Utilities & Managers'/Keys/ED25519/CEd25519/include",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.3.131;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_MODULE_NAME = HederaWallet;
 				PRODUCT_NAME = "Hedera Wallet";
 				PROVISIONING_PROFILE = "01a085c0-d213-4208-bd9d-a0d7c0577bc0";
 				PROVISIONING_PROFILE_SPECIFIER = "Hedera Distribution";
@@ -2197,236 +2524,234 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release_Prod;
+			name = Release;
 		};
-		18BF967621C225C300055B2A /* Release_Prod */ = {
+		18BF967621C225C300055B2A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1920A55AAD1E5A8784CEB57 /* Pods-HGCAppTests.release_prod.xcconfig */;
+			baseConfigurationReference = 2166CDD3C91C3CEC9B9FD9D3 /* Pods-HGCAppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y6G863755L;
 				INFOPLIST_FILE = tests/HGCAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGCApp.app/HGCApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hedera Wallet.app/Hedera Wallet";
 			};
-			name = Release_Prod;
+			name = Release;
 		};
-		18BF967721C225C300055B2A /* Release_Prod */ = {
+		18BF967721C225C300055B2A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D66E128824FC2E78692F3E83 /* Pods-HGCApp-HGCAppUITests.release_prod.xcconfig */;
+			baseConfigurationReference = EDA349165463A16F3B2B5D93 /* Pods-HGCApp-HGCAppUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = HGCApp;
 			};
-			name = Release_Prod;
-		};
-		35B8ABE01F9E5642003E4F57 /* Debug_Dev */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				APP_BUNDLE_ID = com.hedera.wallet.dev;
-				APP_DISPLAY_NAME = "Dev Hedera Wallet";
-				BRANCHIO_TEST_DOMAIN_PREFIX = "test-";
-				BUILD_NUM = 131;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CUSTOM_URL_SCHEMA = hgcdev;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"$(HGCAPP_ENVIRONMENT)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HGCAPP_ENVIRONMENT = DEVELOPMENT;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug_Dev;
-		};
-		35B8ABE31F9E5642003E4F57 /* Debug_Dev */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1097166A5E8714810905884 /* Pods-HGCApp.debug_dev.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "HGCApp/Supporting Files/HGCApp.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 131;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7J42NV34C4;
-				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/ABPadLockScreen\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
-					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
-					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
-					"\"${PODS_ROOT}/Headers/Public/LGSideMenuController\"",
-					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Public/MTBBarcodeScanner\"",
-					"\"${PODS_ROOT}/Headers/Public/NSDate+TimeAgo\"",
-					"\"${PODS_ROOT}/Headers/Public/OpenSSL-Universal\"",
-					"$(SRCROOT)/HGCApp/'Utilities & Managers'/Keys/ED25519/CEd25519/include",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/HGCApp/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.131;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
-				PRODUCT_NAME = "Hedera Wallet";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Robert's iOS Dev";
-				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug_Dev;
-		};
-		35B8ABE61F9E5642003E4F57 /* Debug_Dev */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39EBE814F7DCB0063CC4FF7D /* Pods-HGCAppTests.debug_dev.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Y6G863755L;
-				INFOPLIST_FILE = tests/HGCAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HGCApp/Supporting Files/HGCApp-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HGCApp.app/HGCApp";
-			};
-			name = Debug_Dev;
-		};
-		35B8ABE91F9E5642003E4F57 /* Debug_Dev */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB77901376DF9DDA62821B40 /* Pods-HGCApp-HGCAppUITests.debug_dev.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
-				INFOPLIST_FILE = tests/HGCAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hgc.HGCAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = HGCApp;
-			};
-			name = Debug_Dev;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0BC7FBE42404360100553F77 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BC7FBE22404360100553F77 /* Debug */,
+				0BC7FBE32404360100553F77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		35B8ABB51F9E5642003E4F57 /* Build configuration list for PBXProject "HGCApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				35B8ABE01F9E5642003E4F57 /* Debug_Dev */,
-				180E7445232A55CF00D88BB6 /* Release_Dev */,
-				18BF967421C225C300055B2A /* Release_Prod */,
+				180E7445232A55CF00D88BB6 /* Debug */,
+				18BF967421C225C300055B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release_Dev;
+			defaultConfigurationName = Debug;
 		};
 		35B8ABE21F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				35B8ABE31F9E5642003E4F57 /* Debug_Dev */,
-				180E7446232A55CF00D88BB6 /* Release_Dev */,
-				18BF967521C225C300055B2A /* Release_Prod */,
+				180E7446232A55CF00D88BB6 /* Debug */,
+				18BF967521C225C300055B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release_Dev;
+			defaultConfigurationName = Debug;
 		};
 		35B8ABE51F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				35B8ABE61F9E5642003E4F57 /* Debug_Dev */,
-				180E7447232A55CF00D88BB6 /* Release_Dev */,
-				18BF967621C225C300055B2A /* Release_Prod */,
+				180E7447232A55CF00D88BB6 /* Debug */,
+				18BF967621C225C300055B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release_Dev;
+			defaultConfigurationName = Debug;
 		};
 		35B8ABE81F9E5642003E4F57 /* Build configuration list for PBXNativeTarget "HGCAppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				35B8ABE91F9E5642003E4F57 /* Debug_Dev */,
-				180E7448232A55CF00D88BB6 /* Release_Dev */,
-				18BF967721C225C300055B2A /* Release_Prod */,
+				180E7448232A55CF00D88BB6 /* Debug */,
+				18BF967721C225C300055B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release_Dev;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
+		0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift.git";
+			requirement = {
+				branch = nio;
+				kind = branch;
+			};
+		};
+		0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/optonaut/ActiveLabel.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.5;
+			};
+		};
+		0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0BA737CE240EADF200AE3E01 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		0BA737D1240EAE3900AE3E01 /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		0BA737D5240EC07700AE3E01 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		0BA737D7240EC07E00AE3E01 /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		0BA737DA240EC1CE00AE3E01 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+		0BA737DD240EC1E700AE3E01 /* ActiveLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */;
+			productName = ActiveLabel;
+		};
+		0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		0BA737E3240EC22E00AE3E01 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+		0BA737E6240EC24C00AE3E01 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		0BA737E8240EC25C00AE3E01 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+		0BA737EA240EC25C00AE3E01 /* ActiveLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */;
+			productName = ActiveLabel;
+		};
+		0BA737EC240EC25C00AE3E01 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		0BA737EE240EC25C00AE3E01 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+		0BA737F0240EC25C00AE3E01 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		350DF3031FC68A6E0006166C /* hgc.xcdatamodeld */ = {

@@ -15,6 +15,7 @@
 //
 
 import UIKit
+import GRPC
 
 class MigrateToBip32Operation: BaseOperation {
     enum MigrateStatus {
@@ -34,7 +35,12 @@ class MigrateToBip32Operation: BaseOperation {
         self.accountID = accountID
         self.verifyOnly = verifyOnly
         super.init()
-        grpc.timeout = 10
+        do {
+            grpc.timeout = try GRPCTimeout.seconds(10)
+        }
+        catch {
+            fatalError("Can't make timeout of 10 seconds???")
+        }
     }
     
     override func main() {

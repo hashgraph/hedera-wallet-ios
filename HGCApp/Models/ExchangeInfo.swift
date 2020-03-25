@@ -1,5 +1,5 @@
 //
-//  Copyright 2019 Hedera Hashgraph LLC
+//  Copyright 2019-2020 Hedera Hashgraph LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -16,20 +16,23 @@
 
 import UIKit
 
-struct ExchangeInfo {
-    let accountID:HGCAccountID
-    let name:String
-    let host:String
-    let memo:String?
-    
-    static func fromQRCode(_ code:String) -> ExchangeInfo? {
+/// Helper data to facilitate an exchange of HBAR between this wallet and another.
+struct ExchangeInfo: Equatable {
+
+    let accountID: HGCAccountID
+    let name: String
+    let host: String
+    let memo: String?
+
+    /// Load from a QR code represented as a string.
+    static func fromQRCode(_ code: String) -> ExchangeInfo? {
         let components = code.components(separatedBy: ",")
         guard components.count > 3,
-            let accountID =  HGCAccountID.init(from: components[3]) else {
+            let accountID = HGCAccountID.init(from: components[3]) else {
             return nil
         }
         
-        var memo:String? = nil
+        var memo: String? = nil
         if components.count > 4 {
             memo = components[4]
         }
@@ -38,7 +41,7 @@ struct ExchangeInfo {
         return ExchangeInfo(accountID: accountID, name: name, host: host, memo:memo)
     }
     
-    static func toHttpURL(host:String) -> URL? {
+    static func toHttpURL(host: String) -> URL? {
         if host.starts(with: "http://") || host.starts(with: "https://") {
             return URL.init(string: host)
         }
