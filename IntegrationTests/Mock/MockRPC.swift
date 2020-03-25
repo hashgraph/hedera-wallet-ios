@@ -23,25 +23,25 @@ class MockRPC: HAPIRPCProtocol {
     var txnResponse: Proto_TransactionResponse?
     var error: Error?
     
-    var cryptoClient: Proto_CryptoServiceServiceClient {
+    var cryptoClient: Proto_CryptoServiceClient {
         let target = ConnectionTarget.hostAndPort(node.host, Int(node.port))
         let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
         let config = ClientConnection.Configuration(target: target, eventLoopGroup: group)
         let connection = ClientConnection(configuration: config)
         var callOptions = CallOptions()
         callOptions.timeout = timeout
-        let client = Proto_CryptoServiceServiceClient(channel: connection, defaultCallOptions: callOptions)
+        let client = Proto_CryptoServiceClient(channel: connection, defaultCallOptions: callOptions)
         return client
     }
     
-    var fileClient: Proto_FileServiceServiceClient {
+    var fileClient: Proto_FileServiceClient {
         let target = ConnectionTarget.hostAndPort(node.host, Int(node.port))
         let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
         let config = ClientConnection.Configuration(target: target, eventLoopGroup: group)
         let connection = ClientConnection(configuration: config)
         var callOptions = CallOptions()
         callOptions.timeout = timeout
-        return Proto_FileServiceServiceClient(channel: connection, defaultCallOptions: callOptions)
+        return Proto_FileServiceClient(channel: connection, defaultCallOptions: callOptions)
     }
     
     var timeout: GRPCTimeout
