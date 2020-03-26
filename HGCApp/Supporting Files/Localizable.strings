@@ -35,7 +35,7 @@
 "CREATE NEW WALLET" = "CREATE NEW WALLET";
 "RESTORE EXISTING WALLET" = "RESTORE EXISTING WALLET";
 "SETUP 4 DIGIT PIN" = "SETUP PIN";
-"NEW_WALLET_MESSAGE" = "Like a password, this recovery phrase is the only way to recover a Hedera Wallet. Save the recovery phrases to recover your Hedera Wallet if it is deleted, lost, or you get a new phone. It is recommended to also save your accountID along with these 24 words.";
+"NEW_WALLET_MESSAGE" = "This recovery phrase is the only way to recover a Hedera account. Store your recovery words in a secure location such as a safe. It is recommended to save your account ID along with these recovery words.";
 "ACCOUNTID_RESTORE_MESSAGE" = "Please enter the Account ID associated with the recovery phrase entered.";
 "RESTORE_WALLET_MESSAGE" = "Enter, in order, the 22 or 24 words you were given when you created your previous wallet account. You will be prompted to enter the account id in next step.";
 "Recovery phrase is copied successfully" = "Recovery phrase is copied successfully";
@@ -46,6 +46,7 @@
 "Enter Account ID" = "Enter Account ID";
 "ENABLE FACEID LOGIN" = "ENABLE FACEID LOGIN";
 "ENABLE FINGERPRINT LOGIN" = "ENABLE FINGERPRINT LOGIN";
+"Recovery phrase warning text" = "The recovery phrase cannot be backed up automatically in cloud storage. The only way to safely secure your account is to store your recovery phrase in a secure location such as a safe.\n\nThis recovery phrase can be used to recover your account.\n\nIf you have not saved your recovery words in a secure location, please do so now.";
 
 
 // Bip32 Migration

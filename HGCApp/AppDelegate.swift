@@ -1,5 +1,5 @@
 //
-//  Copyright 2019 Hedera Hashgraph LLC
+//  Copyright 2019-2020 Hedera Hashgraph LLC
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         APIAddressBookService.defaultAddressBook.loadAddressBook()
         
         if WalletHelper.isOnboarded() {
+            pushRecoveryPhraseWarning()
             // Authenticate
             AppDelegate.authManager.authenticate(AppDelegate.authManager.currentAuthType(), animated: false)
         }
@@ -61,10 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         splashWindow?.isHidden = true
         AppConfigService.defaultService.updateExchangeRate()
     }
-    
+
     func applicationWillEnterForeground(_ application: UIApplication) {
         splashWindow?.isHidden = true
         if WalletHelper.isOnboarded() && AppDelegate.authManager.shouldAskForAuth() {
+            pushRecoveryPhraseWarning()
             AppDelegate.authManager.authenticate(AppDelegate.authManager.currentAuthType(), animated: false)
         }
     }
@@ -162,6 +164,17 @@ extension AppDelegate {
     @objc func onOnboardDidSuccess() {
         switchToMain()
     }
+
+    fileprivate func pushRecoveryPhraseWarning() {
+        if HGCWallet.masterWallet()?.didShowRecoveryPhraseWarning != .some(true) {
+            if let sideMenuController = window?.rootViewController as? LGSideMenuController {
+                if let navVc = sideMenuController.rootViewController {
+                    let warningVC = RecoveryPhraseWarningViewController.getInstance(.ED25519)
+                    navVc.show(warningVC, sender: nil)
+                }
+            }
+        }
+    }
 }
 
 extension AppDelegate : Bip32MigrationDelegate {
@@ -185,6 +198,7 @@ extension AppDelegate : Bip32MigrationDelegate {
         let wallet = HGCWallet.masterWallet()
         wallet?.keyDerivationType = .bip32
         WalletHelper.defaultPayerAccount()?.publicKey = nil
+        // [RAS] FIXME
         SecureAppSettings.default.setSeed(newSeed.entropy)
         CoreDataManager.shared.saveContext()
         AppSettings.setNeedsToShownBip39Mnemonic()

@@ -28,20 +28,6 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "35B8ABCD1F9E5642003E4F57"
-               BuildableName = "HGCAppTests.xctest"
-               BlueprintName = "HGCAppTests"
-               ReferencedContainer = "container:HGCApp.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "NO"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "35B8ABD81F9E5642003E4F57"
                BuildableName = "HGCAppUITests.xctest"
                BlueprintName = "HGCAppUITests"
@@ -85,6 +71,21 @@
                BlueprintName = "UnitTests"
                ReferencedContainer = "container:HGCApp.xcodeproj">
             </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0B52DACA240F1146008678EA"
+               BuildableName = "IntegrationTests.xctest"
+               BlueprintName = "IntegrationTests"
+               ReferencedContainer = "container:HGCApp.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AddressBookServiceTests/testUpdateAddressBookFromRemote()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

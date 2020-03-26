@@ -47,6 +47,11 @@ class AboutViewController: UIViewController {
         }
         
     }
+
+    @IBAction func onLicenseAndNoticeTap() {
+        let vc = LicenseAndNoticeViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBAction func onTermsOfUseTap() {
         let vc = UserAgreementViewController.getInstance()
