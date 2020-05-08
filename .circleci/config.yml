@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Run OnboardExistingTests
           command: xcodebuild test-without-building
-            -xctestrun build/Build/Products/Debug_iphonesimulator13.4-x86_64.xctestrun 
+            -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun 
             -destination 'platform=iOS Simulator,name=iPhone 8' 
             -only-testing:HGCAppUITests/OnboardExistingTests.swift
       - run:
