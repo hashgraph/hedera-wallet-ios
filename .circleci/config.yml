@@ -55,6 +55,9 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 8'
             -derivedDataPath build
       - run:
+          name: List Contents
+          command: ls -lrt build/Build/Products/
+      - run:
           name: Run OnboardExistingTests
           command: xcodebuild test-without-building
             -xctestrun build/Build/Products/Debug_iphonesimulator13.4-x86_64.xctestrun 
