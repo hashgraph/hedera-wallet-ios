@@ -40,7 +40,7 @@ jobs:
             -scheme Debug
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
-            -derivedDataPath build
+#            -derivedDataPath build
       - run:
           name: Run unit tests
           command: xcodebuild test-without-building
