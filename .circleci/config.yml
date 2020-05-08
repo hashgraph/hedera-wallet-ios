@@ -112,6 +112,20 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - run-unit-tests
-      - run-ui-tests
-      - build-for-running
+      - ios-environment-setup
+      - run-unit-tests:
+        requires:
+          - ios-environment-setup
+        pre-steps:
+          - build-for-testing
+      - run-ui-tests:
+        requires:
+          - ios-environment-setup
+        pre-steps:
+          - run-unit-tests
+          - build-for-ui-testing
+      - build-for-running:
+        requires:
+          - ios-environment-setup
+        pre-steps:
+          - run-ui-tests
