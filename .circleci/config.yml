@@ -40,7 +40,6 @@ jobs:
             -scheme Debug
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
-#            -derivedDataPath build
       - run:
           name: Run unit tests
           command: xcodebuild test-without-building
@@ -48,6 +47,13 @@ jobs:
             -scheme Debug
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
+      - run:
+          name: Build for testing
+          command: xcodebuild build-for-testing
+            -workspace HGCApp.xcworkspace
+            -scheme Debug
+            -destination 'platform=iOS Simulator,name=iPhone 8'
+            -derivedDataPath build
 #     - run:
 #         name: Run OnboardExistingTests
 #         command: xcodebuild test-without-building
