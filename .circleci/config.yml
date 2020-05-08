@@ -33,20 +33,26 @@ jobs:
       - run:
           name: Install Dependencies
           command: .circleci/scripts/install_dependencies.sh
-#      - run:
-#          name: Build for testing
-#          command: xcodebuild build-for-testing
-#            -workspace HGCApp.xcworkspace
-#            -scheme Debug
-#            -configuration Debug
-#            -destination 'platform=iOS Simulator,name=iPhone 8'
-#      - run:
-#          name: Run unit tests
-#          command: xcodebuild test-without-building
-#            -workspace HGCApp.xcworkspace
-#            -scheme Debug
-#            -configuration Debug
-#            -destination 'platform=iOS Simulator,name=iPhone 8'
+  build-for-testing:
+    steps:
+       - run:
+           name: Build for testing
+           command: xcodebuild build-for-testing
+             -workspace HGCApp.xcworkspace
+             -scheme Debug
+             -configuration Debug
+             -destination 'platform=iOS Simulator,name=iPhone 8'
+  run-unit-tests:
+    steps:
+       - run:
+           name: Run unit tests
+           command: xcodebuild test-without-building
+             -workspace HGCApp.xcworkspace
+             -scheme Debug
+             -configuration Debug
+             -destination 'platform=iOS Simulator,name=iPhone 8'
+  build-for-ui-testing:
+    steps:
       - run:
           name: Build for UI testing
           command: xcodebuild build-for-testing
@@ -54,15 +60,16 @@ jobs:
             -scheme Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
             -derivedDataPath build
-      - run:
-          name: Show Contents
-          command: cat build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
+  run-ui-tests:
+    steps:
       - run:
           name: Run OnboardExistingTests
           command: xcodebuild test-without-building
-            -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun 
-            -destination 'platform=iOS Simulator,name=iPhone 8' 
+            -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
+            -destination 'platform=iOS Simulator,name=iPhone 8'
             -only-testing:HGCAppUITests/OnboardExistingTests.swift
+  build-for-running:
+    steps:
       - run:
           name: Build for running
           command: xcodebuild build
@@ -76,3 +83,8 @@ workflows:
   build-and-unit-test:
     jobs:
       - ios-environment-setup
+      - build-for-testing
+      - run-unit-tests
+      - build-for-ui-testing
+      - run-ui-tests
+      - build-for-running
