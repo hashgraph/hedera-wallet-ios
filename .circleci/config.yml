@@ -34,6 +34,10 @@ jobs:
           name: Install Dependencies
           command: .circleci/scripts/install_dependencies.sh
   build-for-testing:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
     requires:
       - ios-environment-setup
     steps:
@@ -45,6 +49,10 @@ jobs:
              -configuration Debug
              -destination 'platform=iOS Simulator,name=iPhone 8'
   run-unit-tests:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
     pre-steps:
       - build-for-testing
     steps:
@@ -56,6 +64,10 @@ jobs:
              -configuration Debug
              -destination 'platform=iOS Simulator,name=iPhone 8'
   build-for-ui-testing:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
     requires:
       - ios-environment-setup
     steps:
@@ -67,6 +79,10 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 8'
             -derivedDataPath build
   run-ui-tests:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
     pre-steps:
       - build-for-ui-testing
     steps:
@@ -77,6 +93,10 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 8'
             -only-testing:HGCAppUITests/OnboardExistingTests.swift
   build-for-running:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
     requires:
       - ios-environment-setup
     steps:
@@ -90,7 +110,7 @@ jobs:
 
 workflows:
   version: 2
-  build-and-unit-test:
+  build-and-test:
     jobs:
       - run-unit-tests
       - run-ui-tests
