@@ -38,7 +38,7 @@
         }
       },
       {
-        "package": "GRPC",
+        "package": "grpc-swift",
         "repositoryURL": "https://github.com/grpc/grpc-swift.git",
         "state": {
           "branch": "nio",
