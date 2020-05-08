@@ -48,18 +48,18 @@ jobs:
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
       - run:
-          name: Build for testing
+          name: Build for UI testing
           command: xcodebuild build-for-testing
             -workspace HGCApp.xcworkspace
             -scheme Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
             -derivedDataPath build
-#     - run:
-#         name: Run OnboardExistingTests
-#         command: xcodebuild test-without-building
-#           -xctestrun build/Build/Products/Debug_iphonesimulator13.4-x86_64.xctestrun 
-#           -destination 'platform=iOS Simulator,name=iPhone 8' 
-#           -only-testing:HGCAppUITests/OnboardExistingTests.swift
+      - run:
+          name: Run OnboardExistingTests
+          command: xcodebuild test-without-building
+            -xctestrun build/Build/Products/Debug_iphonesimulator13.4-x86_64.xctestrun 
+            -destination 'platform=iOS Simulator,name=iPhone 8' 
+            -only-testing:HGCAppUITests/OnboardExistingTests.swift
       - run:
           name: Build for running
           command: xcodebuild build
