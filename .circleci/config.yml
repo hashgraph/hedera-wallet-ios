@@ -118,6 +118,25 @@ jobs:
           paths:
             - Users/distiller/project
             - Users/distiller/Library
+  run-unit-test-tests:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
+    steps:
+      - attach_workspace:
+          at: /
+      - run:
+          name: Run unit tests
+          command: xcodebuild test-without-building
+            -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
+            -destination 'platform=iOS Simulator,name=iPhone 8'
+            -skip-testing HGCAppUITests/OnboardExistingTests/testIdealUserPath
+      - persist_to_workspace:
+          root: /
+          paths:
+            - Users/distiller/project
+            - Users/distiller/Library
   build-for-running:
     macos:
       xcode: "11.3.1"
@@ -133,29 +152,32 @@ jobs:
             -scheme Debug
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
-      - persist_to_workspace:
-          root: /
-          paths:
-            - Users/distiller/project
-            - Users/distiller/Library
+      # - persist_to_workspace:
+      #     root: /
+      #     paths:
+      #       - Users/distiller/project
+      #       - Users/distiller/Library
 
 workflows:
   version: 2
   build-and-test:
     jobs:
       - ios-environment-setup
-      - build-for-testing:
-         requires:
-           - ios-environment-setup
-      - run-unit-tests:
-         requires:
-           - build-for-testing
+      # - build-for-testing:
+      #    requires:
+      #      - ios-environment-setup
+      # - run-unit-tests:
+      #    requires:
+      #      - build-for-testing
       - build-for-ui-testing:
          requires:
-           - run-unit-tests
+           - ios-environment-setup
       - run-ui-tests:
          requires:
            - build-for-ui-testing
-      - build-for-running:
+      -run-unit-test-tests:
          requires:
            - run-ui-tests
+      - build-for-running:
+         requires:
+           - run-unit-test-tests
