@@ -77,7 +77,7 @@ jobs:
           paths:
             - Users/distiller/project
             - Users/distiller/Library
-  run-unit-test-tests:
+  run-unit-tests:
     macos:
       xcode: "11.3.1"
     environment:
@@ -128,9 +128,9 @@ workflows:
       - run-ui-tests:
          requires:
            - build-for-ui-testing
-      - run-unit-test-tests:
+      - run-unit-tests:
          requires:
            - run-ui-tests
       - build-for-running:
          requires:
-           - run-unit-test-tests
+           - run-unit-tests
