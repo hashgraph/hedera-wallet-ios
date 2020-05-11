@@ -36,7 +36,7 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - Users/distiller/project/
+            - Users/distiller/
   build-for-testing:
     macos:
       xcode: "11.3.1"
@@ -55,7 +55,7 @@ jobs:
        - persist_to_workspace:
            root: /
            paths:
-             - Users/distiller/project/
+             - Users/distiller/
   run-unit-tests:
     macos:
       xcode: "11.3.1"
@@ -74,7 +74,7 @@ jobs:
        - persist_to_workspace:
            root: /
            paths:
-             - Users/distiller/project/
+             - Users/distiller/
   build-for-ui-testing:
     macos:
       xcode: "11.3.1"
@@ -93,7 +93,7 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - Users/distiller/project/
+            - Users/distiller/
   run-ui-tests:
     macos:
       xcode: "11.3.1"
@@ -111,7 +111,7 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - Users/distiller/project/
+            - Users/distiller/
   build-for-running:
     macos:
       xcode: "11.3.1"
@@ -130,7 +130,7 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - Users/distiller/project/
+            - Users/distiller/
 
 workflows:
   version: 2
