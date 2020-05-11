@@ -9,10 +9,10 @@ jobs:
     steps:
       # Repository cache
       - restore-cache:
-        keys:
-          - source-v1-{{ .Branch }}-{{ .Revision }}
-          - source-v1-{{ .Branch }}-
-          - source-v1-
+            keys:
+              - source-v1-{{ .Branch }}-{{ .Revision }}
+              - source-v1-{{ .Branch }}-
+              - source-v1-
       - checkout
       - save-cache:
           key: source-v1-{{ .Branch }}-{{ .Revision }}
@@ -45,7 +45,7 @@ jobs:
       FL_OUTPUT_DIR: output
     steps:
       - attach_workspace:
-        at: /
+          at: /
       - run:
           name: Build for testing
           command: xcodebuild build-for-testing
@@ -65,7 +65,7 @@ jobs:
       FL_OUTPUT_DIR: output
     steps:
       - attach_workspace:
-        at: /
+          at: /
       - run:
           name: Run unit tests
           command: xcodebuild test-without-building
@@ -124,14 +124,14 @@ jobs:
       FL_OUTPUT_DIR: output
     steps:
       - attach_workspace:
-        at: /
+          at: /
       - run:
-        name: Build for running
-        command: xcodebuild build
-          -workspace HGCApp.xcworkspace
-          -scheme Debug
-          -configuration Debug
-          -destination 'platform=iOS Simulator,name=iPhone 8'
+          name: Build for running
+          command: xcodebuild build
+            -workspace HGCApp.xcworkspace
+            -scheme Debug
+            -configuration Debug
+            -destination 'platform=iOS Simulator,name=iPhone 8'
       - persist_to_workspace:
           root: /
           paths:
