@@ -99,7 +99,6 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 8'
 
 workflows:
-  version: 2
   build-and-test:
     jobs:
       - ios-environment-setup
