@@ -73,7 +73,7 @@ jobs:
             -scheme Debug
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
-            -skip-testing HGCAppUITests/OnboardExistingTests.swift
+            -skip-testing HGCAppUITests/OnboardExistingTests/testIdealUserPath
       - persist_to_workspace:
           root: /
           paths:
@@ -112,7 +112,7 @@ jobs:
           command: xcodebuild test-without-building
             -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
             -destination 'platform=iOS Simulator,name=iPhone 8'
-            -only-testing HGCAppUITests/OnboardExistingTests.swift
+            -only-testing:HGCAppUITests/OnboardExistingTests.swift
       - persist_to_workspace:
           root: /
           paths:
