@@ -110,11 +110,9 @@ workflows:
           - build-for-testing
       - run-ui-tests:
         requires:
-          - ios-environment-setup
           - run-unit-tests
         pre-steps:
           - build-for-ui-testing
       - build-for-running:
         requires:
-          - ios-environment-setup
           - run-ui-tests
