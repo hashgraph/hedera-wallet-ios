@@ -110,7 +110,9 @@ jobs:
       - run:
           name: Run OnboardExistingTests
           command: xcodebuild test-without-building
-            -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
+            -scheme Debug
+            -configuration Debug
+            # -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
             -destination 'platform=iOS Simulator,name=iPhone 8'
             -only-testing HGCAppUITests/OnboardExistingTests/testIdealUserPath
       - persist_to_workspace:
@@ -150,12 +152,13 @@ workflows:
       - run-unit-tests:
          requires:
            - build-for-testing
-      - build-for-ui-testing:
-         requires:
-           - run-unit-tests
+      # - build-for-ui-testing:
+      #    requires:
+      #      - run-unit-tests
       - run-ui-tests:
          requires:
-           - build-for-ui-testing
+           # - build-for-ui-testing
+           - run-unit-tests
       - build-for-running:
          requires:
            - run-ui-tests
