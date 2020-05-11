@@ -105,9 +105,9 @@ workflows:
       - build-for-testing:
         requires:
           - ios-environment-setup
-      - run-unit-tests:
-        requires:
-          - build-for-testing
+      # - run-unit-tests:
+      #   requires:
+      #     - build-for-testing
       # - run-ui-tests:
       #   requires:
       #     - run-unit-tests
