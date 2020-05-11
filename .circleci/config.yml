@@ -79,26 +79,26 @@ jobs:
           paths:
             - Users/distiller/project
             - Users/distiller/Library
-  build-for-ui-testing:
-    macos:
-      xcode: "11.3.1"
-    environment:
-      FL_OUTPUT_DIR: output
-    steps:
-      - attach_workspace:
-          at: /
-      - run:
-          name: Build for UI testing
-          command: xcodebuild build-for-testing
-            -workspace HGCApp.xcworkspace
-            -scheme Debug
-            -destination 'platform=iOS Simulator,name=iPhone 8'
-            -derivedDataPath build
-      - persist_to_workspace:
-          root: /
-          paths:
-            - Users/distiller/project
-            - Users/distiller/Library
+  # build-for-ui-testing:
+  #   macos:
+  #     xcode: "11.3.1"
+  #   environment:
+  #     FL_OUTPUT_DIR: output
+  #   steps:
+  #     - attach_workspace:
+  #         at: /
+  #     - run:
+  #         name: Build for UI testing
+  #         command: xcodebuild build-for-testing
+  #           -workspace HGCApp.xcworkspace
+  #           -scheme Debug
+  #           -destination 'platform=iOS Simulator,name=iPhone 8'
+  #           -derivedDataPath build
+  #     - persist_to_workspace:
+  #         root: /
+  #         paths:
+  #           - Users/distiller/project
+  #           - Users/distiller/Library
   run-ui-tests:
     macos:
       xcode: "11.3.1"
@@ -112,7 +112,7 @@ jobs:
           command: xcodebuild test-without-building
             -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
             -destination 'platform=iOS Simulator,name=iPhone 8'
-            -only-testing:HGCAppUITests/OnboardExistingTests.swift
+            -only-testing HGCAppUITests/OnboardExistingTests/testIdealUserPath
       - persist_to_workspace:
           root: /
           paths:
