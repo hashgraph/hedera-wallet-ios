@@ -36,7 +36,8 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - Users/distiller/
+            - Users/distiller/project/
+            - Users/distiller/Library/
   build-for-testing:
     macos:
       xcode: "11.3.1"
@@ -55,7 +56,8 @@ jobs:
        - persist_to_workspace:
            root: /
            paths:
-             - Users/distiller/
+             - Users/distiller/project/
+             - Users/distiller/Library/
   run-unit-tests:
     macos:
       xcode: "11.3.1"
@@ -74,7 +76,8 @@ jobs:
        - persist_to_workspace:
            root: /
            paths:
-             - Users/distiller/
+             - Users/distiller/project/
+             - Users/distiller/Library/
   build-for-ui-testing:
     macos:
       xcode: "11.3.1"
@@ -93,7 +96,8 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - Users/distiller/
+            - Users/distiller/project/
+            - Users/distiller/Library/
   run-ui-tests:
     macos:
       xcode: "11.3.1"
@@ -111,15 +115,16 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - Users/distiller/
+            - Users/distiller/project/
+            - Users/distiller/Library/
   build-for-running:
     macos:
       xcode: "11.3.1"
     environment:
       FL_OUTPUT_DIR: output
     steps:
-      - attach_workspace:
-          at: /
+       - attach_workspace:
+           at: /
       - run:
           name: Build for running
           command: xcodebuild build
@@ -130,7 +135,8 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - Users/distiller/
+            - Users/distiller/project/
+            - Users/distiller/Library/
 
 workflows:
   version: 2
