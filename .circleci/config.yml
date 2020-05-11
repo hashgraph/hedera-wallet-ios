@@ -169,7 +169,7 @@ workflows:
       - run-ui-tests:
          requires:
            - build-for-ui-testing
-      -run-unit-test-tests:
+      - run-unit-test-tests:
          requires:
            - run-ui-tests
       - build-for-running:
