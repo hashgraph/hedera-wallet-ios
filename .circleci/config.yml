@@ -133,11 +133,11 @@ jobs:
             -scheme Debug
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
-      - persist_to_workspace:
-          root: /
-          paths:
-            - Users/distiller/project
-            - Users/distiller/Library
+      # - persist_to_workspace:
+      #     root: /
+      #     paths:
+      #       - Users/distiller/project
+      #       - Users/distiller/Library
 
 workflows:
   version: 2
