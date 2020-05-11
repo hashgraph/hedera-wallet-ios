@@ -34,7 +34,9 @@ jobs:
           name: Install Dependencies
           command: .circleci/scripts/install_dependencies.sh
       - persist_to_workspace:
-          root: /Users/distiller/project/
+          root: /
+          paths:
+            - Users/distiller/project/
   build-for-testing:
     macos:
       xcode: "11.3.1"
@@ -49,7 +51,9 @@ jobs:
              -configuration Debug
              -destination 'platform=iOS Simulator,name=iPhone 8'
        - persist_to_workspace:
-           root: /Users/distiller/project/
+           root: /
+           paths:
+             - Users/distiller/project/
   run-unit-tests:
     macos:
       xcode: "11.3.1"
@@ -64,7 +68,9 @@ jobs:
              -configuration Debug
              -destination 'platform=iOS Simulator,name=iPhone 8'
        - persist_to_workspace:
-           root: /Users/distiller/project/
+           root: /
+           paths:
+             - Users/distiller/project/
   build-for-ui-testing:
     macos:
       xcode: "11.3.1"
@@ -79,7 +85,9 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 8'
             -derivedDataPath build
       - persist_to_workspace:
-          root: /Users/distiller/project/
+          root: /
+          paths:
+            - Users/distiller/project/
   run-ui-tests:
     macos:
       xcode: "11.3.1"
@@ -93,7 +101,9 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 8'
             -only-testing:HGCAppUITests/OnboardExistingTests.swift
       - persist_to_workspace:
-          root: /Users/distiller/project/
+          root: /
+          paths:
+            - Users/distiller/project/
   build-for-running:
     macos:
       xcode: "11.3.1"
@@ -108,7 +118,9 @@ jobs:
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
       - persist_to_workspace:
-          root: /Users/distiller/project/
+          root: /
+          paths:
+            - Users/distiller/project/
 
 workflows:
   version: 2
