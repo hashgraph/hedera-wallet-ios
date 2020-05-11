@@ -102,18 +102,18 @@ workflows:
   build-and-test:
     jobs:
       - ios-environment-setup
-      - build-for-testing:
-         requires:
-           - ios-environment-setup
-      - run-unit-tests:
-         requires:
-           - build-for-testing
-      - build-for-ui-testing:
-         requires:
-           - run-unit-tests
-      - run-ui-tests:
-         requires:
-           - build-for-ui-testing
-      - build-for-running:
-         requires:
-           - run-ui-tests
+      # - build-for-testing:
+      #    requires:
+      #      - ios-environment-setup
+      # - run-unit-tests:
+      #    requires:
+      #      - build-for-testing
+      # - build-for-ui-testing:
+      #    requires:
+      #      - run-unit-tests
+      # - run-ui-tests:
+      #    requires:
+      #      - build-for-ui-testing
+      # - build-for-running:
+      #    requires:
+      #      - run-ui-tests
