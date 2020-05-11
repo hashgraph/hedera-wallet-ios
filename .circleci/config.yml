@@ -38,8 +38,6 @@ jobs:
       xcode: "11.3.1"
     environment:
       FL_OUTPUT_DIR: output
-    requires:
-      - ios-environment-setup
     steps:
        - run:
            name: Build for testing
@@ -53,8 +51,6 @@ jobs:
       xcode: "11.3.1"
     environment:
       FL_OUTPUT_DIR: output
-    pre-steps:
-      - build-for-testing
     steps:
        - run:
            name: Run unit tests
@@ -68,8 +64,6 @@ jobs:
       xcode: "11.3.1"
     environment:
       FL_OUTPUT_DIR: output
-    requires:
-      - ios-environment-setup
     steps:
       - run:
           name: Build for UI testing
@@ -83,8 +77,6 @@ jobs:
       xcode: "11.3.1"
     environment:
       FL_OUTPUT_DIR: output
-    pre-steps:
-      - build-for-ui-testing
     steps:
       - run:
           name: Run OnboardExistingTests
@@ -97,8 +89,6 @@ jobs:
       xcode: "11.3.1"
     environment:
       FL_OUTPUT_DIR: output
-    requires:
-      - ios-environment-setup
     steps:
       - run:
           name: Build for running
@@ -121,11 +111,10 @@ workflows:
       - run-ui-tests:
         requires:
           - ios-environment-setup
-        pre-steps:
           - run-unit-tests
+        pre-steps:
           - build-for-ui-testing
       - build-for-running:
         requires:
           - ios-environment-setup
-        pre-steps:
           - run-ui-tests
