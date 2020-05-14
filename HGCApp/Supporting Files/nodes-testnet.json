@@ -1,27 +1,27 @@
 [
     {
-        "host": "0.testnet.hedera.com",
+        "host": "34.94.106.61",
         "port": 50211,
         "accountNum": 3,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "1.testnet.hedera.com",
+        "host": "35.237.119.55",
         "port": 50211,
         "accountNum": 4,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "2.testnet.hedera.com",
+        "host": "35.245.27.193",
         "port": 50211,
         "accountNum": 5,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "3.testnet.hedera.com",
+        "host": "34.83.112.116",
         "port": 50211,
         "accountNum": 6,
         "shardNum": 0,

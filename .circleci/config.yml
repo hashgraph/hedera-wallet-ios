@@ -9,10 +9,10 @@ jobs:
     steps:
       # Repository cache
       - restore-cache:
-          keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
-            - source-v1-{{ .Branch }}-
-            - source-v1-
+            keys:
+              - source-v1-{{ .Branch }}-{{ .Revision }}
+              - source-v1-{{ .Branch }}-
+              - source-v1-
       - checkout
       - save-cache:
           key: source-v1-{{ .Branch }}-{{ .Revision }}
@@ -33,20 +33,77 @@ jobs:
       - run:
           name: Install Dependencies
           command: .circleci/scripts/install_dependencies.sh
+      - persist_to_workspace:
+            root: /
+            paths:
+              - Users/distiller/project
+              - Users/distiller/Library
+  build-for-ui-testing:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
+    steps:
+      - attach_workspace:
+          at: /
       - run:
-          name: Build for testing
+          name: Build for UI testing
           command: xcodebuild build-for-testing
             -workspace HGCApp.xcworkspace
             -scheme Debug
-            -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
+            -derivedDataPath build
+      - persist_to_workspace:
+          root: /
+          paths:
+            - Users/distiller/project
+            - Users/distiller/Library
+  run-ui-tests:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
+    steps:
+      - attach_workspace:
+          at: /
+      - run:
+          name: Run OnboardExistingTests
+          command: xcodebuild test-without-building
+            -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
+            -destination 'platform=iOS Simulator,name=iPhone 8'
+            -only-testing:HGCAppUITests/OnboardExistingTests.swift
+      - persist_to_workspace:
+          root: /
+          paths:
+            - Users/distiller/project
+            - Users/distiller/Library
+  run-unit-tests:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
+    steps:
+      - attach_workspace:
+          at: /
       - run:
           name: Run unit tests
           command: xcodebuild test-without-building
-            -workspace HGCApp.xcworkspace
-            -scheme Debug
-            -configuration Debug
+            -xctestrun build/Build/Products/Debug_iphonesimulator13.2-x86_64.xctestrun
             -destination 'platform=iOS Simulator,name=iPhone 8'
+            -skip-testing HGCAppUITests/OnboardExistingTests/testIdealUserPath
+      - persist_to_workspace:
+          root: /
+          paths:
+            - Users/distiller/project
+            - Users/distiller/Library
+  build-for-running:
+    macos:
+      xcode: "11.3.1"
+    environment:
+      FL_OUTPUT_DIR: output
+    steps:
+      - attach_workspace:
+          at: /
       - run:
           name: Build for running
           command: xcodebuild build
@@ -54,9 +111,26 @@ jobs:
             -scheme Debug
             -configuration Debug
             -destination 'platform=iOS Simulator,name=iPhone 8'
+      # - persist_to_workspace:
+      #     root: /
+      #     paths:
+      #       - Users/distiller/project
+      #       - Users/distiller/Library
 
 workflows:
   version: 2
-  build-and-unit-test:
+  build-and-test:
     jobs:
       - ios-environment-setup
+      - build-for-ui-testing:
+         requires:
+           - ios-environment-setup
+      - run-ui-tests:
+         requires:
+           - build-for-ui-testing
+      - run-unit-tests:
+         requires:
+           - run-ui-tests
+      - build-for-running:
+         requires:
+           - run-unit-tests

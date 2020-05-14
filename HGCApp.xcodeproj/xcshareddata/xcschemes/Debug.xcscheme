@@ -21,7 +21,7 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
@@ -87,6 +87,16 @@
                </Test>
             </SkippedTests>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "35B8ABD81F9E5642003E4F57"
+               BuildableName = "HGCAppUITests.xctest"
+               BlueprintName = "HGCAppUITests"
+               ReferencedContainer = "container:HGCApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -110,6 +120,23 @@
             ReferencedContainer = "container:HGCApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "EXISTING_ACCOUNT_ID"
+            value = "0.0.39128"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "EXISTING_ACCOUNT_PUBLIC_KEY"
+            value = "447dc6bdbfc64eb894851825194744662afcb70efb8b23a6a24af98f0c1fd8ad"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "EXISTING_ACCOUNT_RECOVERY_PHRASE"
+            value = "girl adjust asset interest razor thrive joy diet stock radar home because sausage culture fitness damage vicious target cabin best stomach replace example ordinary"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Debug"
@@ -127,6 +154,23 @@
             ReferencedContainer = "container:HGCApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "EXISTING_ACCOUNT_RECOVERY_PHRASE"
+            value = "girl adjust asset interest razor thrive joy diet stock radar home because sausage culture fitness damage vicious target cabin best stomach replace example ordinary"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "EXISTING_ACCOUNT_ID"
+            value = "0.0.39128"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "EXISTING_ACCOUNT_PUBLIC_KEY"
+            value = "447dc6bdbfc64eb894851825194744662afcb70efb8b23a6a24af98f0c1fd8ad"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

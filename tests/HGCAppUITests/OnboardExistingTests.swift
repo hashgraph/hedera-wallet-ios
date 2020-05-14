@@ -210,6 +210,7 @@ class OnboardExistingTests: XCTestCase {
             nextButton.tap()
         }
 
+        sleep(20)
         // Steps on Wallet Restored Successfully alert.
         do {
             // Validation: confirm there is an alert
