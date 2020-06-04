@@ -26,7 +26,7 @@ extension HGCAccount {
     
     func key() -> HGCKeyPairProtocol {
         // [RAS FIXME]
-        return self.wallet!.keyChain()!.key(at: Int(self.accountNumber))
+        return  self.wallet!.keyChain()!.key(at: Int(self.accountNumber))
     }
     
     func getTransactionBuilder() -> TransactionBuilder {

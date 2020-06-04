@@ -68,7 +68,7 @@ class SeedFile {
     private static func getFileURL(createDirIfMissing: Bool = false) -> URL? {
         do {
             let fm = FileManager.default
-            let dir = try fm.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: createDirIfMissing)
+            let dir = try fm.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: createDirIfMissing)
             Logger.instance.log(message: "URL for directory is: \(dir)", event: .e)
             let fileURL = dir.appendingPathComponent("recphr.bin", isDirectory: false)
             return .some(fileURL)

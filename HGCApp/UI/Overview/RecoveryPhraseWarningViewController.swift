@@ -49,6 +49,9 @@ class RecoveryPhraseWarningViewController: UIViewController {
 
         guard let rawSeed = SecureAppSettings.default.getSeed() else {
             // TODO: log and bail, or fix construction
+            Globals.showGenericErrorAlert(title: NSLocalizedString("Please attempt to recover your Hedera Account using the recovery phrases.", comment: ""), message: "",
+            cancelButtonTitle: "Ok")
+            onCloseButtonTap()
             return
         }
         guard let seed = HGCSeed(entropy: rawSeed) else {
