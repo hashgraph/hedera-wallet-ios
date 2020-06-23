@@ -2269,7 +2269,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 137;
+				CURRENT_PROJECT_VERSION = 138;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_BITCODE = NO;
@@ -2293,7 +2293,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.137;
+				MARKETING_VERSION = 1.4.138;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hedera.wallet.dev;
 				PRODUCT_MODULE_NAME = HederaWallet;
 				PRODUCT_NAME = "Hedera Wallet";
@@ -2401,7 +2401,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 137;
+				CURRENT_PROJECT_VERSION = 138;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7J42NV34C4;
 				ENABLE_BITCODE = NO;
@@ -2425,7 +2426,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.137;
+				MARKETING_VERSION = 1.4.138;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
 				PRODUCT_MODULE_NAME = HederaWallet;
 				PRODUCT_NAME = "Hedera Wallet";
