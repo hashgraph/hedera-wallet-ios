@@ -6,17 +6,13 @@ mkdir -p proto-swift
 mkdir -p proto-grpc-swift
 pushd proto
 files="`ls *.proto`"
-protoc --swift_out=../proto-swift \
-	--plugin=/Users/anighanta/IdeaProjects/hedera-wallet-ios/grpc-swift/protoc-gen-swift \
- $files
+protoc --swift_out=../proto-swift $files
 if [ $? -ne 0 ] ; then
     printf 'failed building swift protocol buffers\n'
     popd
     exit 1
 fi
-protoc --grpc-swift_out=Server=false:../proto-grpc-swift \
-	--plugin=/Users/anighanta/IdeaProjects/hedera-wallet-ios/grpc-swift/protoc-gen-grpc-swift \
- CryptoService.proto FileService.proto
+protoc --grpc-swift_out=Server=false:../proto-grpc-swift CryptoService.proto FileService.proto
 if [ $? -ne 0 ] ; then
     printf 'failed building gRPC client\n'
     popd
