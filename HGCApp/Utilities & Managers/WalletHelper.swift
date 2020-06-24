@@ -24,7 +24,9 @@ class WalletHelper: NSObject {
     static func keyChain() -> HGCKeyChainProtocol? {
         guard let wallet = HGCWallet.masterWallet(),
             let seed = SecureAppSettings.default.getSeed() else {
-            return nil
+                Globals.showGenericErrorAlert(title: NSLocalizedString("Please attempt to recover your Hedera Account using the recovery phrases.", comment: ""), message: "",
+                cancelButtonTitle: "Ok")
+                return nil
         }
         switch wallet.keyDerivationType {
         case .hgc:
