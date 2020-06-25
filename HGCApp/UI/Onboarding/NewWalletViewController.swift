@@ -46,7 +46,13 @@ class NewWalletViewController: UIViewController {
         
         if WalletHelper.isOnboarded() {
             // [RAS FIXME]
-            self.seed = HGCSeed.init(entropy: SecureAppSettings.default.getSeed()!)
+            guard let seed = SecureAppSettings.default.getSeed() else {
+                 Globals.showGenericErrorAlert(title: NSLocalizedString("Please attempt to recover your Hedera Account using the recovery phrases.", comment: ""), message: "",
+                                               cancelButtonTitle: "Ok")
+                onCloseButtonTap()
+                return
+            }
+            self.seed = HGCSeed.init(entropy: seed)
             self.doneButton.removeFromSuperview();
             
         } else {
