@@ -67,7 +67,7 @@ class SeedFile {
         let documentsDir = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let documentsFileDir = documentsDir.appendingPathComponent("recphr.bin", isDirectory: false)
         
-        Logger.instance.log(message: "URL for  caches directory is: \(documentsFileDir)", event: .e)
+        Logger.instance.log(message: "URL for  Documents directory using method 2 is: \(documentsFileDir)", event: .e)
         
         return .some(documentsFileDir)
     }
