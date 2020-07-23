@@ -92,10 +92,18 @@ extension AppDelegate {
         
         NotificationCenter.default.addObserver(self, selector:#selector(AppDelegate.onOnboardDidSuccess), name:WalletHelper.onboardDidSuccess, object: nil)
         
-        if WalletHelper.isOnboarded() {
+        let currentAppVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let previousVersion = UserDefaults.standard.string(forKey: "HederaAppVersion")
+        
+        Logger.instance.log(message: "Current version is \(currentAppVersion)", event: .e)
+
+        Logger.instance.log(message: "Previous version is \(previousVersion)", event: .e)
+        
+        if WalletHelper.isOnboarded(), previousVersion == currentAppVersion, previousVersion != nil{
             window?.rootViewController = WalletHelper.canDoBip32Migration() ? migrationViewController() : mainViewController()
             window?.makeKeyAndVisible()
         } else {
+            UserDefaults.standard.set(currentAppVersion, forKey: "HederaAppVersion")
             window?.rootViewController = welcomeViewController()
             window?.makeKeyAndVisible()
         }
@@ -183,7 +191,7 @@ extension AppDelegate : Bip32MigrationDelegate {
     }
     
     var oldKey: HGCKeyPairProtocol {
-        return WalletHelper.defaultPayerAccount()!.key()
+        return WalletHelper.defaultPayerAccount()!.key()!
     }
     
     var accountID: HGCAccountID {

@@ -46,9 +46,30 @@ class SeedFile {
             return .none
         }
         guard let encryptedSeed = read(from: fileURL) else {
-            return .none
+            Logger.instance.log(message: "couldnt read from documents directory trying caches", event: .e)
+            return read(from: getCacheFileURL()!)
         }
         return .some(encryptedSeed)
+    }
+    
+    private static func getCacheFileURL() -> URL? {
+        let fm = FileManager.default
+        let cachesDir = fm.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        let cachesFileURL = cachesDir.appendingPathComponent("recphr.bin", isDirectory: false)
+        
+        Logger.instance.log(message: "URL for  caches directory is: \(cachesFileURL)", event: .e)
+        
+        return .some(cachesFileURL)
+    }
+    
+    private static func getDocumentsURL() -> URL? {
+        let fm = FileManager.default
+        let documentsDir = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let documentsFileDir = documentsDir.appendingPathComponent("recphr.bin", isDirectory: false)
+        
+        Logger.instance.log(message: "URL for  caches directory is: \(documentsFileDir)", event: .e)
+        
+        return .some(documentsFileDir)
     }
 
     static func delete() -> Bool? {
@@ -68,14 +89,15 @@ class SeedFile {
     private static func getFileURL(createDirIfMissing: Bool = false) -> URL? {
         do {
             let fm = FileManager.default
-            let dir = try fm.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: createDirIfMissing)
-            Logger.instance.log(message: "URL for directory is: \(dir)", event: .e)
-            let fileURL = dir.appendingPathComponent("recphr.bin", isDirectory: false)
-            return .some(fileURL)
+            let documentsDir = try fm.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: createDirIfMissing)
+            Logger.instance.log(message: "URL for  documents directory is: \(documentsDir)", event: .e)
+            
+            let documentsfileURL = documentsDir.appendingPathComponent("recphr.bin", isDirectory: false)
+            return .some(documentsfileURL)
         }
         catch {
             Logger.instance.log(message: "Unable to find (or create) directory for seed file: \(error)", event: .e)
-            return .none
+            return getDocumentsURL()
         }
     }
 
