@@ -45,10 +45,13 @@ extension HGCAccount {
     
     func publicKeyData() -> Data {
         if self.publicKey == nil {
-            while self.key()?.publicKeyData == nil {
-                sleep(1)
+            guard let publicKey = (self.key()?.publicKeyData) else {
+                UserDefaults.standard.set("No", forKey: "SeedFileRead")
+                Globals.showGenericErrorAlert(title: NSLocalizedString("Wait for around 15 mins and Please attempt to recover your Hedera Account using the recovery phrases again. Please Terminate the Application Now", comment: ""), message: "",
+                cancelButtonTitle: "Ok")
+                return "SeedFileNotReadError".data(using: .utf8)!
             }
-            self.publicKey = (self.key()?.publicKeyData)!
+            self.publicKey = publicKey
         }
         return self.publicKey! as Data
     }

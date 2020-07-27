@@ -61,12 +61,18 @@ class EDBip32KeyChain : HGCKeyChainProtocol {
 
 class HGCEdKeyPair : HGCKeyPairProtocol {
     let seed:Data
-    let keyPair:KeyPair
+    var keyPair:KeyPair
     
     init(seed:Data) {
         self.seed = seed
         let edSeed = try? Seed.init(bytes: seed.bytes)
+        var counter = 5;
         keyPair = KeyPair.init(seed: edSeed!)
+        while keyPair.publicKey.bytes.isEmpty, counter > 0 {
+            sleep(1)
+            keyPair = KeyPair.init(seed: edSeed!)
+            counter-=1;
+        }
     }
     
     public var publicKeyData: Data! {
