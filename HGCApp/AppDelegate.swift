@@ -95,13 +95,11 @@ extension AppDelegate {
         let currentAppVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let previousVersion = UserDefaults.standard.string(forKey: "HederaAppVersion")
         
-        let isSeedFileRead = UserDefaults.standard.string(forKey: "SeedFileRead")
-        
         Logger.instance.log(message: "Current version is \(currentAppVersion)", event: .e)
 
         Logger.instance.log(message: "Previous version is \(previousVersion)", event: .e)
         
-        if WalletHelper.isOnboarded(), previousVersion == currentAppVersion, previousVersion != nil, isSeedFileRead == "Yes"{
+        if WalletHelper.isOnboarded(), previousVersion == currentAppVersion, previousVersion != nil{
             window?.rootViewController = WalletHelper.canDoBip32Migration() ? migrationViewController() : mainViewController()
             window?.makeKeyAndVisible()
         } else {
@@ -158,6 +156,7 @@ extension AppDelegate {
     }
     
     func welcomeViewController() -> UIViewController {
+        UserDefaults.standard.set("No", forKey: "HederaAlertThrown")
         let vc  = OnboardingViewController.getInstance(root: WalletSetupOptionsViewController.getInstance())
         vc.title = NSLocalizedString("Get Started on Hedera", comment: "")
         let navVC = UINavigationController.init(rootViewController: vc)
@@ -212,8 +211,6 @@ extension AppDelegate : Bip32MigrationDelegate {
         SecureAppSettings.default.setSeed(newSeed.entropy)
         CoreDataManager.shared.saveContext()
         AppSettings.setNeedsToShownBip39Mnemonic()
-        UserDefaults.standard.set("Yes", forKey: "SeedFileRead")
         switchToMain()
     }
 }
-

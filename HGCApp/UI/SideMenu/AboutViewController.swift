@@ -29,7 +29,7 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = NSLocalizedString("ABOUT", comment: "")
-        self.navigationItem.hidesBackButton = true
+        self.navigationItem.hidesBackButton = false
         self.view.backgroundColor = Color.pageBackgroundColor()
         self.appNameLabel.textColor = Color.primaryTextColor()
         self.appVersionLabel.textColor = Color.primaryTextColor()

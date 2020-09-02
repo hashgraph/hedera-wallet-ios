@@ -27,10 +27,11 @@ extension HGCAccount {
     func key() -> HGCKeyPairProtocol? {
         // [RAS FIXME]
         guard let keyChain = self.wallet!.keyChain() else {
-            Globals.showGenericErrorAlert(title: NSLocalizedString("Please attempt to recover your Hedera Account using the recovery phrases.", comment: ""), message: "",
-            cancelButtonTitle: "Ok")
+//            Globals.showGenericErrorAlert(title: NSLocalizedString("Please attempt to recover your Hedera Account using the recovery phrases by performing a Master Reset", comment: ""), message: "",
+//            cancelButtonTitle: "Ok")
             return nil
         }
+        
         return keyChain.key(at: Int(self.accountNumber))
     }
     
@@ -38,17 +39,27 @@ extension HGCAccount {
         return TransactionBuilder.init(payerCredentials: key(), payerAccount: accountID()!)
     }
     
+    func showWaitAndRetryAlert(){
+        let isAlertAlreadyThrown = UserDefaults.standard.string(forKey: "HederaAlertThrown")
+        if isAlertAlreadyThrown != "Yes" {
+            UserDefaults.standard.set("Yes", forKey: "HederaAlertThrown")
+            Globals.showGenericErrorAlert(title: NSLocalizedString("Please wait and retry. If the error still persists, Please attempt to recover your Hedera Account using the recovery phrases by performing a Master Reset", comment: ""), message: "",
+            cancelButtonTitle: "Ok")
+        }
+    }
+    
     func sign(_ data: Data) -> Data {
-        let signature = self.key()!.signMessage(data)
-        return signature!
+        guard let signature = self.key()?.signMessage(data) else {
+            showWaitAndRetryAlert()
+            return "SeedFileNotReadError".data(using: .utf8)!
+        }
+        return signature
     }
     
     func publicKeyData() -> Data {
         if self.publicKey == nil {
             guard let publicKey = (self.key()?.publicKeyData) else {
-                UserDefaults.standard.set("No", forKey: "SeedFileRead")
-                Globals.showGenericErrorAlert(title: NSLocalizedString("Wait for around 15 mins and Please attempt to recover your Hedera Account using the recovery phrases again. Please Terminate the Application Now", comment: ""), message: "",
-                cancelButtonTitle: "Ok")
+                showWaitAndRetryAlert()
                 return "SeedFileNotReadError".data(using: .utf8)!
             }
             self.publicKey = publicKey
@@ -61,8 +72,11 @@ extension HGCAccount {
     }
     
     func privateKeyString() -> String {
-        let data  = (self.key()?.privateKeyData)!
-        return data.hex
+        guard let privateKey  = (self.key()?.privateKeyData) else {
+            showWaitAndRetryAlert()
+            return "SeedFileNotReadError"
+        }
+        return privateKey.hex
     }
     
     var accountTypeE: AccountType {

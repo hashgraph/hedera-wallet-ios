@@ -70,7 +70,6 @@ class HGCEdKeyPair : HGCKeyPairProtocol {
         keyPair = KeyPair.init(seed: edSeed!)
         while keyPair.publicKey.bytes.isEmpty, counter > 0 {
             sleep(1)
-            keyPair = KeyPair.init(seed: edSeed!)
             counter-=1;
         }
     }
