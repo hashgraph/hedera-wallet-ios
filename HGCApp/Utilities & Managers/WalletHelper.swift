@@ -72,10 +72,16 @@ class WalletHelper: NSObject {
 
     static func onboard(keyDerivation:KeyDerivation, seed:HGCSeed, accID:HGCAccountID? = nil) -> Bool {
         // [RAS] FIXME
-        SecureAppSettings.default.setSeed(seed.entropy)
-        HGCWallet.createMasterWallet(signatureAlgorith: Int16(SignatureOption.ED25519.rawValue), accountID: accID, keyDerivation: keyDerivation)
-        CoreDataManager.shared.saveContext()
-        return true
+        if SecureAppSettings.default.setSeed(seed.entropy) {
+            HGCWallet.createMasterWallet(signatureAlgorith: Int16(SignatureOption.ED25519.rawValue), accountID: accID, keyDerivation: keyDerivation)
+            CoreDataManager.shared.saveContext()
+            return true
+        } else {
+            Globals.showGenericErrorAlert(title: NSLocalizedString("Please attempt to recover your Hedera Account using the recovery phrases.", comment: ""), message: "",
+            cancelButtonTitle: "Ok")
+            return false
+        }
+        
     }
     
     static func confirmQuit() {

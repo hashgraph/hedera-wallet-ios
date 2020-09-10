@@ -115,8 +115,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     private var sections : [MenuSection] = [MenuSection.init(title: NSLocalizedString("Accounts", comment: ""), items: [Menu.defaultAcc(), Menu.accViewer()]),
                                             MenuSection.init(title: NSLocalizedString("Activity", comment: ""),items: [Menu.requests(), Menu.createAcc()]),
-                                            MenuSection.init(title: NSLocalizedString("Security", comment: ""), items: [Menu.backup(),
-                                                                                                                        Menu.updateKey()]),
+                                            MenuSection.init(title: NSLocalizedString("Security", comment: ""), items: [Menu.backup()]),
                                             MenuSection.init(title: NSLocalizedString("Network", comment: ""), items: [Menu.nodes(), Menu.exchangeRate() ,Menu.sync()]),
                                             MenuSection.init(title: NSLocalizedString("About", comment: ""), items: [Menu.profile(), Menu.appInfo(), Menu.masterReset()])]
     

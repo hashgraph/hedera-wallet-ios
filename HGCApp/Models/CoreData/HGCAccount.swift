@@ -24,9 +24,14 @@ extension Notification.Name {
 extension HGCAccount {
     public static let entityName = "Account"
     
-    func key() -> HGCKeyPairProtocol {
+    func key() -> HGCKeyPairProtocol? {
         // [RAS FIXME]
-        return self.wallet!.keyChain()!.key(at: Int(self.accountNumber))
+        guard let keyChain = self.wallet!.keyChain() else {
+            Globals.showGenericErrorAlert(title: NSLocalizedString("Please attempt to recover your Hedera Account using the recovery phrases.", comment: ""), message: "",
+            cancelButtonTitle: "Ok")
+            return nil
+        }
+        return keyChain.key(at: Int(self.accountNumber))
     }
     
     func getTransactionBuilder() -> TransactionBuilder {
@@ -34,13 +39,16 @@ extension HGCAccount {
     }
     
     func sign(_ data: Data) -> Data {
-        let signature = self.key().signMessage(data)
+        let signature = self.key()!.signMessage(data)
         return signature!
     }
     
     func publicKeyData() -> Data {
         if self.publicKey == nil {
-            self.publicKey = (self.key().publicKeyData)!
+            while self.key()?.publicKeyData == nil {
+                sleep(1)
+            }
+            self.publicKey = (self.key()?.publicKeyData)!
         }
         return self.publicKey! as Data
     }
@@ -50,7 +58,7 @@ extension HGCAccount {
     }
     
     func privateKeyString() -> String {
-        let data  = (self.key().privateKeyData)!
+        let data  = (self.key()?.privateKeyData)!
         return data.hex
     }
     
