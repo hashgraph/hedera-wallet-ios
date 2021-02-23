@@ -150,9 +150,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func onMenuButtonTap() {
-        AppDelegate.getInstance().slideMenuController()?.hideRightView(animated: true, completionHandler: {
-            
-        })
+        AppDelegate.getInstance().slideMenuController()?.hideRightView(animated: true)
     }
     
     func goToPayExchange() {

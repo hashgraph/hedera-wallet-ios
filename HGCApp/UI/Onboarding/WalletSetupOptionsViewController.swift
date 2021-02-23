@@ -63,8 +63,10 @@ class WalletSetupOptionsViewController: UIViewController {
     }
     
     @IBAction func onRestoreButtonTap() {
-        let vc = BackupWalletViewController.getInstance(SignatureOption.ED25519)
+        let vc = UserAgreementViewController.getInstance()
         self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = BackupWalletViewController.getInstance(SignatureOption.ED25519)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func onAboutTap() {

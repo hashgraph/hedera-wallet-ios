@@ -149,9 +149,7 @@ class ContainerViewController: UIViewController {
     
     @objc func onMenuButtonTap() {
         AppDelegate.getInstance().slideMenuController()?.rightViewController?.viewWillAppear(false)
-        AppDelegate.getInstance().slideMenuController()?.showRightView(animated: true, completionHandler: {
-            
-        })
+        AppDelegate.getInstance().slideMenuController()?.showRightView(animated: true)
     }
     
     @objc func onHomeBuutonTap() {

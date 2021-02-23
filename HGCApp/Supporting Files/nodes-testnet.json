@@ -1,30 +1,32 @@
+
 [
     {
-        "host": "34.94.106.61",
+        "host": "35.231.208.148",
         "port": 50211,
         "accountNum": 3,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.237.119.55",
+        "host": "35.199.15.177",
         "port": 50211,
         "accountNum": 4,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "35.245.27.193",
+        "host": "35.225.201.195",
         "port": 50211,
         "accountNum": 5,
         "shardNum": 0,
         "realmNum": 0
     },
     {
-        "host": "34.83.112.116",
+        "host": "35.247.109.135",
         "port": 50211,
         "accountNum": 6,
         "shardNum": 0,
         "realmNum": 0
     }
 ]
+

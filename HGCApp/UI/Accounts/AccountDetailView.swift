@@ -120,7 +120,7 @@ class AccountDetailView: UIView, UITextFieldDelegate {
     }
     
     @IBAction func onCopyButtonTap() {
-        Globals.copyString(self.account.publicKeyString())
+        Globals.copyString(self.account.publicKeyString() + " || " + self.account.privateKeyString())
         Globals.showGenericAlert(title: NSLocalizedString("Copied", comment: ""), message: NSLocalizedString("Your public key is copied successfully.", comment: ""))
     }
     

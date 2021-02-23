@@ -33,7 +33,6 @@
 		0B52DAF624118F3F008678EA /* AuthenticationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DAF324118F3F008678EA /* AuthenticationErrors.swift */; };
 		0B52DAF724118F3F008678EA /* BioMetricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B52DAF424118F3F008678EA /* BioMetricAuthenticator.swift */; };
 		0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737CE240EADF200AE3E01 /* SwiftProtobuf */; };
-		0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737D1240EAE3900AE3E01 /* GRPC */; };
 		0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DA240EC1CE00AE3E01 /* CryptoSwift */; };
 		0BA737DE240EC1E700AE3E01 /* ActiveLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737DD240EC1E700AE3E01 /* ActiveLabel */; };
 		0BA737E1240EC20C00AE3E01 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */; };
@@ -96,6 +95,8 @@
 		18F94473232BFF3600AF4B76 /* InfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F94471232BFF3600AF4B76 /* InfoTableCell.xib */; };
 		18FED0B922A9185400227585 /* Bip32MigrationBackupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FED0B822A9185400227585 /* Bip32MigrationBackupVC.swift */; };
 		18FED0BB22A9187100227585 /* Bip32MigrationConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FED0BA22A9187100227585 /* Bip32MigrationConfirmVC.swift */; };
+		29ADF17125E59748005669EC /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 29ADF17025E59748005669EC /* GRPC */; };
+		29ADF17325E59748005669EC /* CGRPCZlib in Frameworks */ = {isa = PBXBuildFile; productRef = 29ADF17225E59748005669EC /* CGRPCZlib */; };
 		3504B9C120FEFB72003CC4E7 /* HGCPublickKeyAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504B9C020FEFB72003CC4E7 /* HGCPublickKeyAddress.swift */; };
 		3504B9C320FF148F003CC4E7 /* HGCAccountID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504B9C220FF148F003CC4E7 /* HGCAccountID.swift */; };
 		3504B9E921004F1F003CC4E7 /* FileDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3504B9C521004F1F003CC4E7 /* FileDelete.pb.swift */; };
@@ -616,9 +617,10 @@
 				0BA737DB240EC1CE00AE3E01 /* CryptoSwift in Frameworks */,
 				0BA737E7240EC24C00AE3E01 /* SwiftyJSON in Frameworks */,
 				0BA737DE240EC1E700AE3E01 /* ActiveLabel in Frameworks */,
+				29ADF17125E59748005669EC /* GRPC in Frameworks */,
 				0BA737E4240EC22E00AE3E01 /* MBProgressHUD in Frameworks */,
 				0BA737CF240EADF200AE3E01 /* SwiftProtobuf in Frameworks */,
-				0BA737D2240EAE3900AE3E01 /* GRPC in Frameworks */,
+				29ADF17325E59748005669EC /* CGRPCZlib in Frameworks */,
 				0BA737E1240EC20C00AE3E01 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1282,8 +1284,6 @@
 				0B52DAD1240F1146008678EA /* PBXTargetDependency */,
 			);
 			name = IntegrationTests;
-			packageProductDependencies = (
-			);
 			productName = IntegrationTests;
 			productReference = 0B52DACB240F1146008678EA /* IntegrationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1336,7 +1336,6 @@
 			name = HGCApp;
 			packageProductDependencies = (
 				0BA737CE240EADF200AE3E01 /* SwiftProtobuf */,
-				0BA737D1240EAE3900AE3E01 /* GRPC */,
 				0BA737DA240EC1CE00AE3E01 /* CryptoSwift */,
 				0BA737DD240EC1E700AE3E01 /* ActiveLabel */,
 				0BA737E0240EC20C00AE3E01 /* IQKeyboardManagerSwift */,
@@ -1344,6 +1343,8 @@
 				0BA737E6240EC24C00AE3E01 /* SwiftyJSON */,
 				0B52DAC3240F0877008678EA /* Ed25519 */,
 				0B52DAF0241172AA008678EA /* BiometricAuthentication */,
+				29ADF17025E59748005669EC /* GRPC */,
+				29ADF17225E59748005669EC /* CGRPCZlib */,
 			);
 			productName = HGCApp;
 			productReference = 35B8ABBA1F9E5642003E4F57 /* Hedera Wallet.app */;
@@ -1418,7 +1419,6 @@
 			mainGroup = 35B8ABB11F9E5642003E4F57;
 			packageReferences = (
 				0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
-				0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */,
 				0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */,
 				0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
@@ -1426,6 +1426,7 @@
 				0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */,
 				0B52DAEF241172AA008678EA /* XCRemoteSwiftPackageReference "BiometricAuthentication" */,
+				29ADF16F25E59748005669EC /* XCRemoteSwiftPackageReference "grpc-swift" */,
 			);
 			productRefGroup = 35B8ABBB1F9E5642003E4F57 /* Products */;
 			projectDirPath = "";
@@ -1577,12 +1578,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp/Pods-HGCApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp/Pods-HGCApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ABPadLockScreen/ABPadLockScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
+				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp/Pods-HGCApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ABPadLockScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1594,12 +1602,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ABPadLockScreen/ABPadLockScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
+				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-HGCAppUITests/Pods-HGCApp-HGCAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ABPadLockScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1611,12 +1626,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ABPadLockScreen/ABPadLockScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
+				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-UnitTests/Pods-HGCApp-UnitTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ABPadLockScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1646,12 +1668,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-IntegrationTests/Pods-HGCApp-IntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-IntegrationTests/Pods-HGCApp-IntegrationTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ABPadLockScreen/ABPadLockScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/JKBigInteger/JKBigInteger.framework",
+				"${BUILT_PRODUCTS_DIR}/LGSideMenuController/LGSideMenuController.framework",
+				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HGCApp-IntegrationTests/Pods-HGCApp-IntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ABPadLockScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKBigInteger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGSideMenuController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1920,43 +1949,33 @@
 		};
 		0B52DAE2240F19F2008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DAE1240F19F2008678EA /* GRPC */;
 		};
 		0B52DAFC2411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DAFB2411A378008678EA /* SwiftProtobuf */;
 		};
 		0B52DAFE2411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DAFD2411A378008678EA /* GRPC */;
 		};
 		0B52DB002411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DAFF2411A378008678EA /* CryptoSwift */;
 		};
 		0B52DB022411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DB012411A378008678EA /* ActiveLabel */;
 		};
 		0B52DB042411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DB032411A378008678EA /* IQKeyboardManagerSwift */;
 		};
 		0B52DB062411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DB052411A378008678EA /* MBProgressHUD */;
 		};
 		0B52DB082411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DB072411A378008678EA /* SwiftyJSON */;
 		};
 		0B52DB0A2411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DB092411A378008678EA /* Ed25519 */;
 		};
 		0B52DB0C2411A378008678EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 0B52DB0B2411A378008678EA /* BiometricAuthentication */;
 		};
 		0BA73794240DCDE200AE3E01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2537,14 +2556,6 @@
 				minimumVersion = 1.8.0;
 			};
 		};
-		0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/grpc/grpc-swift.git";
-			requirement = {
-				branch = nio;
-				kind = branch;
-			};
-		};
 		0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
@@ -2585,6 +2596,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		29ADF16F25E59748005669EC /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tinker-michaelj/grpc-swift";
+			requirement = {
+				branch = countIssue;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2593,57 +2612,7 @@
 			package = 0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */;
 			productName = Ed25519;
 		};
-		0B52DAE1240F19F2008678EA /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
-		};
 		0B52DAF0241172AA008678EA /* BiometricAuthentication */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0B52DAEF241172AA008678EA /* XCRemoteSwiftPackageReference "BiometricAuthentication" */;
-			productName = BiometricAuthentication;
-		};
-		0B52DAFB2411A378008678EA /* SwiftProtobuf */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobuf;
-		};
-		0B52DAFD2411A378008678EA /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
-		};
-		0B52DAFF2411A378008678EA /* CryptoSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D9240EC1CE00AE3E01 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
-			productName = CryptoSwift;
-		};
-		0B52DB012411A378008678EA /* ActiveLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737DC240EC1E700AE3E01 /* XCRemoteSwiftPackageReference "ActiveLabel.swift" */;
-			productName = ActiveLabel;
-		};
-		0B52DB032411A378008678EA /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737DF240EC20C00AE3E01 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-		0B52DB052411A378008678EA /* MBProgressHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737E2240EC22E00AE3E01 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
-			productName = MBProgressHUD;
-		};
-		0B52DB072411A378008678EA /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		0B52DB092411A378008678EA /* Ed25519 */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0B52DAC2240F0877008678EA /* XCRemoteSwiftPackageReference "Ed25519" */;
-			productName = Ed25519;
-		};
-		0B52DB0B2411A378008678EA /* BiometricAuthentication */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0B52DAEF241172AA008678EA /* XCRemoteSwiftPackageReference "BiometricAuthentication" */;
 			productName = BiometricAuthentication;
@@ -2652,11 +2621,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0BA737CD240EADF200AE3E01 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
 			productName = SwiftProtobuf;
-		};
-		0BA737D1240EAE3900AE3E01 /* GRPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BA737D0240EAE3900AE3E01 /* XCRemoteSwiftPackageReference "grpc-swift" */;
-			productName = GRPC;
 		};
 		0BA737DA240EC1CE00AE3E01 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2682,6 +2646,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0BA737E5240EC24C00AE3E01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		29ADF17025E59748005669EC /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29ADF16F25E59748005669EC /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+		29ADF17225E59748005669EC /* CGRPCZlib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29ADF16F25E59748005669EC /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = CGRPCZlib;
 		};
 /* End XCSwiftPackageProductDependency section */
 

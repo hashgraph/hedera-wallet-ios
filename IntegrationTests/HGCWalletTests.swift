@@ -27,16 +27,29 @@ class HGCWalletTests: XCTestCase {
 //        XCTAssert(wallet.accounts!.count > 0)
 //    }
 //
-//    func testCreateNewAccount() {
-//        let coreDataManager = MockCoreDataManager.init()
-//        HGCWallet.createMasterWallet(signatureAlgorith: Int16(SignatureOption.ED25519.rawValue), coreDataManager: coreDataManager)
-//        let wallet = HGCWallet.masterWallet(coreDataManager.mainContext)!
-//        let account0 = wallet.accounts?.anyObject() as! HGCAccount
-//        let account1 = wallet.createNewAccount(coreDataManager)
-//        let account2 = wallet.createNewAccount(coreDataManager)
-//        
-//        XCTAssertEqual(account0.accountNumber, 0)
-//        XCTAssertEqual(account1.accountNumber, 1)
-//        XCTAssertEqual(account2.accountNumber, 2)
-//    }
+    func testCreateNewAccount() {
+        let coreDataManager = MockCoreDataManager.init()
+        HGCWallet.createMasterWallet(signatureAlgorith: Int16(SignatureOption.ED25519.rawValue), keyDerivation:.bip32, coreDataManager: coreDataManager)
+        let wallet = HGCWallet.masterWallet(coreDataManager.mainContext)!
+        let account0 = wallet.accounts?.anyObject() as! HGCAccount
+        let account1 = wallet.createNewAccount(coreDataManager)
+        let account2 = wallet.createNewAccount(coreDataManager)
+        
+        XCTAssertEqual(account0.accountNumber, 0)
+        XCTAssertEqual(account1.accountNumber, 1)
+        XCTAssertEqual(account2.accountNumber, 2)
+    }
+    
+    func createNewAccountAndLog() {
+        let seed = CryptoUtils.randomSeed();
+
+        if SecureAppSettings.default.setSeed(seed.entropy) {
+            HGCWallet.createMasterWallet(signatureAlgorith: Int16(SignatureOption.ED25519.rawValue), accountID: nil, keyDerivation: .bip32)
+            CoreDataManager.shared.saveContext()
+            let wallet = HGCWallet.masterWallet(CoreDataManager.shared.mainContext)!
+            print(wallet.accounts?.anyObject() as! HGCAccount)
+            let account0 = wallet.accounts?.anyObject() as! HGCAccount
+            XCTAssertEqual(account0.accountNumber, 0)
+        }
+    }
 }
