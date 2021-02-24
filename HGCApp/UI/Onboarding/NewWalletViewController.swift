@@ -60,6 +60,7 @@ class NewWalletViewController: UIViewController {
         }
         
         words = self.seed.toBIP39Words()
+//        words = self.seed.toWords()
         backupPhraseLabel.text = words.joined(separator: "    ")
     }
     
