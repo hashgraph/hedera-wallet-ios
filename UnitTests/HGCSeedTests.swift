@@ -15,6 +15,7 @@
 //
 
 import XCTest
+import Ed25519
 @testable import HederaWallet
 
 class HGCSeedTests: XCTestCase {
@@ -73,6 +74,28 @@ class HGCSeedTests: XCTestCase {
         let seed = HGCSeed.init(bip39Words: words)
         XCTAssertEqual(seed?.entropy.hex, "aabbccdd11223344aabbccdd11223344aaaaaaaabbbbcc213344aaaaaaaabbbb");
         XCTAssert(seed!.entropy.count == 32)
+    }
+    
+    func testSeedCreationSharedBufferWaitTime() {
+        for n in 1...10000 {
+            let words = "girl adjust asset interest razor thrive joy diet stock radar home because sausage culture fitness damage vicious target cabin best stomach replace example ordinary".components(separatedBy: " ")
+            
+            let seed = Mnemonic.seed(forWords: words, password: "")!
+            let ckd = Ed25519Derivation.init(seed: seed).derived(at: 44).derived(at: 3030).derived(at: 0).derived(at: 0).derived(at: UInt32(0))
+            let edSeed = try? Seed.init(bytes: ckd.raw.bytes)
+            
+            var keyPair = KeyPair.init(seed: edSeed!)
+            var pubKey = Data.init(keyPair.publicKey.bytes).hex
+            var counter = 0;
+            while keyPair.publicKey == nil {
+                sleep(1)
+                counter+=1;
+                keyPair = KeyPair.init(seed: edSeed!)
+                pubKey = Data.init(keyPair.publicKey.bytes).hex
+            }
+            print("total cycles waited ", counter, separator: ":")
+            XCTAssertEqual(pubKey, "447dc6bdbfc64eb894851825194744662afcb70efb8b23a6a24af98f0c1fd8ad")
+        }
     }
     
     func testSeedCreationFalisOnInvalidWord() {

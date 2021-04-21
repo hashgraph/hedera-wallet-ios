@@ -156,6 +156,7 @@ extension AppDelegate {
     }
     
     func welcomeViewController() -> UIViewController {
+        UserDefaults.standard.set("No", forKey: "HederaAlertThrown")
         let vc  = OnboardingViewController.getInstance(root: WalletSetupOptionsViewController.getInstance())
         vc.title = NSLocalizedString("Get Started on Hedera", comment: "")
         let navVC = UINavigationController.init(rootViewController: vc)
@@ -213,4 +214,3 @@ extension AppDelegate : Bip32MigrationDelegate {
         switchToMain()
     }
 }
-

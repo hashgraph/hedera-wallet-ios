@@ -40,7 +40,7 @@ class RecoveryPhraseWarningViewController: UIViewController {
 
         super.viewDidLoad()
 
-        navigationItem.hidesBackButton = true
+        navigationItem.hidesBackButton = false
         view.backgroundColor = Color.pageBackgroundColor()
         backupPhraseLabel.textColor = Color.primaryTextColor()
         backupPhraseLabel.font = Font.regularFontLarge()
